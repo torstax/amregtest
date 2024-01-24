@@ -12,7 +12,7 @@ library(allelematch)
 ### Misc
 ###############################################################################
 # Check that we are standing in a relevant directory
-if (file.exists("./R/allelematch.r") == FALSE) {
+if (file.exists("./R/regresiontest.r") == FALSE) {
   stop("ERROR! getwd() = ", getwd(), " does not contain './R/alelematch.r'!\n",
        "    You are recommended to use paths that starts at the Working Directory that you set\n",
        "    either using the RStudio menu 'Session' -> 'Set Working Directory'\n",
