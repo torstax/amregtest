@@ -127,17 +127,48 @@ auSpitCleanSamplesDf <- function(cleanSamples) {
 ### to and from Data Frames
 ###############################################################################
 
+auTextOutFile <- function(fileName) {
+    # Opens an text file for output in binary mode that allows LF linebreaks,
+    # even on Windows.
+    # Note that the file needs to be closed explicitly. Sample usage:
+    #
+    #   file = auTextOutFile(fileName)
+    #   write.csv(file, eol="\n")
+    #   close(file)
+    #
+    # We want our .txt and .csv text files to have GIT style LF line breaks, also on Windows.
+    # If we instead wrote Windows style CRLF line breaks to the working tree,
+    # then that would confuse the tools that detect differences and there
+    # would be a lot of conversion between LF and CRLF.
+    #
+    # CR stands for Carriage Return, written in R source as "\r", binary encoded as 0x0D=13
+    # LF stands for Line Feed, written as "\n", binary encoded as 0x0A=10.
+    # Unfortunately, files open for writing in text mode on Windows
+    # have low-layer code that detect single LF characters and convert them to CRLF.
+    # In order to avoid that conversion, we need to open our output text files in
+    # binary mode (a.k.a. raw mode) .
+
+    return(file(fileName, "wb", raw=TRUE))
+}
+
+###############################################################################
+### Reading and writing TSV files containing allelematch input
+### to and from Data Frames
+###############################################################################
+
 auReadTsvFile <- function(tsvInFile) {
-  # Read file with new samples from the sequencer robot:
-  # Note that strings that start with an integer are not valid column names
-  # They are prefixed with X by read_delim; "16S1_Gg291" becomes "X16S1_Gg291".
-  newSamples <- readr::read_tsv(tsvInFile, name_repair = make.names, col_types = cols(.default = col_character()))
-  readr::problems(newSamples)
-  return(newSamples)
+    # Read file with new samples from the sequencer robot:
+    # Note that strings that start with an integer are not valid column names
+    # They are prefixed with X by read_delim; "16S1_Gg291" becomes "X16S1_Gg291".
+    newSamples <- readr::read_tsv(tsvInFile, name_repair = make.names, col_types = cols(.default = col_character()))
+    readr::problems(newSamples)
+    return(newSamples)
 }
 
 auWriteTsvFile <- function(df, tsvOutFile) {
-  write.table(df, tsvOutFile, sep="\t", row.names=FALSE, quote=FALSE) #, na="\"\"")
+    file=auTextOutFile(tsvOutFile) # Open in binary mode to be able to use LF without CR as newline on Windows
+    write.table(df, file, sep="\t", row.names=FALSE, quote=FALSE)
+    close(file)
 }
 
 ###############################################################################
@@ -207,8 +238,8 @@ auCleanOldReferencesInputFile <- function(dataSetDir, inputMatchReferencesFile="
   # Write the fixed cleanSamplesFile:
   cleanReferencesFile <- gsub(".txt", "_clean.txt", inputMatchReferencesFile)
   cat("   inputCleanReferencesFile  = ", cleanReferencesFile, "\n")
-  cat("                             = ", strcat(dataDirectory, cleanReferencesFile), "\n") # TODO remove after debugging
-  write.table(oldReferences, strcat(dataDirectory, cleanReferencesFile), sep="\t", row.names=FALSE, quote=FALSE) #, na="\"\"")
+#  cat("                             = ", strcat(dataDirectory, cleanReferencesFile), "\n") # TODO remove after debugging
+  auWriteTsvFile(oldReferences, strcat(dataDirectory, cleanReferencesFile))
   readr::problems(oldReferences)
 
   ###################################################
@@ -494,21 +525,23 @@ auReadCsvFile <- function(csvInFile) {
 }
 
 auWriteCsvFile <- function(df, csvOutFile) {
-  write.csv(df, csvOutFile, row.names=FALSE, quote=TRUE, na = "NA")
+  file = auTextOutFile(csvOutFile)
+  write.csv(df, file, row.names=FALSE, quote=TRUE, na = "NA")
+  close(file)
   readr::problems(df)
 }
 
 auSortCsvFile <- function(csvInFile) {
   df <- auReadCsvFile(csvInFile)
   df <- auSortDfByIndexes(df)
-  csvOutFile <- gsub(".csv", ".sorted.csv", csvInFile) # Add ".brief" before ".csv" file name extension.
+  csvOutFile <- gsub(".csv", ".sorted.csv", csvInFile)
   auWriteCsvFile(df, csvOutFile)
 }
 
 auMakeBriefCsvFile <- function(csvInFile) {
   df <- auReadCsvFile(csvInFile)
   df <- auMakeBriefDf(df)
-  csvOutFile <- gsub(".csv", ".brief.csv", csvInFile) # Add ".brief" before ".csv" file name extension.
+  csvOutFile <- gsub(".csv", ".brief.csv", csvInFile)
   auWriteCsvFile(df, csvOutFile)
 }
 
@@ -518,16 +551,18 @@ auMakeBriefCsvFile <- function(csvInFile) {
 ###############################################################################
 
 auAssertExpected <- function(actualCvsFile) {
-  expectedCvsFile <- gsub("_actual", "_expected", actualCvsFile)
+    expectedCvsFile <- gsub("_actual", "_expected", actualCvsFile)
 
-  expectedMd5sum = tools::md5sum(expectedCvsFile)
-  actualMd5sum   = tools::md5sum(actualCvsFile)
+    exp = auReadCsvFile(expectedCvsFile)
+    act = auReadCsvFile(actualCvsFile)
 
-  if (actualMd5sum != expectedMd5sum) {
-    stop("Expected md5sum differs from Actual:",
-         "\n   Expected : ", expectedMd5sum, expectedCvsFile,
-         "\n   Actual   : ", actualMd5sum, actualCvsFile)
-  }
+
+    if (!identical(exp, act)) {
+        stop("Expected content differs from Actual:",
+             "\n   Expected : ", expectedCvsFile,
+             "\n   Actual   : ", actualCvsFile)
+    }
+    cat("   OK: Actual equals expected ", ncol(act),"x", nrow(act), "\n")
 }
 
 auWarnIfNotExpected <- function(actualCvsFile) {

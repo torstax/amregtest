@@ -102,7 +102,9 @@ analyzeUnique <- function(amDatasetFocal, multilocusMap=NULL, alleleMismatch=NUL
   cat("   outputDir      = ", outputDir, "\n")
   cat("   outputFile     = ", outputFile,  "\n")
   csvFile = strcat(outputDir, outputFile)
-  summary(B2_allelmatch_uniqueAnalysis, csv=csvFile)
+  csvBinary = auTextOutFile(csvFile) # Use raw mode to write unix LF line breaks rather than windows CRLF
+  summary(B2_allelmatch_uniqueAnalysis, csv=csvBinary) # csv=csvFile)
+  close(csvBinary)
 
   # Make it easier to verify that the output is still good:
   auSortCsvFile(      csvFile )
@@ -113,7 +115,10 @@ analyzeUnique <- function(amDatasetFocal, multilocusMap=NULL, alleleMismatch=NUL
     outputFile = sub(".csv", "_brief.csv", outputFile, fixed=TRUE)
     cat("   outputFile     = ", outputFile,  "\n")
     briefFile = strcat(outputDir, outputFile)
-    summary(B2_allelmatch_uniqueAnalysis, brief=briefFile)
+    briefBinary = auTextOutFile(briefFile)
+    summary(B2_allelmatch_uniqueAnalysis, brief=briefBinary)
+    close(briefBinary)
+
     auSortCsvFile(file=briefFile);
   }
 }
@@ -154,6 +159,13 @@ testDataSet <- function(dataSetDir, skippCleaningInput = FALSE) {
 ### Allelematch ###
 ###################
 # options(warn=1)
+
+#wantedVersion    = "2.5.3"
+#installedVersion = toString(packageVersion("allelematch"))
+#require(remotes)
+#install_version("allelematch", version = wantedVersion, repos = "https://github.com/cran/allelematch")
+
+cat("\nTestLegacy-2.5.1: About to test that allelematch ", toString(packageVersion("allelematch")), " is compatible with 2.5.1\n")
 
 testDataSet(dataSetDir = "/test_legacy-2.5.1/");
 warnings()
