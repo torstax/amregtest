@@ -1,10 +1,10 @@
 Package: regressiontest
-Title: A Package That Has Data
+Title: Used to test package allelematch
 Version: 0.0.0.9000
 Authors@R: 
-    person("First", "Last", , "you@gmail.com", role = c("aut", "cre"))
-Description: This package has a dataset.  It could also have some
-    functions, but for now all it has is some data.
+    person("Torvald", "Staxler", , "torvald.staxler@gmail.com", role = c("aut", "cre"))
+Description: This package is used to automate regression testing
+    when testing improvments of package allelematch.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
@@ -14,3 +14,13 @@ Depends:
 LazyData: true
 LitrVersionUsed: 0.9.1
 LitrId: acf3a14b7ece67e1af6aab2f500d31a5
+Imports: 
+    allelematch,
+    plyr,
+    readr
+Suggests:
+    here,
+    knitr,
+    devtools,
+    roxygen2,
+    testthat

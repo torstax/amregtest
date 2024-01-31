@@ -2,7 +2,6 @@ library(readr)
 library(plyr)
 #library(here)
 library(allelematch)
-#library(regressiontest)
 
 ###############################################################################
 ### allelematch test engin###
@@ -84,8 +83,14 @@ analyzeAleleMismatch <- function(inputDataSet, dataDirectory, alleleMismatch=15,
 #'
 #' @example test_legacy-2.5.1/TestLegacy-2.5.1.R
 #'
+#' @import allelematch
+#' @import plyr
+#' @import readr
+#' @importFrom readr spec cols col_character
 #' @export
 testDataSet <- function(dataSetDir, skippCleaningInput = FALSE) {
+
+    cat("\nTesting allelematch ", toString(packageVersion("allelematch")))
 
     if (!skippCleaningInput) {
         auCleanInputFiles(dataSetDir)

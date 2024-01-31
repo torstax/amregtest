@@ -2,11 +2,13 @@
 ### Raw data input ###
 ######################
 
+# Check that we are standing in a relevant directory
+here::i_am("test_legacy-2.5.1/TestLegacy-2.5.1.R")
+stopifnot(file.exists(here::here("R/.")))
+
 # browser()
 
-# Clear the Environment from old data to avoid this error:
-#    "Error: allelematch: error in dynamic tree cutting; several causes for this error;"
-# Happens when sourcing allelematch.r to be able to set breakpoints and run the debugger.
+# Clear the Environment from old data:
 rm(list = ls())  # Clear the Environment
 
 #######################
@@ -17,16 +19,6 @@ rm(list = ls())  # Clear the Environment
 library(here)
 library(allelematch)
 library(regressiontest)
-
-# source(here::here("R/au_text.R"))
-# source(here::here("R/au_alin.R"))
-# source(here::here("R/au_alout.R"))
-# source(here::here("R/au_alparam.R"))
-# source(here::here("R/au_testengin.R"))
-
-
-# Check that we are standing in a relevant directory
-stopifnot(file.exists(here::here("R/au_text.R"))) # Make sure this file can be sourced relative to the R project dir
 
 
 ######################
@@ -93,13 +85,15 @@ MAX_MISSING_SUPPORTED = FALSE
 # options(warn=1)
 
 wantedVersion    = "2.5.2"
-cat("\nTestLegacy-2.5.1: About to test that allelematch", wantedVersion, " is compatible with 2.5.1\n")
 
 require(remotes)
 installedVersion = toString(packageVersion("allelematch"))
 if (wantedVersion != toString(packageVersion("allelematch"))) {
+    cat("\nAbout to install wantedVersion of allelematch,", wantedVersion, " - Current version is", installedVersion,
+        "\nPLEASE RESTART after R session has beeen restarted ...\n")
     detach("package:allelematch", unload=TRUE)
     remotes::install_version("allelematch", version = wantedVersion, repos="https://cran.rstudio.com//")
+    .rs.restartR()
 }
 stopifnot(wantedVersion == toString(packageVersion("allelematch")))
 
