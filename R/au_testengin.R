@@ -17,7 +17,6 @@ library(allelematch)
 #' @import remotes
 #' @importFrom remotes install_version
 #    ' @importFrom debugr  dwatch
-#' @importFrom stats .rs.restartR
 #' @importFrom utils head tail
 #' @export
 auAssertAllelematchVersion <- function(wantedVersion = c("2.5.3", "2.5.2") ) {
@@ -29,14 +28,28 @@ auAssertAllelematchVersion <- function(wantedVersion = c("2.5.3", "2.5.2") ) {
             "\nPLEASE RESTART after R session has beeen restarted ...\n")
         detach("package:allelematch", unload=TRUE)
         remotes::install_version("allelematch", version = wantedVersion, repos="https://cran.rstudio.com//")
-        Sys.sleep(3)
-        stats::.rs.restartR()   # What TODO ? Only available when running under RStudio.
-        Sys.sleep(3)
-        stop()
+        auRestartR()
     }
     stopifnot(wantedVersion == toString(packageVersion("allelematch")))
     # cat("    Tested allelematch version is", toString(packageVersion("allelematch")), "\n")
     return(wantedVersion)
+}
+
+auRestartR <- function() {
+    Sys.sleep(3)
+    if (rstudioapi::isAvailable()) {
+        # We are running under RStudio.
+        # We could call .rs.restartR(). But that causes hard-to-get-rid-of
+        # warnings when we run RStudio's Build->Check:
+        #    no visible global function definition for '.rs.restartR'
+        # So, we use this instead:
+        dummy <- rstudioapi::restartSession()
+    } else {
+        base::system("R") # Start next session
+        base::quit("no")  # Quit the current session
+    }
+    Sys.sleep(3)
+    stop()
 }
 
 
