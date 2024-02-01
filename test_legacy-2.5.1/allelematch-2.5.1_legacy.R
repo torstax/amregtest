@@ -1,36 +1,33 @@
-####################################
-### Setup for scripted execution ###
-####################################
+#############################
+### Finding R project dir ###
+#############################
 
 # Check that we are standing in a relevant directory
-setupScript="test_legacy-2.5.1/r_script_setup_for_regressiontest.R"
-here::i_am(setupScript)
-source(here::here(setupScript))
+here::i_am("test_legacy-2.5.1/allelematch-2.5.1_legacy.R")
+stopifnot(file.exists(here::here("R/.")))
 
-# stopifnot(file.exists(here::here("R/.")))
-#
-# # browser() # Start debugger
-#
-# # Clear the Environment from old data:
-# rm(list = ls())  # Clear the Environment
-#
-# #######################
-# ### Needed packages ###
-# #######################
-# #library(readr)
-# #library(plyr)
-# library(here)
-# library(allelematch)
-# library(regressiontest)
-# requireNamespace("readr")
-# requireNamespace("dplyr")
-# requireNamespace("data.table")
-#
-# ######################
-# ### Configuration  ###
-# ######################
-# R_PROJ_DIR          = here::here()
-# source(here::here("data/au_config.R"))
+# browser() # Start debugger
+
+# Clear the Environment from old data:
+rm(list = ls())  # Clear the Environment
+
+#######################
+### Needed packages ###
+#######################
+#library(readr)
+#library(plyr)
+library(here)
+library(allelematch)
+library(regressiontest)
+requireNamespace("readr")
+requireNamespace("dplyr")
+requireNamespace("data.table")
+
+######################
+### Configuration  ###
+######################
+R_PROJ_DIR          = here::here()
+source(here::here("data/au_config.R"))
 
 wantedVersion    = "2.5.2"
 

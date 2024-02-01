@@ -2,10 +2,101 @@ library(readr)
 library(plyr)
 #library(here)
 library(allelematch)
+#library(debugr)
 
 ###############################################################################
-### allelematch test engin###
+### allelematch test engine ###
 ###############################################################################
+
+#' Makes sure further testing uses `wantedVersion` of package allelematch
+#'
+#' If the `wantedVersion` of package `allelematch` is not yet installed,
+#' then the current version is deleted, the wantedVersion is installed and
+#' R is restarted.
+#'
+#' @import remotes
+#' @importFrom remotes install_version
+#    ' @importFrom debugr  dwatch
+#' @importFrom stats .rs.restartR
+#' @importFrom utils head tail
+#' @export
+auAssertAllelematchVersion <- function(wantedVersion = c("2.5.3", "2.5.2") ) {
+
+    require(remotes)
+    installedVersion = toString(utils::packageVersion("allelematch"))
+    if (wantedVersion != toString(packageVersion("allelematch"))) {
+        cat("\nAbout to install wantedVersion of allelematch,", wantedVersion, " - Current version is", installedVersion,
+            "\nPLEASE RESTART after R session has beeen restarted ...\n")
+        detach("package:allelematch", unload=TRUE)
+        remotes::install_version("allelematch", version = wantedVersion, repos="https://cran.rstudio.com//")
+        Sys.sleep(3)
+        stats::.rs.restartR()   # What TODO ? Only available when running under RStudio.
+        Sys.sleep(3)
+        stop()
+    }
+    stopifnot(wantedVersion == toString(packageVersion("allelematch")))
+    # cat("    Tested allelematch version is", toString(packageVersion("allelematch")), "\n")
+    return(wantedVersion)
+}
+
+
+#' Runs a set of tests on the supplied dataset
+#'
+#' `testDataSet` reads allelematch test input files from and writes output files
+#' to the `dataSetDir`.
+#'
+#' @details
+#' `testDataSet` is the entry point for the `regressiontest` package.
+#'
+#' Both input and output data files in `dataSetDir` have predefined names.
+#'
+#' The input files are called "input_new_samples.txt" and "input_Match_references.txt".
+#' The input files are read into data frames at the start of `testDataSet`.
+#' The same input data is used in all calls to the `allelematch` functions
+#' to be tested.
+#'
+#' The output files have names that describe the called `allelematch` functions
+#' and the parameters that are passed to the same functions.
+#'
+#' @param dataSetDir The directory that contains the data sets to be tested. [string]
+#'
+#' @param skippCleaningInput If FALSE, the input files are cleaned up
+#' and written to a new file that adds "_clean" to the name of the original files.
+#' If TRUE, this function skips reading the original files and read the cleaned
+#' files directly instead. [boolean]
+#'
+#' @returns TODO: Change to return TRUE on success and FALSE on failure.
+#'
+#    Find another @ example test_legacy-2.5.1/TestLegacy-2.5.1.R
+#'
+#' @import allelematch
+#' @import plyr
+#' @import readr
+#' @importFrom readr spec cols col_character
+#' @export
+testDataSet <- function(dataSetDir = "data/", skippCleaningInput = FALSE) {
+
+    cat("\nTesting allelematch ", toString(packageVersion("allelematch")))
+
+    if (!skippCleaningInput) {
+        auCleanInputFiles(dataSetDir)
+    } else {
+        # Use previously cleaned input files
+    }
+
+    # Create an amDataset from the input files:
+    dataDirectory = strcat("", dataSetDir)
+    inputDataSet <- auReadInput(dataSetDir, "input_new_samples.txt", "input_Match_references.txt")
+    readr::problems(inputDataSet)
+
+    # Run the tests of interest on the created amDataset:
+    analyzeMatchThreshold(inputDataSet, dataDirectory)
+    analyzeAleleMismatch( inputDataSet, dataDirectory)
+
+    readr::problems()
+    warnings()
+}
+
 
 analyzeUnique <- function(amDatasetFocal, multilocusMap=NULL, alleleMismatch=NULL, matchThreshold=NULL, cutHeight=NULL, maxMissing=NULL, doPsib="missing", outputDir, outputFile=NULL) {
     # amDatasetFocal, multilocusMap=NULL, alleleMismatch=NULL, matchThreshold=NULL, cutHeight=NULL, maxMissing=NULL, doPsib="missing"
@@ -19,7 +110,7 @@ analyzeUnique <- function(amDatasetFocal, multilocusMap=NULL, alleleMismatch=NUL
     B2_allelmatch_uniqueAnalysis <- amUnique(amDatasetFocal=amDatasetFocal, multilocusMap=multilocusMap, alleleMismatch=alleleMismatch, matchThreshold=matchThreshold, cutHeight=cutHeight,         doPsib=doPsib, verbose=TRUE)
     endTime <- Sys.time()
 
-    cat("\nTestLegacy-2.5.1: Done calling amUnique with params", paramString, "in", difftime(endTime, startTime, unit = "secs" ), " sec \n")
+    cat("\nTestLegacy-2.5.1: Done calling amUnique with params", paramString, "in", difftime(endTime, startTime, units = "secs" ), " sec \n")
     cat("   outputDir      = ", outputDir, "\n")
     cat("   outputFile     = ", outputFile,  "\n")
     csvFile = strcat(outputDir, outputFile)
@@ -52,62 +143,5 @@ analyzeMatchThreshold <- function(inputDataSet, dataDirectory, matchThreshold=0.
 analyzeAleleMismatch <- function(inputDataSet, dataDirectory, alleleMismatch=15, maxMissing=10, outputFile=NULL) {
     analyzeUnique(inputDataSet, alleleMismatch=alleleMismatch, maxMissing=NULL, outputDir=dataDirectory, outputFile=outputFile)
     readr::problems()
-}
-
-#' Runs a set of tests on the supplied dataset
-#'
-#' `testDataSet` reads allelematch test input files from and writes output files
-#' to the `dataSetDir`.
-#'
-#' @details
-#' `testDataSet` is the entry point for the `regressiontest` package.
-#'
-#' Both input and output data files in `dataSetDir` have predefined names.
-#'
-#' The input files are called "input_new_samples.txt" and "input_Match_references.txt".
-#' The input files are read into data frames at the start of `testDataSet`.
-#' The same input data is used in all calls to the `allelematch` functions
-#' to be tested.
-#'
-#' The output files have names that describe the called `allelematch` functions
-#' and the parameters that are passed to the same functions.
-#'
-#' @param dataSetDir The directory that contains the data sets to be tested. [string]
-#'
-#' @param skippCleaningInput If FALSE, the input files are cleaned up
-#' and written to a new file that adds "_clean" to the name of the original files.
-#' If TRUE, this function skips reading the original files and read the cleaned
-#' files directly instead. [boolean]
-#'
-#' @returns TODO: Change to return TRUE on success and FALSE on failure.
-#'
-#' @example test_legacy-2.5.1/TestLegacy-2.5.1.R
-#'
-#' @import allelematch
-#' @import plyr
-#' @import readr
-#' @importFrom readr spec cols col_character
-#' @export
-testDataSet <- function(dataSetDir, skippCleaningInput = FALSE) {
-
-    cat("\nTesting allelematch ", toString(packageVersion("allelematch")))
-
-    if (!skippCleaningInput) {
-        auCleanInputFiles(dataSetDir)
-    } else {
-        # Use previously cleaned input files
-    }
-
-    # Create an amDataset from the input files:
-    dataDirectory = strcat(R_PROJ_DIR, dataSetDir)
-    inputDataSet <- auReadInput(dataSetDir, "input_new_samples.txt", "input_Match_references.txt")
-    readr::problems(inputDataSet)
-
-    # Run the tests of interest on the created amDataset:
-    analyzeMatchThreshold(inputDataSet, dataDirectory)
-    analyzeAleleMismatch( inputDataSet, dataDirectory)
-
-    readr::problems()
-    warnings()
 }
 

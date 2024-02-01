@@ -38,6 +38,11 @@ auCheckCleanSamplesDf <- function(cleanSamples) {
 ##  Cleans up a data frame with new samples from the robot
 ##  in order to match the data frame from the input reference
 auCleanNewSamplesInputDf <- function(newSamples) {
+    # Prevent warnings from Check for 'no visible binding for global variable'
+    # in the select parameters below:
+    Plate=Place=amp=ZZ=YY=Sex=NULL
+    Y2_Gg_644=Y2_Gg_720=Y3_Gg_97=NULL
+    drop1=drop2=drop3=NULL
 
     # Adapt the columns from the sequencer robot (just keep DNA_ID and SexA from the first 8 columns):
     newSamples <- subset(newSamples, select=-c(Plate, Place, amp, ZZ, YY, Sex))
@@ -85,7 +90,7 @@ auSpitCleanSamplesDf <- function(cleanSamples) {
     splitSamples <- cbind(cleanSamples[,1], splitSamples) # Insert the DNA_ID column at the front of the data frame, unsplitted
     readr::problems(splitSamples) # Check against problems
 
-    auCheckSplitData(dataSetDir, splitSamples)
+    auCheckSplitData(dataDirectory, splitSamples)
 
     FEED_BAD_COLUMNS_TO_ALLELEMATCH_FOR_BACKWARDS_COMPATIBILITY = FALSE
     if (FEED_BAD_COLUMNS_TO_ALLELEMATCH_FOR_BACKWARDS_COMPATIBILITY) {
@@ -104,9 +109,7 @@ auSpitCleanSamplesDf <- function(cleanSamples) {
 ###############################################################################
 
 ## auCleanNewSamplesInputFiles - Reads raw focal file, cleans it up to match the reference and combines them to single data.frame
-auCleanNewSamplesInputFiles <- function(dataSetDir, inputNewSamplesFile="input_new_samples.txt") {
-
-    dataDirectory = strcat(R_PROJ_DIR, dataSetDir)
+auCleanNewSamplesInputFiles <- function(dataDirectory, inputNewSamplesFile="input_new_samples.txt") {
 
     cat("\nAbout to clean raw Input:\n")
     cat("   dataDirectory             = ", dataDirectory, "\n")
@@ -135,9 +138,11 @@ auCleanNewSamplesInputFiles <- function(dataSetDir, inputNewSamplesFile="input_n
 }
 
 ## auCleanOldReferencesInputFile - Reads raw focal file, cleans it up to match the reference and combines them to single data.frame
-auCleanOldReferencesInputFile <- function(dataSetDir, inputMatchReferencesFile="input_Match_references.txt") {
-
-    dataDirectory = strcat(R_PROJ_DIR, dataSetDir)
+auCleanOldReferencesInputFile <- function(dataDirectory, inputMatchReferencesFile="input_Match_references.txt") {
+    # Prevent warnings from Check for 'no visible binding for global variable'
+    # in the select parameters below:
+    DeadYear=Ind2=Sex=NULL
+    Y2_Gg_720=Y3_Gg_97=NULL
 
     # Read the file with the reference database of known individuals:
     cat("   inputMatchReferencesFile  = ", inputMatchReferencesFile,  "\n")
@@ -160,7 +165,7 @@ auCleanOldReferencesInputFile <- function(dataSetDir, inputMatchReferencesFile="
     # Display the result to the console:
     spec(oldReferences)
 
-    auCheckSplitData(dataSetDir, oldReferences)
+    auCheckSplitData(dataDirectory, oldReferences)
 
     # Write the fixed cleanSamplesFile:
     cleanReferencesFile <- gsub(".txt", "_clean.txt", inputMatchReferencesFile)
@@ -188,8 +193,7 @@ auCleanOldReferencesInputFile <- function(dataSetDir, inputMatchReferencesFile="
 }
 
 # auReadCleanSamplesFiles - Reads raw focal file, cleans it up to match the reference and combines them to single data.frame
-auReadCleanSamplesFiles <- function(dataSetDir, inputNewSamplesFile="input_new_samples.txt") {
-    dataDirectory = strcat(R_PROJ_DIR, dataSetDir)
+auReadCleanSamplesFiles <- function(dataDirectory, inputNewSamplesFile="input_new_samples.txt") {
 
     # Make sure we can read the cleaned new samples file again:
     cleanSamplesSplitFile <- gsub(".txt", "_clean_split.txt", inputNewSamplesFile)
@@ -208,8 +212,7 @@ auReadCleanSamplesFiles <- function(dataSetDir, inputNewSamplesFile="input_new_s
 }
 
 # auReadCleanReferencesFile - Reads raw focal file, cleans it up to match the reference and combines them to single data.frame
-auReadCleanReferencesFile <- function(dataSetDir, inputMatchReferencesFile="input_Match_references.txt") {
-    dataDirectory = strcat(R_PROJ_DIR, dataSetDir)
+auReadCleanReferencesFile <- function(dataDirectory, inputMatchReferencesFile="input_Match_references.txt") {
 
     cleanReferencesFile <- gsub(".txt", "_clean.txt", inputMatchReferencesFile)
     cleanReferences <- readr::read_tsv(strcat(dataDirectory, cleanReferencesFile), name_repair = make.names, col_types = cols(.default = col_character()))
@@ -227,27 +230,27 @@ auReadCleanReferencesFile <- function(dataSetDir, inputMatchReferencesFile="inpu
     return(cleanReferences)
 }
 
-auCheckSplitData <- function(dataSetDir, ds) {
+auCheckSplitData <- function(dataDirectory, ds) {
 
     CHECK_THE_SPLIT_COLUMN_NAMES = FALSE
     if (CHECK_THE_SPLIT_COLUMN_NAMES) {
         # Check columns:
-        if ( (ncol(ds)%%2) == 0) { stop("Cleaned ", dataSetDir, " has even number of columns, ", ncol(ds), "! Expected odd! ", c, "=", colName, " is ", colClass, ". Expected character!\n") }
+        if ( (ncol(ds)%%2) == 0) { stop("Cleaned ", dataDirectory, " has even number of columns, ", ncol(ds), "! Expected odd! ", c, "=", colName, " is ", colClass, ". Expected character!\n") }
         for (c in 1:ncol(ds)) {
             colClass = class(ds[[c]])
             colName  = colnames(ds)[c]
-            if (colClass != "character") { stop("Class of ", dataSetDir, " colulmn ", c, "=", colName, " is ", colClass, ". Expected character!\n") }
+            if (colClass != "character") { stop("Class of ", dataDirectory, " colulmn ", c, "=", colName, " is ", colClass, ". Expected character!\n") }
             if (c == 1) {
-                if (colName != "DNA_ID")   { stop("Name of ", dataSetDir, " colulmn ", c, " is ", colName, ". Expected 'DNA_ID'!\n") }
+                if (colName != "DNA_ID")   { stop("Name of ", dataDirectory, " colulmn ", c, " is ", colName, ". Expected 'DNA_ID'!\n") }
             } else if ((c%%2) == 0) {
                 # The column number is even. Expect a column name that ends with "1":
-                if (!endsWith(colName, '1')) { stop("Name of ", dataSetDir, " colulmn ", c, " is ", colName, ". Expected it to end with '1'! Prev col is ", prevColName) }
+                if (!endsWith(colName, '1')) { stop("Name of ", dataDirectory, " colulmn ", c, " is ", colName, ". Expected it to end with '1'! Prev col is ", prevColName) }
             } else {
                 # The column number is even and larger than 1. Expect a column name that ends with "2":
                 prevColName = colnames(ds)[c-1]
-                if (!endsWith(colName, '2')) { stop("Name of ", dataSetDir, " colulmn ", c, " is ", colName, ". Expected it to end with '2'! Prev col is ", prevColName) }
+                if (!endsWith(colName, '2')) { stop("Name of ", dataDirectory, " colulmn ", c, " is ", colName, ". Expected it to end with '2'! Prev col is ", prevColName) }
                 if (substring(prevColName, 1, nchar(prevColName)) != substring(prevColName, 1, nchar(prevColName))) {
-                    stop("Name of ", dataSetDir, " colulmn ", c, " is ", colName, ". Expected same name as prev col, ", prevColName, " but ending with 2 rather than 1")
+                    stop("Name of ", dataDirectory, " colulmn ", c, " is ", colName, ". Expected same name as prev col, ", prevColName, " but ending with 2 rather than 1")
                 }
             }
         }
@@ -262,7 +265,7 @@ auCheckSplitData <- function(dataSetDir, ds) {
                 colName  = colnames(ds)[c]
                 allelValue = ds[r,c]
                 if ( ! allelValue %in% c("X", "Y", "-99")) {
-                    stop("Unexpected value='", allelValue, "' in ", dataSetDir, ", row ", r, "=", dnaId, " col ", c, "=", colName, ". Expected X, Y or -99!\n")#,
+                    stop("Unexpected value='", allelValue, "' in ", dataDirectory, ", row ", r, "=", dnaId, " col ", c, "=", colName, ". Expected X, Y or -99!\n")#,
                 }
             }
         }
@@ -271,8 +274,7 @@ auCheckSplitData <- function(dataSetDir, ds) {
 
 # auCheckInput - Ensures that the split version of the newSamples and the oldReferences data sets
 #              have the same header rows so that they can be compared
-auCheckInput <- function(dataSetDir, cleanSamples, cleanReferences) {
-    dataDirectory = strcat(R_PROJ_DIR, dataSetDir)
+auCheckInput <- function(dataDirectory, cleanSamples, cleanReferences) {
 
     # union        = union(names(cleanSamples), names(cleanReferences))
     # intersection = intersect(names(cleanSamples), names(cleanReferences))
@@ -310,47 +312,45 @@ auCheckInput <- function(dataSetDir, cleanSamples, cleanReferences) {
     cat("   => Comparisons  :", strcat("(", newRows, "*", refRows, ")*", comparedCols, "=",
                                        (newRows*refRows)*comparedCols, "\n") )
 
-    auCheckSplitData(dataSetDir, cleanSamples)
-    auCheckSplitData(dataSetDir, cleanReferences)
+    auCheckSplitData(dataDirectory, cleanSamples)
+    auCheckSplitData(dataDirectory, cleanReferences)
 }
 
 # auCheckInputFiles - Ensures that the split version of the newSamples and the oldReferences files
 #              have the same header rows so that they can be compared
-auCheckInputFiles <- function(dataSetDir, inputNewSamplesFile="input_new_samples.txt", inputMatchReferencesFile="input_Match_references.txt") {
+auCheckInputFiles <- function(dataDirectory, inputNewSamplesFile="input_new_samples.txt", inputMatchReferencesFile="input_Match_references.txt") {
 
     # Make sure we can read the cleaned new samples file again:
-    cleanSamples <- auReadCleanSamplesFiles(dataSetDir, inputNewSamplesFile)
+    cleanSamples <- auReadCleanSamplesFiles(dataDirectory, inputNewSamplesFile)
 
     # Make sure we can read the cleaned old references file again:
-    cleanReferences <- auReadCleanReferencesFile(dataSetDir, inputMatchReferencesFile)
+    cleanReferences <- auReadCleanReferencesFile(dataDirectory, inputMatchReferencesFile)
 
     # Make sure they match:
-    auCheckInput(dataSetDir, cleanSamples, cleanReferences)
+    auCheckInput(dataDirectory, cleanSamples, cleanReferences)
 }
 
 ## auCleanInputFiles - Reads raw focal file, cleans it up to match the reference and combines them to single data.frame
-auCleanInputFiles <- function(dataSetDir, inputNewSamplesFile="input_new_samples.txt", inputMatchReferencesFile="input_Match_references.txt") {
-    auCleanNewSamplesInputFiles(   dataSetDir, inputNewSamplesFile)
-    auCleanOldReferencesInputFile( dataSetDir, inputMatchReferencesFile)
+auCleanInputFiles <- function(dataDirectory, inputNewSamplesFile="input_new_samples.txt", inputMatchReferencesFile="input_Match_references.txt") {
+    auCleanNewSamplesInputFiles(   dataDirectory, inputNewSamplesFile)
+    auCleanOldReferencesInputFile( dataDirectory, inputMatchReferencesFile)
 
-    auCheckInputFiles(dataSetDir, inputNewSamplesFile, inputMatchReferencesFile)
+    auCheckInputFiles(dataDirectory, inputNewSamplesFile, inputMatchReferencesFile)
 }
 
 
 # auReadInput - Reads focal and reference files. Cleans them up and combines them to single data.frame
-auReadInput <- function(dataSetDir, inputNewSamplesFile, inputMatchReferencesFile) {
-    dataDirectory = strcat(R_PROJ_DIR, dataSetDir)
-
+auReadInput <- function(dataDirectory, inputNewSamplesFile, inputMatchReferencesFile) {
 
     cat("\nAbout to load Input:\n")
     cat("   dataDirectory             = ", dataDirectory, "\n")
 
     # Read file with new samples from the sequencer robot:
-    A_2col <- auReadCleanSamplesFiles(dataSetDir, inputNewSamplesFile)
+    A_2col <- auReadCleanSamplesFiles(dataDirectory, inputNewSamplesFile)
 
     # Read the file with the reference database of known individuals:
     cat("   inputMatchReferencesFile  = ", inputMatchReferencesFile,  "\n")
-    A_20220209 <- auReadCleanReferencesFile(dataSetDir, inputMatchReferencesFile)
+    A_20220209 <- auReadCleanReferencesFile(dataDirectory, inputMatchReferencesFile)
     # readr::problems_over_this_skip_the_rest_of_readInput <- function(dataDirectory, inputNewSamplesFile, inputMatchReferencesFile) {
 
     ###################################################

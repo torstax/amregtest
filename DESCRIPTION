@@ -14,13 +14,15 @@ Depends:
 LazyData: true
 LitrVersionUsed: 0.9.1
 LitrId: acf3a14b7ece67e1af6aab2f500d31a5
+Config/testthat/edition: 3
 Imports: 
     allelematch,
     plyr,
-    readr
+    readr,
+    remotes
 Suggests:
     here,
     knitr,
     devtools,
     roxygen2,
-    testthat
+    testthat (>= 3.0.0)
