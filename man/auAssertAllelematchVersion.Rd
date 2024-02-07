@@ -6,6 +6,14 @@
 \usage{
 auAssertAllelematchVersion(wantedVersion = c("2.5.3", "2.5.2"))
 }
+\arguments{
+\item{wantedVersion}{a string that contains the wanted version of allelematch.
+Note that the current version of R,  4.3.2, no longer accepts allelematch "2.5.1".
+The first supported version is "2.5.2".}
+}
+\value{
+The wantedVersion on success, otherwise execution is stopped.
+}
 \description{
 If the \code{wantedVersion} of package \code{allelematch} is not yet installed,
 then the current version is deleted, the wantedVersion is installed and

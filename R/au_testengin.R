@@ -1,9 +1,3 @@
-library(readr)
-library(plyr)
-#library(here)
-library(allelematch)
-#library(debugr)
-
 ###############################################################################
 ### allelematch test engine ###
 ###############################################################################
@@ -14,23 +8,28 @@ library(allelematch)
 #' then the current version is deleted, the wantedVersion is installed and
 #' R is restarted.
 #'
-#' @import remotes
-#' @importFrom remotes install_version
-#    ' @importFrom debugr  dwatch
-#' @importFrom utils head tail
+#' @param wantedVersion a string that contains the wanted version of allelematch.
+#' Note that the current version of R,  4.3.2, no longer accepts allelematch "2.5.1".
+#' The first supported version is "2.5.2".
+#'
+#' @returns The wantedVersion on success, otherwise execution is stopped.
+#'
 #' @export
 auAssertAllelematchVersion <- function(wantedVersion = c("2.5.3", "2.5.2") ) {
 
-    require(remotes)
     installedVersion = toString(utils::packageVersion("allelematch"))
-    if (wantedVersion != toString(packageVersion("allelematch"))) {
+    if (wantedVersion != installedVersion) {
         cat("\nAbout to install wantedVersion of allelematch,", wantedVersion, " - Current version is", installedVersion,
-            "\nPLEASE RESTART after R session has beeen restarted ...\n")
-        detach("package:allelematch", unload=TRUE)
+            "\n\n    PLEASE RESTART PROGRAM MANUALLY after R session has beeen restarted ...\n\n")
+        if("allelematch" %in% (.packages())){
+            # A package can be installed without being attached (with library(package))
+            # If it isn't attached, 'detatch()' will cause the program to abort below:
+            base::detach("package:allelematch", unload=TRUE)
+        }
         remotes::install_version("allelematch", version = wantedVersion, repos="https://cran.rstudio.com//")
         auRestartR()
     }
-    stopifnot(wantedVersion == toString(packageVersion("allelematch")))
+    stopifnot(wantedVersion == toString(utils::packageVersion("allelematch")))
     # cat("    Tested allelematch version is", toString(packageVersion("allelematch")), "\n")
     return(wantedVersion)
 }
@@ -71,21 +70,17 @@ auRestartR <- function() {
 #' The output files have names that describe the called `allelematch` functions
 #' and the parameters that are passed to the same functions.
 #'
-#' @param dataSetDir The directory that contains the data sets to be tested. [string]
+#' @param dataSetDir The directory that contains the data sets to be tested. (string)
 #'
 #' @param skippCleaningInput If FALSE, the input files are cleaned up
 #' and written to a new file that adds "_clean" to the name of the original files.
 #' If TRUE, this function skips reading the original files and read the cleaned
-#' files directly instead. [boolean]
+#' files directly instead. (boolean)
 #'
 #' @returns TODO: Change to return TRUE on success and FALSE on failure.
 #'
 #    Find another @ example test_legacy-2.5.1/TestLegacy-2.5.1.R
 #'
-#' @import allelematch
-#' @import plyr
-#' @import readr
-#' @importFrom readr spec cols col_character
 #' @export
 testDataSet <- function(dataSetDir = "data/", skippCleaningInput = FALSE) {
 

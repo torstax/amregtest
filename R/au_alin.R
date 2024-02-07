@@ -1,9 +1,13 @@
-
-
 ###############################################################################
 ### Manipulating allelematch input as data frames
 ###############################################################################
 
+#' Checks that a data set has the expected GG format
+#'
+#' (Move out of this file? Too GG specific?)
+#'
+#' @param cleanSamples The data frame to be checked
+#'
 auCheckCleanSamplesDf <- function(cleanSamples) {
     twoFirstColNamesExpected = "DNA_ID, Sex"
     twoFirstColNamesActual   = paste(names(cleanSamples)[1], names(cleanSamples)[2], sep=", ")
@@ -49,7 +53,7 @@ auCleanNewSamplesInputDf <- function(newSamples) {
     if("Plate" %in% names(newSamples)) { stop("Failed dropping column \"Plate\" from newSamples") }
 
     # Rename column SexA to Sex:
-    newSamples <- dplyr::rename(newSamples,"Sex"="SexA") # Rename column to "Sex" from "SexA"
+    newSamples <- dplyr::rename(newSamples, Sex="SexA") # Rename column to "Sex" from "SexA"
 
     # Drop extra, spices-specific loci columns: (TODO : How generalize this cleaning?)
     colNames = names(newSamples)
@@ -73,10 +77,10 @@ auCleanNewSamplesInputDf <- function(newSamples) {
     return (newSamples)
 }
 
-## auSpitCleanSamplesDf
+## auSplitCleanSamplesDf
 ##  Splits the sample columns from the robot in two to be comparable with the
 ##  reference.
-auSpitCleanSamplesDf <- function(cleanSamples) {
+auSplitCleanSamplesDf <- function(cleanSamples) {
 
     # Split all columns in two, except DNA_ID (assumed to be column 1):
     # We do this to make the new samples be comparable with the references.
@@ -90,7 +94,7 @@ auSpitCleanSamplesDf <- function(cleanSamples) {
     splitSamples <- cbind(cleanSamples[,1], splitSamples) # Insert the DNA_ID column at the front of the data frame, unsplitted
     readr::problems(splitSamples) # Check against problems
 
-    auCheckSplitData(dataDirectory, splitSamples)
+#   auCheckSplitData(dataDirectory, splitSamples) #  TODO! no visible binding for global variable 'dataDirectory'!
 
     FEED_BAD_COLUMNS_TO_ALLELEMATCH_FOR_BACKWARDS_COMPATIBILITY = FALSE
     if (FEED_BAD_COLUMNS_TO_ALLELEMATCH_FOR_BACKWARDS_COMPATIBILITY) {
@@ -127,7 +131,7 @@ auCleanNewSamplesInputFiles <- function(dataDirectory, inputNewSamplesFile="inpu
     auWriteTsvFile(newSamples, strcat(dataDirectory, cleanSamplesFile))
 
     # Split all columns in two, except DNA_ID (assumed to be column 1):
-    splitSamples <- auSpitCleanSamplesDf(newSamples)
+    splitSamples <- auSplitCleanSamplesDf(newSamples)
 
     # Write the split columns to file for easier debugging:
     cleanSamplesSplitFile <- gsub(".txt", "_clean_split.txt", inputNewSamplesFile)
@@ -141,7 +145,7 @@ auCleanNewSamplesInputFiles <- function(dataDirectory, inputNewSamplesFile="inpu
 auCleanOldReferencesInputFile <- function(dataDirectory, inputMatchReferencesFile="input_Match_references.txt") {
     # Prevent warnings from Check for 'no visible binding for global variable'
     # in the select parameters below:
-    DeadYear=Ind2=Sex=NULL
+    X.SNPs=DeadYear=Ind2=Sex=NULL
     Y2_Gg_720=Y3_Gg_97=NULL
 
     # Read the file with the reference database of known individuals:

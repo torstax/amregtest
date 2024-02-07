@@ -7,12 +7,12 @@
 testDataSet(dataSetDir = "data/", skippCleaningInput = FALSE)
 }
 \arguments{
-\item{dataSetDir}{The directory that contains the data sets to be tested. \link{string}}
+\item{dataSetDir}{The directory that contains the data sets to be tested. (string)}
 
 \item{skippCleaningInput}{If FALSE, the input files are cleaned up
 and written to a new file that adds "_clean" to the name of the original files.
 If TRUE, this function skips reading the original files and read the cleaned
-files directly instead. \link{boolean}}
+files directly instead. (boolean)}
 }
 \value{
 TODO: Change to return TRUE on success and FALSE on failure.

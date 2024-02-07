@@ -18,15 +18,17 @@ R_PROJ_DIR          = here::here()
 #######################
 ### Needed packages ###
 #######################
-#library(readr)
-#library(plyr)
-library(allelematch)
+# library(readr)
+# library(plyr)
+# library(allelematch)
+library(regressiontest)
 
-# Find function calls that miss namespace prefixes:
-requireNamespace("here")
-requireNamespace("readr")
-requireNamespace("dplyr")
-requireNamespace("data.table")
+
+# # Find function calls that miss namespace prefixes:
+# requireNamespace("here")
+# requireNamespace("readr")
+# requireNamespace("dplyr")
+# requireNamespace("data.table")
 
 # # Decide if to use the loaded package our our source files:
 # if (FALSE) {

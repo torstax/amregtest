@@ -1,9 +1,3 @@
-#######################
-### Needed packages ###
-#######################
-library(readr)
-library(plyr)
-
 ###############################################################################
 ### This file contains utility functions that handle
 ### low-level text handling stuff without dependencies to allelematch.
@@ -29,7 +23,7 @@ auTextOutFile <- function(fileName) {
     # Note that the file needs to be closed explicitly. Sample usage:
     #
     #   file = auTextOutFile(fileName)
-    #   write.csv(file, eol="\n")
+    #   write.csv2(file, eol="\n")
     #   close(file)
     #
     # We want our .txt and .csv text files to have GIT style LF line breaks, also on Windows.
@@ -87,6 +81,19 @@ auWriteCsvFile <- function(df, csvOutFile) {
     readr::problems(df)
 }
 
+#
+# auReadCsv2File <- function(csvInFile) {
+#     df <- read.csv2(file=csvInFile)
+#     readr::problems(df)
+#     return (df)
+# }
+#
+# auWriteCsv2File <- function(df, csvOutFile) {
+#     file = auTextOutFile(csvOutFile)
+#     write.csv2(df, file, row.names=FALSE, quote=TRUE, na = "NA")
+#     close(file)
+#     readr::problems(df)
+# }
 
 ###############################################################################
 ### Check that an actual CSV output file is identical with the expected output.

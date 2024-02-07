@@ -17,9 +17,11 @@ LitrId: acf3a14b7ece67e1af6aab2f500d31a5
 Config/testthat/edition: 3
 Imports: 
     allelematch,
-    plyr,
+    data.table,
+    dplyr,
     readr,
-    remotes
+    remotes,
+    rstudioapi
 Suggests:
     here,
     knitr,
