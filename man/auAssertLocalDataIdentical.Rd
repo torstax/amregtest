@@ -4,7 +4,7 @@
 \alias{auAssertLocalDataIdentical}
 \title{Stops execution if remote and local data are not identical}
 \usage{
-auAssertLocalDataIdentical(package, remoteName, localName, keep = FALSE)
+auAssertLocalDataIdentical(package, remoteName, localName = remoteName)
 }
 \arguments{
 \item{package}{The name of the remote package to load from as character}
@@ -12,8 +12,6 @@ auAssertLocalDataIdentical(package, remoteName, localName, keep = FALSE)
 \item{remoteName}{The name of the data to read from the remote package}
 
 \item{localName}{The name of the data to write to the local data dir as .R file}
-
-\item{keep}{If TRUE, both remoteName and localName will be kept in the the .GlobalEnv. Otherwise they will be removed.}
 }
 \description{
 Stops execution if remote and local data are not identical

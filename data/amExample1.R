@@ -1,4 +1,4 @@
-amExample1_in <-
+amExample1 <-
 structure(list(sampleId = structure(c(1L, 12L, 14L, 15L, 16L, 
 17L, 18L, 19L, 20L, 2L, 3L, 4L, 5L, 6L, 7L, 8L, 9L, 10L, 11L, 
 13L), levels = c("1", "10", "11", "12", "13", "14", "15", "16", 

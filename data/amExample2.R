@@ -1,4 +1,4 @@
-amExample2_in <-
+amExample2 <-
 structure(list(sampleId = structure(c(1L, 62L, 73L, 84L, 95L, 
 106L, 117L, 128L, 138L, 2L, 12L, 23L, 34L, 44L, 55L, 58L, 59L, 
 60L, 61L, 63L, 64L, 65L, 66L, 67L, 68L, 69L, 70L, 71L, 72L, 74L, 

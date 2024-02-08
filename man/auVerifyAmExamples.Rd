@@ -10,6 +10,3 @@ auVerifyAmExamples()
 Stops execution if any of the local amExample files is not identical with the corresponding
 file in the \code{allelematch} package
 }
-\examples{
-auVerifyAmExamples()
-}

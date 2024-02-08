@@ -7,17 +7,23 @@
 getdata(...)
 }
 \arguments{
-\item{...}{Passed on to \code{utils::data} as is}
+\item{...}{All parameters are passed on to \link[utils:data]{utils::data} as is}
 }
 \value{
-the specified data set loaded by \code{utils::data}
+the specified data set loaded by \link[utils:data]{utils::data}
 }
 \description{
 The data set is taken from the ./data/ folder of the specified package.
-See \link{data} for how the supported data types are encrypted.
 }
 \details{
-The parameters are the same as for the \code{utils::data()} function.
+See the Description section under \link[utils:data]{utils::data} for how the supported file
+types (including .R, .RData, .txt and .csv) shall be encoded.
+
+The parameters are the same as for the \link{data} function in package \link{utils}.
 
 Thank you @henfiber! See https://stackoverflow.com/questions/30951204/load-dataset-from-r-package-using-data-assign-it-directly-to-a-variable/30951700#30951700
+}
+\examples{
+foo = getdata(amExample1, package = "allelematch")
+
 }
