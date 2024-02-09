@@ -366,6 +366,11 @@ auReadInput <- function(dataDirectory, inputNewSamplesFile, inputMatchReferences
     Input<-rbind(A_20220209[common_cols],A_2col[common_cols])
     readr::problems(Input)
 
+    # # Check that it still works if we bounce the data onto a .csv file:
+    # auWriteCsv2File(Input, "data/ggSample.csv")
+    # data("ggSample")
+    # Input = ggSample
+
     cat("\nDone loading Input:\n")
     cat("   dataDirectory             = ", dataDirectory, "\n")
     cat("   inputNewSamplesFile       = ", inputNewSamplesFile, "\n")
@@ -375,3 +380,19 @@ auReadInput <- function(dataDirectory, inputNewSamplesFile, inputMatchReferences
     return(amDataset(Input, indexColumn=1, missingCode="-99"))
 }
 
+auLoadDataSet <- function(dataName) {
+    # e <- new.env()
+    # data(dataName, envir = e)
+    # Input = e[[dataName]]
+
+    Input = getdata(list = c(dataName))
+
+    # data("ggSample")
+    # Input = ggSample
+
+    cat("\nDone loading Input:\n")
+    cat("   dataName                  = ", dataName, "\n")
+    cat("   Loaded samples to compare = ", "cols =", ncol(Input), "rows =", nrow(Input),"\n")
+
+    return(amDataset(Input, indexColumn=1, missingCode="-99"))
+}

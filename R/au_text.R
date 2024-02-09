@@ -18,7 +18,7 @@ strcat <- function(...) { paste(..., sep="") }
 ###############################################################################
 
 auTextOutFile <- function(fileName) {
-    # Opens an text file for output in binary mode that allows LF linebreaks,
+    # Opens a text file for output in binary mode that allows LF linebreaks,
     # even on Windows.
     # Note that the file needs to be closed explicitly. Sample usage:
     #
@@ -87,13 +87,36 @@ auWriteCsvFile <- function(df, csvOutFile) {
 #     readr::problems(df)
 #     return (df)
 # }
-#
-# auWriteCsv2File <- function(df, csvOutFile) {
-#     file = auTextOutFile(csvOutFile)
-#     write.csv2(df, file, row.names=FALSE, quote=TRUE, na = "NA")
-#     close(file)
-#     readr::problems(df)
-# }
+
+#' Write .csv file on format accepted by [utils::data] and excel.
+#'
+#' @param df            Data to be written
+#' @param csvOutFile    Name of file to write, or an already open [connection]. \cr
+#'                      An open connection will be left open. \cr
+#'                      A named file will be closed at exit. \cr
+#'
+auWriteCsv2File <- function(df, csvOutFile) {
+
+    if (inherits(csvOutFile, "connection")) {
+        # The file is already open
+        write.csv2(df, csvOutFile, row.names=FALSE)  # Defaults for write.csv2:  , row.names=FALSE, quote=TRUE, na = "NA")
+    } else {
+        # We assume we have the name of a file as a string.
+        stopifnot(is.character(csvOutFile))
+
+        # Open the file in binary mode to avoid adding CR before LF at line endings:
+        file = auTextOutFile(csvOutFile)
+        write.csv2(df, file, row.names=FALSE)  # Defaults for write.csv2:  , quote=TRUE, na = "NA")
+        close(file)
+
+        # # Check that we get the same back
+        # readDf = auReadCsvFile(csvOutFile)
+        # stopifnot(identical(df, readDf))
+    }
+    readr::problems(df)
+
+
+}
 
 ###############################################################################
 ### Check that an actual CSV output file is identical with the expected output.

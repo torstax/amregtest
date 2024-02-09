@@ -26,7 +26,7 @@
 #' @keywords data
 NULL
 
-#' @name ggExampleData
+#' @name ggSample
 #' @aliases input_Match_references_clean
 #' @aliases input_new_samples_clean input_new_samples_clean_split
 #' @aliases output_aMm15_expected output_mThr0.9_expected
@@ -122,7 +122,7 @@ NULL
 #' allelmatch backwards compatibility.
 #' ... saved on the format
 #'
-#' @name amExample1_inp
+#' @name ggSample
 #' @docType data
 #' @references \url{https://github.com/cran/allelematch}
 #' @keywords data
