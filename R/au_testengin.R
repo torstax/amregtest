@@ -55,59 +55,6 @@ auRestartR <- function() {
 
 #' Runs a set of tests on the supplied dataset
 #'
-#' `testDataSet` reads allelematch test input files from and writes output files
-#' to the `dataSetDir`.
-#'
-#' @details
-#' `testDataSet` is the entry point for the `regressiontest` package.
-#'
-#' Both input and output data files in `dataSetDir` have predefined names.
-#'
-#' The input files are called "input_new_samples.txt" and "input_Match_references.txt".
-#' The input files are read into data frames at the start of `testDataSet`.
-#' The same input data is used in all calls to the `allelematch` functions
-#' to be tested.
-#'
-#' The output files have names that describe the called `allelematch` functions
-#' and the parameters that are passed to the same functions.
-#'
-#' @param dataSetDir The directory that contains the data sets to be tested. (string)
-#'
-#' @param skippCleaningInput If FALSE, the input files are cleaned up
-#' and written to a new file that adds "_clean" to the name of the original files.
-#' If TRUE, this function skips reading the original files and read the cleaned
-#' files directly instead. (boolean)
-#'
-#' @returns TODO: Change to return TRUE on success and FALSE on failure.
-#'
-#    Find another @ example test_legacy-2.5.1/TestLegacy-2.5.1.R
-#'
-#' @export
-old_testDataSet <- function(dataSetDir = "data/", skippCleaningInput = FALSE) {
-
-    cat("\nTesting allelematch ", toString(packageVersion("allelematch")))
-
-    if (!skippCleaningInput) {
-        auCleanInputFiles(dataSetDir)
-    } else {
-        # Use previously cleaned input files
-    }
-
-    # Create an amDataset from the input files:
-    dataDirectory = strcat("", dataSetDir)
-    inputDataSet <- auReadInput(dataSetDir, "input_new_samples.txt", "input_Match_references.txt")
-    readr::problems(inputDataSet)
-
-    # Run the tests of interest on the created amDataset:
-    analyzeMatchThreshold(inputDataSet, dataDirectory)
-    analyzeAleleMismatch( inputDataSet, dataDirectory)
-
-    readr::problems()
-    warnings()
-}
-
-#' Runs a set of tests on the supplied dataset
-#'
 #' @description
 #' `testDataSet` feeds the specified test data set to [allelematch].
 #' After exercising `allelematch`, the resulting output files are compared

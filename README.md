@@ -10,7 +10,7 @@ regressiontest is a set of R scripts and data files that contain test input and 
 
 ## Installation
 
-You can install the development version of regressiontest from [GitHub](https://github.com/) with:
+You can install the development version of regressiontest from [GitHub](https://github.com/) with: 
 
 ``` r
 # install.packages("devtools")

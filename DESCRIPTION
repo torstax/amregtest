@@ -18,13 +18,13 @@ Config/testthat/edition: 3
 Imports: 
     allelematch,
     data.table,
-    dplyr,
     readr,
     remotes,
     rstudioapi
 Suggests:
     here,
     knitr,
+    dplyr,
     devtools,
     roxygen2,
     testthat (>= 3.0.0)
