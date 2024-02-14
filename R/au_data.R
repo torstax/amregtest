@@ -129,6 +129,25 @@ NULL
 NULL
 
 
+#' Expected data used in calls to [testthat::expect_identical]
+#'
+#' Naming convention: "exp" for "Expected". First number identifies the [testthat::test_that]
+#' code block. The second number identifies the use within the same code block. \cr\cr
+#'
+#' This expected data was generated from runing the tests towards version 2.5.3 of [allelematch].
+#' Look for commented out lines ending with "# This is how the expected data was stored" to see how.
+#'
+#' @name exp_01_00
+#' @aliases exp_01_01 exp_01_02 exp_01_02_example1_1 exp_01_03_example1_2 exp_01_04 exp_01_05
+#' @aliases exp_02_00 exp_02_01 exp_02_02_example2_1 exp_02_03 exp_02_04_example2_2 exp_02_05 exp_02_06
+
+#' @docType data
+#' @references \url{https://github.com/cran/allelematch}
+#' @keywords data
+NULL
+
+
+
 #' Loads and returns a large data set without polluting the global environment.
 #'
 #' The data set is taken from the ./data/ folder of the specified package.
@@ -154,19 +173,21 @@ getdata <- function(...)
     e[[name]]
 }
 
-
-#' Write data to .R file in ./data directory using `dump()`
+#' Write data to .R file in ./data directory using [base::dump]`
 #'
 #' @param df        Data frame to write
 #' @param outName   Name of file to write to, excluding leading "data/" and trailing ".R"
+#' @param dir       The directory in which to write the data file.
+#'                  The default, "data", assumes that [getwd] points at the current
+#'                  R project root directory.
 #'
 #  ' @export
 #'
 #  ' @examples
-auDumpToData <- function(df, outName) {
+auDumpToData <- function(df, outName, dir = "data") {
     e <- new.env()
     assign(outName, df, envir = e)
-    outFile = paste("data/", outName, ".R", sep="")
+    outFile = paste(dir, "/", outName, ".R", sep="")
     file = auTextOutFile(outFile)
     # base::dump(list = c(outName), file, control = "all", envir = e)
     base::dump(list = c(outName), file, envir = e)

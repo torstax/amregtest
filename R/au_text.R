@@ -68,7 +68,6 @@ auWriteTsvFile <- function(df, tsvOutFile) {
 ###############################################################################
 
 auReadCsvFile <- function(csvInFile) {
-    stopifnot()
     df <- read.csv(file=csvInFile, colClasses="character", check.names=FALSE)
     readr::problems(df)
     return (df)

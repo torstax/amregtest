@@ -23,7 +23,7 @@ library(allelematch)
 #' to see the package dependencies.
 
 
-# Packages refferenced with '::' : base data.table dplyr readr remotes rstudioapi table tools utils
+# Packages referenced with '::' : base data.table dplyr readr remotes rstudioapi table tools utils
 #
 # data.table::tstrsplit
 # dplyr::rename

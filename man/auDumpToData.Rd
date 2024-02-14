@@ -2,15 +2,19 @@
 % Please edit documentation in R/au_data.R
 \name{auDumpToData}
 \alias{auDumpToData}
-\title{Write data to .R file in ./data directory using \code{dump()}}
+\title{Write data to .R file in ./data directory using \link[base:dump]{base::dump}`}
 \usage{
-auDumpToData(df, outName)
+auDumpToData(df, outName, dir = "data")
 }
 \arguments{
 \item{df}{Data frame to write}
 
 \item{outName}{Name of file to write to, excluding leading "data/" and trailing ".R"}
+
+\item{dir}{The directory in which to write the data file.
+The default, "data", assumes that \link{getwd} points at the current
+R project root directory.}
 }
 \description{
-Write data to .R file in ./data directory using \code{dump()}
+Write data to .R file in ./data directory using \link[base:dump]{base::dump}`
 }
