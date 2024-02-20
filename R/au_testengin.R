@@ -83,43 +83,57 @@ auRestartR <- function() {
 testDataSet <- function(dataSetDir = "data/") {
 
     cat("\nTesting allelematch ", toString(packageVersion("allelematch")))
-    dataDirectory = strcat("", dataSetDir)
+    outputDir = strcat("", dataSetDir)
 
     dataSetName = "ggSample"
     inputDataSet <- auLoadDataSet(dataSetName)
 
     # Run the tests of interest on the created amDataset:
-    analyzeMatchThreshold(inputDataSet, dataDirectory)
-    analyzeAleleMismatch( inputDataSet, dataDirectory)
+    analyzeMatchThreshold(inputDataSet, outputDir=outputDir, outputFile = )
+    analyzeAleleMismatch( inputDataSet, outputDir=outputDir)
 
     readr::problems()
     warnings()
 }
 
+analyzeMatchThreshold <- function(inputDataSet, matchThreshold=0.9, maxMissing=10, outputDir, outputFile="output_mThr0.9_actual.csv") {
+    analyzeUnique(inputDataSet, matchThreshold=matchThreshold, maxMissing=NULL, outputDir=outputDir, outputFile=outputFile)
+    readr::problems()
+}
 
-analyzeUnique <- function(amDatasetFocal, multilocusMap=NULL, alleleMismatch=NULL, matchThreshold=NULL, cutHeight=NULL, maxMissing=NULL, doPsib="missing", outputDir, outputFile=NULL) {
+analyzeAleleMismatch <- function(inputDataSet, dataDirectory, alleleMismatch=15, maxMissing=10, outputDir, outputFile="output_aMm15_actual.csv") {
+    analyzeUnique(inputDataSet, alleleMismatch=alleleMismatch, maxMissing=NULL, outputDir=outputDir, outputFile=outputFile)
+    readr::problems()
+}
+
+analyzeUnique <- function(amDatasetFocal, multilocusMap=NULL, alleleMismatch=NULL, matchThreshold=NULL, cutHeight=NULL, maxMissing=NULL, doPsib="missing", outputDir, outputFile) {
     # amDatasetFocal, multilocusMap=NULL, alleleMismatch=NULL, matchThreshold=NULL, cutHeight=NULL, maxMissing=NULL, doPsib="missing"
 
-    if(is.null(outputFile)) { outputFile=auDefaultFileName(alleleMismatch=alleleMismatch, matchThreshold=matchThreshold, cutHeight=cutHeight, maxMissing=maxMissing, doPsib=doPsib)}
-    paramString=amUniqueParamString(alleleMismatch=alleleMismatch, matchThreshold=matchThreshold, cutHeight=cutHeight, maxMissing=maxMissing, doPsib=doPsib)
+    #if(is.null(outputFile)) { outputFile=auDefaultFileName(alleleMismatch=alleleMismatch, matchThreshold=matchThreshold, cutHeight=cutHeight, maxMissing=maxMissing, doPsib=doPsib)}
+    #paramString=amUniqueParamString(alleleMismatch=alleleMismatch, matchThreshold=matchThreshold, cutHeight=cutHeight, maxMissing=maxMissing, doPsib=doPsib)
 
-    cat("\nTestLegacy-2.5.1: About to call amUnique with params", paramString, "\n")
-    #  B2_allelmatch_uniqueAnalysis <- amUnique(amDatasetFocal=amDatasetFocal, multilocusMap=multilocusMap, alleleMismatch=alleleMismatch, matchThreshold=matchThreshold, cutHeight=cutHeight, maxMissing=maxMissing, doPsib=doPsib, verbose=TRUE)
-    startTime <- Sys.time()
-    B2_allelmatch_uniqueAnalysis <- amUnique(amDatasetFocal=amDatasetFocal, multilocusMap=multilocusMap, alleleMismatch=alleleMismatch, matchThreshold=matchThreshold, cutHeight=cutHeight,         doPsib=doPsib, verbose=TRUE)
-    endTime <- Sys.time()
+    # Validate the input parameters:
+    #paramString=amUniqueParamString(...)
+    #if(is.null(outputData)) { outputData=auDefaultFileName(...)}
+    #outputFile = paste0("output", outputData, "_actual.csv") # TODO: Ugly! Rewrite!
+    outputDir="test_legacy-2.5.1/"
 
-    cat("\nTestLegacy-2.5.1: Done calling amUnique with params", paramString, "in", difftime(endTime, startTime, units = "secs" ), " sec \n")
+    cat("\nTestLegacy-2.5.1: About to call amUnique\n", sep="")
     cat("   outputDir      = ", outputDir, "\n")
     cat("   outputFile     = ", outputFile,  "\n")
+    B2_allelmatch_uniqueAnalysis <- amUniqueWrapper(amDatasetFocal, multilocusMap=multilocusMap, alleleMismatch=alleleMismatch, matchThreshold=matchThreshold, cutHeight=cutHeight, doPsib=doPsib, verbose=TRUE)
+
     csvFile = strcat(outputDir, outputFile)
     csvBinary = auUnixLineBreaks(csvFile) # Use raw mode to write unix LF line breaks rather than windows CRLF
+
+    cat("\nTestLegacy-2.5.1: About to call summary.amUnique", "\n")
+    cat("   outputFile     = ", csvFile, "\n")
     summary.amUnique(B2_allelmatch_uniqueAnalysis, csv=csvBinary) # csv=csvFile)
     close(csvBinary)
 
     # Make it easier to verify that the output is still good:
-    auSortCsvFile(      csvFile )
-    auMakeBriefCsvFile( csvFile )
+    # auSortCsvFile(      csvFile )
+    # auMakeBriefCsvFile( csvFile )
     auAssertCsvIdentical(   csvFile )
 
     if(IS_BRIEF_AMUNIQUE_SUPPORTED_BY_ALLELEMATCH) {
@@ -134,13 +148,20 @@ analyzeUnique <- function(amDatasetFocal, multilocusMap=NULL, alleleMismatch=NUL
     }
 }
 
-analyzeMatchThreshold <- function(inputDataSet, dataDirectory, matchThreshold=0.9, maxMissing=10, outputFile=NULL) {
-    analyzeUnique(inputDataSet, matchThreshold=matchThreshold, maxMissing=NULL, outputDir=dataDirectory, outputFile=outputFile)
-    readr::problems()
-}
 
-analyzeAleleMismatch <- function(inputDataSet, dataDirectory, alleleMismatch=15, maxMissing=10, outputFile=NULL) {
-    analyzeUnique(inputDataSet, alleleMismatch=alleleMismatch, maxMissing=NULL, outputDir=dataDirectory, outputFile=outputFile)
-    readr::problems()
+amUniqueWrapper <- function(amDatasetFocal, ...) {
+
+    # Validate the input parameters:
+    paramString=amUniqueParamString(...)
+
+    cat("   With params    : \"", paramString, "\"\n", sep="")
+    startTime <- Sys.time()
+
+    amUniqueResult <- amUnique(amDatasetFocal=amDatasetFocal, ...)
+
+    endTime <- Sys.time()
+    cat("\nTestLegacy-2.5.1: Done calling amUnique in ", difftime(endTime, startTime, units = "secs" ), " sec\n", sep="")
+
+    return(amUniqueResult)
 }
 

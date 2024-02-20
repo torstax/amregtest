@@ -1,4 +1,9 @@
 
+#' Loads an loggs the [allelematch::amDataset]
+#'
+#' @param dataName  Name of the data set to load from ./data/.
+#'
+#' @export
 auLoadDataSet <- function(dataName) {
     # e <- new.env()
     # data(dataName, envir = e)

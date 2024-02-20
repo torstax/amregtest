@@ -14,7 +14,7 @@ stopifnot(wantedVersion == toString(packageVersion("allelematch")))
 
 cat("\nTestLegacy-2.5.1: About to test that allelematch ", toString(packageVersion("allelematch")), " is compatible with 2.5.1\n")
 
-regressiontest::testDataSet(dataSetDir = paste(R_PROJ_DIR, "/test_legacy-2.5.1/", sep=""));
+regressiontest::testDataSet(dataSetDir = paste0(R_PROJ_DIR, "/test_legacy-2.5.1/"));
 warnings()
 
 cat("\nTestLegacy-2.5.1: DONE!\n\n")
