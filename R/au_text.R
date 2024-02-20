@@ -17,12 +17,12 @@ strcat <- function(...) { paste(..., sep="") }
 ### Line Breaks.
 ###############################################################################
 
-auTextOutFile <- function(fileName) {
+auUnixLineBreaks <- function(fileName) {
     # Opens a text file for output in binary mode that allows LF linebreaks,
     # even on Windows.
     # Note that the file needs to be closed explicitly. Sample usage:
     #
-    #   file = auTextOutFile(fileName)
+    #   file = auUnixLineBreaks(fileName)
     #   write.csv2(file, eol="\n")
     #   close(file)
     #
@@ -56,7 +56,7 @@ auReadTsvFile <- function(tsvInFile) {
 }
 
 auWriteTsvFile <- function(df, tsvOutFile) {
-    file=auTextOutFile(tsvOutFile) # Open in binary mode to be able to use LF without CR as newline on Windows
+    file=auUnixLineBreaks(tsvOutFile) # Open in binary mode to be able to use LF without CR as newline on Windows
     write.table(df, file, sep="\t", row.names=FALSE, quote=FALSE)
     close(file)
 }
@@ -74,7 +74,7 @@ auReadCsvFile <- function(csvInFile) {
 }
 
 auWriteCsvFile <- function(df, csvOutFile) {
-    file = auTextOutFile(csvOutFile)
+    file = auUnixLineBreaks(csvOutFile)
     write.csv(df, file, row.names=FALSE, quote=TRUE, na = "NA")
     close(file)
     readr::problems(df)
@@ -104,7 +104,7 @@ auWriteCsv2File <- function(df, csvOutFile) {
         stopifnot(is.character(csvOutFile))
 
         # Open the file in binary mode to avoid adding CR before LF at line endings:
-        file = auTextOutFile(csvOutFile)
+        file = auUnixLineBreaks(csvOutFile)
         write.csv2(df, file, row.names=FALSE)  # Defaults for write.csv2:  , quote=TRUE, na = "NA")
         close(file)
 
@@ -122,31 +122,33 @@ auWriteCsv2File <- function(df, csvOutFile) {
 ### Assumes that the two files are called *_actual* and *_expected*
 ###############################################################################
 
-auAssertExpected <- function(actualCvsFile) {
-    expectedCvsFile <- gsub("_actual", "_expected", actualCvsFile)
+auAssertCsvIdentical <- function(actualCsvFile, expectedCsvFile=NULL) {
+    if(is.null(expectedCsvFile)) { expectedCsvFile <- gsub("_actual", "_expected", actualCsvFile) }
+    stopifnot(expectedCsvFile != actualCsvFile)
 
-    exp = auReadCsvFile(expectedCvsFile)
-    act = auReadCsvFile(actualCvsFile)
-
+    act = auReadCsvFile(actualCsvFile)
+    exp = auReadCsvFile(expectedCsvFile)
 
     if (!identical(exp, act)) {
-        stop("Expected content differs from Actual:",
-             "\n   Expected : ", expectedCvsFile,
-             "\n   Actual   : ", actualCvsFile)
+        stop("Actual content differs from Expected:",
+             "\n   Actual   : ", actualCsvFile,
+             "\n   Expected : ", expectedCsvFile)
     }
+    cat("   Expected       =  ", expectedCsvFile, "\n", sep="")
     cat("   OK             : Actual identical to Expected. col=", ncol(act), ", row=", nrow(act), "\n", sep="")
 }
 
-auWarnIfNotExpected <- function(actualCvsFile) {
-  expectedCvsFile <- gsub("_actual", "_expected", actualCvsFile)
+auWarnIfNotExpected <- function(actualCsvFile) {
+  expectedCsvFile <- gsub("_actual", "_expected", actualCsvFile)
+  stopifnot(expectedCsvFile != actualCsvFile)
 
-  expectedMd5sum = tools::md5sum(expectedCvsFile)
-  actualMd5sum   = tools::md5sum(actualCvsFile)
+  expectedMd5sum = tools::md5sum(expectedCsvFile)
+  actualMd5sum   = tools::md5sum(actualCsvFile)
 
   if (actualMd5sum != expectedMd5sum) {
     warning("Expected md5sum differs from Actual:",
-         "\n   Expected : ", expectedMd5sum, expectedCvsFile,
-         "\n   Actual   : ", actualMd5sum, actualCvsFile)
+         "\n   Expected : ", expectedMd5sum, expectedCsvFile,
+         "\n   Actual   : ", actualMd5sum, actualCsvFile)
   }
 }
 

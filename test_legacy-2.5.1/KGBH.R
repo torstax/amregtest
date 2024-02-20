@@ -22,7 +22,7 @@ auWriteCsv2File <- function(df, csvOutFile) {
 }
 
 auWriteRFile <- function(names, outFile) {
-    file = regressiontest:::auTextOutFile(outFile)
+    file = regressiontest:::auUnixLineBreaks(outFile)
     base::dump(names, file, control = "all")
     close(file)
     # readr::problems(df)

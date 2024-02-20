@@ -188,7 +188,7 @@ auDumpToData <- function(df, outName, dir = "data") {
     e <- new.env()
     assign(outName, df, envir = e)
     outFile = paste(dir, "/", outName, ".R", sep="")
-    file = auTextOutFile(outFile)
+    file = auUnixLineBreaks(outFile)
     # base::dump(list = c(outName), file, control = "all", envir = e)
     base::dump(list = c(outName), file, envir = e)
     close(file)

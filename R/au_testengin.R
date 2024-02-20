@@ -113,20 +113,20 @@ analyzeUnique <- function(amDatasetFocal, multilocusMap=NULL, alleleMismatch=NUL
     cat("   outputDir      = ", outputDir, "\n")
     cat("   outputFile     = ", outputFile,  "\n")
     csvFile = strcat(outputDir, outputFile)
-    csvBinary = auTextOutFile(csvFile) # Use raw mode to write unix LF line breaks rather than windows CRLF
+    csvBinary = auUnixLineBreaks(csvFile) # Use raw mode to write unix LF line breaks rather than windows CRLF
     summary.amUnique(B2_allelmatch_uniqueAnalysis, csv=csvBinary) # csv=csvFile)
     close(csvBinary)
 
     # Make it easier to verify that the output is still good:
     auSortCsvFile(      csvFile )
     auMakeBriefCsvFile( csvFile )
-    auAssertExpected(   csvFile )
+    auAssertCsvIdentical(   csvFile )
 
     if(IS_BRIEF_AMUNIQUE_SUPPORTED_BY_ALLELEMATCH) {
         outputFile = sub(".csv", "_brief.csv", outputFile, fixed=TRUE)
         cat("   outputFile     = ", outputFile,  "\n")
         briefFile = strcat(outputDir, outputFile)
-        briefBinary = auTextOutFile(briefFile)
+        briefBinary = auUnixLineBreaks(briefFile)
         summary.amUnique(B2_allelmatch_uniqueAnalysis, brief=briefBinary)
         close(briefBinary)
 
