@@ -106,14 +106,54 @@ analyzeAleleMismatch <- function(inputDataSet, dataDirectory, alleleMismatch=15,
     readr::problems()
 }
 
-analyzeUnique <- function(amDatasetFocal, multilocusMap=NULL, alleleMismatch=NULL, matchThreshold=NULL, cutHeight=NULL, maxMissing=NULL, doPsib="missing", outputDir, outputFile) {
-    # amDatasetFocal, multilocusMap=NULL, alleleMismatch=NULL, matchThreshold=NULL, cutHeight=NULL, maxMissing=NULL, doPsib="missing"
+validateParams <- function(amDatasetFocal, paramString, outputData, expectedData, summary, overwriteExpected) {
 
-    #if(is.null(outputFile)) { outputFile=auDefaultFileName(alleleMismatch=alleleMismatch, matchThreshold=matchThreshold, cutHeight=cutHeight, maxMissing=maxMissing, doPsib=doPsib)}
-    #paramString=amUniqueParamString(alleleMismatch=alleleMismatch, matchThreshold=matchThreshold, cutHeight=cutHeight, maxMissing=maxMissing, doPsib=doPsib)
+    # Validate the input parameters:
+    stopifnot(inherits(amDatasetFocal, "amDataset"))
+    # stopifnot(length(find(c(expectedData))) > 0)
+    stopifnot(exists(c(expectedData)))
+    stopifnot(grepl("exp",expectedData, fixed = TRUE))
+
+    if (is.null(outputData)) {
+        stopifnot(dir.exists("data")) # NOTE: Here we assume that getwd() points at R root dir
+        outputData=sub("_expected", "_actual", expectedData) # One format
+        outputData=sub("_exp", "_act", outputData)           # Another format
+        outputData=sub("exp_", "act_", outputData)           # Yet another format
+        if (outputData == expectedData) outputData = strcat(outputData, "_actual") # Avoid overwriting expected
+    }
+
+    cat("\nTestLegacy-2.5.1: About to call  amUnique(amDataSetFocal,", paramString, ")\n")
+    if(summary) { cat("   and summary.amUnique( csv)\n") }
+#   cat("   outputFile     = ", outputFile,  "\n")
+    cat("   outputData     = ", outputData,  "\n")
+    cat("   expectedData   = ", expectedData, "\n")
+
+    if (identical(FALSE, overwriteExpected)) {
+        stopifnot(exists(expectedData)) # TODO: Better explanation to the screen
+    } else {
+        cat("\nTestLegacy-2.5.1: Requested to overwrite expectedData\n")
+        cat("   Are you sure (y/N)?") # ,  "\n")
+        areYouSureYouWantToOverwriteExpectedData = readLines(stdin(), n=1)
+        stopifnot(areYouSureYouWantToOverwriteExpectedData == c("y"))
+        if (!dir.exists("data")) {
+            cat("\nTestLegacy-2.5.1: Sorry, getwd() =", getwd(), "\n")
+            cat("                  does not contain a 'data' directory.\n")
+            stop("You need to 'setwd()' to the current R project root to overwriteExpected.\n       And that dir needs to contain a 'data' directory.")
+        }
+
+        cat("\nTestLegacy-2.5.1: WILL OVERWRITE\n")
+        cat("   expectedData   = ", expectedData, " WITH\n")
+        cat("   outputData     = ", outputData,  "\n")
+    }
+
+    return(outputData)
+}
+
+analyzeUnique <- function(amDatasetFocal, multilocusMap=NULL, alleleMismatch=NULL, matchThreshold=NULL, cutHeight=NULL, maxMissing=NULL, doPsib="missing", outputDir, outputFile) {
 
     # Validate the input parameters:
     #paramString=amUniqueParamString(...)
+    #outputData = validateParams(amDatasetFocal, paramString, expectedData, summary, overwriteExpected)
     #if(is.null(outputData)) { outputData=auDefaultFileName(...)}
     #outputFile = paste0("output", outputData, "_actual.csv") # TODO: Ugly! Rewrite!
     outputDir="test_legacy-2.5.1/"
@@ -149,6 +189,20 @@ analyzeUnique <- function(amDatasetFocal, multilocusMap=NULL, alleleMismatch=NUL
 }
 
 
+#' Wrapper around [allelematch::amUnique] that adds logging
+#'
+#' @description
+#' Generates a message string that describes the specified parameters.\cr
+#' Feeds the specified parameters to [allelematch::amUnique].\cr
+# ' Compares the resulting output files with the expected.
+# ' If they are identical, the test passes.
+# '
+# '
+# ' @returns TODO: Change to return TRUE on success and FALSE on failure.
+# '
+#    Find another @ example test_legacy-2.5.1/TestLegacy-2.5.1.R
+#'
+#' @export
 amUniqueWrapper <- function(amDatasetFocal, ...) {
 
     # Validate the input parameters:
@@ -163,5 +217,66 @@ amUniqueWrapper <- function(amDatasetFocal, ...) {
     cat("\nTestLegacy-2.5.1: Done calling amUnique in ", difftime(endTime, startTime, units = "secs" ), " sec\n", sep="")
 
     return(amUniqueResult)
+}
+
+#' Wrapper around [allelematch::summary.amUnique] that adds logging
+#'
+#' @description
+#' Generates a message string that describes the specified parameters.\cr
+#' Feeds the specified parameters to [allelematch::summary.amUnique].\cr
+# ' Compares the resulting output files with the expected.
+# ' If they are identical, the test passes.
+# '
+# '
+# ' @returns TODO: Change to return TRUE on success and FALSE on failure.
+# '
+#    Find another @ example test_legacy-2.5.1/TestLegacy-2.5.1.R
+#'
+#' @export
+summary_amUniqueWrapper <- function(amUniqueOutput, outputData=NULL, expectedData, summary=FALSE, overwriteExpected=FALSE) {
+
+    # Validate the input parameters:
+#    paramString=amUniqueParamString(...)
+#    outputData = validateParams(amDatasetFocal, paramString, expectedData, summary, overwriteExpected)
+
+
+    cat("\nTestLegacy-2.5.1: About to call summary.amUnique with params", paramString, "\n")
+    cat("   outputData     = ", outputData,  "\n")
+    cat("   expectedData   = ", expectedData, "\n")
+
+    if (!summary) { # TODO: REAK OUT OF THIS FUNCTION!
+        # Dump as a data/*.R file that is more than 10 times bigger than the analyzed .csv file:
+        if (overwriteExpected) { auDumpToData(amUniqueOutput, expectedData) }
+        stopifnot(identical(outputData, getdata(list=c(expectedData))))
+    } else {
+        # Generate a much smaller 'summary' file:
+        csvFileActual   = strcat("data/", outputData,   ".csv")
+        csvFileExpected = strcat("data/", expectedData, ".csv")
+        csvBinary = auUnixLineBreaks(csvFileActual) # Use raw mode to write unix LF line breaks rather than windows CRLF
+        startTime <- Sys.time()
+
+        summary.amUnique(amUniqueOutput, csv=csvBinary) # csv=csvFile)
+
+        endTime <- Sys.time()
+        close(csvBinary)
+        cat("\nTestLegacy-2.5.1: Done calling amUnique with params", paramString, "in", difftime(endTime, startTime, units = "secs" ), " sec \n")
+
+        if (overwriteExpected) { file.copy(csvFileActual, csvFileExpected, overwrite = TRUE) }
+
+        # Check that we got the expected output:
+        auAssertCsvIdentical(csvFileActual, csvFileExpected)
+    }
+
+
+    if(IS_BRIEF_AMUNIQUE_SUPPORTED_BY_ALLELEMATCH) {
+        outputFile = sub(".csv", "_brief.csv", outputFile, fixed=TRUE)
+        cat("   outputFile     = ", outputFile,  "\n")
+        briefFile = strcat(outputDir, outputFile)
+        briefBinary = auUnixLineBreaks(briefFile)
+        summary.amUnique(amUniqueOutput, brief=briefBinary)
+        close(briefBinary)
+
+        auSortCsvFile(briefFile);
+    }
 }
 
