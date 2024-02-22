@@ -156,14 +156,14 @@ analyzeUnique <- function(amDatasetFocal, multilocusMap=NULL, alleleMismatch=NUL
     #outputData = validateParams(amDatasetFocal, paramString, expectedData, summary, overwriteExpected)
     #if(is.null(outputData)) { outputData=auDefaultFileName(...)}
     #outputFile = paste0("output", outputData, "_actual.csv") # TODO: Ugly! Rewrite!
-    outputDir="test_legacy-2.5.1/"
+    #outputDir="test_legacy-2.5.1/"
 
     cat("\nTestLegacy-2.5.1: About to call amUnique\n", sep="")
     cat("   outputDir      = ", outputDir, "\n")
     cat("   outputFile     = ", outputFile,  "\n")
     B2_allelmatch_uniqueAnalysis <- amUniqueWrapper(amDatasetFocal, multilocusMap=multilocusMap, alleleMismatch=alleleMismatch, matchThreshold=matchThreshold, cutHeight=cutHeight, doPsib=doPsib, verbose=TRUE)
 
-    csvFile = strcat(outputDir, outputFile)
+    csvFile = strcat(outputDir, "//", outputFile)
     csvBinary = auUnixLineBreaks(csvFile) # Use raw mode to write unix LF line breaks rather than windows CRLF
 
     cat("\nTestLegacy-2.5.1: About to call summary.amUnique", "\n")
@@ -174,7 +174,8 @@ analyzeUnique <- function(amDatasetFocal, multilocusMap=NULL, alleleMismatch=NUL
     # Make it easier to verify that the output is still good:
     # auSortCsvFile(      csvFile )
     # auMakeBriefCsvFile( csvFile )
-    auAssertCsvIdentical(   csvFile )
+    # auAssertCsvIdentical(   csvFile )
+    auAssertCsvEqualToExpectedData(csvFile)
 
     if(IS_BRIEF_AMUNIQUE_SUPPORTED_BY_ALLELEMATCH) {
         outputFile = sub(".csv", "_brief.csv", outputFile, fixed=TRUE)
@@ -244,7 +245,7 @@ summary_amUniqueWrapper <- function(amUniqueOutput, outputData=NULL, expectedDat
     cat("   outputData     = ", outputData,  "\n")
     cat("   expectedData   = ", expectedData, "\n")
 
-    if (!summary) { # TODO: REAK OUT OF THIS FUNCTION!
+    if (!summary) { # TODO: BREAK OUT OF THIS FUNCTION!
         # Dump as a data/*.R file that is more than 10 times bigger than the analyzed .csv file:
         if (overwriteExpected) { auDumpToData(amUniqueOutput, expectedData) }
         stopifnot(identical(outputData, getdata(list=c(expectedData))))
@@ -263,8 +264,9 @@ summary_amUniqueWrapper <- function(amUniqueOutput, outputData=NULL, expectedDat
 
         if (overwriteExpected) { file.copy(csvFileActual, csvFileExpected, overwrite = TRUE) }
 
-        # Check that we got the expected output:
+        # Check that we got the expected output, two ways:
         auAssertCsvIdentical(csvFileActual, csvFileExpected)
+        auAssertCsvEqualToExpectedData(csvFileActual)
     }
 
 

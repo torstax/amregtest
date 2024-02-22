@@ -67,18 +67,60 @@ auWriteTsvFile <- function(df, tsvOutFile) {
 ### to and from Data Frames
 ###############################################################################
 
+#' Read .csv file for use in ... ([allelematch::amDataset] ?)
+#'
+#' [allelematch] writes summary file using "," as field delimiter, rather
+#' than ";", expected by [utils::data].
+#'
+#' Quote from `allelematch::amCSV.amUnique`  \cr\cr
+#'
+#' `utils::write.csv(csvTable, file=csvFile, row.names=FALSE)`
+#'
+#' @export
 auReadCsvFile <- function(csvInFile) {
     df <- read.csv(file=csvInFile, colClasses="character", check.names=FALSE)
     readr::problems(df)
     return (df)
 }
 
+#' Write .csv file on the same format as [allelematch]
+#'
+#' [allelematch] writes summary file using "," as field delimiter, rather
+#' than ";", expected by [utils::data].
+#'
+#' Quote from `allelematch::amCSV.amUnique`  \cr\cr
+#'
+#' `utils::write.csv(csvTable, file=csvFile, row.names=FALSE)`
+#'
 auWriteCsvFile <- function(df, csvOutFile) {
     file = auUnixLineBreaks(csvOutFile)
-    write.csv(df, file, row.names=FALSE, quote=TRUE, na = "NA")
+    write.csv(df, file, row.names=FALSE)  # Already defaults in write.csv: , quote=TRUE, na = "NA")
     close(file)
     readr::problems(df)
+
+    # Make sure we can read the same back again:
+    df_read_back = auReadCsvFile(csvOutFile)
+    stopifnot(identical(df_read_back, df))
 }
+
+
+#' Read .csv file written by [allelematch] for comparison with data
+#'
+#' [allelematch] writes summary file using "," as field delimiter, rather
+#' than ";", expected by [utils::data].
+#'
+#' Quote from `allelematch::amCSV.amUnique`  \cr\cr
+#'
+#' `utils::write.csv(csvTable, file=csvFile, row.names=FALSE)`
+#'
+#' @export
+auRead_amCSV <- function(csvInFile) {
+    #   df <- read.csv(file=csvInFile, check.names=FALSE)
+    df <- read.table(file=csvInFile, header=TRUE, sep=",", as.is=FALSE)
+    readr::problems(df)
+    return (df)
+}
+
 
 #
 # auReadCsv2File <- function(csvInFile) {
@@ -136,6 +178,53 @@ auAssertCsvIdentical <- function(actualCsvFile, expectedCsvFile=NULL) {
     }
     cat("   Expected       =  ", expectedCsvFile, "\n", sep="")
     cat("   OK             : Actual identical to Expected. col=", ncol(act), ", row=", nrow(act), "\n", sep="")
+}
+
+#' Verifies that the data in `actualCsvFile` exactly matches that in `expectedData`
+#'
+#' Fetches expected from the [regressiontest] data using [utils::data] \cr
+#' \cr
+#' Note that [allelematch] and [utils::data] differs on the how .csv files
+#' shall be encoded.\cr
+#' o [allelematch] writes .csv files with comma (",") as separator.\cr
+#' o [data] expects .csv files to have semicolon (";") as separator.
+#'
+#' @export
+auAssertCsvEqualToExpectedData <- function(actualCsvFile, expectedData=NULL) {
+    if(is.null(expectedData)) {
+        e = actualCsvFile
+        e = sub("^.*/",    "",         e, perl = TRUE, useBytes = TRUE) # Drop leading directories
+        e = sub("actual",  "expected", e, perl = TRUE, useBytes = TRUE) # One naming convention
+        e = sub("^act_",   "exp_",     e, perl = TRUE, useBytes = TRUE) # Another naming convention
+        e = sub("\\.csv$", "",         e, perl = TRUE, useBytes = TRUE) # Drop the .cvs extension
+        expectedData = e
+    }
+    stopifnot(expectedData != actualCsvFile)
+    if(!file.exists(actualCsvFile)) { stop("actualCsvFile ", actualCsvFile, " does not exist")}
+    if(length(find(expectedData)) == 0) { stop("Can't find expectedData ", expectedData)}
+
+    act = auRead_amCSV(actualCsvFile)
+    exp = getdata(list = c(expectedData))
+
+    if(!identical(names(act), names(exp))) {
+        stop("Actual column names differs from Expected:",
+             "\n   Only in Actual   : ", setdiff(names(act), names(exp)),
+             "\n   Only in Expected : ", setdiff(names(exp), names(act)),
+             "\n   Actual   : ", actualCsvFile,
+             "\n   Expected : data(", expectedData, ") at ", find(expectedData),
+             "\n   Hint     : use arsenal::comparedf to find differences",
+             "\n")
+    }
+
+    if (!isTRUE(all.equal(exp, act, check.attributes = FALSE))) {
+        stop("Actual content differs from Expected:",
+             "\n   Actual   : ", actualCsvFile,
+             "\n   Expected : data(", expectedData, ") at ", find(expectedData),
+             "\n   Hint     : use arsenal::comparedf to find differences",
+             "\n")
+    }
+    cat("   Expected       =  data(", expectedData, ") at ", find(expectedData), "\n", sep="")
+    cat("   OK             : Actual equal to Expected. col=", ncol(act), ", row=", nrow(act), "\n", sep="")
 }
 
 auWarnIfNotExpected <- function(actualCsvFile) {
