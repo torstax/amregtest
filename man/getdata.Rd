@@ -4,10 +4,12 @@
 \alias{getdata}
 \title{Loads and returns a large data set without polluting the global environment.}
 \usage{
-getdata(...)
+getdata(name, ...)
 }
 \arguments{
-\item{...}{All parameters are passed on to \link[utils:data]{utils::data} as is}
+\item{name}{The name (excluding directory and extension) of the data to load}
+
+\item{...}{All other parameters are passed on to \link[utils:data]{utils::data} as is}
 }
 \value{
 the specified data set loaded by \link[utils:data]{utils::data}
@@ -24,6 +26,6 @@ The parameters are the same as for the \link{data} function in package \link{uti
 Thank you @henfiber! See https://stackoverflow.com/questions/30951204/load-dataset-from-r-package-using-data-assign-it-directly-to-a-variable/30951700#30951700
 }
 \examples{
-foo = getdata(amExample1, package = "allelematch")
+foo = getdata("amExample1", package = "allelematch")
 
 }

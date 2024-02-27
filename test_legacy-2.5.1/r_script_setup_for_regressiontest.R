@@ -4,6 +4,8 @@
 # Clear the Environment from old data:
 rm(list = ls())  # Clear the Environment
 
+
+
 #############################
 ### Finding R project dir ###
 #############################
@@ -12,7 +14,7 @@ rm(list = ls())  # Clear the Environment
 stopifnot(file.exists(here::here("R/.")))
 
 # Remember the root directory for this 'regressiontest' package:
-R_PROJ_DIR          = here::here()
+# R_PROJ_DIR          = here::here()
 
 
 #######################

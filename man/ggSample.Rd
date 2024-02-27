@@ -23,14 +23,28 @@ New attempt:
 \tabular{cll}{
 \verb{  } \tab \code{input_Match_references_clean}\tab A reference db containing known individuals\cr
 \verb{  } \tab \code{input_new_samples_clean}\tab A set of new samples from the field to be matched against the reference\cr
-\verb{  } \tab \verb{input_new_samples_clean_split \\ \\ \\ \\. }\tab The new samples cleaned up and alligned with the reference\cr
-\verb{  } \tab \code{output_aMm15_expected}\tab Output after running through \verb{amUnique( alleleMisMatch=15 (??))}...\cr
+\verb{  } \tab \verb{input_new_samples_clean_split \\ \\ \\ \\. }\tab The new samples are cleaned up and alligned with the reference\cr
 \verb{  } \tab \code{output_mThr0.9_expected}\tab Output after running through ...
+\verb{  } \tab \code{output_aMm15_expected}\tab Output after running through \verb{amUnique( alleleMisMatch=15 (??))}...\cr
 }
+NOTE that the output of \link{sort} is platform dependent.
+You get different results based on the locale. And \link{allelematch} uses \link{sort}.\cr\cr
+
+The sort order also depends on the size of the data to be sorted.
+See the description of "radix" under \link{sort}.\cr\cr
+
+\link{testthat} (and R CMD check) makes sure that the tests behave the same way
+on every platform, by setting the collation locale to "C" and the language to "en".\cr
+See issue "locale / collation used in testhat #1181"\cr
+at https://github.com/r-lib/testthat/issues/1181#issuecomment-692851342\cr\cr
 
 as described  that we use to test
 allelmatch backwards compatibility.
 ... saved on the format
+}
+\details{
+The output files have names that describe the called \code{allelematch} functions
+and the parameters that are passed to the same functions.
 }
 \references{
 \url{https://github.com/cran/allelematch}

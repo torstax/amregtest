@@ -2,7 +2,7 @@
 % Please edit documentation in R/au_alparam.R
 \name{auDefaultFileName}
 \alias{auDefaultFileName}
-\title{Turns \link{amUniqueParamString} into a string that can be used in a filename}
+\title{Turns \link{auArgToString} into a string that can be used in a filename}
 \usage{
 auDefaultFileName(...)
 }
@@ -13,5 +13,10 @@ auDefaultFileName(...)
 a string that can be used in a data filename for use in an allelematch regressiontest.
 }
 \description{
-Turns \link{amUniqueParamString} into a string that can be used in a filename
+Here we assume that the arguments in \link{auArgToString} are those
+passed on to an \link{allelematch} function by a \link{regtest} wrapper function. \cr\cr
+}
+\details{
+The filenames are then used to store data for expected and actual output
+from tests.
 }

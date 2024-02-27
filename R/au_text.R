@@ -201,10 +201,17 @@ auAssertCsvEqualToExpectedData <- function(actualCsvFile, expectedData=NULL) {
     }
     stopifnot(expectedData != actualCsvFile)
     if(!file.exists(actualCsvFile)) { stop("actualCsvFile ", actualCsvFile, " does not exist")}
-    if(length(find(expectedData)) == 0) { stop("Can't find expectedData ", expectedData)}
+    # if(length(find(expectedData)) == 0) { stop("Can't find expectedData ", expectedData)}
 
     act = auRead_amCSV(actualCsvFile)
-    exp = getdata(list = c(expectedData))
+    exp = getdata(expectedData, package="regressiontest")
+
+    if(is.null(exp)) { stop("Can't find expectedData ", expectedData)}
+
+    cat("Comparing",
+         "\n   Actual   :", ncol(act), "x", nrow(act), actualCsvFile,
+         "\n   Expected :", ncol(exp), "x", nrow(exp), "data(", expectedData, ") at ", find(expectedData),
+         "\n")
 
     if(!identical(names(act), names(exp))) {
         stop("Actual column names differs from Expected:",
@@ -215,11 +222,21 @@ auAssertCsvEqualToExpectedData <- function(actualCsvFile, expectedData=NULL) {
              "\n   Hint     : use arsenal::comparedf to find differences",
              "\n")
     }
-
-    if (!isTRUE(all.equal(exp, act, check.attributes = FALSE))) {
+    if(nrow(act) != nrow(exp)) {
+        stop("Actual number of rows differs from Expected:",
+             "\n   Actual   :", ncol(act), "x", nrow(act), actualCsvFile,
+             "\n   Expected :", ncol(exp), "x", nrow(exp), "data(", expectedData, ") at ", find(expectedData),
+             "\n   Hint     : use arsenal::comparedf to find differences",
+             "\n")
+    }
+    if (!isTRUE(all.equal(act, exp, check.attributes = FALSE))) {
         stop("Actual content differs from Expected:",
              "\n   Actual   : ", actualCsvFile,
              "\n   Expected : data(", expectedData, ") at ", find(expectedData),
+             "\n",
+             "\n   Calling  : all.equal(act, exp, check.attributes = FALSE)",
+             "\n", capture.output(all.equal(act, exp, check.attributes = FALSE)),
+             "\n",
              "\n   Hint     : use arsenal::comparedf to find differences",
              "\n")
     }

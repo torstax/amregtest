@@ -9,7 +9,7 @@ auLoadDataSet <- function(dataName) {
     # data(dataName, envir = e)
     # Input = e[[dataName]]
 
-    Input = getdata(list = c(dataName))
+    Input = getdata(dataName)
 
     # data("ggSample")
     # Input = ggSample

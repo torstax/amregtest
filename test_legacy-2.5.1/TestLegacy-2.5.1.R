@@ -1,31 +1,19 @@
 ####################################
 ### Setup for scripted execution ###
 ####################################
-#
-# valToString <- function(val) {
-#     switch(type(val))
-# }
-#
-# nosa <- function(prelude=NULL, ...) {
-#     # form the ... arguments into a string on the form "<name1>=<value1>, <name2>=<value2> ..."
-#     v = character(...length()) # Reserve space for a vector of strings
-#     name = ...names()          # Get the argument names
-#
-#     # Paste together <name>=<value> pairs
-#     for(n in 1:...length()) v[n] = paste(name[n], ...elt(n), sep="=")
-#
-#     # Return a string were the pairs are ", " -separated:
-#     paste0(v, collapse=", ")
-# }
-#
-# cat(nosa(hej=1, hopp=2, hammarslojd="kaffe med dopp"), "\n")
-#
-# stop("Enough for today", call. = FALSE)
 
 # Check that we are standing in a relevant directory
 setupScript="test_legacy-2.5.1/r_script_setup_for_regressiontest.R"
 here::i_am(setupScript)
 source(here::here(setupScript))
+
+# Set standardized locale so that the calls to 'sort' in allelematch
+# work the same regardless on what machine our tests are executed on.
+# See issue locale / collation used in testhat #1181
+#  at https://github.com/r-lib/testthat/issues/1181#issuecomment-692851342
+withr::local_collate("C")
+withr::local_language("en")
+Sys.getlocale()
 
 
 wantedVersion    = "2.5.3"
@@ -35,7 +23,7 @@ stopifnot(wantedVersion == toString(packageVersion("allelematch")))
 
 cat("\nTestLegacy-2.5.1: About to test that allelematch ", toString(packageVersion("allelematch")), " is compatible with 2.5.1\n")
 
-if (TRUE) {
+if (FALSE) {
     outputDir = here::here("test_legacy-2.5.1/")
     outputDir = here::here("data/")
     regressiontest::testDataSet(dataSetDir = outputDir);
@@ -44,11 +32,24 @@ if (TRUE) {
     # ggDataSet = auLoadDataSet("ggSample")
     outputDir = here::here("test_legacy-2.5.1/")
     outputDir = here::here("data/")
+    expectedData = "output_mThr0.9_expected"
+    summaryCsv= paste(outputDir, "/", "output_mThr0.9_actual.csv", sep="")
+
     # data(ggSample)
     ggDataSet = allelematch::amDataset(getdata(ggSample), indexColumn=1, missingCode="-99")
 
-    amUniqueWrapper(ggDataSet, matchThreshold=0.9, expectedData="output_mThr0.9_expected", summary=TRUE)
-    readr::problems()
+    amUniqueOutput = amUniqueWrapper(ggDataSet, matchThreshold=0.9)
+    # amUniqueOutput_mThr0.9_expected = amUniqueWrapper(ggDataSet, matchThreshold=0.9)
+    # dump(list = c("amUniqueOutput_mThr0.9_expected"), file="amUniqueOutput_mThr0.9_expected.R")
+
+    # Generate a summary to a .csv file:
+    allelematch::summary.amUnique(amUniqueOutput, csv=summaryCsv)
+
+    # actualSummary = read.csv(file=summaryCsv, check.names=FALSE) # auReadSummary(summaryCsv)
+    actualSummary = auRead_amCSV(summaryCsv)
+    readr::problems(df)
+
+    auAssertCsvEqualToExpectedData(summaryCsv, expectedData)
 
     #regressiontest::testDataSet(dataSetDir = paste(R_PROJ_DIR, "/test_legacy-2.5.1/", sep=""));
     warnings()

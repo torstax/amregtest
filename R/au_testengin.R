@@ -52,61 +52,7 @@ auRestartR <- function() {
     stop()
 }
 
-
-#' Runs a set of tests on the supplied dataset
-#'
-#' @description
-#' `testDataSet` feeds the specified test data set to [allelematch].
-#' After exercising `allelematch`, the resulting output files are compared
-#' to the expected. If they are identical, the test passes.
-#'
-#' @details
-#' `testDataSet` is the entry point for the `regressiontest` package.
-#'
-#' Both input and output data files in `dataSetDir` have predefined names.
-#'
-#' The input files are called "input_new_samples.txt" and "input_Match_references.txt".
-#' The input files are read into data frames at the start of `testDataSet`.
-#' The same input data is used in all calls to the `allelematch` functions
-#' to be tested.
-#'
-#' The output files have names that describe the called `allelematch` functions
-#' and the parameters that are passed to the same functions.
-#'
-#' @param dataSetDir The directory that contains the data sets to be tested. (string)
-#'
-#' @returns TODO: Change to return TRUE on success and FALSE on failure.
-#'
-#    Find another @ example test_legacy-2.5.1/TestLegacy-2.5.1.R
-#'
-#' @export
-testDataSet <- function(dataSetDir = "data/") {
-
-    cat("\nTesting allelematch ", toString(packageVersion("allelematch")))
-    outputDir = strcat("", dataSetDir)
-
-    dataSetName = "ggSample"
-    inputDataSet <- auLoadDataSet(dataSetName)
-
-    # Run the tests of interest on the created amDataset:
-    analyzeMatchThreshold(inputDataSet, outputDir=outputDir, outputFile = )
-    analyzeAleleMismatch( inputDataSet, outputDir=outputDir)
-
-    readr::problems()
-    warnings()
-}
-
-analyzeMatchThreshold <- function(inputDataSet, matchThreshold=0.9, maxMissing=10, outputDir, outputFile="output_mThr0.9_actual.csv") {
-    analyzeUnique(inputDataSet, matchThreshold=matchThreshold, maxMissing=NULL, outputDir=outputDir, outputFile=outputFile)
-    readr::problems()
-}
-
-analyzeAleleMismatch <- function(inputDataSet, dataDirectory, alleleMismatch=15, maxMissing=10, outputDir, outputFile="output_aMm15_actual.csv") {
-    analyzeUnique(inputDataSet, alleleMismatch=alleleMismatch, maxMissing=NULL, outputDir=outputDir, outputFile=outputFile)
-    readr::problems()
-}
-
-validateParams <- function(amDatasetFocal, paramString, outputData, expectedData, summary, overwriteExpected) {
+KGBH_validateParams <- function(amDatasetFocal, paramString, outputData, expectedData, summary, overwriteExpected) {
 
     # Validate the input parameters:
     stopifnot(inherits(amDatasetFocal, "amDataset"))
@@ -149,46 +95,6 @@ validateParams <- function(amDatasetFocal, paramString, outputData, expectedData
     return(outputData)
 }
 
-analyzeUnique <- function(amDatasetFocal, multilocusMap=NULL, alleleMismatch=NULL, matchThreshold=NULL, cutHeight=NULL, maxMissing=NULL, doPsib="missing", outputDir, outputFile) {
-
-    # Validate the input parameters:
-    #paramString=amUniqueParamString(...)
-    #outputData = validateParams(amDatasetFocal, paramString, expectedData, summary, overwriteExpected)
-    #if(is.null(outputData)) { outputData=auDefaultFileName(...)}
-    #outputFile = paste0("output", outputData, "_actual.csv") # TODO: Ugly! Rewrite!
-    #outputDir="test_legacy-2.5.1/"
-
-    cat("\nTestLegacy-2.5.1: About to call amUnique\n", sep="")
-    cat("   outputDir      = ", outputDir, "\n")
-    cat("   outputFile     = ", outputFile,  "\n")
-    B2_allelmatch_uniqueAnalysis <- amUniqueWrapper(amDatasetFocal, multilocusMap=multilocusMap, alleleMismatch=alleleMismatch, matchThreshold=matchThreshold, cutHeight=cutHeight, doPsib=doPsib, verbose=TRUE)
-
-    csvFile = strcat(outputDir, "//", outputFile)
-    csvBinary = auUnixLineBreaks(csvFile) # Use raw mode to write unix LF line breaks rather than windows CRLF
-
-    cat("\nTestLegacy-2.5.1: About to call summary.amUnique", "\n")
-    cat("   outputFile     = ", csvFile, "\n")
-    summary.amUnique(B2_allelmatch_uniqueAnalysis, csv=csvBinary) # csv=csvFile)
-    close(csvBinary)
-
-    # Make it easier to verify that the output is still good:
-    # auSortCsvFile(      csvFile )
-    # auMakeBriefCsvFile( csvFile )
-    # auAssertCsvIdentical(   csvFile )
-    auAssertCsvEqualToExpectedData(csvFile)
-
-    if(IS_BRIEF_AMUNIQUE_SUPPORTED_BY_ALLELEMATCH) {
-        outputFile = sub(".csv", "_brief.csv", outputFile, fixed=TRUE)
-        cat("   outputFile     = ", outputFile,  "\n")
-        briefFile = strcat(outputDir, outputFile)
-        briefBinary = auUnixLineBreaks(briefFile)
-        summary.amUnique(B2_allelmatch_uniqueAnalysis, brief=briefBinary)
-        close(briefBinary)
-
-        auSortCsvFile(briefFile);
-    }
-}
-
 
 #' Wrapper around [allelematch::amUnique] that adds logging
 #'
@@ -207,9 +113,9 @@ analyzeUnique <- function(amDatasetFocal, multilocusMap=NULL, alleleMismatch=NUL
 amUniqueWrapper <- function(amDatasetFocal, ...) {
 
     # Validate the input parameters:
-    paramString=amUniqueParamString(...)
+    argString=auArgToString(...)
 
-    cat("   With params    : \"", paramString, "\"\n", sep="")
+    cat("   With params    : \"", argString, "\"\n", sep="")
     startTime <- Sys.time()
 
     amUniqueResult <- amUnique(amDatasetFocal=amDatasetFocal, ...)
@@ -237,7 +143,7 @@ amUniqueWrapper <- function(amDatasetFocal, ...) {
 summary_amUniqueWrapper <- function(amUniqueOutput, outputData=NULL, expectedData, summary=FALSE, overwriteExpected=FALSE) {
 
     # Validate the input parameters:
-#    paramString=amUniqueParamString(...)
+#    paramString=auArgToString(...)
 #    outputData = validateParams(amDatasetFocal, paramString, expectedData, summary, overwriteExpected)
 
 
@@ -248,7 +154,7 @@ summary_amUniqueWrapper <- function(amUniqueOutput, outputData=NULL, expectedDat
     if (!summary) { # TODO: BREAK OUT OF THIS FUNCTION!
         # Dump as a data/*.R file that is more than 10 times bigger than the analyzed .csv file:
         if (overwriteExpected) { auDumpToData(amUniqueOutput, expectedData) }
-        stopifnot(identical(outputData, getdata(list=c(expectedData))))
+        stopifnot(identical(outputData, getdata(expectedData)))
     } else {
         # Generate a much smaller 'summary' file:
         csvFileActual   = strcat("data/", outputData,   ".csv")

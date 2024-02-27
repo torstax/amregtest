@@ -17,7 +17,7 @@
 #' @export
 #'
 # ' @examples
-amUniqueParamString <- function(...) {
+auArgToString <- function(...) {
     # form the `...` arguments into a string on the form "<name1>=<value1>, <name2>=<value2> ..."
     v = character(...length()) # Reserve space for a vector of strings
 
@@ -29,12 +29,17 @@ amUniqueParamString <- function(...) {
     v = v[! v == "=NULL"]
 
     # Return a string were the pairs are ", " -separated:
-    # paste0(v, collapse=", ")
-    paste0(v, collapse=", ")
+    paste(v, collapse=", ")
 }
 
 
-#' Turns [amUniqueParamString] into a string that can be used in a filename
+#' Turns [auArgToString] into a string that can be used in a filename
+#'
+#' Here we assume that the arguments in [auArgToString] are those
+#' passed on to an [allelematch] function by a [regtest] wrapper function. \cr\cr
+#'
+#' The filenames are then used to store data for expected and actual output
+#' from tests.
 #'
 #' @param ...
 #'
@@ -44,7 +49,7 @@ amUniqueParamString <- function(...) {
 # ' @examples
 auDefaultFileName <- function(...) {
 
-    s = amUniqueParamString(...)
+    s = auArgToString(...)
 
     # Screen out default values parameters:
     s = sub("multilocusMap=NULL, ",   "", s)

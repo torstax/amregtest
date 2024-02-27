@@ -48,9 +48,9 @@ NULL
 #'  `  ` \tab `input_Match_references_clean`\tab A reference db containing known individuals\cr
 #'  `  ` \tab `input_new_samples_clean`\tab A set of new samples from the field to be matched against the reference\cr
 #'  `  ` \tab `input_new_samples_clean_split \ \ \ \.
-#'  `\tab The new samples cleaned up and alligned with the reference\cr
-#'  `  ` \tab `output_aMm15_expected`\tab Output after running through `amUnique( alleleMisMatch=15 (??))`...\cr
+#'  `\tab The new samples are cleaned up and alligned with the reference\cr
 #'  `  ` \tab `output_mThr0.9_expected`\tab Output after running through ...
+#'  `  ` \tab `output_aMm15_expected`\tab Output after running through `amUnique( alleleMisMatch=15 (??))`...\cr
 #' }
 
 
@@ -60,7 +60,16 @@ NULL
 #  '  \item{`output_aMm15_expected`}{   Output after running through `amUnique(alleleMisMatch=15 (??))`...}
 #  '  \item{`output_mThr0.9_expected`}{   Output after running through ...}
 
-
+#' NOTE that the output of [sort] is platform dependent.
+#' You get different results based on the locale. And [allelematch] uses [sort].\cr\cr
+#'
+#' The sort order also depends on the size of the data to be sorted.
+#' See the description of "radix" under [sort].\cr\cr
+#'
+#' [testthat] (and R CMD check) makes sure that the tests behave the same way
+#' on every platform, by setting the collation locale to "C" and the language to "en".\cr
+#' See issue "locale / collation used in testhat #1181"\cr
+#'  at https://github.com/r-lib/testthat/issues/1181#issuecomment-692851342\cr\cr
 #'
 #' @docType data
 #' @keywords data
@@ -122,6 +131,9 @@ NULL
 #' allelmatch backwards compatibility.
 #' ... saved on the format
 #'
+#' The output files have names that describe the called `allelematch` functions
+#' and the parameters that are passed to the same functions.
+#'
 #' @name ggSample
 #' @docType data
 #' @references \url{https://github.com/cran/allelematch}
@@ -159,17 +171,19 @@ NULL
 #'
 #' Thank you @henfiber! See https://stackoverflow.com/questions/30951204/load-dataset-from-r-package-using-data-assign-it-directly-to-a-variable/30951700#30951700
 #'
-#' @param ... All parameters are passed on to [utils::data] as is
+#' @param name The name (excluding directory and extension) of the data to load
+#' @param ...  All other parameters are passed on to [utils::data] as is
 #'
 #' @returns the specified data set loaded by [utils::data]
 #'
-#' @examples foo = getdata(amExample1, package = "allelematch")
+#' @examples foo = getdata("amExample1", package = "allelematch")
 #'
 #' @export
-getdata <- function(...)
+getdata <- function(name, ...)
 {
+    stopifnot(is.character(name))
     e <- new.env()
-    name <- utils::data(..., envir = e)[1]
+    name <- utils::data(list = c(name), ..., envir = e)[1]
     e[[name]]
 }
 
@@ -210,7 +224,7 @@ auImportToLocalData <- function(package, remoteName, localName=remoteName, dir=N
 
     if (is.null(dir)) {
         # Copy data from remote package to local:
-        remoteData = getdata(list = c(remoteName), package=package)
+        remoteData = getdata(remoteName, package=package)
     } else {
         # Copy data from remote directory (and ignore package):
         load(file=strcat(dir, "/", remoteName, ".RData"), e <- new.env(), verbose=TRUE)
@@ -219,7 +233,7 @@ auImportToLocalData <- function(package, remoteName, localName=remoteName, dir=N
     auDumpToData(remoteData, localName)
 
     # Verify that the local copy is identical to the remote original:
-    localData  = getdata(list = c(localName))
+    localData  = getdata(localName)
     stopifnot(identical(remoteData, localData))
 }
 
@@ -261,8 +275,8 @@ auImportAmExamplesToLocalData <- function(dir=NULL) {
 #'
 #  ' @examples
 auAssertLocalDataIdentical <- function(package, remoteName, localName=remoteName) {
-    remoteData = getdata(list = c(remoteName), package=package)
-    localData  = getdata(list = c(localName))
+    remoteData = getdata(remoteName, package=package)
+    localData  = getdata(localName)
     stopifnot(identical(remoteData, localData))
 }
 
