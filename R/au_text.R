@@ -42,46 +42,9 @@ auUnixLineBreaks <- function(fileName) {
 }
 
 ###############################################################################
-### Reading and writing TSV files containing allelematch input
-### to and from Data Frames
-###############################################################################
-
-auReadTsvFile <- function(tsvInFile) {
-    # Read file with new samples from the sequencer robot:
-    # Note that strings that start with an integer are not valid column names
-    # They are prefixed with X by read_delim; "16S1_Gg291" becomes "X16S1_Gg291".
-    newSamples <- readr::read_tsv(tsvInFile, name_repair = make.names, col_types = cols(.default = col_character()))
-    readr::problems(newSamples)
-    return(newSamples)
-}
-
-auWriteTsvFile <- function(df, tsvOutFile) {
-    file=auUnixLineBreaks(tsvOutFile) # Open in binary mode to be able to use LF without CR as newline on Windows
-    write.table(df, file, sep="\t", row.names=FALSE, quote=FALSE)
-    close(file)
-}
-
-
-###############################################################################
 ### Reading and writing CSV files containing allelematch output
 ### to and from Data Frames
 ###############################################################################
-
-#' Read .csv file for use in ... ([allelematch::amDataset] ?)
-#'
-#' [allelematch] writes summary file using "," as field delimiter, rather
-#' than ";", expected by [utils::data].
-#'
-#' Quote from `allelematch::amCSV.amUnique`  \cr\cr
-#'
-#' `utils::write.csv(csvTable, file=csvFile, row.names=FALSE)`
-#'
-#' @export
-auReadCsvFile <- function(csvInFile) {
-    df <- read.csv(file=csvInFile, colClasses="character", check.names=FALSE)
-    readr::problems(df)
-    return (df)
-}
 
 #' Write .csv file on the same format as [allelematch]
 #'
@@ -92,15 +55,31 @@ auReadCsvFile <- function(csvInFile) {
 #'
 #' `utils::write.csv(csvTable, file=csvFile, row.names=FALSE)`
 #'
-auWriteCsvFile <- function(df, csvOutFile) {
+#' @param df            Data to be written on [allelematch] summary format
+#' @param csvOutFile    The file to write to
+#'
+auWrite_amCSV <- function(df, csvOutFile) {
     file = auUnixLineBreaks(csvOutFile)
     write.csv(df, file, row.names=FALSE)  # Already defaults in write.csv: , quote=TRUE, na = "NA")
     close(file)
-    readr::problems(df)
 
     # Make sure we can read the same back again:
-    df_read_back = auReadCsvFile(csvOutFile)
+    df_read_back = auRead_amCSV(csvOutFile)
     stopifnot(identical(df_read_back, df))
+}
+
+#' Read gg style .csv file for use in ... ([allelematch::amDataset] ?)
+#'
+#' The format of the data to be analyzed by `allelematch`
+#' is outside of the control by `allelematch`. So, the format read by this function
+#' is specific to this package rather than to `allelematch`.
+#'
+#' @param   csvInFile Dir, name and extension for the .csv file to be read
+#'
+#' @export
+auReadCsvFile <- function(csvInFile) {
+    df <- read.csv(file=csvInFile, colClasses="character", check.names=FALSE)
+    return (df)
 }
 
 
@@ -108,26 +87,20 @@ auWriteCsvFile <- function(df, csvOutFile) {
 #'
 #' [allelematch] writes summary file using "," as field delimiter, rather
 #' than ";", expected by [utils::data].
-#'
-#' Quote from `allelematch::amCSV.amUnique`  \cr\cr
-#'
+#' \cr
+#' Quote from `allelematch::amCSV.amUnique`  \cr
+#' \cr
 #' `utils::write.csv(csvTable, file=csvFile, row.names=FALSE)`
+#'
+#' @param   csvInFile Dir, name and extension for the .csv file to be read
 #'
 #' @export
 auRead_amCSV <- function(csvInFile) {
     #   df <- read.csv(file=csvInFile, check.names=FALSE)
     df <- read.table(file=csvInFile, header=TRUE, sep=",", as.is=FALSE)
-    readr::problems(df)
     return (df)
 }
 
-
-#
-# auReadCsv2File <- function(csvInFile) {
-#     df <- read.csv2(file=csvInFile)
-#     readr::problems(df)
-#     return (df)
-# }
 
 #' Write .csv file on format accepted by [utils::data] and excel.
 #'
@@ -154,9 +127,6 @@ auWriteCsv2File <- function(df, csvOutFile) {
         # readDf = auReadCsvFile(csvOutFile)
         # stopifnot(identical(df, readDf))
     }
-    readr::problems(df)
-
-
 }
 
 ###############################################################################
@@ -164,30 +134,21 @@ auWriteCsv2File <- function(df, csvOutFile) {
 ### Assumes that the two files are called *_actual* and *_expected*
 ###############################################################################
 
-auAssertCsvIdentical <- function(actualCsvFile, expectedCsvFile=NULL) {
-    if(is.null(expectedCsvFile)) { expectedCsvFile <- gsub("_actual", "_expected", actualCsvFile) }
-    stopifnot(expectedCsvFile != actualCsvFile)
-
-    act = auReadCsvFile(actualCsvFile)
-    exp = auReadCsvFile(expectedCsvFile)
-
-    if (!identical(exp, act)) {
-        stop("Actual content differs from Expected:",
-             "\n   Actual   : ", actualCsvFile,
-             "\n   Expected : ", expectedCsvFile)
-    }
-    cat("   Expected       =  ", expectedCsvFile, "\n", sep="")
-    cat("   OK             : Actual identical to Expected. col=", ncol(act), ", row=", nrow(act), "\n", sep="")
-}
-
 #' Verifies that the data in `actualCsvFile` exactly matches that in `expectedData`
 #'
 #' Fetches expected from the [regressiontest] data using [utils::data] \cr
 #' \cr
-#' Note that [allelematch] and [utils::data] differs on the how .csv files
+#' Note that [allelematch] and [utils::data] differs on how .csv files
 #' shall be encoded.\cr
+#' \cr
 #' o [allelematch] writes .csv files with comma (",") as separator.\cr
-#' o [data] expects .csv files to have semicolon (";") as separator.
+#' o [data] expects .csv files to have semicolon (";") as separator.\cr
+#' \cr
+#' So, the separators in the old output from `allelematch` have been changed to semicolon (";")
+#' in order to become `expectedData`
+#'
+#' @param actualCsvFile New output from `allelematch` to be compared to `expectedData`
+#' @param expectedData  Old output from `allelematch` used to verify that `allelematch` is still backwards compatible.
 #'
 #' @export
 auAssertCsvEqualToExpectedData <- function(actualCsvFile, expectedData=NULL) {

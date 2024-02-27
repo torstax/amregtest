@@ -18,15 +18,6 @@ Large data sets gathered from field work in 2022.
 \verb{  } \tab \code{output_aMm15_expected}\tab \tab Output after running through \verb{amUnique( alleleMisMatch=15 (??))}...\cr
 \verb{  } \tab \code{output_mThr0.9_expected}\tab \tab Output after running through ...
 }
-New attempt:
-
-\tabular{cll}{
-\verb{  } \tab \code{input_Match_references_clean}\tab A reference db containing known individuals\cr
-\verb{  } \tab \code{input_new_samples_clean}\tab A set of new samples from the field to be matched against the reference\cr
-\verb{  } \tab \verb{input_new_samples_clean_split \\ \\ \\ \\. }\tab The new samples are cleaned up and alligned with the reference\cr
-\verb{  } \tab \code{output_mThr0.9_expected}\tab Output after running through ...
-\verb{  } \tab \code{output_aMm15_expected}\tab Output after running through \verb{amUnique( alleleMisMatch=15 (??))}...\cr
-}
 NOTE that the output of \link{sort} is platform dependent.
 You get different results based on the locale. And \link{allelematch} uses \link{sort}.\cr\cr
 

@@ -6,12 +6,14 @@
 \usage{
 auRead_amCSV(csvInFile)
 }
+\arguments{
+\item{csvInFile}{Dir, name and extension for the .csv file to be read}
+}
 \description{
 \link{allelematch} writes summary file using "," as field delimiter, rather
 than ";", expected by \link[utils:data]{utils::data}.
-}
-\details{
-Quote from \code{allelematch::amCSV.amUnique}  \cr\cr
-
+\cr
+Quote from \code{allelematch::amCSV.amUnique}  \cr
+\cr
 \code{utils::write.csv(csvTable, file=csvFile, row.names=FALSE)}
 }

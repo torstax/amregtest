@@ -6,11 +6,20 @@
 \usage{
 auAssertCsvEqualToExpectedData(actualCsvFile, expectedData = NULL)
 }
+\arguments{
+\item{actualCsvFile}{New output from \code{allelematch} to be compared to \code{expectedData}}
+
+\item{expectedData}{Old output from \code{allelematch} used to verify that \code{allelematch} is still backwards compatible.}
+}
 \description{
 Fetches expected from the \link{regressiontest} data using \link[utils:data]{utils::data} \cr
 \cr
-Note that \link{allelematch} and \link[utils:data]{utils::data} differs on the how .csv files
+Note that \link{allelematch} and \link[utils:data]{utils::data} differs on how .csv files
 shall be encoded.\cr
+\cr
 o \link{allelematch} writes .csv files with comma (",") as separator.\cr
-o \link{data} expects .csv files to have semicolon (";") as separator.
+o \link{data} expects .csv files to have semicolon (";") as separator.\cr
+\cr
+So, the separators in the old output from \code{allelematch} have been changed to semicolon (";")
+in order to become \code{expectedData}
 }

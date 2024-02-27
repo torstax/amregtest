@@ -13,12 +13,12 @@ see ????
 }
 \details{
 Roxygen uses the tags in our R/*.R files to automatically update the NAMESPACE
-file.
+file. \cr\cr
 
 See https://cran.r-project.org/doc/manuals/R-exts.html#Package-Dependencies
 for how to manually add needed packages to the 'Imports' 'Depends', 'Suggests'
-or 'Enhances' statements in the DESCRIPTION file.
+or 'Enhances' statements in the DESCRIPTION file. \cr\cr
 
 Hint: Use \code{pak::pkg_deps_tree(package)} (e.g. pak::pkg_deps_tree("dplyr"))
-to see the package dependencies.
+to see the package dependencies. \cr\cr
 }

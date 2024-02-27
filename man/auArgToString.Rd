@@ -7,7 +7,7 @@
 auArgToString(...)
 }
 \arguments{
-\item{...}{}
+\item{...}{The arguments to be converted to text}
 }
 \value{
 a string of \if{html}{\out{<name>}}=\if{html}{\out{<value>}} pairs

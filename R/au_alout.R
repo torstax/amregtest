@@ -8,16 +8,15 @@ auSortDfByIndexes <- function(df) {
 
     # sort the table by key columns (ignore case)
     df <- df[with(df, order(uniqueIndex, matchIndex)), ]
-    readr::problems(df)
 
     return(df)
 }
 
 auSortCsvFile <- function(csvInFile) {
-    df <- auReadCsvFile(csvInFile)
+    df <- auRead_amCSV(csvInFile)
     df <- auSortDfByIndexes(df)
     csvOutFile <- gsub(".csv", ".sorted.csv", csvInFile)
-    auWriteCsvFile(df, csvOutFile)
+    auWrite_amCSV(df, csvOutFile)
 }
 
 
@@ -46,9 +45,9 @@ auMakeBriefDf <- function(df) {
 }
 
 auMakeBriefCsvFile <- function(csvInFile) {
-    df <- auReadCsvFile(csvInFile)
+    df <- auRead_amCSV(csvInFile)
     df <- auMakeBriefDf(df)
     csvOutFile <- gsub(".csv", ".brief.csv", csvInFile)
-    auWriteCsvFile(df, csvOutFile)
+    auWrite_amCSV(df, csvOutFile)
 }
 

@@ -42,16 +42,6 @@ NULL
 #'  `  ` \tab `output_aMm15_expected`\tab \tab Output after running through `amUnique( alleleMisMatch=15 (??))`...\cr
 #'  `  ` \tab `output_mThr0.9_expected`\tab \tab Output after running through ...
 #' }
-#' New attempt:
-#'
-#' \tabular{cll}{
-#'  `  ` \tab `input_Match_references_clean`\tab A reference db containing known individuals\cr
-#'  `  ` \tab `input_new_samples_clean`\tab A set of new samples from the field to be matched against the reference\cr
-#'  `  ` \tab `input_new_samples_clean_split \ \ \ \.
-#'  `\tab The new samples are cleaned up and alligned with the reference\cr
-#'  `  ` \tab `output_mThr0.9_expected`\tab Output after running through ...
-#'  `  ` \tab `output_aMm15_expected`\tab Output after running through `amUnique( alleleMisMatch=15 (??))`...\cr
-#' }
 
 
 #  '  \item{`input_Match_references_clean`}{   A reference db containing known individuals}
@@ -206,7 +196,6 @@ auDumpToData <- function(df, outName, dir = "data") {
     # base::dump(list = c(outName), file, control = "all", envir = e)
     base::dump(list = c(outName), file, envir = e)
     close(file)
-    # readr::problems(df)
 }
 
 #' Load data from remote package and dump it to .R file in local data directory

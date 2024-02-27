@@ -7,14 +7,14 @@
 auDefaultFileName(...)
 }
 \arguments{
-\item{...}{}
+\item{...}{The \code{allelematch} parameters to abbreviate into a file name.}
 }
 \value{
-a string that can be used in a data filename for use in an allelematch regressiontest.
+a string that can be used in a data file name for use in an allelematch regressiontest.
 }
 \description{
 Here we assume that the arguments in \link{auArgToString} are those
-passed on to an \link{allelematch} function by a \link{regtest} wrapper function. \cr\cr
+passed on to an \link{allelematch} function by a \link{regressiontest} wrapper function. \cr\cr
 }
 \details{
 The filenames are then used to store data for expected and actual output

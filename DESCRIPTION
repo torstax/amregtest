@@ -17,8 +17,8 @@ LitrId: acf3a14b7ece67e1af6aab2f500d31a5
 Config/testthat/edition: 3
 Imports: 
     allelematch,
-    data.table,
-    readr,
+    testthat (>= 3.0.0),
+    withr,
     remotes,
     rstudioapi
 Suggests:
@@ -26,5 +26,4 @@ Suggests:
     knitr,
     dplyr,
     devtools,
-    roxygen2,
-    testthat (>= 3.0.0)
+    roxygen2

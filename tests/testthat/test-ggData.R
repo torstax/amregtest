@@ -20,6 +20,10 @@ test_that("Test something", code = {
 
 test_that("amUnique(matchThreshold=0.9) for dataset ggSample", code = {
 
+    skip_if(Sys.getenv("SKIP_SLOW_TESTS") == "TRUE")
+    # Type Sys.setenv(SKIP_SLOW_TESTS = "TRUE") from the console to skip,
+    # Type Sys.unsetenv("SKIP_SLOW_TESTS") to enable again
+
     # Log result files early:
     summaryCsv  = paste(tempdir(), "/output_mThr0.9_actual.csv", sep="")
     expectedData= "output_mThr0.9_expected"
@@ -49,6 +53,7 @@ test_that("amUnique(matchThreshold=0.9) for dataset ggSample", code = {
 })
 
 test_that("amUnique(alleleMismatch=15) for dataset ggSample", code = {
+    skip_if(Sys.getenv("SKIP_SLOW_TESTS") == "TRUE")
 
     # Log result files early:
     summaryCsv  = paste(tempdir(), "/output_aMm15_actual.csv", sep="")

@@ -11,7 +11,7 @@
 #'
 #' For use when logging the input to a function that takes `...` parameters.
 #'
-#' @param ...
+#' @param ... The arguments to be converted to text
 #'
 #' @return a string of <name>=<value> pairs
 #' @export
@@ -36,14 +36,14 @@ auArgToString <- function(...) {
 #' Turns [auArgToString] into a string that can be used in a filename
 #'
 #' Here we assume that the arguments in [auArgToString] are those
-#' passed on to an [allelematch] function by a [regtest] wrapper function. \cr\cr
+#' passed on to an [allelematch] function by a [regressiontest] wrapper function. \cr\cr
 #'
 #' The filenames are then used to store data for expected and actual output
 #' from tests.
 #'
-#' @param ...
+#' @param ... The `allelematch` parameters to abbreviate into a file name.
 #'
-#' @return a string that can be used in a data filename for use in an allelematch regressiontest.
+#' @return a string that can be used in a data file name for use in an allelematch regressiontest.
 #' @export
 #'
 # ' @examples

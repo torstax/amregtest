@@ -2,16 +2,15 @@
 % Please edit documentation in R/au_text.R
 \name{auReadCsvFile}
 \alias{auReadCsvFile}
-\title{Read .csv file for use in ... (\link[allelematch:amDataset]{allelematch::amDataset} ?)}
+\title{Read gg style .csv file for use in ... (\link[allelematch:amDataset]{allelematch::amDataset} ?)}
 \usage{
 auReadCsvFile(csvInFile)
 }
-\description{
-\link{allelematch} writes summary file using "," as field delimiter, rather
-than ";", expected by \link[utils:data]{utils::data}.
+\arguments{
+\item{csvInFile}{Dir, name and extension for the .csv file to be read}
 }
-\details{
-Quote from \code{allelematch::amCSV.amUnique}  \cr\cr
-
-\code{utils::write.csv(csvTable, file=csvFile, row.names=FALSE)}
+\description{
+The format of the data to be analyzed by \code{allelematch}
+is outside of the control by \code{allelematch}. So, the format read by this function
+is specific to this package rather than to \code{allelematch}.
 }
