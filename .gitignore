@@ -4,6 +4,7 @@
 .RDS
 .Ruserdata
 data/*_actual.csv
+tests/testthat/*.pdf
 *.foo
 *.hidden
 

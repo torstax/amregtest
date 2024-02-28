@@ -1,34 +1,12 @@
-# library(testthat);
-# # context("Temperature function testing");
-# library(allelematch)
-# library(regressiontest);
-# #library(remotes)
 
-
-test_that("I can use the second edition of testthat", code = {
-    testthat::local_edition(2)
-    expect_true(TRUE)
+test_that("We are running the 3rd edition of testthat", code = {
+    testthat::expect_gte(!!testthat::edition_get(), 3)
 })
 
-
-test_that("I can use the 3rd edition of testthat", code = {
-    testthat::local_edition(3)
-    expect_true(TRUE)
-})
-
-
-test_that("Wanted version of of package allelematch is loaded", code = {
-
-    wantedVersion = "2.5.3"
-    actualVersion = toString(utils::packageVersion("allelematch")) # auAssertAllelematchVersion(wantedVersion)
-    # if(!identical(actualVersion, wantedVersion)){warning("Unexpected version=", actualVersion, " of allelematch. Expected ", wantedVersion)}
-    testthat::expect_identical( actualVersion, wantedVersion )
-})
-
-
-test_that("amExample1 results from sample usage in allelematchSuppDoc.pdf is 2.5.3 compatible", code = {
+test_that("amExample1 from allelematchSuppDoc.pdf is 2.5.3 compatible", code = {
 
     # Follow the instructions from allelematchSuppDoc.pdf:
+    # Test the results within curly brackets ("{ ... }") below the instructions.
     data("amExample1")
     example1 <- amDataset(amExample1, indexColumn="sampleId", ignoreColumn="knownIndividual", missingCode="-99")
     {
@@ -37,21 +15,26 @@ test_that("amExample1 results from sample usage in allelematchSuppDoc.pdf is 2.5
         testthat::expect_identical( example1, getdata("exp_01_00"))
     }
 
-    profileOutput = capture.output(
+    output = capture.output(
         amUniqueProfile(example1, doPlot=TRUE), type = c("output")
     )
     {
         # Ensure that the result is still the same as that from 2.5.3:
-        # cat("\nOutput from amUniqueProfile:\n", profileOutput, "\nEnd of output\n", sep="\n    ")
+        # cat("\nOutput from amUniqueProfile:\n", output, "\nEnd of output\n", sep="\n    ")
 
-        testthat::expect_output(cat(profileOutput), regexp = "missing data load for input dataset is 0.005", fixed=TRUE)
-        testthat::expect_output(cat(profileOutput), regexp = "allelic diversity for input dataset is 6.1", fixed=TRUE)
-        testthat::expect_output(cat(profileOutput), regexp = "Best guess for optimal parameter at alleleMismatch=2 OR matchThreshold=0.9 OR cutHeight=0.1", fixed=TRUE)
-        testthat::expect_output(cat(profileOutput), regexp = "Best guess for unique profile morphology: ZeroSecondMinimum", fixed=TRUE)
+        testthat::expect_match(output, "missing data load for input dataset is 0.005 ", fixed=TRUE, all=FALSE)
+        testthat::expect_match(output, "allelic diversity for input dataset is 6.1 ", fixed=TRUE, all=FALSE)
+        testthat::expect_match(output, "Best guess for optimal parameter at alleleMismatch=2 OR matchThreshold=0.9 OR cutHeight=0.1", fixed=TRUE, all=FALSE)
+        testthat::expect_match(output, "Best guess for optimal parameter at alleleMismatch=2 OR matchThreshold=0.9 OR cutHeight=0.1$", all=FALSE)
+        testthat::expect_match(output, "Best guess for unique profile morphology: ZeroSecondMinimum", fixed=TRUE, all=FALSE)
     }
 
-    uniqueExample1 <- amUnique(example1, alleleMismatch=2)
+    output = capture.output(
+        uniqueExample1 <- amUnique(example1, alleleMismatch=2)
+    )
     {
+        testthat::expect_match(output, "allelematch:  assuming genotype columns are in pairs, representing 10 loci$", all=FALSE)
+
         # Ensure that the result is still the same as that from 2.5.3:
         # auDumpToData(uniqueExample1, "exp_01_01", dir=here::here("data")) # This is how the expected data was stored
         testthat::expect_identical( uniqueExample1, getdata("exp_01_01"))
@@ -88,8 +71,13 @@ test_that("amExample1 results from sample usage in allelematchSuppDoc.pdf is 2.5
         testthat::expect_identical( example1chk, getdata("exp_01_04"))
     }
 
-    uniqueExample1chk <- amUnique(example1chk, alleleMismatch=2)
+
+    output = capture.output(
+        uniqueExample1chk <- amUnique(example1chk, alleleMismatch=2)
+    )
     {
+        testthat::expect_match(output, "allelematch:  assuming genotype columns are in pairs, representing 10 loci$", all=FALSE)
+
         # Ensure that the result is still the same as that from 2.5.3:
         # auDumpToData(uniqueExample1chk, "exp_01_05", dir=here::here("data")) # This is how the expected data was stored
         testthat::expect_identical( uniqueExample1chk, getdata("exp_01_05"))
@@ -98,7 +86,7 @@ test_that("amExample1 results from sample usage in allelematchSuppDoc.pdf is 2.5
 })
 
 
-test_that("amExample2 results from sample usage in allelematchSuppDoc.pdf is 2.5.3 compatible", code = {
+test_that("amExample2 results from sample usage in allelematchSuppDoc.pdf are 2.5.3 compatible", code = {
 
     # Follow the instructions from allelematchSuppDoc.pdf:
     data("amExample2")
@@ -110,21 +98,25 @@ test_that("amExample2 results from sample usage in allelematchSuppDoc.pdf is 2.5
         testthat::expect_identical( example2, getdata("exp_02_00"))
     }
 
-    profileOutput = capture.output(
+    output = capture.output(
         amUniqueProfile(example2, doPlot=TRUE), type = c("output")
     )
     {
         # Ensure that the result is still the same as that from 2.5.3:
-        # cat("\nOutput from amUniqueProfile:\n", profileOutput, "\nEnd of output\n", sep="\n    ")
+        # cat("\nOutput from amUniqueProfile:\n", output, "\nEnd of output\n", sep="\n    ")
 
-        testthat::expect_output(cat(profileOutput), regexp = "missing data load for input dataset is 0.046", fixed=TRUE)
-        testthat::expect_output(cat(profileOutput), regexp = "allelic diversity for input dataset is 7.9", fixed=TRUE)
-        testthat::expect_output(cat(profileOutput), regexp = "Best guess for optimal parameter at alleleMismatch=3 OR matchThreshold=0.85 OR cutHeight=0.15", fixed=TRUE)
-        testthat::expect_output(cat(profileOutput), regexp = "Best guess for unique profile morphology: ZeroSecondMinimum", fixed=TRUE)
+        testthat::expect_match(output, "missing data load for input dataset is 0.046 ", fixed=TRUE, all=FALSE)
+        testthat::expect_match(output, "allelic diversity for input dataset is 7.9 ", fixed=TRUE, all=FALSE)
+        testthat::expect_match(output, "Best guess for optimal parameter at alleleMismatch=3 OR matchThreshold=0.85 OR cutHeight=0.15$", all=FALSE)
+        testthat::expect_match(output, "Best guess for unique profile morphology: ZeroSecondMinimum$", all=FALSE)
     }
 
-    uniqueExample2 <- amUnique(example2, alleleMismatch=3)
+    output = capture.output(
+        uniqueExample2 <- amUnique(example2, alleleMismatch=3)
+    )
     {
+        testthat::expect_match(output, "allelematch:  assuming genotype columns are in pairs, representing 10 loci$", all=FALSE)
+
         # Ensure that the result is still the same as that from 2.5.3:
         # auDumpToData(uniqueExample2, "exp_02_01", dir=here::here("data")) # This is how the expected data was stored
         testthat::expect_identical( uniqueExample2, getdata("exp_02_01"))
@@ -139,8 +131,12 @@ test_that("amExample2 results from sample usage in allelematchSuppDoc.pdf is 2.5
         testthat::expect_identical( actual, getdata("exp_02_02_example2_1"))
     }
 
-    uniqueExample2 <- amUnique(example2, alleleMismatch=3, doPsib="all")
+    output = capture.output(
+            uniqueExample2 <- amUnique(example2, alleleMismatch=3, doPsib="all")
+    )
     {
+        testthat::expect_match(output, "allelematch:  assuming genotype columns are in pairs, representing 10 loci$", all=FALSE)
+
         # Ensure that the result is still the same as that from 2.5.3:
         # auDumpToData(uniqueExample2, "exp_02_03", dir=here::here("data")) # This is how the expected data was stored
         testthat::expect_identical( uniqueExample2, getdata("exp_02_03"))
@@ -165,8 +161,12 @@ test_that("amExample2 results from sample usage in allelematchSuppDoc.pdf is 2.5
         testthat::expect_identical( example2chk, getdata("exp_02_05"))
     }
 
-    uniqueExample2chk <- amUnique(example2chk, alleleMismatch=2)
+    output = capture.output(
+        uniqueExample2chk <- amUnique(example2chk, alleleMismatch=2)
+    )
     {
+        testthat::expect_match(output, "allelematch:  assuming genotype columns are in pairs, representing 10 loci$", all=FALSE)
+
         # Ensure that the result is still the same as that from 2.5.3:
         # auDumpToData(uniqueExample2chk, "exp_02_06", dir=here::here("data")) # This is how the expected data was stored
         testthat::expect_identical( getdata("exp_02_06"), uniqueExample2chk)
