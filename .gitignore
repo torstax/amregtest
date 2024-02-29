@@ -5,6 +5,8 @@
 .Ruserdata
 data/*_actual.csv
 tests/testthat/*.pdf
+tests/testthat/*.html
+foo*
 *.foo
 *.hidden
 

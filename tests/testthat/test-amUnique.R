@@ -3,6 +3,11 @@ test_that("We are running the 3rd edition of testthat", code = {
     testthat::expect_gte(!!testthat::edition_get(), 3)
 })
 
+HTML=isTRUE(Sys.getenv("GENERATE_HTML_SUMMARIES") == "TRUE") # Set with Sys.setenv(GENERATE_HTML_SUMMARIES = "TRUE")
+
+library(here)
+overwrite = FALSE
+
 test_that("amExample1 from allelematchSuppDoc.pdf is 2.5.3 compatible", code = {
 
     # Follow the instructions from allelematchSuppDoc.pdf:
@@ -11,8 +16,8 @@ test_that("amExample1 from allelematchSuppDoc.pdf is 2.5.3 compatible", code = {
     example1 <- amDataset(amExample1, indexColumn="sampleId", ignoreColumn="knownIndividual", missingCode="-99")
     {
         # Ensure that the result is still the same as that from 2.5.3:
-        # auDumpToData(example1, "exp_01_00", dir=here::here("data"))
-        testthat::expect_identical( example1, getdata("exp_01_00"))
+        auOverwriteExpected(example1, "amExample1_0100_expected", here("data"), overwrite)
+        testthat::expect_identical( example1, getdata("amExample1_0100_expected"))
     }
 
     output = capture.output(
@@ -36,8 +41,15 @@ test_that("amExample1 from allelematchSuppDoc.pdf is 2.5.3 compatible", code = {
         testthat::expect_match(output, "allelematch:  assuming genotype columns are in pairs, representing 10 loci$", all=FALSE)
 
         # Ensure that the result is still the same as that from 2.5.3:
-        # auDumpToData(uniqueExample1, "exp_01_01", dir=here::here("data")) # This is how the expected data was stored
-        testthat::expect_identical( uniqueExample1, getdata("exp_01_01"))
+        auOverwriteExpected(uniqueExample1, "amExample1_0101_expected", here("data"), overwrite) # This is how the expected data was stored
+        testthat::expect_identical( uniqueExample1, getdata("amExample1_0101_expected"))
+    }
+
+    if(HTML) {
+        ## Save to disk
+        summary.amUnique(uniqueExample1, html="example1_1.html")
+        ## View in default browser
+        summary.amUnique(uniqueExample1, html=TRUE)
     }
 
     summary.amUnique(uniqueExample1, csv=summaryFile <- tempfile("example1_1.csv"))
@@ -49,26 +61,26 @@ test_that("amExample1 from allelematchSuppDoc.pdf is 2.5.3 compatible", code = {
 
         # Re-read the generated .csv file:
         actual = auReadCsvFile(summaryFile)
-        # auDumpToData(actual, "exp_01_02_example1_1", dir=here::here("data")) # This is how the expected data was stored
+        auOverwriteExpected(actual, "amExample1_0102_example1_1_expected", here("data"), overwrite) # This is how the expected data was stored
         # Ensure that the result is still the same as that from 2.5.3
-        testthat::expect_identical( actual, getdata("exp_01_02_example1_1"))
+        testthat::expect_identical( actual, getdata("amExample1_0102_example1_1_expected"))
     }
 
     summary.amUnique(uniqueExample1, csv=summaryFile <- tempfile("example1_2.csv"), uniqueOnly=TRUE)
     {
         # Re-read the generated .csv file:
         actual = auReadCsvFile(summaryFile)
-        # auDumpToData(actual, "exp_01_03_example1_2", dir=here::here("data")) # This is how the expected data was stored
+        auOverwriteExpected(actual, "amExample1_0103_example1_2_expected", here("data"), overwrite) # This is how the expected data was stored
         # Ensure that the result is still the same as that from 2.5.3
-        testthat::expect_identical( actual, getdata("exp_01_03_example1_2"))
+        testthat::expect_identical( actual, getdata("amExample1_0103_example1_2_expected"))
     }
 
     example1chk <- amDataset(amExample1, indexColumn="sampleId",
       metaDataColumn="knownIndividual", missingCode="-99")
     {
         # Ensure that the result is still the same as that from 2.5.3:
-        # auDumpToData(example1chk, "exp_01_04", dir=here::here("data")) # This is how the expected data was stored
-        testthat::expect_identical( example1chk, getdata("exp_01_04"))
+        auOverwriteExpected(example1chk, "amExample1_0104_expected", here("data"), overwrite) # This is how the expected data was stored
+        testthat::expect_identical( example1chk, getdata("amExample1_0104_expected"))
     }
 
 
@@ -79,10 +91,16 @@ test_that("amExample1 from allelematchSuppDoc.pdf is 2.5.3 compatible", code = {
         testthat::expect_match(output, "allelematch:  assuming genotype columns are in pairs, representing 10 loci$", all=FALSE)
 
         # Ensure that the result is still the same as that from 2.5.3:
-        # auDumpToData(uniqueExample1chk, "exp_01_05", dir=here::here("data")) # This is how the expected data was stored
-        testthat::expect_identical( uniqueExample1chk, getdata("exp_01_05"))
+        auOverwriteExpected(uniqueExample1chk, "amExample1_0105_expected", here("data"), overwrite) # This is how the expected data was stored
+        testthat::expect_identical( uniqueExample1chk, getdata("amExample1_0105_expected"))
     }
 
+    if(HTML) {
+        ## Save to disk
+        summary.amUnique(uniqueExample1chk, html="example1_2.html")
+        ## View in default browser
+        summary.amUnique(uniqueExample1chk, html=TRUE)
+    }
 })
 
 
@@ -94,8 +112,8 @@ test_that("amExample2 results from sample usage in allelematchSuppDoc.pdf are 2.
       metaDataColumn="knownIndividual", missingCode="-99")
     {
         # Ensure that the result is still the same as that from 2.5.3:
-        # auDumpToData(example2, "exp_02_00", dir=here::here("data"))  # This is how the expected data was stored
-        testthat::expect_identical( example2, getdata("exp_02_00"))
+        auOverwriteExpected(example2, "amExample2_0100_expected", here("data"), overwrite)  # This is how the expected data was stored
+        testthat::expect_identical( example2, getdata("amExample2_0100_expected"))
     }
 
     output = capture.output(
@@ -118,17 +136,21 @@ test_that("amExample2 results from sample usage in allelematchSuppDoc.pdf are 2.
         testthat::expect_match(output, "allelematch:  assuming genotype columns are in pairs, representing 10 loci$", all=FALSE)
 
         # Ensure that the result is still the same as that from 2.5.3:
-        # auDumpToData(uniqueExample2, "exp_02_01", dir=here::here("data")) # This is how the expected data was stored
-        testthat::expect_identical( uniqueExample2, getdata("exp_02_01"))
+        auOverwriteExpected(uniqueExample2, "amExample2_0101_expected", here("data"), overwrite) # This is how the expected data was stored
+        testthat::expect_identical( uniqueExample2, getdata("amExample2_0101_expected"))
 
         # Generate a summary file:
         summary.amUnique(uniqueExample2, csv=summaryFile <- tempfile("example2_1.csv"))
 
         # Re-read the generated .csv file:
         actual = auReadCsvFile(summaryFile)
-        # auDumpToData(actual, "exp_02_02_example2_1", dir=here::here("data")) # This is how the expected data was stored
+        auOverwriteExpected(actual, "amExample2_0102_example2_1_expected", here("data"), overwrite) # This is how the expected data was stored
         # Ensure that the result is still the same as that from 2.5.3
-        testthat::expect_identical( actual, getdata("exp_02_02_example2_1"))
+        testthat::expect_identical( actual, getdata("amExample2_0102_example2_1_expected"))
+    }
+
+    if(HTML) {
+        summary.amUnique(uniqueExample2chk, html="example2_1.html")
     }
 
     output = capture.output(
@@ -138,27 +160,30 @@ test_that("amExample2 results from sample usage in allelematchSuppDoc.pdf are 2.
         testthat::expect_match(output, "allelematch:  assuming genotype columns are in pairs, representing 10 loci$", all=FALSE)
 
         # Ensure that the result is still the same as that from 2.5.3:
-        # auDumpToData(uniqueExample2, "exp_02_03", dir=here::here("data")) # This is how the expected data was stored
-        testthat::expect_identical( uniqueExample2, getdata("exp_02_03"))
+        auOverwriteExpected(uniqueExample2, "amExample2_0103_expected", here("data"), overwrite) # This is how the expected data was stored
+        testthat::expect_identical( uniqueExample2, getdata("amExample2_0103_expected"))
 
         # Generate a summary file:
         summary.amUnique(uniqueExample2, csv=summaryFile <- tempfile("example2_2.csv"))
 
         # Re-read the generated .csv file:
         actual = auReadCsvFile(summaryFile)
-        # auDumpToData(actual, "exp_02_04_example2_2", dir=here::here("data")) # This is how the expected data was stored
+        auOverwriteExpected(actual, "amExample2_0104_example2_2_expected", here("data"), overwrite) # This is how the expected data was stored
         # Ensure that the result is still the same as that from 2.5.3
-        testthat::expect_identical( actual, getdata("exp_02_04_example2_2"))
+        testthat::expect_identical( actual, getdata("amExample2_0104_example2_2_expected"))
     }
 
+    if(HTML) {
+        summary.amUnique(uniqueExample2chk, html="example2_2.html")
+    }
 
     # Copied from test of amExample1:
     example2chk <- amDataset(amExample2, indexColumn="sampleId",
                              metaDataColumn="knownIndividual", missingCode="-99")
     {
         # Ensure that the result is still the same as that from 2.5.3:
-        # auDumpToData(example2chk, "exp_02_05", dir=here::here("data")) # This is how the expected data was stored
-        testthat::expect_identical( example2chk, getdata("exp_02_05"))
+        auOverwriteExpected(example2chk, "amExample2_0105_expected", here("data"), overwrite) # This is how the expected data was stored
+        testthat::expect_identical( example2chk, getdata("amExample2_0105_expected"))
     }
 
     output = capture.output(
@@ -168,8 +193,8 @@ test_that("amExample2 results from sample usage in allelematchSuppDoc.pdf are 2.
         testthat::expect_match(output, "allelematch:  assuming genotype columns are in pairs, representing 10 loci$", all=FALSE)
 
         # Ensure that the result is still the same as that from 2.5.3:
-        # auDumpToData(uniqueExample2chk, "exp_02_06", dir=here::here("data")) # This is how the expected data was stored
-        testthat::expect_identical( getdata("exp_02_06"), uniqueExample2chk)
+        auOverwriteExpected(uniqueExample2chk, "amExample2_0106_expected", here("data"), overwrite) # This is how the expected data was stored
+        testthat::expect_identical( getdata("amExample2_0106_expected"), uniqueExample2chk)
     }
 
 })

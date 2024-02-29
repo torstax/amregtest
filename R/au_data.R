@@ -139,9 +139,9 @@ NULL
 #' This expected data was generated from runing the tests towards version 2.5.3 of [allelematch].
 #' Look for commented out lines ending with "# This is how the expected data was stored" to see how.
 #'
-#' @name exp_01_00
-#' @aliases exp_01_01 exp_01_02 exp_01_02_example1_1 exp_01_03_example1_2 exp_01_04 exp_01_05
-#' @aliases exp_02_00 exp_02_01 exp_02_02_example2_1 exp_02_03 exp_02_04_example2_2 exp_02_05 exp_02_06
+#' @name amExample1_0100_expected
+#' @aliases amExample1_0100_expected amExample1_0101_expected amExample1_0102_example1_1_expected amExample1_0103_example1_2_expected amExample1_0104_expected amExample1_0105_expected
+#' @aliases amExample2_0100_expected amExample2_0101_expected amExample2_0102_example2_1_expected amExample2_0103_expected amExample2_0104_example2_2_expected amExample2_0105_expected amExample2_0106_expected
 
 #' @docType data
 #' @references \url{https://github.com/cran/allelematch}
@@ -182,12 +182,18 @@ getdata <- function(name, ...)
 #' @param df        Data frame to write
 #' @param outName   Name of file to write to, excluding leading "data/" and trailing ".R"
 #' @param dir       The directory in which to write the data file.
-#'                  The default, "data", assumes that [getwd] points at the current
-#'                  R project root directory.
+#'                  Expected to point at the here::here("data") directory,
+#'                  i.e. ./data under the package source root directory.
+#' @param overwrite Set to ´TRUE´ for the overwrite to take place
 #'
 #  ' @export
 #'
 #  ' @examples
+auOverwriteExpected <- function(df, outName, dir, overwrite = FALSE) {
+    if(isFALSE(overwrite)) return() else cat("\n    Overwriting : ", dir, "/", outName, "\n", sep="")
+    auDumpToData(df, outName, dir)
+}
+
 auDumpToData <- function(df, outName, dir = "data") {
     e <- new.env()
     assign(outName, df, envir = e)
@@ -197,6 +203,7 @@ auDumpToData <- function(df, outName, dir = "data") {
     base::dump(list = c(outName), file, envir = e)
     close(file)
 }
+
 
 #' Load data from remote package and dump it to .R file in local data directory
 #'

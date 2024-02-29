@@ -1,4 +1,4 @@
-exp_02_03 <-
+amExample2_0103_expected <-
 structure(list(pairwise = list(list(focal = list(index = "1", 
     metaData = "AAA", multilocus = structure(c("101", "116", 
     "203", "216", "305", "315", "402", "411", "514", "514", "619", 

@@ -1,4 +1,4 @@
-exp_01_02_example1_1 <-
+amExample1_0102_example1_1_expected <-
 structure(list(uniqueGroup = c("1", "1", "2", "2", "3", "3", 
 "4", "5", "6", "6", "7", "7", "8", "9", "9", "10", "11", "11", 
 "12", "12"), rowType = c("UNIQUE", "MATCH", "UNIQUE", "MATCH", 
