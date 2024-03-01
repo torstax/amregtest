@@ -15,9 +15,10 @@
 #'
 #' @return a string of <name>=<value> pairs
 #' @export
+#' @keywords internal
 #'
 # ' @examples
-auArgToString <- function(...) {
+artArgToString <- function(...) {
     # form the `...` arguments into a string on the form "<name1>=<value1>, <name2>=<value2> ..."
     v = character(...length()) # Reserve space for a vector of strings
 
@@ -33,10 +34,10 @@ auArgToString <- function(...) {
 }
 
 
-#' Turns [auArgToString] into a string that can be used in a filename
+#' Turns [artArgToString] into a string that can be used in a filename
 #'
-#' Here we assume that the arguments in [auArgToString] are those
-#' passed on to an [allelematch] function by a [regressiontest] wrapper function. \cr\cr
+#' Here we assume that the arguments in [artArgToString] are those
+#' passed on to an [allelematch] function by a [amregtest] wrapper function. \cr\cr
 #'
 #' The filenames are then used to store data for expected and actual output
 #' from tests.
@@ -45,11 +46,12 @@ auArgToString <- function(...) {
 #'
 #' @return a string that can be used in a data file name for use in an allelematch regressiontest.
 #' @export
+#' @keywords internal
 #'
 # ' @examples
-auDefaultFileName <- function(...) {
+artDefaultFileName <- function(...) {
 
-    s = auArgToString(...)
+    s = artArgToString(...)
 
     # Screen out default values parameters:
     s = sub("multilocusMap=NULL, ",   "", s)

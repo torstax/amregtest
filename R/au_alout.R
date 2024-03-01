@@ -3,7 +3,7 @@
 ### Sort allelematch output data by index columns
 ###############################################################################
 
-auSortDfByIndexes <- function(df) {
+artSortDfByIndexes <- function(df) {
     # df <- df[ order(df$uniqueIndex, df$matchIndex), ]
 
     # sort the table by key columns (ignore case)
@@ -12,11 +12,11 @@ auSortDfByIndexes <- function(df) {
     return(df)
 }
 
-auSortCsvFile <- function(csvInFile) {
-    df <- auRead_amCSV(csvInFile)
-    df <- auSortDfByIndexes(df)
+artSortCsvFile <- function(csvInFile) {
+    df <- artRead_amCSV(csvInFile)
+    df <- artSortDfByIndexes(df)
     csvOutFile <- gsub(".csv", ".sorted.csv", csvInFile)
-    auWrite_amCSV(df, csvOutFile)
+    artWrite_amCSV(df, csvOutFile)
 }
 
 
@@ -24,7 +24,7 @@ auSortCsvFile <- function(csvInFile) {
 ### Shrink allelematch output data to brief format by removing data columns
 ###############################################################################
 
-auMakeBriefDf <- function(df) {
+artMakeBriefDf <- function(df) {
 
     columnNamesToWrite <- c("rowType", "uniqueIndex", "matchIndex", "score")
     sortByColumns      <- c("uniqueIndex", "matchIndex") #, "nUniqueGroup")
@@ -44,10 +44,10 @@ auMakeBriefDf <- function(df) {
     return (df)
 }
 
-auMakeBriefCsvFile <- function(csvInFile) {
-    df <- auRead_amCSV(csvInFile)
-    df <- auMakeBriefDf(df)
+artMakeBriefCsvFile <- function(csvInFile) {
+    df <- artRead_amCSV(csvInFile)
+    df <- artMakeBriefDf(df)
     csvOutFile <- gsub(".csv", ".brief.csv", csvInFile)
-    auWrite_amCSV(df, csvOutFile)
+    artWrite_amCSV(df, csvOutFile)
 }
 

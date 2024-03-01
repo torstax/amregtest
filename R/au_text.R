@@ -1,7 +1,7 @@
 ###############################################################################
 ### This file contains utility functions that handle
 ### low-level text handling stuff without dependencies to allelematch.
-### "au" stands for "allelematch utilities".
+### "art" stands for "allelematch regtest".
 ###############################################################################
 
 ###############################################################################
@@ -17,12 +17,12 @@ strcat <- function(...) { paste(..., sep="") }
 ### Line Breaks.
 ###############################################################################
 
-auUnixLineBreaks <- function(fileName) {
+artUnixLineBreaks <- function(fileName) {
     # Opens a text file for output in binary mode that allows LF linebreaks,
     # even on Windows.
     # Note that the file needs to be closed explicitly. Sample usage:
     #
-    #   file = auUnixLineBreaks(fileName)
+    #   file = artUnixLineBreaks(fileName)
     #   write.csv2(file, eol="\n")
     #   close(file)
     #
@@ -58,13 +58,13 @@ auUnixLineBreaks <- function(fileName) {
 #' @param df            Data to be written on [allelematch] summary format
 #' @param csvOutFile    The file to write to
 #'
-auWrite_amCSV <- function(df, csvOutFile) {
-    file = auUnixLineBreaks(csvOutFile)
+artWrite_amCSV <- function(df, csvOutFile) {
+    file = artUnixLineBreaks(csvOutFile)
     write.csv(df, file, row.names=FALSE)  # Already defaults in write.csv: , quote=TRUE, na = "NA")
     close(file)
 
     # Make sure we can read the same back again:
-    df_read_back = auRead_amCSV(csvOutFile)
+    df_read_back = artRead_amCSV(csvOutFile)
     stopifnot(identical(df_read_back, df))
 }
 
@@ -77,7 +77,8 @@ auWrite_amCSV <- function(df, csvOutFile) {
 #' @param   csvInFile Dir, name and extension for the .csv file to be read
 #'
 #' @export
-auReadCsvFile <- function(csvInFile) {
+#' @keywords internal
+artReadCsvFile <- function(csvInFile) {
     df <- read.csv(file=csvInFile, colClasses="character", check.names=FALSE)
     return (df)
 }
@@ -95,7 +96,8 @@ auReadCsvFile <- function(csvInFile) {
 #' @param   csvInFile Dir, name and extension for the .csv file to be read
 #'
 #' @export
-auRead_amCSV <- function(csvInFile) {
+#' @keywords internal
+artRead_amCSV <- function(csvInFile) {
     #   df <- read.csv(file=csvInFile, check.names=FALSE)
     df <- read.table(file=csvInFile, header=TRUE, sep=",", as.is=FALSE)
     return (df)
@@ -109,7 +111,7 @@ auRead_amCSV <- function(csvInFile) {
 #'                      An open connection will be left open. \cr
 #'                      A named file will be closed at exit. \cr
 #'
-auWriteCsv2File <- function(df, csvOutFile) {
+artWriteCsv2File <- function(df, csvOutFile) {
 
     if (inherits(csvOutFile, "connection")) {
         # The file is already open
@@ -119,12 +121,12 @@ auWriteCsv2File <- function(df, csvOutFile) {
         stopifnot(is.character(csvOutFile))
 
         # Open the file in binary mode to avoid adding CR before LF at line endings:
-        file = auUnixLineBreaks(csvOutFile)
+        file = artUnixLineBreaks(csvOutFile)
         write.csv2(df, file, row.names=FALSE)  # Defaults for write.csv2:  , quote=TRUE, na = "NA")
         close(file)
 
         # # Check that we get the same back
-        # readDf = auReadCsvFile(csvOutFile)
+        # readDf = artReadCsvFile(csvOutFile)
         # stopifnot(identical(df, readDf))
     }
 }
@@ -136,7 +138,7 @@ auWriteCsv2File <- function(df, csvOutFile) {
 
 #' Verifies that the data in `actualCsvFile` exactly matches that in `expectedData`
 #'
-#' Fetches expected from the [regressiontest] data using [utils::data] \cr
+#' Fetches expected from the [amregtest] data using [utils::data] \cr
 #' \cr
 #' Note that [allelematch] and [utils::data] differs on how .csv files
 #' shall be encoded.\cr
@@ -150,8 +152,8 @@ auWriteCsv2File <- function(df, csvOutFile) {
 #' @param actualCsvFile New output from `allelematch` to be compared to `expectedData`
 #' @param expectedData  Old output from `allelematch` used to verify that `allelematch` is still backwards compatible.
 #'
-#' @export
-auAssertCsvEqualToExpectedData <- function(actualCsvFile, expectedData=NULL) {
+#  ' @export
+artAssertCsvEqualToExpectedData <- function(actualCsvFile, expectedData=NULL) {
     if(is.null(expectedData)) {
         e = actualCsvFile
         e = sub("^.*/",    "",         e, perl = TRUE, useBytes = TRUE) # Drop leading directories
@@ -164,8 +166,8 @@ auAssertCsvEqualToExpectedData <- function(actualCsvFile, expectedData=NULL) {
     if(!file.exists(actualCsvFile)) { stop("actualCsvFile ", actualCsvFile, " does not exist")}
     # if(length(find(expectedData)) == 0) { stop("Can't find expectedData ", expectedData)}
 
-    act = auRead_amCSV(actualCsvFile)
-    exp = getdata(expectedData, package="regressiontest")
+    act = artRead_amCSV(actualCsvFile)
+    exp = getdata(expectedData, package="amregtest")
 
     if(is.null(exp)) { stop("Can't find expectedData ", expectedData)}
 
@@ -205,7 +207,7 @@ auAssertCsvEqualToExpectedData <- function(actualCsvFile, expectedData=NULL) {
     cat("   OK             : Actual equal to Expected. col=", ncol(act), ", row=", nrow(act), "\n", sep="")
 }
 
-auWarnIfNotExpected <- function(actualCsvFile) {
+artWarnIfNotExpected <- function(actualCsvFile) {
   expectedCsvFile <- gsub("_actual", "_expected", actualCsvFile)
   stopifnot(expectedCsvFile != actualCsvFile)
 

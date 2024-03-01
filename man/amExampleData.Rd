@@ -3,14 +3,12 @@
 \docType{data}
 \name{amExampleData}
 \alias{amExampleData}
-\alias{amExample3}
-\alias{amExample4}
-\alias{amExample5}
 \title{Example data from package allelematch}
 \description{
 This example data is used when testing allelmatch backwards compatibility.\cr
 It was imported from version 5.2.1 of \link{allelematch}.
-It is still unchanged in 5.2.3. \cr \cr
+It is still unchanged in 5.2.3. \cr
+\cr
 See \link[allelematch:amExampleData]{allelematch::amExampleData} for a brief introduction. \cr
 See \href{https://github.com/cran/allelematch/blob/2.5.1/inst/doc/allelematchSuppDoc.pdf}{allelematchSuppDoc.pdf}.
 for a more detailed description.
@@ -18,10 +16,7 @@ for a more detailed description.
 \examples{
 # Make sure that the local copy of all data/amExample* files match
 # match those in the currently installed version of allelematch:
-regressiontest::auVerifyAmExamples() # Stops if not identical
-
-# If needed, the local copy can be updated (not recommended)
-# regressiontest::auImportAmExamplesToLocalData()
+artVerifyAmExamples() # Stops if not identical
 
 }
 \references{

@@ -15,9 +15,9 @@ test_that("amUnique(matchThreshold=0.9) for dataset ggSample", code = {
     # Type Sys.unsetenv("SKIP_SLOW_TESTS") to enable again
 
     # Log result files early:
-    test = "mThr0.9"
-    summaryCsv  = ggActualCsv(test, tempdir(), "/output_mThr0.9_actual.csv")
-    expectedData= ggExpectedData(test, "output_mThr0.9_expected")
+    test = "ggSample_mThr0.9"
+    summaryCsv  = ggActualCsv(test, tempdir(), "/ggSample_mThr0.9_actual.csv")
+    expectedData= ggExpectedData(test, "ggSample_mThr0.9_expected")
 
     # Load the large gg-style sample file and load it into a allelematch amDataset:
     ggDataset = allelematch::amDataset(getdata("ggSample"), indexColumn=1, missingCode="-99")
@@ -29,11 +29,11 @@ test_that("amUnique(matchThreshold=0.9) for dataset ggSample", code = {
     allelematch::summary.amUnique(amUniqueOutput, csv=summaryCsv)
     {
         # Load the generated summary:
-        # actualSummary = read.csv(file=summaryCsv, check.names=FALSE) # auReadSummary(summaryCsv)
-        actualSummary = auRead_amCSV(summaryCsv)
+        # actualSummary = read.csv(file=summaryCsv, check.names=FALSE) # artReadSummary(summaryCsv)
+        actualSummary = artRead_amCSV(summaryCsv)
 
         # Compare with expected summary:
-        # auAssertCsvEqualToExpectedData(summaryCsv, expectedData)  # Old test
+        # artAssertCsvEqualToExpectedData(summaryCsv, expectedData)  # Old test
         expect_gg_summaries_equal(test, summaryCsv, expectedData) # New test
     }
 })
@@ -42,9 +42,9 @@ test_that("amUnique(alleleMismatch=15) for dataset ggSample", code = {
     skip_if(Sys.getenv("SKIP_SLOW_TESTS") == "TRUE")
 
     # Log result files early:
-    test = "aMm15"
-    summaryCsv  = ggActualCsv(test, tempdir(), "/output_aMm15_actual.csv")
-    expectedData= "output_aMm15_expected"
+    test = "ggSample_aMm15"
+    summaryCsv  = ggActualCsv(test, tempdir(), "/ggSample_aMm15_actual.csv")
+    expectedData= "ggSample_aMm15_expected"
 
     # Load the large gg-style sample file and load it into a allelematch amDataset:
     ggDataset = allelematch::amDataset(getdata("ggSample"), indexColumn=1, missingCode="-99")
@@ -56,11 +56,11 @@ test_that("amUnique(alleleMismatch=15) for dataset ggSample", code = {
     allelematch::summary.amUnique(amUniqueOutput, csv=summaryCsv)
     {
         # Load the generated summary:
-        # actualSummary = read.csv(file=summaryCsv, check.names=FALSE) # auReadSummary(summaryCsv)
-        actualSummary = auRead_amCSV(summaryCsv)
+        # actualSummary = read.csv(file=summaryCsv, check.names=FALSE) # artReadSummary(summaryCsv)
+        actualSummary = artRead_amCSV(summaryCsv)
 
         # Compare with expected summary:
-        # auAssertCsvEqualToExpectedData(summaryCsv, expectedData)
+        # artAssertCsvEqualToExpectedData(summaryCsv, expectedData)
         expect_gg_summaries_equal(test, summaryCsv, expectedData)
     }
 })

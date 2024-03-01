@@ -1,11 +1,6 @@
 ######################
 ### au_config.R    ###
 ######################
-# Load this configuration like this:
-#
-#   data("au_config", package = "regressiontest")
-#
-
 
 #` Column headers that start with digits are not allowed as R 'names'
 #`

@@ -1,81 +1,26 @@
 #' @name amExampleData
-#' @aliases amExample3 amExample4 amExample5
 #'
 #' @title Example data from package allelematch
 #'
 #' @description
 #' This example data is used when testing allelmatch backwards compatibility.\cr
 #' It was imported from version 5.2.1 of [allelematch].
-#' It is still unchanged in 5.2.3. \cr \cr
+#' It is still unchanged in 5.2.3. \cr
+#' \cr
 #' See [allelematch::amExampleData] for a brief introduction. \cr
 #' See \href{https://github.com/cran/allelematch/blob/2.5.1/inst/doc/allelematchSuppDoc.pdf}{allelematchSuppDoc.pdf}.
 #' for a more detailed description.
 #'
-#'
 #' @examples
 #' # Make sure that the local copy of all data/amExample* files match
 #' # match those in the currently installed version of allelematch:
-#' regressiontest::auVerifyAmExamples() # Stops if not identical
-#'
-#' # If needed, the local copy can be updated (not recommended)
-#' # regressiontest::auImportAmExamplesToLocalData()
+#' artVerifyAmExamples() # Stops if not identical
 #'
 #' @docType data
 #' @references \url{https://github.com/cran/allelematch}
 #' @references \href{https://github.com/cran/allelematch/blob/2.5.1/inst/doc/allelematchSuppDoc.pdf}{allelematchSuppDoc.pdf}
 #' @keywords data
 NULL
-
-#' @name ggSample
-#' @aliases input_Match_references_clean
-#' @aliases input_new_samples_clean input_new_samples_clean_split
-#' @aliases output_aMm15_expected output_mThr0.9_expected
-#'
-#' @title Data sets originating from GG work
-#'
-#' @description
-#' Large data sets gathered from field work in 2022.
-#' \tabular{clcl}{
-#'  `  ` \tab `input_Match_references_clean  `\tab `  ` \tab A reference db containing known individuals\cr
-#'  `  ` \tab `input_new_samples_clean`\tab \tab A set of new samples from the field to be matched against the reference\cr
-#'  `  ` \tab `input_new_samples_clean_split  `\tab \tab The new samples cleaned up and alligned with the reference\cr
-#'  `  ` \tab `output_aMm15_expected`\tab \tab Output after running through `amUnique( alleleMisMatch=15 (??))`...\cr
-#'  `  ` \tab `output_mThr0.9_expected`\tab \tab Output after running through ...
-#' }
-
-
-#  '  \item{`input_Match_references_clean`}{   A reference db containing known individuals}
-#  '  \item{`input_new_samples_clean`}{   A set of new samples from the field to be matched against the reference}
-#  '  \item{`input_new_samples_clean_split  `}{   The new samples cleaned up and alligned with the reference}
-#  '  \item{`output_aMm15_expected`}{   Output after running through `amUnique(alleleMisMatch=15 (??))`...}
-#  '  \item{`output_mThr0.9_expected`}{   Output after running through ...}
-
-#' NOTE that the output of [sort] is platform dependent.
-#' You get different results based on the locale. And [allelematch] uses [sort].\cr\cr
-#'
-#' The sort order also depends on the size of the data to be sorted.
-#' See the description of "radix" under [sort].\cr\cr
-#'
-#' [testthat] (and R CMD check) makes sure that the tests behave the same way
-#' on every platform, by setting the collation locale to "C" and the language to "en".\cr
-#' See issue "locale / collation used in testhat #1181"\cr
-#'  at https://github.com/r-lib/testthat/issues/1181#issuecomment-692851342\cr\cr
-#'
-#' @docType data
-#' @keywords data
-NULL
-
-
-#' @name auObsoleteOutputData
-#'
-#' @title To be removed.
-#'
-#' @aliases output_aMm15_actual.brief output_aMm15_actual output_aMm15_actual.sorted
-#' @aliases output_mThr0.9_actual.brief output_mThr0.9_actual output_mThr0.9_actual.sorted
-#' @docType data
-#' @keywords data
-NULL
-
 
 #' Example 1 High quality data set
 #'
@@ -92,7 +37,6 @@ NULL
 #' @references \url{https://github.com/cran/allelematch}
 #' @keywords data
 NULL
-
 
 #' Example 2 Good quality data set
 #'
@@ -111,20 +55,37 @@ NULL
 #' @keywords data
 NULL
 
+#' Example 3
+#'
+#' This is sample data copied from [allelematch::amExampleData] in version 5.2.1
+#' of package [allelematch]. We use this data to test allelmatch backwards compatibility.
+#'
+#'
+#' @name amExample3
+#' @docType data
+#' @references \url{https://github.com/cran/allelematch}
+#' @keywords data
+NULL
 
+#' Example 4
+#'
+#' This is sample data copied from [allelematch::amExampleData] in version 5.2.1
+#' of package [allelematch]. We use this data to test allelmatch backwards compatibility.
 #'
 #'
-#' This is sample data from package allelematch version 2.5.1,
-#' but saved on .csv format, as described under 'Details' in utils::data.
+#' @name amExample4
+#' @docType data
+#' @references \url{https://github.com/cran/allelematch}
+#' @keywords data
+NULL
+
+#' Example 5
 #'
-#' as described  that we use to test
-#' allelmatch backwards compatibility.
-#' ... saved on the format
+#' This is sample data copied from [allelematch::amExampleData] in version 5.2.1
+#' of package [allelematch]. We use this data to test allelmatch backwards compatibility.
 #'
-#' The output files have names that describe the called `allelematch` functions
-#' and the parameters that are passed to the same functions.
 #'
-#' @name ggSample
+#' @name amExample5
 #' @docType data
 #' @references \url{https://github.com/cran/allelematch}
 #' @keywords data
@@ -147,6 +108,50 @@ NULL
 #' @references \url{https://github.com/cran/allelematch}
 #' @keywords data
 NULL
+
+
+#' @name ggSample
+#' @aliases           ggSample_aMm15_expected ggSample_mThr0.9_expected
+#'
+#' @title Data sets originating from GG work
+#'
+#' @description
+#' Large data set gathered from field work in 2022. Here used to test [allelematch] for backwards compatibility.
+#' \tabular{clcl}{
+#'  `  ` \tab `ggSample  `\tab `  ` \tab Big input sample. Combines a reference db of known individuals with new samples to be analyzed\cr
+#'  `  ` \tab `ggSample_mThr0.9_expected`\tab \tab Output summary after running through  `amUnique( matchThreshold=0.9)`\cr
+#'  `  ` \tab `ggSample_aMm15_expected`\tab \tab Output summary after running through `amUnique( alleleMisMatch=15)`\cr
+#' }
+#'
+#' This data is saved on semicolon (";") delimited .csv format, as described under 'Details' in [utils::data].\cr
+#' \cr
+#' The output data was generated using allelematch version 2.5.1.\cr
+#' \cr
+#' The output files have names that describe the called `allelematch` functions
+#' and the parameters that are passed to the same functions.
+#'
+#' @references \url{https://github.com/cran/allelematch}
+#'
+#' @details
+#' TODO : Move this to package introduction!
+#'
+#' NOTE that the output of [sort] is platform dependent.
+#' You get different results based on the locale. And [allelematch] uses [sort].\cr\cr
+#'
+#' The sort order also depends on the size of the data to be sorted.
+#' See the description of "radix" under [sort].\cr\cr
+#'
+#' [testthat] (and R CMD check) makes sure that the tests behave the same way
+#' on every platform, by setting the collation locale to "C" and the language to "en".\cr
+#' See github issue
+#' \href{https://github.com/r-lib/testthat/issues/1181#issuecomment-692851342}{locale / collation used in testhat #1181}\cr\cr
+#'
+#' @docType data
+#' @keywords data
+#' @keywords internal
+NULL
+
+
 
 
 
@@ -189,16 +194,16 @@ getdata <- function(name, ...)
 #  ' @export
 #'
 #  ' @examples
-auOverwriteExpected <- function(df, outName, dir, overwrite = FALSE) {
+artOverwriteExpected <- function(df, outName, dir, overwrite = FALSE) {
     if(isFALSE(overwrite)) return() else cat("\n    Overwriting : ", dir, "/", outName, "\n", sep="")
-    auDumpToData(df, outName, dir)
+    artDumpToData(df, outName, dir)
 }
 
-auDumpToData <- function(df, outName, dir = "data") {
+artDumpToData <- function(df, outName, dir = "data") {
     e <- new.env()
     assign(outName, df, envir = e)
     outFile = paste(dir, "/", outName, ".R", sep="")
-    file = auUnixLineBreaks(outFile)
+    file = artUnixLineBreaks(outFile)
     # base::dump(list = c(outName), file, control = "all", envir = e)
     base::dump(list = c(outName), file, envir = e)
     close(file)
@@ -213,10 +218,10 @@ auDumpToData <- function(df, outName, dir = "data") {
 #' @param dir        A directory that contains `remoteName`, with extension ".RData". If set, `package` is ignored
 #'
 #  ' @return
-#' @export
+#  ' @export
 #'
 #  ' @examples
-auImportToLocalData <- function(package, remoteName, localName=remoteName, dir=NULL) {
+artImportToLocalData <- function(package, remoteName, localName=remoteName, dir=NULL) {
 
     if (is.null(dir)) {
         # Copy data from remote package to local:
@@ -226,7 +231,7 @@ auImportToLocalData <- function(package, remoteName, localName=remoteName, dir=N
         load(file=strcat(dir, "/", remoteName, ".RData"), e <- new.env(), verbose=TRUE)
         remoteData = e[[remoteName]]
     }
-    auDumpToData(remoteData, localName)
+    artDumpToData(remoteData, localName)
 
     # Verify that the local copy is identical to the remote original:
     localData  = getdata(localName)
@@ -243,20 +248,20 @@ auImportToLocalData <- function(package, remoteName, localName=remoteName, dir=N
 #' If set, installed package `allelematch` is ignored
 #'
 #  ' @return
-#' @export
+#  ' @export
 #'
 #  ' @examples
-auImportAmExamplesToLocalData <- function(dir=NULL) {
+artImportAmExamplesToLocalData <- function(dir=NULL) {
     if (is.null(dir)) {
         cat("\nImporting data/amExample* from installed allelematch version", toString(packageVersion("allelematch")), "\n")
     } else {
         cat("\nImporting five amExample* files from", dir,  "to local /data/ dir\n")
     }
-    auImportToLocalData( "allelematch", "amExample1", dir=dir)
-    auImportToLocalData( "allelematch", "amExample2", dir=dir)
-    auImportToLocalData( "allelematch", "amExample3", dir=dir)
-    auImportToLocalData( "allelematch", "amExample4", dir=dir)
-    auImportToLocalData( "allelematch", "amExample5", dir=dir)
+    artImportToLocalData( "allelematch", "amExample1", dir=dir)
+    artImportToLocalData( "allelematch", "amExample2", dir=dir)
+    artImportToLocalData( "allelematch", "amExample3", dir=dir)
+    artImportToLocalData( "allelematch", "amExample4", dir=dir)
+    artImportToLocalData( "allelematch", "amExample5", dir=dir)
 }
 
 
@@ -267,10 +272,10 @@ auImportAmExamplesToLocalData <- function(dir=NULL) {
 #' @param localName  The name of the data to write to the local data dir as .R file
 #'
 #  ' @return
-#' @export
+#  ' @export
 #'
 #  ' @examples
-auAssertLocalDataIdentical <- function(package, remoteName, localName=remoteName) {
+artAssertLocalDataIdentical <- function(package, remoteName, localName=remoteName) {
     remoteData = getdata(remoteName, package=package)
     localData  = getdata(localName)
     stopifnot(identical(remoteData, localData))
@@ -279,19 +284,19 @@ auAssertLocalDataIdentical <- function(package, remoteName, localName=remoteName
 #' Compares the local amExample files with the originals.
 #'
 #' Stops execution if any of the local amExample files is not identical with the corresponding
-#' file in the `allelematch` package
+#' file in the [allelematch] package
 #'
 # ' @return
 #' @export
 #'
-#  ' @examples auVerifyAmExamples()
-auVerifyAmExamples <- function() {
+#  ' @examples artVerifyAmExamples()
+artVerifyAmExamples <- function() {
     cat("\nVerifying local data/amExample* against installed allelematch version", toString(packageVersion("allelematch")), "\n")
-    auAssertLocalDataIdentical( "allelematch", "amExample1")
-    auAssertLocalDataIdentical( "allelematch", "amExample2")
-    auAssertLocalDataIdentical( "allelematch", "amExample3")
-    auAssertLocalDataIdentical( "allelematch", "amExample4")
-    auAssertLocalDataIdentical( "allelematch", "amExample5")
+    artAssertLocalDataIdentical( "allelematch", "amExample1")
+    artAssertLocalDataIdentical( "allelematch", "amExample2")
+    artAssertLocalDataIdentical( "allelematch", "amExample3")
+    artAssertLocalDataIdentical( "allelematch", "amExample4")
+    artAssertLocalDataIdentical( "allelematch", "amExample5")
     cat("OK: Local data is identical with that in installed allelematch version", toString(packageVersion("allelematch")), "\n")
 }
 

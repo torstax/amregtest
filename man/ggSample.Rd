@@ -3,21 +3,27 @@
 \docType{data}
 \name{ggSample}
 \alias{ggSample}
-\alias{input_Match_references_clean}
-\alias{input_new_samples_clean}
-\alias{input_new_samples_clean_split}
-\alias{output_aMm15_expected}
-\alias{output_mThr0.9_expected}
+\alias{ggSample_aMm15_expected}
+\alias{ggSample_mThr0.9_expected}
 \title{Data sets originating from GG work}
 \description{
-Large data sets gathered from field work in 2022.
+Large data set gathered from field work in 2022. Here used to test \link{allelematch} for backwards compatibility.
 \tabular{clcl}{
-\verb{  } \tab \code{input_Match_references_clean  }\tab \verb{  } \tab A reference db containing known individuals\cr
-\verb{  } \tab \code{input_new_samples_clean}\tab \tab A set of new samples from the field to be matched against the reference\cr
-\verb{  } \tab \code{input_new_samples_clean_split  }\tab \tab The new samples cleaned up and alligned with the reference\cr
-\verb{  } \tab \code{output_aMm15_expected}\tab \tab Output after running through \verb{amUnique( alleleMisMatch=15 (??))}...\cr
-\verb{  } \tab \code{output_mThr0.9_expected}\tab \tab Output after running through ...
+\verb{  } \tab \code{ggSample  }\tab \verb{  } \tab Big input sample. Combines a reference db of known individuals with new samples to be analyzed\cr
+\verb{  } \tab \code{ggSample_mThr0.9_expected}\tab \tab Output summary after running through  \code{amUnique( matchThreshold=0.9)}\cr
+\verb{  } \tab \code{ggSample_aMm15_expected}\tab \tab Output summary after running through \code{amUnique( alleleMisMatch=15)}\cr
 }
+
+This data is saved on semicolon (";") delimited .csv format, as described under 'Details' in \link[utils:data]{utils::data}.\cr
+\cr
+The output data was generated using allelematch version 2.5.1.\cr
+\cr
+The output files have names that describe the called \code{allelematch} functions
+and the parameters that are passed to the same functions.
+}
+\details{
+TODO : Move this to package introduction!
+
 NOTE that the output of \link{sort} is platform dependent.
 You get different results based on the locale. And \link{allelematch} uses \link{sort}.\cr\cr
 
@@ -26,18 +32,11 @@ See the description of "radix" under \link{sort}.\cr\cr
 
 \link{testthat} (and R CMD check) makes sure that the tests behave the same way
 on every platform, by setting the collation locale to "C" and the language to "en".\cr
-See issue "locale / collation used in testhat #1181"\cr
-at https://github.com/r-lib/testthat/issues/1181#issuecomment-692851342\cr\cr
-
-as described  that we use to test
-allelmatch backwards compatibility.
-... saved on the format
-}
-\details{
-The output files have names that describe the called \code{allelematch} functions
-and the parameters that are passed to the same functions.
+See github issue
+\href{https://github.com/r-lib/testthat/issues/1181#issuecomment-692851342}{locale / collation used in testhat #1181}\cr\cr
 }
 \references{
 \url{https://github.com/cran/allelematch}
 }
 \keyword{data}
+\keyword{internal}

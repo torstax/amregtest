@@ -4,7 +4,8 @@
 #' @param dataName  Name of the data set to load from ./data/.
 #'
 #' @export
-auLoadDataSet <- function(dataName) {
+#' @keywords internal
+artLoadDataSet <- function(dataName) {
     # e <- new.env()
     # data(dataName, envir = e)
     # Input = e[[dataName]]

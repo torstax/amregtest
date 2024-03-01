@@ -7,6 +7,6 @@
 # * https://testthat.r-lib.org/articles/special-files.html
 
 library(testthat)
-library(regressiontest)
+library(amregtest)
 
-test_check("regressiontest")
+test_check("amregtest")
