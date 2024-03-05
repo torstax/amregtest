@@ -4,6 +4,9 @@
 \name{amExampleData}
 \alias{amExampleData}
 \title{Example data from package allelematch}
+\format{
+Data frames with differing numbers of samples in rows, and alleles in columns. Missing data is represented as "-99".
+}
 \description{
 This example data is used when testing allelmatch backwards compatibility.\cr
 It was imported from version 5.2.1 of \link{allelematch}.
@@ -11,7 +14,14 @@ It is still unchanged in 5.2.3. \cr
 \cr
 See \link[allelematch:amExampleData]{allelematch::amExampleData} for a brief introduction. \cr
 See \href{https://github.com/cran/allelematch/blob/2.5.1/inst/doc/allelematchSuppDoc.pdf}{allelematchSuppDoc.pdf}.
-for a more detailed description.
+for a more detailed description. \cr
+\tabular{clcl}{
+\verb{  } \tab \link{amExample1}\verb{  }\tab \verb{  } \tab Example 1 High quality data set\cr
+\verb{  } \tab \link{amExample2}\tab \tab Example 2 Good quality data set\cr
+\verb{  } \tab \link{amExample3}\tab \tab Example 3 Marginal quality data set\cr
+\verb{  } \tab \link{amExample4}\tab \tab Example 4 Low quality data set\cr
+\verb{  } \tab \link{amExample5}\tab \tab Example 5 Wildlife data set\cr
+}
 }
 \examples{
 # Make sure that the local copy of all data/amExample* files match

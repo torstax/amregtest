@@ -9,12 +9,21 @@
 #' \cr
 #' See [allelematch::amExampleData] for a brief introduction. \cr
 #' See \href{https://github.com/cran/allelematch/blob/2.5.1/inst/doc/allelematchSuppDoc.pdf}{allelematchSuppDoc.pdf}.
-#' for a more detailed description.
+#' for a more detailed description. \cr
+#' \tabular{clcl}{
+#'  `  ` \tab [amExample1]`  `\tab `  ` \tab Example 1 High quality data set\cr
+#'  `  ` \tab [amExample2]\tab \tab Example 2 Good quality data set\cr
+#'  `  ` \tab [amExample3]\tab \tab Example 3 Marginal quality data set\cr
+#'  `  ` \tab [amExample4]\tab \tab Example 4 Low quality data set\cr
+#'  `  ` \tab [amExample5]\tab \tab Example 5 Wildlife data set\cr
+#' }
 #'
 #' @examples
 #' # Make sure that the local copy of all data/amExample* files match
 #' # match those in the currently installed version of allelematch:
 #' artVerifyAmExamples() # Stops if not identical
+#'
+#' @format Data frames with differing numbers of samples in rows, and alleles in columns. Missing data is represented as "-99".
 #'
 #' @docType data
 #' @references \url{https://github.com/cran/allelematch}
@@ -24,13 +33,12 @@ NULL
 
 #' Example 1 High quality data set
 #'
-#' This is sample data copied from [allelematch::amExampleData] in version 5.2.1
-#' of package [allelematch]. We use this data to test allelmatch backwards compatibility.
-#'
 #' The data in this example is simulated to represent a high quality data set that might
 #' result from a laboratory protocol where samples were run multiple times to confirm their
 #' identity. It has no genotyping error, a near-zero missing data load, and approximately
 #' 60% of the individuals have been artificially resampled more than once.
+#'
+#' @format Data frame with differing numbers of samples in rows, and alleles in columns. Missing data is represented as "-99".
 #'
 #' @name amExample1
 #' @docType data
@@ -49,17 +57,26 @@ NULL
 #' random 4% of heterozygotes lost their second allele to simulate an allele dropout, and
 #' a random 4% of samples at each locus had alleles set to missing.
 #'
+#' @format Data frame with differing numbers of samples in rows, and alleles in columns. Missing data is represented as "-99".
+#'
 #' @name amExample2
 #' @docType data
 #' @references \url{https://github.com/cran/allelematch}
 #' @keywords data
 NULL
 
-#' Example 3
+#' Example 3 Marginal quality data set
 #'
 #' This is sample data copied from [allelematch::amExampleData] in version 5.2.1
 #' of package [allelematch]. We use this data to test allelmatch backwards compatibility.
 #'
+#' The data in this example have been simulated to represent a data set of marginal
+#' quality where the use of allelematch combined with careful manual review of the
+#' results is required to achieve a confident assessment of the unique genotypes. At each
+#' locus a random 4% of heterozygotes lost their second allele to simulate an allele dropout,
+#' and a random 10% of samples at each locus had alleles set to missing.
+#'
+#' @format Data frame with differing numbers of samples in rows, and alleles in columns. Missing data is represented as "-99".
 #'
 #' @name amExample3
 #' @docType data
@@ -67,11 +84,19 @@ NULL
 #' @keywords data
 NULL
 
-#' Example 4
+#' Example 4 Low quality data set
 #'
 #' This is sample data copied from [allelematch::amExampleData] in version 5.2.1
 #' of package [allelematch]. We use this data to test allelmatch backwards compatibility.
 #'
+#' For this example we have simulated a low quality data set where uncertainty created
+#' by genotyping error and missing data, combined with a lack of information in the form
+#' of allelic diversity across loci will result in a low confidence assessment of the unique
+#' genotypes. At each locus a random 6% of heterozygotes lost their second allele to
+#' simulate an allele dropout, and a random 20% of samples at each locus had alleles set
+#' to missing.
+#'
+#' @format Data frame with differing numbers of samples in rows, and alleles in columns. Missing data is represented as "-99".
 #'
 #' @name amExample4
 #' @docType data
@@ -79,11 +104,18 @@ NULL
 #' @keywords data
 NULL
 
-#' Example 5
+#' Example 5 Wildlife data set
 #'
 #' This is sample data copied from [allelematch::amExampleData] in version 5.2.1
 #' of package [allelematch]. We use this data to test allelmatch backwards compatibility.
 #'
+#' In this final example we use real data from the non-invasive sampling of a wildlife
+#' population. The data have been anonymized by changing sampling details. A single
+#' column giving the gender is also available and we show how this can be used as an extra
+#' locus. Missing data is also more common at some loci than at others, with a total load
+#' of about 10%.
+#'
+#' @format Data frame with differing numbers of samples in rows, and alleles in columns. Missing data is represented as "-99".
 #'
 #' @name amExample5
 #' @docType data
@@ -103,10 +135,20 @@ NULL
 #' @name amExample1_0100_expected
 #' @aliases amExample1_0100_expected amExample1_0101_expected amExample1_0102_example1_1_expected amExample1_0103_example1_2_expected amExample1_0104_expected amExample1_0105_expected
 #' @aliases amExample2_0100_expected amExample2_0101_expected amExample2_0102_example2_1_expected amExample2_0103_expected amExample2_0104_example2_2_expected amExample2_0105_expected amExample2_0106_expected
+#' @aliases amExample3_0100_expected amExample3_0101_expected
+#' @aliases amExample3_0102_example3_1_expected amExample3_0103_expected
+#' @aliases amExample3_0104_example3_2_expected
+#' @aliases amExample3_0105_example3_3_expected amExample3_0105_expected
+#' @aliases amExample4_0100_expected amExample4_0101_expected
+#' @aliases amExample4_0102_example4_1_expected amExample4_0103_expected
+#' @aliases amExample4_0104_example4_2_expected
+#' @aliases amExample4_0105_example4_3_expected amExample4_0105_expected
+#' @aliases amExample4_0106_example4_2_expected
+#' @aliases amExample4_0106_example4_3_expected
 
 #' @docType data
 #' @references \url{https://github.com/cran/allelematch}
-#' @keywords data
+#' @keywords data internal
 NULL
 
 
@@ -184,18 +226,21 @@ getdata <- function(name, ...)
 
 #' Write data to .R file in ./data directory using [base::dump]`
 #'
-#' @param df        Data frame to write
-#' @param outName   Name of file to write to, excluding leading "data/" and trailing ".R"
-#' @param dir       The directory in which to write the data file.
-#'                  Expected to point at the here::here("data") directory,
-#'                  i.e. ./data under the package source root directory.
-#' @param overwrite Set to ´TRUE´ for the overwrite to take place
+#' Used when creating new tests that need new expected data.
+#'
+#' @param df            Data frame to write
+#' @param outName       Name of file to write to, excluding leading "data/" and trailing ".R"
+#' @param overwrite     Set to TRUE to write df as new expected data to dir "data/.".
+#'                      i.e. ./data under the package source root directory.
 #'
 #  ' @export
 #'
 #  ' @examples
-artOverwriteExpected <- function(df, outName, dir, overwrite = FALSE) {
-    if(isFALSE(overwrite)) return() else cat("\n    Overwriting : ", dir, "/", outName, "\n", sep="")
+artOverwriteExpected <- function(df, outName, overwrite=FALSE) {
+    if(!isTRUE(overwrite)) return()
+    dir = ifelse( grepl("/tests/testthat$", getwd()), "../../data/", "data/") # testthat changes getwd() to tests/testthat/.
+    if(!dir.exists(dir)) stop("\n    dir =", dir, "does not exist!\n    getwd()=", getwd())
+    cat("\n    Overwriting : ", dir, "/", outName, "\n", sep="")
     artDumpToData(df, outName, dir)
 }
 

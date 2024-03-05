@@ -1,18 +1,18 @@
 # Run tests on [ggSample], a large real life data set.
 #
 # The tests are quite time consuming (approx one minute per test).
-# They can therefore be skipped by setting "SKIP_SLOW_TESTS" to "TRUE"
+# They can therefore be skipped by setting "ART_SKIP_SLOW" to "TRUE"
 # from e.g. the RStudio Console:
 #
-#       Type Sys.setenv(SKIP_SLOW_TESTS = "TRUE") to skip
+#       Type Sys.setenv(ART_SKIP_SLOW = "TRUE") to skip
 #
-#       Type Sys.unsetenv("SKIP_SLOW_TESTS") to enable again
+#       Type Sys.unsetenv("ART_SKIP_SLOW") to enable again
 #
 test_that("amUnique(matchThreshold=0.9) for dataset ggSample", code = {
 
-    skip_if(Sys.getenv("SKIP_SLOW_TESTS") == "TRUE")
-    # Type Sys.setenv(SKIP_SLOW_TESTS = "TRUE") from the console to skip,
-    # Type Sys.unsetenv("SKIP_SLOW_TESTS") to enable again
+    skip_if(Sys.getenv("ART_SKIP_SLOW") == "TRUE")
+    # Type Sys.setenv(ART_SKIP_SLOW = "TRUE") from the console to skip,
+    # Type Sys.unsetenv("ART_SKIP_SLOW") to enable again
 
     # Log result files early:
     test = "ggSample_mThr0.9"
@@ -39,7 +39,7 @@ test_that("amUnique(matchThreshold=0.9) for dataset ggSample", code = {
 })
 
 test_that("amUnique(alleleMismatch=15) for dataset ggSample", code = {
-    skip_if(Sys.getenv("SKIP_SLOW_TESTS") == "TRUE")
+    skip_if(Sys.getenv("ART_SKIP_SLOW") == "TRUE")
 
     # Log result files early:
     test = "ggSample_aMm15"

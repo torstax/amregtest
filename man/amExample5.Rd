@@ -3,10 +3,20 @@
 \docType{data}
 \name{amExample5}
 \alias{amExample5}
-\title{Example 5}
+\title{Example 5 Wildlife data set}
+\format{
+Data frame with differing numbers of samples in rows, and alleles in columns. Missing data is represented as "-99".
+}
 \description{
 This is sample data copied from \link[allelematch:amExampleData]{allelematch::amExampleData} in version 5.2.1
 of package \link{allelematch}. We use this data to test allelmatch backwards compatibility.
+}
+\details{
+In this final example we use real data from the non-invasive sampling of a wildlife
+population. The data have been anonymized by changing sampling details. A single
+column giving the gender is also available and we show how this can be used as an extra
+locus. Missing data is also more common at some loci than at others, with a total load
+of about 10\%.
 }
 \references{
 \url{https://github.com/cran/allelematch}

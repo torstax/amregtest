@@ -3,10 +3,20 @@
 \docType{data}
 \name{amExample3}
 \alias{amExample3}
-\title{Example 3}
+\title{Example 3 Marginal quality data set}
+\format{
+Data frame with differing numbers of samples in rows, and alleles in columns. Missing data is represented as "-99".
+}
 \description{
 This is sample data copied from \link[allelematch:amExampleData]{allelematch::amExampleData} in version 5.2.1
 of package \link{allelematch}. We use this data to test allelmatch backwards compatibility.
+}
+\details{
+The data in this example have been simulated to represent a data set of marginal
+quality where the use of allelematch combined with careful manual review of the
+results is required to achieve a confident assessment of the unique genotypes. At each
+locus a random 4\% of heterozygotes lost their second allele to simulate an allele dropout,
+and a random 10\% of samples at each locus had alleles set to missing.
 }
 \references{
 \url{https://github.com/cran/allelematch}

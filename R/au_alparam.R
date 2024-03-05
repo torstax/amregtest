@@ -44,7 +44,7 @@ artArgToString <- function(...) {
 #'
 #' @param ... The `allelematch` parameters to abbreviate into a file name.
 #'
-#' @return a string that can be used in a data file name for use in an allelematch regressiontest.
+#' @return a string that can be used in a data file name for use in an allelematch regression test.
 #' @export
 #' @keywords internal
 #'

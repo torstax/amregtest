@@ -2,7 +2,7 @@
 % Please edit documentation in R/au_testengin.R
 \name{artSet}
 \alias{artSet}
-\title{Controls execution of the regressiontest}
+\title{Controls execution of the regression test}
 \usage{
 artSet(skip_slow = NA, generate_html = NA)
 }
@@ -12,14 +12,14 @@ artSet(skip_slow = NA, generate_html = NA)
 \item{generate_html}{TRUE or FALSE}
 }
 \description{
-Two envionement variables control the executon of the tests
+Two environment variables control the execution of the tests
 then the current version is deleted, the \code{wantedVersion} is installed and
 R is restarted.\cr
 \cr
 Look at \href{https://github.com/cran/allelematch/tags}{allelematch tags} at CRAN to see available versions.
 \cr
 Note that the first supported version is 2.5.2. Older versions are no longer
-tollerated modern versions of R (e.g. 4.3.2).
+tolerated modern versions of R (e.g. 4.3.2).
 
 TODO: Find the change and revision in R!
 }

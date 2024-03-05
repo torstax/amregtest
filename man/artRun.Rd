@@ -2,9 +2,14 @@
 % Please edit documentation in R/au_testengin.R
 \name{artRun}
 \alias{artRun}
-\title{Runs the regressiontest}
+\title{Runs the regression test}
 \usage{
-artRun()
+artRun(skip_slow = FALSE, generate_html = FALSE)
+}
+\arguments{
+\item{skip_slow}{TRUE or FALSE}
+
+\item{generate_html}{TRUE or FALSE}
 }
 \value{
 NA

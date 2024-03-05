@@ -1,5 +1,3 @@
-here::i_am("tests/testthat/setup.R")
-
 library(amregtest)
 
 # See https://stackoverflow.com/questions/74379129/r-using-arguments-passed-to-for-named-arguments-when-arguments-are-subst

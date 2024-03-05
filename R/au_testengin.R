@@ -56,12 +56,14 @@ artInstallAllelematchVersion <- function(wantedVersion) {
 }
 
 
-#' Runs the regressiontest
+#' Runs the regression test
 #'
 #' @description
 #'
 #' TODO:
 #'
+#' @param skip_slow     TRUE or FALSE
+#' @param generate_html TRUE or FALSE
 #'
 #' @returns NA
 #'
@@ -69,23 +71,62 @@ artInstallAllelematchVersion <- function(wantedVersion) {
 #' @seealso [artSet] [artShow] [artClear]
 #'
 #' @export
-artRun <- function() {
+artRun <- function(skip_slow=FALSE, generate_html=FALSE) {
+    switch(as.character(skip_slow),
+           "TRUE"=1,
+           "FALSE"=1,
+           stop("Unexpected value of skip_slow:", skip_slow,
+                "\n    Expected one of 'TRUE' or 'FALSE'\n")
+    )
+    switch(as.character(generate_html),
+           "TRUE"=1,
+           "FALSE"=1,
+           stop("Unexpected value of generate_html:", generate_html,
+                "\n    Expected one of 'TRUE' or 'FALSE'\n")
+    )
+    localenv = c(
+        ART_SKIP_SLOW = as.character(skip_slow),
+        ART_GENERATE_HTML = as.character(generate_html),
+        ART_CALLERS_WD = getwd() # Try to write generate html files here
+    )
+    withr::local_envvar(localenv)
 
-    return(NA)
+    installedVersion = toString(utils::packageVersion("allelematch"))
+    cat("    About to test installed version of allelematch:  <<<", installedVersion, ">>>\n", sep="")
+    result = testthat::test_package("amregtest")
+    cat("    Done testing installed version of allelematch:  <<<", installedVersion, ">>>\n", sep="")
+    # return(result)
 }
 
+artHtml <- function(file) {
+    dir = Sys.getenv("ART_CALLERS_WD")
+    if(dir == "") {
+        dir = ifelse( grepl("/tests/testthat$", getwd()), "../..", ".") # testthat changes getwd() to tests/testthat/.
+        dir = normalizePath(dir, winslash = "/")
+    }
+    # dir = sub("^(C):", "/\\1", dir, perl=TRUE, fixed=FALSE)
+    dir = sub("^C:", "", dir, perl=TRUE, fixed=FALSE)
+    # dir = "\"/c/Users/Torva/repo/regressiontest\""
+    if(!dir.exists(dir)) stop("\n    dir = '", dir, "' does not exist!\n    getwd() = '", getwd(), "' ", sep="")
+    longfile = paste(dir, "/", file, sep="")
+    cat("\n    Writing html to :", longfile)
 
-#' Controls execution of the regressiontest
+    # return("/c/Users/Torva/repo/regressiontest/hej.html")
+
+    return(longfile)
+}
+
+#' Controls execution of the regression test
 #'
 #' @description
-#' Two envionement variables control the executon of the tests
+#' Two environment variables control the execution of the tests
 #' then the current version is deleted, the `wantedVersion` is installed and
 #' R is restarted.\cr
 #' \cr
 #' Look at \href{https://github.com/cran/allelematch/tags}{allelematch tags} at CRAN to see available versions.
 #' \cr
 #' Note that the first supported version is 2.5.2. Older versions are no longer
-#' tollerated modern versions of R (e.g. 4.3.2).
+#' tolerated modern versions of R (e.g. 4.3.2).
 #'
 #' TODO: Find the change and revision in R!
 #'
@@ -98,15 +139,15 @@ artRun <- function() {
 artSet <- function(skip_slow=NA, generate_html=NA) {
     switch(as.character(skip_slow),
         "NA"=NA, # Do nothing
-        "TRUE"=Sys.setenv(SKIP_SLOW_TESTS = "TRUE"),
-        "FALSE"=Sys.unsetenv("SKIP_SLOW_TESTS"),
+        "TRUE"=Sys.setenv(ART_SKIP_SLOW = "TRUE"),
+        "FALSE"=Sys.unsetenv("ART_SKIP_SLOW"),
         stop("Unexpected value of skip_slow:", skip_slow,
              "\n    Expected one of 'TRUE', 'FALSE' or 'NA'\n")
     )
     switch(as.character(generate_html),
            "NA"=NA, # Do nothing
-           "TRUE"=Sys.setenv(GENERATE_HTML_SUMMARIES = "TRUE"),
-           "FALSE"=Sys.unsetenv("GENERATE_HTML_SUMMARIES"),
+           "TRUE"=Sys.setenv(ART_GENERATE_HTML = "TRUE"),
+           "FALSE"=Sys.unsetenv("ART_GENERATE_HTML"),
            stop("Unexpected value of generate_html:", generate_html,
                 "\n    Expected one of 'TRUE', 'FALSE' or 'NA'\n")
     )
@@ -118,8 +159,8 @@ artSet <- function(skip_slow=NA, generate_html=NA) {
 #'
 #' @export
 artShow <- function() {
-    cat("    SKIP_SLOW_TESTS         =", Sys.getenv("SKIP_SLOW_TESTS"),"\n")
-    cat("    GENERATE_HTML_SUMMARIES =", Sys.getenv("GENERATE_HTML_SUMMARIES"),"\n")
+    cat("    ART_SKIP_SLOW         =", Sys.getenv("ART_SKIP_SLOW"),"\n")
+    cat("    ART_GENERATE_HTML =", Sys.getenv("ART_GENERATE_HTML"),"\n")
 }
 
 
@@ -127,8 +168,8 @@ artShow <- function() {
 #'
 #' @export
 artClear <- function() {
-    Sys.unsetenv("SKIP_SLOW_TESTS")
-    Sys.unsetenv("GENERATE_HTML_SUMMARIES")
+    Sys.unsetenv("ART_SKIP_SLOW")
+    Sys.unsetenv("ART_GENERATE_HTML")
     artShow()
 }
 

@@ -10,7 +10,7 @@ artDefaultFileName(...)
 \item{...}{The \code{allelematch} parameters to abbreviate into a file name.}
 }
 \value{
-a string that can be used in a data file name for use in an allelematch regressiontest.
+a string that can be used in a data file name for use in an allelematch regression test.
 }
 \description{
 Here we assume that the arguments in \link{artArgToString} are those

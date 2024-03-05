@@ -4,19 +4,16 @@
 \alias{artOverwriteExpected}
 \title{Write data to .R file in ./data directory using \link[base:dump]{base::dump}`}
 \usage{
-artOverwriteExpected(df, outName, dir, overwrite = FALSE)
+artOverwriteExpected(df, outName, overwrite = FALSE)
 }
 \arguments{
 \item{df}{Data frame to write}
 
 \item{outName}{Name of file to write to, excluding leading "data/" and trailing ".R"}
 
-\item{dir}{The directory in which to write the data file.
-Expected to point at the here::here("data") directory,
+\item{overwrite}{Set to TRUE to write df as new expected data to dir "data/.".
 i.e. ./data under the package source root directory.}
-
-\item{overwrite}{Set to ´TRUE´ for the overwrite to take place}
 }
 \description{
-Write data to .R file in ./data directory using \link[base:dump]{base::dump}`
+Used when creating new tests that need new expected data.
 }

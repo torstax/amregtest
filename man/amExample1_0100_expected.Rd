@@ -15,6 +15,22 @@
 \alias{amExample2_0104_example2_2_expected}
 \alias{amExample2_0105_expected}
 \alias{amExample2_0106_expected}
+\alias{amExample3_0100_expected}
+\alias{amExample3_0101_expected}
+\alias{amExample3_0102_example3_1_expected}
+\alias{amExample3_0103_expected}
+\alias{amExample3_0104_example3_2_expected}
+\alias{amExample3_0105_example3_3_expected}
+\alias{amExample3_0105_expected}
+\alias{amExample4_0100_expected}
+\alias{amExample4_0101_expected}
+\alias{amExample4_0102_example4_1_expected}
+\alias{amExample4_0103_expected}
+\alias{amExample4_0104_example4_2_expected}
+\alias{amExample4_0105_example4_3_expected}
+\alias{amExample4_0105_expected}
+\alias{amExample4_0106_example4_2_expected}
+\alias{amExample4_0106_example4_3_expected}
 \title{Expected data used in calls to \link[testthat:equality-expectations]{testthat::expect_identical}}
 \description{
 Naming convention: "exp" for "Expected". First number identifies the \link[testthat:test_that]{testthat::test_that}
@@ -28,3 +44,4 @@ Look for commented out lines ending with "# This is how the expected data was st
 \url{https://github.com/cran/allelematch}
 }
 \keyword{data}
+\keyword{internal}
