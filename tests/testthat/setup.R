@@ -1,4 +1,5 @@
-library(amregtest)
+#library(amregtest)
+require(amregtest, quietly = TRUE)
 
 # See https://stackoverflow.com/questions/74379129/r-using-arguments-passed-to-for-named-arguments-when-arguments-are-subst
 options(warnPartialMatchArgs=TRUE)

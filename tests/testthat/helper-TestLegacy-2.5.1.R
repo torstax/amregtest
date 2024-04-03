@@ -2,6 +2,34 @@
 ### Setup for scripted execution ###
 ####################################
 
+# Ensure that actualData is identical to expected.
+# Overwrite expected while writing a new test.
+expect_identical_R <- function(actualData, expectedName, overwrite) {
+    if(overwrite == TRUE) amOverwriteExpectedR(actual, expectedName, ".R")
+
+    testthat::expect_identical(actualData, getdata(expectedName))
+}
+
+# Dump expected data to the data directory.
+dump_expected <- function(df, name, extension) {
+    if(!file.exists("../../data/ggSample.csv"))
+        stop("\n    Trying to overwrite when not running 'testthat'!",
+             "\n    Can't find file '../../ggSample.csv'!\n")
+
+    path = paste("../../data/", name, extension, sep="")
+    if(file.exists(path))
+        cat("\n    WARNING: Overwriting existing file '", path, "'!\n", sep="")
+    else
+        cat("\n    Overwriting : ", path, "\n", sep="")
+
+    e <- new.env()
+    assign(name, df, envir = e)
+    uxFile = file(path, "wb", raw=TRUE) # Use GIT-compatible UNIX line breaks (LF) rather than Windows (CRLF)
+    base::dump(list = c(name), uxFile, envir = e)
+    close(file)
+}
+
+
 #' Validates the output file naming convention we use for tests on [ggData]
 #'
 #' @description
@@ -134,4 +162,89 @@ expect_gg_summaries_equal <- function(test, actualCsv, expectedData) {
     actual   = artRead_amCSV(ggAssertActualCsv(test, actualCsv))
     expected = getdata(     ggAssertExpected(test, expectedData))
     testthat::expect_equal( actual, expected, ignore_attr = TRUE)
+}
+
+################################################################
+### Shaddowing exported functions in amregtest:
+################################################################
+
+#' Loads and returns a large data set without polluting the global environment.
+#'
+#' The data set is taken from the ./data/ folder of the specified package.
+#'
+#' See the Description section under [utils::data] for how the supported file
+#' types (including .R, .RData, .txt and .csv) shall be encoded.
+#'
+#' The parameters are the same as for the [data] function in package [utils].
+#'
+#' Thank you @henfiber! See https://stackoverflow.com/questions/30951204/load-dataset-from-r-package-using-data-assign-it-directly-to-a-variable/30951700#30951700
+#'
+#' @param name The name (excluding directory and extension) of the data to load
+#' @param ...  All other parameters are passed on to [utils::data] as is
+#'
+#' @returns the specified data set loaded by [utils::data]
+#'
+#' @examples foo = getdata("amExample1", package = "allelematch")
+#'
+#' @export
+getdata <- function(name, ...)
+{
+    stopifnot(is.character(name))
+    e <- new.env()
+    name <- utils::data(list = c(name), ..., envir = e)[1]
+    e[[name]]
+}
+
+
+#' Read gg style .csv file for use in ... ([allelematch::amDataset] ?)
+#'
+#' The format of the data to be analyzed by `allelematch`
+#' is outside of the control by `allelematch`. So, the format read by this function
+#' is specific to this package rather than to `allelematch`.
+#'
+#' @param   csvInFile Dir, name and extension for the .csv file to be read
+#'
+#' @export
+#' @keywords internal
+artReadCsvFile <- function(csvInFile) {
+    df <- read.csv(file=csvInFile, colClasses="character", check.names=FALSE)
+    return (df)
+}
+
+
+#' Read .csv file written by [allelematch] for comparison with data
+#'
+#' [allelematch] writes summary file using "," as field delimiter, rather
+#' than ";", expected by [utils::data].
+#' \cr
+#' Quote from `allelematch::amCSV.amUnique`  \cr
+#' \cr
+#' `utils::write.csv(csvTable, file=csvFile, row.names=FALSE)`
+#'
+#' @param   csvInFile Dir, name and extension for the .csv file to be read
+#'
+#' @export
+#' @keywords internal
+artRead_amCSV <- function(csvInFile) {
+    #   df <- read.csv(file=csvInFile, check.names=FALSE)
+    df <- read.table(file=csvInFile, header=TRUE, sep=",", as.is=FALSE)
+    return (df)
+}
+
+artHtml <- function(file) {
+    dir = Sys.getenv("ART_CALLERS_WD")
+    if(dir == "") {
+        dir = ifelse( grepl("/tests/testthat$", getwd()), "../..", ".") # testthat changes getwd() to tests/testthat/.
+        dir = normalizePath(dir, winslash = "/")
+    }
+    # dir = sub("^(C):", "/\\1", dir, perl=TRUE, fixed=FALSE)
+    dir = sub("^C:", "", dir, perl=TRUE, fixed=FALSE)
+    # dir = "\"/c/Users/Torva/repo/regressiontest\""
+    if(!dir.exists(dir)) stop("\n    dir = '", dir, "' does not exist!\n    getwd() = '", getwd(), "' ", sep="")
+    longfile = paste(dir, "/", file, sep="")
+    cat("\n    Writing html to :", longfile)
+
+    # return("/c/Users/Torva/repo/regressiontest/hej.html")
+
+    return(longfile)
 }

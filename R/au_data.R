@@ -233,8 +233,8 @@ getdata <- function(name, ...)
 #' @param overwrite     Set to TRUE to write df as new expected data to dir "data/.".
 #'                      i.e. ./data under the package source root directory.
 #'
-#  ' @export
-#'
+#' @export
+#  ' @keywords internal
 #  ' @examples
 artOverwriteExpected <- function(df, outName, overwrite=FALSE) {
     if(!isTRUE(overwrite)) return()

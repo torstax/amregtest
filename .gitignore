@@ -9,4 +9,7 @@ tests/testthat/*.html
 foo*
 *.foo
 *.hidden
+*.pdf
+null
+
 

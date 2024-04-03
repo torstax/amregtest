@@ -9,14 +9,16 @@ overwrite = FALSE # Use TRUE when creating new tests that need new *_expected da
 
 test_that("amExample4 results from pg 14 in allelematchSuppDoc.pdf are 2.5.3 compatible", code = {
 
+    # Prepare for printing large snapshot files:
+    withr::local_options(width=200) # Allow longer lines for the summaries:
+
     # Follow the instructions from allelematchSuppDoc.pdf, pg 14:
     data("amExample4")
     example4 <- amDataset(amExample4, indexColumn="sampleId",
       metaDataColumn="knownIndividual", missingCode="-99")
     {
         # Ensure that the result is still the same as that from 2.5.3:
-        artOverwriteExpected(example4, "amExample4_0100_expected", overwrite)  # This is how the expected data was stored
-        testthat::expect_identical( example4, getdata("amExample4_0100_expected"))
+        expect_identical_R(example4, "amExample4_0100_expected", overwrite)
     }
 
     output = capture.output(
@@ -40,17 +42,16 @@ test_that("amExample4 results from pg 14 in allelematchSuppDoc.pdf are 2.5.3 com
         testthat::expect_match(output, "allelematch:  assuming genotype columns are in pairs, representing 10 loci$", all=FALSE)
 
         # Ensure that the result is still the same as that from 2.5.3:
-        artOverwriteExpected(uniqueExample4, "amExample4_0101_expected", overwrite) # This is how the expected data was stored
-        testthat::expect_identical( uniqueExample4, getdata("amExample4_0101_expected"))
+        expect_identical_R(uniqueExample4, "amExample4_0101_expected", overwrite)
 
         # Generate a summary file:
         summary.amUnique(uniqueExample4, csv=summaryFile <- tempfile("example4_1.csv"))
 
         # Re-read the generated .csv file:
         actual = artReadCsvFile(summaryFile)
-        artOverwriteExpected(actual, "amExample4_0102_example4_1_expected", overwrite) # This is how the expected data was stored
+
         # Ensure that the result is still the same as that from 2.5.3
-        testthat::expect_identical( actual, getdata("amExample4_0102_example4_1_expected"))
+        expect_identical_R(actual, "amExample4_0102_example4_1_expected", overwrite)
     }
 
     if(HTML) {
@@ -64,17 +65,16 @@ test_that("amExample4 results from pg 14 in allelematchSuppDoc.pdf are 2.5.3 com
         testthat::expect_match(output, "allelematch:  assuming genotype columns are in pairs, representing 10 loci$", all=FALSE)
 
         # Ensure that the result is still the same as that from 2.5.3:
-        artOverwriteExpected(uniqueExample4ballpark, "amExample4_0103_expected", overwrite) # This is how the expected data was stored
-        testthat::expect_identical( uniqueExample4ballpark, getdata("amExample4_0103_expected"))
+        expect_identical_R(uniqueExample4ballpark, "amExample4_0103_expected", overwrite)
 
         # Generate a summary file:
         summary.amUnique(uniqueExample4ballpark, csv=summaryFile <- tempfile("example4_2.csv"))
 
         # Re-read the generated .csv file:
         actual = artReadCsvFile(summaryFile)
-        artOverwriteExpected(actual, "amExample4_0104_example4_2_expected", overwrite) # This is how the expected data was stored
+
         # Ensure that the result is still the same as that from 2.5.3
-        testthat::expect_identical( actual, getdata("amExample4_0104_example4_2_expected"))
+        expect_identical_R(actual, "amExample4_0104_example4_2_expected", overwrite)
     }
 
     if(HTML) {
@@ -88,17 +88,16 @@ test_that("amExample4 results from pg 14 in allelematchSuppDoc.pdf are 2.5.3 com
         testthat::expect_match(output, "allelematch:  assuming genotype columns are in pairs, representing 10 loci$", all=FALSE)
 
         # Ensure that the result is still the same as that from 2.5.3:
-        artOverwriteExpected(uniqueExample4high, "amExample4_0105_expected", overwrite) # This is how the expected data was stored
-        testthat::expect_identical( uniqueExample4high, getdata("amExample4_0105_expected"))
+        expect_identical_R(uniqueExample4high, "amExample4_0105_expected", overwrite)
 
         # Generate a summary file:
         summary.amUnique(uniqueExample4high, csv=summaryFile <- tempfile("example4_3.csv"))
 
         # Re-read the generated .csv file:
         actual = artReadCsvFile(summaryFile)
-        artOverwriteExpected(actual, "amExample4_0106_example4_3_expected", overwrite) # This is how the expected data was stored
+
         # Ensure that the result is still the same as that from 2.5.3
-        testthat::expect_identical( actual, getdata("amExample4_0106_example4_3_expected"))
+        expect_identical_R(actual, "amExample4_0106_example4_3_expected", overwrite)
     }
 
     if(HTML) {

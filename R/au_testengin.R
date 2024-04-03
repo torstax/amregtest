@@ -10,12 +10,13 @@
 #' @seealso [artInstallAllelematchVersion]
 #' @export
 artVersion <- function() {
-    installedVersion = toString(utils::packageVersion("amregtest"))
-    cat("\n    Version of package 'amregtest' is", )
-    cat("\n    Installed (and thus tested) version of package 'allelematch' is:", installedVersion)
+    installedArtVersion = toString(utils::packageVersion("amregtest"))
+    installedAmVersion  = toString(utils::packageVersion("allelematch"))
+
+    cat("\n    Version of package 'amregtest' is", installedArtVersion)
+    cat("\n    Installed (and thus tested) version of package 'allelematch' is:", installedAmVersion)
     cat("\n")
     cat("\n    This version of 'amregtest' was used to test 'allelematch' versions 2.5.3 and 2.5.2")
-    cat("\n")
     cat("\n    2.5.1 and earlier versions of 'allelematch' require older versions of R to work.")
     cat("\n\n")
     # return(installedVersion)
@@ -95,7 +96,122 @@ artRun <- function(skip_slow=FALSE, generate_html=FALSE) {
     cat("    About to test installed version of allelematch:  <<<", installedVersion, ">>>\n", sep="")
     result = testthat::test_package("amregtest")
     cat("    Done testing installed version of allelematch:  <<<", installedVersion, ">>>\n", sep="")
-    # return(result)
+    invisible(result)
+}
+
+
+#' Runs selected test(s) in the selected `test-*.R` file
+#'
+#' @description
+#' Allows narrowing down to a single test in a single [testthat] file. \cr
+#' \cr
+#' From RStudio, set a breakpoint in one of the [allelematch] files
+#' in order to activate the debugger.
+#'
+#' @details
+#' If any of the test executed with [artRun] should fail, then we want to be able
+#' to run that specific test in the debugger.
+#'
+#' Unfortunately it is not possible to set breakpoints in any of the `test-*.R` script files.\cr
+#' This is because the breakpoints are registered in the sourced and parsed code. \cr
+#' When the script is sourced again, the breakpoints are cleared. And `testthat`
+#' sources the scripts as part of the execution. Also, `testthat`usually runs in
+#' a separate session from RStudio, so it won't ever be able to use editor breakpoints.
+#'
+#' It is however possible to set breakpoints in the built and installed
+#' source code of [allelematch]. And this function makes it possible
+#' to run just the failing test. \cr
+#' \cr
+#' Please note the Traceback window that appears under the Environment window
+#' when you run this function with a breakpoint set in `allelematch` code.
+#'
+#' This method was inspired by https://stackoverflow.com/questions/31548796/debugging-testthat-tests-in-rstudio/63717008#63717008
+#' by Drew D and by [devtools::test_active_file].
+#'
+#' @examples
+#' # From the RStudio console: Run the full set of tests
+#' artRun()
+#'
+#' # If an error was detected, you may want to set a breakpoint and debug.
+#' # Unfortunately, this is not supported by testthat. Testthat sources
+#' # the test files. Whenever a file is sourced, the breakpoints in it are lost.
+#' # But artDebug allows setting breakpoints in the tested software .... TBD!
+#'
+#' # In RStudio: Show the test-*.R file to test in the active editor window
+#' # Runs all tests in the
+#'
+#' # TODO!
+#'
+#' @param match  the calls to test_that were the description matches `match` are executed
+#' @param file   the `testthat` `test-*.R` script files. Default is the file in the currently active editor window in RStudio.
+#'
+#' @returns NA
+#'
+#' @seealso [artVersion] [artAssertAllelematchVersion]
+#' @seealso [artSet] [artShow] [artClear]
+#'
+#' @export
+artDebug <- function(match = ".", file = active_editor_file()) {
+    # Use the same 'sort' order on all platforms:
+    withr::local_collate("C")
+    withr::local_language("en")
+    #Sys.getlocale()
+
+    # active_editor_file /
+    # devtools::test_active_file()
+    installedVersion = toString(utils::packageVersion("allelematch"))
+    dir = normalizePath(dirname(file))
+    cat("\n    allelmatch version  : ", installedVersion,
+        "\n    Test file to be run : ", file,
+        "\n    Pattern to match test_that description : '", match, "'",
+        "\n", sep="")
+
+    if(!file.exists(file))
+        stop("\n    Could not find active_file!",
+             "\n    active_file = '", file, "'\n")
+
+    # find any setup and helper files in the same dir:
+    setups  = sapply(list.files(path=dir, pattern = "\\bsetup.*\\.(R|r)",  full.names = TRUE), normalizePath)
+    helpers = sapply(list.files(path=dir, pattern = "\\bhelper.*\\.(R|r)", full.names = TRUE), normalizePath)
+    cat("    Setups  :", setups,  sep="\n      ")
+    cat("    Helpers :", helpers, sep="\n      ")
+
+    # Source all the found setup and helper files to make the functions in them available:
+    sapply(setups, source)
+    sapply(helpers, source)
+
+    # Define a new function that executes the matching tests using a re-defined 'test_that' function
+    testf_trace <- function(active_file, match) {
+        env <- new.env()
+
+        # Re-define the 'test_that function to only execute the tests where
+        # the description matches 'match':
+        test_that <- function(desc, code) {
+            if (length(grep(match, desc)) > 0) {
+                cat("    Matching test :", desc, "\n")
+                eval(substitute(code), env)
+            } else {
+                # cat("NOT Matching:", desc, "\n")
+            }
+        }
+        env$test_that <- test_that
+
+        # Execute the matching tests without starting a separate session:
+        source(active_file, env)
+    }
+
+    # Execute the matching tests without starting a separate session:
+    result = testf_trace(file, match)
+
+    cat("\n    Done debugging installed version of allelematch:  <<<", installedVersion, ">>>\n", sep="")
+
+    invisible(result)
+}
+
+#' Internal utility file for above
+#'
+active_editor_file <- function() {
+    normalizePath(rstudioapi::getSourceEditorContext()$path)
 }
 
 artHtml <- function(file) {
