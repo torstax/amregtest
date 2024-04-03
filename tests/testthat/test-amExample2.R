@@ -14,7 +14,7 @@ test_that("amExample2 results from pg 8 in allelematchSuppDoc.pdf 2.5.3 compatib
       metaDataColumn="knownIndividual", missingCode="-99")
     {
         # Ensure that the result is still the same as that from 2.5.3:
-        expect_identical_R( example2, "amExample2_0100_expected", overwrite)
+        expect_snapshot_value(example2, style="deparse")
     }
 
     output = capture.output(
@@ -36,20 +36,17 @@ test_that("amExample2 results from pg 8 in allelematchSuppDoc.pdf 2.5.3 compatib
         testthat::expect_match(output, "allelematch:  assuming genotype columns are in pairs, representing 10 loci$", all=FALSE)
 
         # Ensure that the result is still the same as that from 2.5.3:
-        expect_identical_R(uniqueExample2, "amExample2_0101_expected", overwrite)
+        expect_snapshot_value(uniqueExample2, style="deparse")
 
         # Generate a summary file:
         summary.amUnique(uniqueExample2, csv=summaryFile <- tempfile("example2_1.csv"))
 
-        # Re-read the generated .csv file:
-        actual = artReadCsvFile(summaryFile)
-
         # Ensure that the result is still the same as that from 2.5.3
-        expect_identical_R(actual, "amExample2_0102_example2_1_expected", overwrite)
+        expect_snapshot_value(read.csv(file=summaryFile, colClasses="character"), style="deparse")
     }
 
     if(HTML) {
-        summary.amUnique(uniqueExample2, html=artHtml("example2_1.html"))
+        summary.amUnique(uniqueExample2, html=helpHtml("example2_1.html"))
     }
 
     output = capture.output(
@@ -59,20 +56,17 @@ test_that("amExample2 results from pg 8 in allelematchSuppDoc.pdf 2.5.3 compatib
         testthat::expect_match(output, "allelematch:  assuming genotype columns are in pairs, representing 10 loci$", all=FALSE)
 
         # Ensure that the result is still the same as that from 2.5.3:
-        expect_identical_R(uniqueExample2, "amExample2_0103_expected", overwrite)
+        expect_snapshot_value(uniqueExample2, style="deparse")
 
         # Generate a summary file:
         summary.amUnique(uniqueExample2, csv=summaryFile <- tempfile("example2_2.csv"))
 
-        # Re-read the generated .csv file:
-        actual = artReadCsvFile(summaryFile)
-
         # Ensure that the result is still the same as that from 2.5.3
-        expect_identical_R(actual, "amExample2_0104_example2_2_expected", overwrite)
+        expect_snapshot_value(read.csv(file=summaryFile, colClasses="character"), style="deparse")
     }
 
     if(HTML) {
-        summary.amUnique(uniqueExample2, html=artHtml("example2_2.html"))
+        summary.amUnique(uniqueExample2, html=helpHtml("example2_2.html"))
     }
 
     # Copied from test of amExample1:
@@ -80,7 +74,7 @@ test_that("amExample2 results from pg 8 in allelematchSuppDoc.pdf 2.5.3 compatib
                              metaDataColumn="knownIndividual", missingCode="-99")
     {
         # Ensure that the result is still the same as that from 2.5.3:
-        expect_identical_R(example2chk, "amExample2_0105_expected", overwrite)
+        expect_snapshot_value(example2chk, style="deparse")
     }
 
     output = capture.output(
@@ -90,7 +84,7 @@ test_that("amExample2 results from pg 8 in allelematchSuppDoc.pdf 2.5.3 compatib
         testthat::expect_match(output, "allelematch:  assuming genotype columns are in pairs, representing 10 loci$", all=FALSE)
 
         # Ensure that the result is still the same as that from 2.5.3:
-        expect_identical_R(uniqueExample2chk, "amExample2_0106_expected", overwrite)
+        expect_snapshot_value(uniqueExample2chk, style="deparse")
     }
 
 })

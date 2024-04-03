@@ -6,7 +6,7 @@ test_that("Loop the Loop", {
   snapshot_amPairwise <- function(ds, ...) {
     
     # Log the call to the snapshot file:
-    argstr = artArgToString(...)
+    argstr = helpArgToString(...)
     cmdstr = paste("amPairwise(", ds, ", ", argstr, ")", sep="") ; expect_snapshot(cat(cmdstr))
     
     # Make the call:

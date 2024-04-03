@@ -18,7 +18,7 @@ test_that("amExample4 results from pg 14 in allelematchSuppDoc.pdf are 2.5.3 com
       metaDataColumn="knownIndividual", missingCode="-99")
     {
         # Ensure that the result is still the same as that from 2.5.3:
-        expect_identical_R(example4, "amExample4_0100_expected", overwrite)
+        expect_snapshot_value(example4, style="deparse")
     }
 
     output = capture.output(
@@ -42,20 +42,17 @@ test_that("amExample4 results from pg 14 in allelematchSuppDoc.pdf are 2.5.3 com
         testthat::expect_match(output, "allelematch:  assuming genotype columns are in pairs, representing 10 loci$", all=FALSE)
 
         # Ensure that the result is still the same as that from 2.5.3:
-        expect_identical_R(uniqueExample4, "amExample4_0101_expected", overwrite)
+        expect_snapshot_value(uniqueExample4, style="deparse")
 
         # Generate a summary file:
         summary.amUnique(uniqueExample4, csv=summaryFile <- tempfile("example4_1.csv"))
 
-        # Re-read the generated .csv file:
-        actual = artReadCsvFile(summaryFile)
-
         # Ensure that the result is still the same as that from 2.5.3
-        expect_identical_R(actual, "amExample4_0102_example4_1_expected", overwrite)
+        expect_snapshot_value(read.csv(file=summaryFile, colClasses="character"), style="deparse")
     }
 
     if(HTML) {
-        summary.amUnique(uniqueExample4, html=artHtml("example4_1.html"))
+        summary.amUnique(uniqueExample4, html=helpHtml("example4_1.html"))
     }
 
     output = capture.output(
@@ -65,20 +62,17 @@ test_that("amExample4 results from pg 14 in allelematchSuppDoc.pdf are 2.5.3 com
         testthat::expect_match(output, "allelematch:  assuming genotype columns are in pairs, representing 10 loci$", all=FALSE)
 
         # Ensure that the result is still the same as that from 2.5.3:
-        expect_identical_R(uniqueExample4ballpark, "amExample4_0103_expected", overwrite)
+        # expect_snapshot_value(uniqueExample4ballpark, style="deparse") # (Couldn't serialize)
 
         # Generate a summary file:
         summary.amUnique(uniqueExample4ballpark, csv=summaryFile <- tempfile("example4_2.csv"))
 
-        # Re-read the generated .csv file:
-        actual = artReadCsvFile(summaryFile)
-
         # Ensure that the result is still the same as that from 2.5.3
-        expect_identical_R(actual, "amExample4_0104_example4_2_expected", overwrite)
+        expect_snapshot_value(read.csv(file=summaryFile, colClasses="character"), style="deparse")
     }
 
     if(HTML) {
-        summary.amUnique(uniqueExample4ballpark, html=artHtml("example4_2.html"))
+        summary.amUnique(uniqueExample4ballpark, html=helpHtml("example4_2.html"))
     }
 
     output = capture.output(
@@ -88,20 +82,17 @@ test_that("amExample4 results from pg 14 in allelematchSuppDoc.pdf are 2.5.3 com
         testthat::expect_match(output, "allelematch:  assuming genotype columns are in pairs, representing 10 loci$", all=FALSE)
 
         # Ensure that the result is still the same as that from 2.5.3:
-        expect_identical_R(uniqueExample4high, "amExample4_0105_expected", overwrite)
+        # expect_snapshot_value(uniqueExample4high, style="deparse") # Couldn't serialize
 
         # Generate a summary file:
         summary.amUnique(uniqueExample4high, csv=summaryFile <- tempfile("example4_3.csv"))
 
-        # Re-read the generated .csv file:
-        actual = artReadCsvFile(summaryFile)
-
         # Ensure that the result is still the same as that from 2.5.3
-        expect_identical_R(actual, "amExample4_0106_example4_3_expected", overwrite)
+        expect_snapshot_value(read.csv(file=summaryFile, colClasses="character"), style="deparse")
     }
 
     if(HTML) {
-        summary.amUnique(uniqueExample4high, html=artHtml("example4_3.html"))
+        summary.amUnique(uniqueExample4high, html=helpHtml("example4_3.html"))
     }
 
 

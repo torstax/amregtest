@@ -44,7 +44,7 @@ test_that("Loop the Loop", {
   snapshot_amUniqueProfile <- function(ds, ...) {
 
     # Log the call to the snapshot file:
-    argstr = artArgToString(...)
+    argstr = helpArgToString(...)
     cmdstr = paste("amUniqueProfile(", ds, ", ", argstr, ")", sep="") ; expect_snapshot(cat(cmdstr))
 
     # Capture any errors reported by allelematch, but drop the output to stdout:

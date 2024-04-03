@@ -20,7 +20,6 @@ test_that("amExample1 from pg 5 in allelematchSuppDoc.pdf is 2.5.3 compatible", 
     )
     {
         # Ensure that the result is still the same as that from 2.5.3:
-        expect_identical_R(example1, "amExample1_0100_expected", overwrite)
         expect_snapshot_value(example1, style="deparse")
     }
 
@@ -46,13 +45,12 @@ test_that("amExample1 from pg 5 in allelematchSuppDoc.pdf is 2.5.3 compatible", 
         # testthat::expect_match(output, "allelematch:  assuming genotype columns are in pairs, representing 10 loci$", all=FALSE)
 
         # Ensure that the result is still the same as that from 2.5.3:
-        expect_identical_R(uniqueExample1, "amExample1_0101_expected", overwrite)
         expect_snapshot_value(uniqueExample1, style="deparse")
     }
 
     if(HTML) {
         ## Save to disk
-        ## summary.amUnique(uniqueExample1, html=artHtml("example1_1.html"))
+        summary.amUnique(uniqueExample1, html=helpHtml("example1_1.html"))
         ## View in default browser
         ## summary.amUnique(uniqueExample1, html=TRUE)
     }
@@ -66,28 +64,21 @@ test_that("amExample1 from pg 5 in allelematchSuppDoc.pdf is 2.5.3 compatible", 
         #
         # We add the "summaryFile <- tempfile("example1_1.csv")" to avoid that tests generate unwanted files in the workspace.
 
-        # Re-read the generated .csv file:
-        actual <- artReadCsvFile(summaryFile)
-        read.csv(summaryFile, colClasses="character")
-
         # Ensure that the result is still the same as that from 2.5.3
-        expect_identical_R(actual, "amExample1_0102_example1_1_expected", overwrite)
         expect_snapshot_value(read.csv(summaryFile, colClasses="character"), style="deparse")
     }
 
     summary.amUnique(uniqueExample1, csv=summaryFile <- tempfile("example1_2.csv"), uniqueOnly=TRUE)
     {
-        # Re-read the generated .csv file:
-        actual = artReadCsvFile(summaryFile)
         # Ensure that the result is still the same as that from 2.5.3
-        expect_identical_R(actual, "amExample1_0103_example1_2_expected", overwrite)
+        expect_snapshot_value(read.csv(file=summaryFile, colClasses="character"), style="deparse")
     }
 
     example1chk <- amDataset(amExample1, indexColumn="sampleId",
       metaDataColumn="knownIndividual", missingCode="-99")
     {
         # Ensure that the result is still the same as that from 2.5.3:
-        expect_identical_R(example1chk, "amExample1_0104_expected", overwrite)
+        expect_snapshot_value(example1chk, style="deparse")
     }
 
 
@@ -98,12 +89,12 @@ test_that("amExample1 from pg 5 in allelematchSuppDoc.pdf is 2.5.3 compatible", 
         testthat::expect_match(output, "allelematch:  assuming genotype columns are in pairs, representing 10 loci$", all=FALSE)
 
         # Ensure that the result is still the same as that from 2.5.3:
-        expect_identical_R(uniqueExample1chk, "amExample1_0105_expected", overwrite)
+        expect_snapshot_value(uniqueExample1chk, style="deparse")
     }
 
     if(HTML) {
         ## Save to disk
-        summary.amUnique(uniqueExample1chk, html=artHtml("example1_2.html"))
+        summary.amUnique(uniqueExample1chk, html=helpHtml("example1_2.html"))
         ## View in default browser
         # summary.amUnique(uniqueExample1chk, html=TRUE)
     }

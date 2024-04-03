@@ -6,7 +6,7 @@ test_that("Loop the Loop", {
   snapshot_amCluster <- function(ds, ...) {
     
     # Log the call to the snapshot file:
-    argstr = artArgToString(...)
+    argstr = helpArgToString(...)
     cmdstr = paste("amCluster(", ds, ", ", argstr, ")", sep="") ; expect_snapshot(cat(cmdstr))
 
     # Capture any errors reported by allelematch:

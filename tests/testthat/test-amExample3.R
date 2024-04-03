@@ -19,7 +19,7 @@ test_that("amExample3 results from pg 10 in allelematchSuppDoc.pdf are 2.5.3 com
       metaDataColumn="knownIndividual", missingCode="-99")
     {
         # Ensure that the result is still the same as that from 2.5.3:
-        expect_identical_R( example3, "amExample3_0100_expected", overwrite)
+        expect_snapshot_value(example3, style="deparse")
     }
 
     output = capture.output(
@@ -43,20 +43,17 @@ test_that("amExample3 results from pg 10 in allelematchSuppDoc.pdf are 2.5.3 com
         testthat::expect_match(output, "allelematch:  assuming genotype columns are in pairs, representing 10 loci$", all=FALSE)
 
         # Ensure that the result is still the same as that from 2.5.3:
-        expect_identical_R(uniqueExample3, "amExample3_0101_expected", overwrite)
+        expect_snapshot_value(uniqueExample3, style="deparse")
 
         # Generate a summary file:
         summary.amUnique(uniqueExample3, csv=summaryFile <- tempfile("example3_1.csv"))
 
-        # Re-read the generated .csv file:
-        actual = artReadCsvFile(summaryFile)
-
         # Ensure that the result is still the same as that from 2.5.3
-        expect_identical_R(actual, "amExample3_0102_example3_1_expected", overwrite)
+        expect_snapshot_value(read.csv(file=summaryFile, colClasses="character"), style="deparse")
     }
 
     if(HTML) {
-        summary.amUnique(uniqueExample3, html=artHtml("example3_1.html"))
+        summary.amUnique(uniqueExample3, html=helpHtml("example3_1.html"))
     }
 
     output = capture.output(
@@ -68,20 +65,17 @@ test_that("amExample3 results from pg 10 in allelematchSuppDoc.pdf are 2.5.3 com
         # testthat::expect_match(output, "^$", perl=TRUE, all=FALSE) # (Empty output)
 
         # Ensure that the result is still the same as that from 2.5.3:
-        expect_identical_R(unclassifiedExample3, "amExample3_0103_expected", overwrite)
+        expect_snapshot_value(unclassifiedExample3, style="deparse")
 
         # Generate a summary file:
         summary.amPairwise(unclassifiedExample3, csv=summaryFile <- tempfile("example3_2.csv"))
 
-        # Re-read the generated .csv file:
-        actual = artReadCsvFile(summaryFile)
-
         # Ensure that the result is still the same as that from 2.5.3
-        expect_identical_R(actual, "amExample3_0104_example3_2_expected", overwrite)
+        expect_snapshot_value(read.csv(file=summaryFile, colClasses="character"), style="deparse")
     }
 
     if(HTML) {
-        summary.amPairwise(unclassifiedExample3, html=artHtml("example3_2.html"))
+        summary.amPairwise(unclassifiedExample3, html=helpHtml("example3_2.html"))
     }
 
 
@@ -93,18 +87,17 @@ test_that("amExample3 results from pg 10 in allelematchSuppDoc.pdf are 2.5.3 com
         # testthat::expect_match(output, "^$", all=FALSE) # (Empty output)
 
         # Ensure that the result is still the same as that from 2.5.3:
-        expect_identical_R(multipleMatchExample3, "amExample3_0105_expected", overwrite)
+        expect_snapshot_value(multipleMatchExample3, style="deparse")
 
         # Generate a summary file:
         summary.amPairwise(multipleMatchExample3, csv=summaryFile <- tempfile("example3_3.csv"))
 
         # Re-read the generated .csv file:
-        actual = artReadCsvFile(summaryFile)
-        expect_identical_R(actual, "amExample3_0105_example3_3_expected", overwrite)
+        expect_snapshot_value(read.csv(file=summaryFile, colClasses="character"), style="deparse")
     }
 
     if(HTML) {
-        summary.amPairwise(multipleMatchExample3, html=artHtml("example3_3.html"))
+        summary.amPairwise(multipleMatchExample3, html=helpHtml("example3_3.html"))
     }
 
 })

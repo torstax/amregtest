@@ -14,12 +14,6 @@ test_that("amUnique(matchThreshold=0.9) for dataset ggSample", code = {
     # Type Sys.setenv(ART_SKIP_SLOW = "TRUE") from the console to skip,
     # Type Sys.unsetenv("ART_SKIP_SLOW") to enable again
 
-
-    # # Log result files early:
-    # test = "ggSample_mThr0.9"
-    # summaryCsv  = ggActualCsv(test, tempdir(), "/ggSample_mThr0.9_actual.csv")
-    # expectedData= ggExpectedData(test, "ggSample_mThr0.9_expected")
-
     # Prepare for printing very large snapshot files:
     withr::local_options(width=3000) # Allow longer lines for the summaries:
 
@@ -35,7 +29,7 @@ test_that("amUnique(matchThreshold=0.9) for dataset ggSample", code = {
     snapshot_amUnique <- function(ds, ...) {
 
         # Log the call to the snapshot file:
-        argstr = artArgToString(...)
+        argstr = helpArgToString(...)
         cmdstr = paste("obj <- amUnique(", ds, ", ", argstr, ")", sep="") ; expect_snapshot(cat(cmdstr))
 
         # Make the call to allelematch:
@@ -68,29 +62,3 @@ test_that("amUnique(matchThreshold=0.9) for dataset ggSample", code = {
     snapshot_amUnique("ggDataset", alleleMismatch=15)
 
 })
-
-# test_that("amUnique(alleleMismatch=15) for dataset ggSample", code = {
-#     skip_if(Sys.getenv("ART_SKIP_SLOW") == "TRUE")
-#
-#     # Log result files early:
-#     test = "ggSample_aMm15"
-#     summaryCsv  = ggActualCsv(test, tempdir(), "/ggSample_aMm15_actual.csv")
-#     expectedData= "ggSample_aMm15_expected"
-#
-#     # Load the large gg-style sample file and load it into a allelematch amDataset:
-#     ggDataset = allelematch::amDataset(getdata("ggSample"), indexColumn=1, missingCode="-99")
-#
-#     # Run amUnique:
-#     amUniqueOutput <- amUniqueWrapper(ggDataset, alleleMismatch=15)
-#
-#     # Generate a summary to a .csv file:
-#     allelematch::summary.amUnique(amUniqueOutput, csv=summaryCsv)
-#     {
-#         # Load the generated summary:
-#         # actualSummary = read.csv(file=summaryCsv, check.names=FALSE) # artReadSummary(summaryCsv)
-#         actualSummary = artRead_amCSV(summaryCsv)
-#
-#         # Compare with expected summary:
-#         expect_gg_summaries_equal(test, summaryCsv, expectedData)
-#     }
-# })

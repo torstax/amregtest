@@ -94,7 +94,7 @@ artRun <- function(skip_slow=FALSE, generate_html=FALSE) {
 
     installedVersion = toString(utils::packageVersion("allelematch"))
     cat("    About to test installed version of allelematch:  <<<", installedVersion, ">>>\n", sep="")
-    result = testthat::test_package("amregtest")
+    result = testthat::test_package("amregtest", reporter = "Progress")
     cat("    Done testing installed version of allelematch:  <<<", installedVersion, ">>>\n", sep="")
     invisible(result)
 }
