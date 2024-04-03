@@ -124,53 +124,15 @@ NULL
 NULL
 
 
-#' Expected data used in calls to [testthat::expect_identical]
-#'
-#' Naming convention: "exp" for "Expected". First number identifies the [testthat::test_that]
-#' code block. The second number identifies the use within the same code block. \cr\cr
-#'
-#' This expected data was generated from runing the tests towards version 2.5.3 of [allelematch].
-#' Look for commented out lines ending with "# This is how the expected data was stored" to see how.
-#'
-#' @name amExample1_0100_expected
-#' @aliases amExample1_0100_expected amExample1_0101_expected amExample1_0102_example1_1_expected amExample1_0103_example1_2_expected amExample1_0104_expected amExample1_0105_expected
-#' @aliases amExample2_0100_expected amExample2_0101_expected amExample2_0102_example2_1_expected amExample2_0103_expected amExample2_0104_example2_2_expected amExample2_0105_expected amExample2_0106_expected
-#' @aliases amExample3_0100_expected amExample3_0101_expected
-#' @aliases amExample3_0102_example3_1_expected amExample3_0103_expected
-#' @aliases amExample3_0104_example3_2_expected
-#' @aliases amExample3_0105_example3_3_expected amExample3_0105_expected
-#' @aliases amExample4_0100_expected amExample4_0101_expected
-#' @aliases amExample4_0102_example4_1_expected amExample4_0103_expected
-#' @aliases amExample4_0104_example4_2_expected
-#' @aliases amExample4_0105_example4_3_expected amExample4_0105_expected
-#' @aliases amExample4_0106_example4_2_expected
-#' @aliases amExample4_0106_example4_3_expected
-
-#' @docType data
-#' @references \url{https://github.com/cran/allelematch}
-#' @keywords data internal
-NULL
-
-
 #' @name ggSample
-#' @aliases           ggSample_aMm15_expected ggSample_mThr0.9_expected
 #'
 #' @title Data sets originating from GG work
 #'
 #' @description
 #' Large data set gathered from field work in 2022. Here used to test [allelematch] for backwards compatibility.
-#' \tabular{clcl}{
-#'  `  ` \tab `ggSample  `\tab `  ` \tab Big input sample. Combines a reference db of known individuals with new samples to be analyzed\cr
-#'  `  ` \tab `ggSample_mThr0.9_expected`\tab \tab Output summary after running through  `amUnique( matchThreshold=0.9)`\cr
-#'  `  ` \tab `ggSample_aMm15_expected`\tab \tab Output summary after running through `amUnique( alleleMisMatch=15)`\cr
-#' }
+#' Combines a reference db of known individuals with new samples to be analyzed.\cr\cr
 #'
 #' This data is saved on semicolon (";") delimited .csv format, as described under 'Details' in [utils::data].\cr
-#' \cr
-#' The output data was generated using allelematch version 2.5.1.\cr
-#' \cr
-#' The output files have names that describe the called `allelematch` functions
-#' and the parameters that are passed to the same functions.
 #'
 #' @references \url{https://github.com/cran/allelematch}
 #'
@@ -192,10 +154,6 @@ NULL
 #' @keywords data
 #' @keywords internal
 NULL
-
-
-
-
 
 #' Loads and returns a large data set without polluting the global environment.
 #'
@@ -224,26 +182,6 @@ getdata <- function(name, ...)
     e[[name]]
 }
 
-#' Write data to .R file in ./data directory using [base::dump]`
-#'
-#' Used when creating new tests that need new expected data.
-#'
-#' @param df            Data frame to write
-#' @param outName       Name of file to write to, excluding leading "data/" and trailing ".R"
-#' @param overwrite     Set to TRUE to write df as new expected data to dir "data/.".
-#'                      i.e. ./data under the package source root directory.
-#'
-#' @export
-#  ' @keywords internal
-#  ' @examples
-artOverwriteExpected <- function(df, outName, overwrite=FALSE) {
-    if(!isTRUE(overwrite)) return()
-    dir = ifelse( grepl("/tests/testthat$", getwd()), "../../data/", "data/") # testthat changes getwd() to tests/testthat/.
-    if(!dir.exists(dir)) stop("\n    dir =", dir, "does not exist!\n    getwd()=", getwd())
-    cat("\n    Overwriting : ", dir, "/", outName, "\n", sep="")
-    artDumpToData(df, outName, dir)
-}
-
 artDumpToData <- function(df, outName, dir = "data") {
     e <- new.env()
     assign(outName, df, envir = e)
@@ -253,6 +191,38 @@ artDumpToData <- function(df, outName, dir = "data") {
     base::dump(list = c(outName), file, envir = e)
     close(file)
 }
+
+
+## strcat - Trivial utility for concatenating strings without adding separators.
+strcat <- function(...) { paste(..., sep="") }
+
+
+# Trivial utility to create file [connection] for Writing GIT and unix style text files
+# with NL Line Breaks.
+artUnixLineBreaks <- function(fileName) {
+    # Opens a text file for output in binary mode that allows LF linebreaks,
+    # even on Windows.
+    # Note that the file needs to be closed explicitly. Sample usage:
+    #
+    #   file = artUnixLineBreaks(fileName)
+    #   write.csv2(file, eol="\n")
+    #   close(file)
+    #
+    # We want our .txt and .csv text files to have GIT style LF line breaks, also on Windows.
+    # If we instead wrote Windows style CRLF line breaks to the working tree,
+    # then that would confuse the tools that detect differences and there
+    # would be a lot of conversion between LF and CRLF.
+    #
+    # CR stands for Carriage Return, written in R source as "\r", binary encoded as 0x0D=13
+    # LF stands for Line Feed, written as "\n", binary encoded as 0x0A=10.
+    # Unfortunately, files open for writing in text mode on Windows
+    # have low-layer code that detect single LF characters and convert them to CRLF.
+    # In order to avoid that conversion, we need to open our output text files in
+    # binary mode (a.k.a. raw mode) .
+
+    return(file(fileName, "wb", raw=TRUE))
+}
+
 
 
 #' Load data from remote package and dump it to .R file in local data directory

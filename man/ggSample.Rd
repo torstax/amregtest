@@ -3,23 +3,12 @@
 \docType{data}
 \name{ggSample}
 \alias{ggSample}
-\alias{ggSample_aMm15_expected}
-\alias{ggSample_mThr0.9_expected}
 \title{Data sets originating from GG work}
 \description{
 Large data set gathered from field work in 2022. Here used to test \link{allelematch} for backwards compatibility.
-\tabular{clcl}{
-\verb{  } \tab \code{ggSample  }\tab \verb{  } \tab Big input sample. Combines a reference db of known individuals with new samples to be analyzed\cr
-\verb{  } \tab \code{ggSample_mThr0.9_expected}\tab \tab Output summary after running through  \code{amUnique( matchThreshold=0.9)}\cr
-\verb{  } \tab \code{ggSample_aMm15_expected}\tab \tab Output summary after running through \code{amUnique( alleleMisMatch=15)}\cr
-}
+Combines a reference db of known individuals with new samples to be analyzed.\cr\cr
 
 This data is saved on semicolon (";") delimited .csv format, as described under 'Details' in \link[utils:data]{utils::data}.\cr
-\cr
-The output data was generated using allelematch version 2.5.1.\cr
-\cr
-The output files have names that describe the called \code{allelematch} functions
-and the parameters that are passed to the same functions.
 }
 \details{
 TODO : Move this to package introduction!
