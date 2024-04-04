@@ -25,7 +25,7 @@ for a more detailed description. \cr
 
 It also includes a large data set gathered from field work:\cr
 \tabular{clcl}{
-\verb{  } \tab \link{ggData}\verb{  }\tab \verb{  } \tab Very large wildlife data set\cr
+\verb{  } \tab \link{ggSample}\verb{  }\tab \verb{  } \tab Very large wildlife data set\cr
 }
 }
 \references{
