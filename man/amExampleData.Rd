@@ -23,12 +23,6 @@ for a more detailed description. \cr
 \verb{  } \tab \link{amExample5}\tab \tab Example 5 Wildlife data set\cr
 }
 }
-\examples{
-# Make sure that the local copy of all data/amExample* files match
-# match those in the currently installed version of allelematch:
-artVerifyAmExamples() # Stops if not identical
-
-}
 \references{
 \url{https://github.com/cran/allelematch}
 

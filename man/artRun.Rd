@@ -4,21 +4,49 @@
 \alias{artRun}
 \title{Runs the regression test}
 \usage{
-artRun(skip_slow = FALSE, generate_html = FALSE)
+artRun(filter = NULL, html = FALSE)
 }
 \arguments{
-\item{skip_slow}{TRUE or FALSE}
+\item{filter}{If specified, only tests with names matching this perl regular
+expression will be executed. See also \link{artList}}
 
-\item{generate_html}{TRUE or FALSE}
-}
-\value{
-NA
+\item{html}{TRUE or FALSE}
 }
 \description{
-TODO:
+The full set of tests will take a couple of minutes. \cr
+\cr
+Call \link{artList} to see the available tests with without running them.
+}
+\details{
+If any of the test executed with \link{artRun} should fail, then we want to be able
+to run that specific test under the debugger. \cr
+\cr
+Set a breakpoint in \code{allelematch.R} and call \code{artRun(filter="<the test that reproduces the problem>")}\cr
+\cr
+Note that it is the last installed version of \code{allelematch} that will be executed,
+not the last edited. In RStudio, CTRL+SHIFT+B will build and install.
+}
+\examples{
+
+# List the available tests:
+artList()
+\dontrun{
+
+# Run all the tests:
+artRun()
+
+# Run the first of the available tests:
+artRun(filter="allelematch_1-amDataset")
+
+# Run all tests that start with 'am' and 'allelematch_1-amDataset':
+artRun(filter="^am|allelematch_1-amDataset")
+
+# Run the test 'amExample3' and let it generate .html files
+# in the [getwd] directory:
+artRun(filter='amExample3', html=TRUE)
+}
+
 }
 \seealso{
-\link{artVersion} \link{artAssertAllelematchVersion}
-
-\link{artSet} \link{artShow} \link{artClear}
+\link{artVersion} \link{artList}
 }

@@ -1,19 +1,20 @@
 Package: amregtest
 Title: Runs allelematch regression tests
-Version: 0.0.0.9001
+Version: 0.0.0.9002
 Authors@R: 
-    person("Torvald", "Staxler", , "torvald.staxler@gmail.com", role = c("aut", "cre"))
+    person("Torvald", "Staxler", , "torvald.staxler@telia.com", role = c("aut", "cre"))
 Description: This package is used to automate regression testing
     when testing improvments of package \link{allelematch}.\cr\cr
     Exported functions are prefixed with "art" for "allelematch regression test".\cr
     \cr
-    The main functions are: \link{artRun} \link{artVersion} and \link{artInstallAllelematchVersion}
+    The main functions are: \link{artRun} \link{artList} and \link{artVersion}. 
     \cr\cr
-    The tests based on \link{testthat}. The tests use data sets as input. 
-    These data sets are stored within the package:\cr
+    The tests are based on \link{testthat}. The tests use data sets as input. 
+    These data sets are stored within the package. See
     \link{amExampleData} and \link{ggSample}
     \cr\cr
-    The results of the tests are compared with other data sets, also stored withing the package.
+    The results of the tests are compared with pre-stored results, recorded with variants of
+    \link{expect_snapshot}.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)

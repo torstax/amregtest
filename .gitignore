@@ -10,6 +10,8 @@ foo*
 *.foo
 *.hidden
 *.pdf
+*.htm
+*.html
 null
 
 

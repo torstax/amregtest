@@ -7,8 +7,10 @@
 artVersion()
 }
 \description{
-Prints version of this package and of tested version of \link{allelematch}.
+Prints version of this package (\link{amregtest}) and of tested version of \link{allelematch}.\cr
+\cr
+The version is specified in the file DESCRIPTION, tag "Version: ".
 }
 \seealso{
-\link{artInstallAllelematchVersion}
+\link{artRun} \link{artList}
 }

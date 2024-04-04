@@ -44,5 +44,3 @@ library(allelematch)
 #   ' @importFrom data.table tstrsplit
 #'
 au_imports <- function() {}
-
-utils::globalVariables(c("IS_BRIEF_AMUNIQUE_SUPPORTED_BY_ALLELEMATCH"))

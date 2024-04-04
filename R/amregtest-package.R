@@ -19,8 +19,16 @@ NULL
 #' @seealso [amExampleData] [artVersion] [artRun]
 #'
 #' @examples
+#' # Check versions:
+#' artVersion()
+#'
+#' # List all tests:
+#' artList()
+#'
 #' # Run all tests:
+#' \dontrun{
 #' artRun()
+#' }
 #'
 #' @details
 #' Function Naming convention: External functions have a
