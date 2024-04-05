@@ -1,39 +1,4 @@
 
-#' Installs the version of package `allelematch` to test
-#'
-#' @description
-#' If the `wantedVersion` of package [allelematch] is not yet installed,
-#' then the current version is deleted, the `wantedVersion` is installed and
-#' R is restarted.\cr
-#' \cr
-#' Look at \href{https://github.com/cran/allelematch/tags}{allelematch tags} at CRAN to see available versions.
-#' \cr
-#' Note that the first supported version is 2.5.2. Older versions are no longer
-#' tolerated modern versions of R (e.g. 4.3.2).
-#'
-#' TODO: Find the change and revision in R!
-#'
-#' @param wantedVersion a string that contains the wanted version of `allelematch`.
-#' Note that the current version of R,  4.3.2, no longer accepts `allelematch` "2.5.1".
-#' The first supported version is "2.5.2".
-#'
-#' @returns The wantedVersion on success, otherwise execution is stopped.
-#'
-#' @seealso [artVersion] [artAssertAllelematchVersion]
-#'
-#' @noRd
-artInstallAllelematchVersion <- function(wantedVersion) {
-    installedVersion = toString(utils::packageVersion("allelematch"))
-    if (wantedVersion != installedVersion) {
-        artAssertAllelematchVersion(wantedVersion)
-    } else {
-        cat("\n    Installed version is alrerady", wantedVersion)
-    }
-    return(wantedVersion)
-}
-
-
-
 #' Runs selected test(s) in the selected `test-*.R` file
 #'
 #' @description
@@ -82,7 +47,6 @@ artInstallAllelematchVersion <- function(wantedVersion) {
 #' @returns NA
 #'
 #' @seealso [artVersion] [artAssertAllelematchVersion]
-#' @seealso [artSet] [artShow] [artClear]
 #'
 #' @noRd
 artDebug <- function(match = ".", file = active_editor_file()) {
@@ -158,22 +122,19 @@ artHtml <- function(file) {
         dir = ifelse( grepl("/tests/testthat$", getwd()), "../..", ".") # testthat changes getwd() to tests/testthat/.
         dir = normalizePath(dir, winslash = "/")
     }
-    # dir = sub("^(C):", "/\\1", dir, perl=TRUE, fixed=FALSE)
     dir = sub("^C:", "", dir, perl=TRUE, fixed=FALSE)
-    # dir = "\"/c/Users/Torva/repo/regressiontest\""
     if(!dir.exists(dir)) stop("\n    dir = '", dir, "' does not exist!\n    getwd() = '", getwd(), "' ", sep="")
     longfile = paste(dir, "/", file, sep="")
     cat("\n    Writing html to :", longfile)
 
-    # return("/c/Users/Torva/repo/regressiontest/hej.html")
-
     return(longfile)
 }
 
-#' Controls execution of the regression test
+
+#' Installs the version of package `allelematch` to test
 #'
 #' @description
-#' Two environment variables control the execution of the tests
+#' If the `wantedVersion` of package [allelematch] is not yet installed,
 #' then the current version is deleted, the `wantedVersion` is installed and
 #' R is restarted.\cr
 #' \cr
@@ -184,47 +145,23 @@ artHtml <- function(file) {
 #'
 #' TODO: Find the change and revision in R!
 #'
-#' @param skip_slow     TRUE or FALSE
-#' @param generate_html TRUE or FALSE
+#' @param wantedVersion a string that contains the wanted version of `allelematch`.
+#' Note that the current version of R,  4.3.2, no longer accepts `allelematch` "2.5.1".
+#' The first supported version is "2.5.2".
 #'
-#' @seealso [artShow] [artClear]
+#' @returns The wantedVersion on success, otherwise execution is stopped.
 #'
-#' @noRd
-artSet <- function(skip_slow=NA, generate_html=NA) {
-    switch(as.character(skip_slow),
-        "NA"=NA, # Do nothing
-        "TRUE"=Sys.setenv(ART_SKIP_SLOW = "TRUE"),
-        "FALSE"=Sys.unsetenv("ART_SKIP_SLOW"),
-        stop("Unexpected value of skip_slow:", skip_slow,
-             "\n    Expected one of 'TRUE', 'FALSE' or 'NA'\n")
-    )
-    switch(as.character(generate_html),
-           "NA"=NA, # Do nothing
-           "TRUE"=Sys.setenv(ART_GENERATE_HTML = "TRUE"),
-           "FALSE"=Sys.unsetenv("ART_GENERATE_HTML"),
-           stop("Unexpected value of generate_html:", generate_html,
-                "\n    Expected one of 'TRUE', 'FALSE' or 'NA'\n")
-    )
-    artShow()
-}
-
-
-#' Shows the current settings
+#' @seealso [artVersion] [artAssertAllelematchVersion]
 #'
 #' @noRd
-artShow <- function() {
-    cat("    ART_SKIP_SLOW         =", Sys.getenv("ART_SKIP_SLOW"),"\n")
-    cat("    ART_GENERATE_HTML =", Sys.getenv("ART_GENERATE_HTML"),"\n")
-}
-
-
-#' Clears all current settings
-#'
-#' @noRd
-artClear <- function() {
-    Sys.unsetenv("ART_SKIP_SLOW")
-    Sys.unsetenv("ART_GENERATE_HTML")
-    artShow()
+artInstallAllelematchVersion <- function(wantedVersion) {
+    installedVersion = toString(utils::packageVersion("allelematch"))
+    if (wantedVersion != installedVersion) {
+        artAssertAllelematchVersion(wantedVersion)
+    } else {
+        cat("\n    Installed version is alrerady", wantedVersion)
+    }
+    return(wantedVersion)
 }
 
 
