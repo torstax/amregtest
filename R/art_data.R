@@ -15,7 +15,7 @@
 #'  `  ` \tab [amExample4]\tab \tab Example 4 Low quality data set\cr
 #'  `  ` \tab [amExample5]\tab \tab Example 5 Wildlife data set\cr
 #' }
-#' See \href{https://github.com/cran/allelematch/blob/2.5.1/inst/doc/allelematchSuppDoc.pdf}{allelematchSuppDoc.pdf}.
+#' See \href{https://github.com/cran/allelematch/blob/2.5.1/inst/doc/allelematchSuppDoc.pdf}{allelematchSuppDoc.pdf}
 #' for a more detailed description. \cr
 #'
 #' It also includes a large data set gathered from field work:\cr
@@ -155,25 +155,25 @@ NULL
 #' @keywords internal
 NULL
 
-#- Loads and returns a large data set without polluting the global environment.
-#-
-#- The data set is taken from the ./data/ folder of the specified package.
-#-
-#- See the Description section under [utils::data] for how the supported file
-#- types (including .R, .RData, .txt and .csv) shall be encoded.
-#-
-#- The parameters are the same as for the [data] function in package [utils].
-#-
-#- Thank you @henfiber! See https://stackoverflow.com/questions/30951204/load-dataset-from-r-package-using-data-assign-it-directly-to-a-variable/30951700#30951700
-#-
-#- @param name The name (excluding directory and extension) of the data to load
-#- @param ...  All other parameters are passed on to [utils::data] as is
-#-
-#- @returns the specified data set loaded by [utils::data]
-#-
-#- @examples foo = getdata("amExample1", package = "allelematch")
-#-
-#  ' @export
+#' Loads and returns a large data set without polluting the global environment.
+#'
+#' The data set is taken from the ./data/ folder of the specified package.
+#'
+#' See the Description section under [utils::data] for how the supported file
+#' types (including .R, .RData, .txt and .csv) shall be encoded.
+#'
+#' The parameters are the same as for the [data] function in package [utils].
+#'
+#' Thank you @henfiber! See https://stackoverflow.com/questions/30951204/load-dataset-from-r-package-using-data-assign-it-directly-to-a-variable/30951700#30951700
+#'
+#' @param name The name (excluding directory and extension) of the data to load
+#' @param ...  All other parameters are passed on to [utils::data] as is
+#'
+#' @returns the specified data set loaded by [utils::data]
+#'
+#' @examples foo = getdata("amExample1", package = "allelematch")
+#'
+#' @noRd
 getdata <- function(name, ...)
 {
     stopifnot(is.character(name))
@@ -182,6 +182,9 @@ getdata <- function(name, ...)
     e[[name]]
 }
 
+#' Internal utility for above
+#'
+#' @noRd
 artDumpToData <- function(df, outName, dir = "data") {
     e <- new.env()
     assign(outName, df, envir = e)
@@ -193,12 +196,16 @@ artDumpToData <- function(df, outName, dir = "data") {
 }
 
 
-#- strcat - Trivial utility for concatenating strings without adding separators.
+#' strcat - Trivial utility for concatenating strings without adding separators.
+#'
+#' @noRd
 strcat <- function(...) { paste(..., sep="") }
 
 
-#- Trivial utility to create file [connection] for Writing GIT and unix style text files
-#- with NL Line Breaks.
+#' Trivial utility to create file [connection] for Writing GIT and unix style text files
+#' with NL Line Breaks.
+#'
+#' @noRd
 artUnixLineBreaks <- function(fileName) {
     # Opens a text file for output in binary mode that allows LF linebreaks,
     # even on Windows.
@@ -225,16 +232,17 @@ artUnixLineBreaks <- function(fileName) {
 
 
 
-#- Load data from remote package and dump it to .R file in local data directory
-#-
-#- @param package    The name of the package to load from as character. Ignored if `dir` is set
-#- @param remoteName The name of the data to read from the remote package
-#- @param localName  The name of the data to write to the local data dir as .R file. Default is `remoteName`
-#- @param dir        A directory that contains `remoteName`, with extension ".RData". If set, `package` is ignored
-#-
+#' Load data from remote package and dump it to .R file in local data directory
+#'
+#' @param package    The name of the package to load from as character. Ignored if `dir` is set
+#' @param remoteName The name of the data to read from the remote package
+#' @param localName  The name of the data to write to the local data dir as .R file. Default is `remoteName`
+#' @param dir        A directory that contains `remoteName`, with extension ".RData". If set, `package` is ignored
+#'
 #  ' @return
-#  ' @export
-#-
+#'
+#' @noRd
+#'
 #  ' @examples
 artImportToLocalData <- function(package, remoteName, localName=remoteName, dir=NULL) {
 
@@ -253,19 +261,20 @@ artImportToLocalData <- function(package, remoteName, localName=remoteName, dir=
     stopifnot(identical(remoteData, localData))
 }
 
-#- Import all [allelematch::amExampleData] data to this data directory.
-#-
-#- @description
-#- Import from package [allelematch] (or from specified `dir`)
-#- all [allelematch::amExampleData] .RData files to this data directory.
-#-
-#- @param dir A directory that contains the files (with extension ".RData") to import.
-#- If set, installed package `allelematch` is ignored
-#-
+#' Import all [allelematch::amExampleData] data to this data directory.
+#'
+#' @description
+#' Import from package [allelematch] (or from specified `dir`)
+#' all [allelematch::amExampleData] .RData files to this data directory.
+#'
+#' @param dir A directory that contains the files (with extension ".RData") to import.
+#' If set, installed package `allelematch` is ignored
+#'
 #  ' @return
-#  ' @export
-#-
+#'
 #  ' @examples
+#'
+#' @noRd
 artImportAmExamplesToLocalData <- function(dir=NULL) {
     if (is.null(dir)) {
         cat("\nImporting data/amExample* from installed allelematch version", toString(packageVersion("allelematch")), "\n")
@@ -280,16 +289,17 @@ artImportAmExamplesToLocalData <- function(dir=NULL) {
 }
 
 
-#- Stops execution if remote and local data are not identical
-#-
-#- @param package    The name of the remote package to load from as character
-#- @param remoteName The name of the data to read from the remote package
-#- @param localName  The name of the data to write to the local data dir as .R file
-#-
+#' Stops execution if remote and local data are not identical
+#'
+#' @param package    The name of the remote package to load from as character
+#' @param remoteName The name of the data to read from the remote package
+#' @param localName  The name of the data to write to the local data dir as .R file
+#'
 #  ' @return
-#  ' @export
-#-
+#'
 #  ' @examples
+#'
+#' @noRd
 artAssertDataIdentical <- function(dataName) {
     data1 = getdata(dataName, package="allelematch")
     data2  = getdata(dataName, package="amregtest")
@@ -298,16 +308,16 @@ artAssertDataIdentical <- function(dataName) {
     }
 }
 
-#- Compares the files amExample1 to amExample5 files in package `allelematch`
-#- with the copies from 2.5.3 in `amregtest`.
-#-
-#- Stops execution if any of the local amExample files is not identical with the corresponding
-#- file in the [allelematch] package. This is important since the tests in `amregtest`
-#- are based on the contents of these files.
-#-
-#- ' @return
-#- @export
-#-
+#' Compares the files amExample1 to amExample5 files in package `allelematch`
+#' with the copies from 2.5.3 in `amregtest`.
+#'
+#' Stops execution if any of the local amExample files is not identical with the corresponding
+#' file in the [allelematch] package. This is important since the tests in `amregtest`
+#' are based on the contents of these files.
+#'
+#' ' @return
+#'
+#' @noRd
 artVerifyAmExamples <- function() {
     cat("\nVerifying that 'data(amExample*)' is identical in installed packages 'allelematch' and 'amregtest'\n")
     artVersionInner()

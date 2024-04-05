@@ -1,9 +1,9 @@
 Package: amregtest
-Title: Runs allelematch regression tests
+Title: Runs Allelematch Regression Tests
 Version: 1.0.0
 Authors@R: 
     person("Torvald", "Staxler", , "torvald.staxler@telia.com", role = c("aut", "cre"))
-Description: This package is used to automate regression testing
+Description: Automates regression testing
     when testing improvments of package \link{allelematch}.\cr\cr
     Exported functions are prefixed with "art" for "allelematch regression test".\cr
     \cr
@@ -22,8 +22,6 @@ RoxygenNote: 7.3.1
 Depends: 
     R (>= 2.10)
 LazyData: true
-LitrVersionUsed: 0.9.1
-LitrId: acf3a14b7ece67e1af6aab2f500d31a5
 Config/testthat/edition: 3
 Imports: 
     allelematch,

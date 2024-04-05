@@ -20,7 +20,7 @@ It is still unchanged in 5.2.3. \cr
 \verb{  } \tab \link{amExample4}\tab \tab Example 4 Low quality data set\cr
 \verb{  } \tab \link{amExample5}\tab \tab Example 5 Wildlife data set\cr
 }
-See \href{https://github.com/cran/allelematch/blob/2.5.1/inst/doc/allelematchSuppDoc.pdf}{allelematchSuppDoc.pdf}.
+See \href{https://github.com/cran/allelematch/blob/2.5.1/inst/doc/allelematchSuppDoc.pdf}{allelematchSuppDoc.pdf}
 for a more detailed description. \cr
 
 It also includes a large data set gathered from field work:\cr
