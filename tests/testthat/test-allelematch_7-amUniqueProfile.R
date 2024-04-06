@@ -61,7 +61,7 @@ test_that("Loop the Loop", {
         # Differ between expected and unexpected errors:
         if (!grepl("no clusters formed.  Please set cutHeight lower and run again", e$message, perl=TRUE)) {
           # Some unexpected error happened. Print it to the screen for easier debugging.
-          message("\n  ", ret, sep="")
+          message("\n  ", ret, "\n  error class = ", format(class(e)), sep="")
 
         }
 
@@ -94,7 +94,18 @@ test_that("Loop the Loop", {
   #  amUniqueProfile <- function(amDatasetFocal)
   #
   # Here comes the loops:
+  withr::local_options(width=200) # Allow longer lines for the summaries:
   for (amds in c("amdataMini", "amdataExample1", "amdataExample2", "amdataExample3", "amdataExample4", "amdataExample5")) {
-    snapshot_amUniqueProfile(amds, verbose=FALSE)
+    snapshot_amUniqueProfile(amds, doPlot=FALSE, verbose=FALSE)
   }
+
+  # One more test to doPlot. Notice that this test will fail spectacularly if the RStudio "Plots" window is too small:
+  amdataExample5b = amDataset(amExample5, indexColumn="sampleId", metaDataColumn="samplingData")
+  mlMap = c(1, rep(2:11, each=2))
+  obj <- amUniqueProfile(
+      amdataExample5b,
+      multilocusMap=c(1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9,10,10,11,11), # "gender" only has one allele in it's locus
+      doPlot=TRUE, verbose=FALSE)
+  expect_snapshot(print(obj))
+
 })

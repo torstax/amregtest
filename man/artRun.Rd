@@ -4,7 +4,7 @@
 \alias{artRun}
 \title{Runs the regression test}
 \usage{
-artRun(filter = NULL, html = FALSE)
+artRun(filter = "", html = FALSE)
 }
 \arguments{
 \item{filter}{If specified, only tests with names matching this perl regular

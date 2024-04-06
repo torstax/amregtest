@@ -1,37 +1,28 @@
 Package: amregtest
 Title: Runs Allelematch Regression Tests
-Version: 1.0.0
+Version: 1.0.1
 Authors@R: 
     person("Torvald", "Staxler", , "torvald.staxler@telia.com", role = c("aut", "cre"))
-Description: Automates regression testing
-    when testing improvments of package \link{allelematch}.\cr\cr
-    Exported functions are prefixed with "art" for "allelematch regression test".\cr
-    \cr
-    The exported functions are:  \link{artVersion}, \link{artList} and \link{artRun}. 
-    \cr\cr
-    The tests are based on \link{testthat}. The tests use data sets as input. 
-    These data sets are stored within the package. See
-    \link{artData}
-    \cr\cr
-    The results of the tests are compared with pre-stored results, recorded with variants of
-    \link{expect_snapshot}.
+Description: Automates regression testing when testing improvments of
+    package \link{allelematch}.\cr\cr Exported functions are prefixed with
+    "art" for "allelematch regression test".\cr \cr The exported functions
+    are: \link{artVersion}, \link{artList} and \link{artRun}.  \cr\cr The
+    tests are based on \link{testthat}. The tests use data sets as input.
+    These data sets are stored within the package. See \link{artData}
+    \cr\cr The results of the tests are compared with pre-stored results,
+    recorded with variants of \link{expect_snapshot}.
 License: MIT + file LICENSE
-Encoding: UTF-8
-Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.1
 Depends: 
     R (>= 2.10)
-LazyData: true
-Config/testthat/edition: 3
 Imports: 
     allelematch,
-    testthat (>= 3.0.0),
-    withr,
     remotes,
-    rstudioapi
-Suggests:
-    here,
-    knitr,
-    dplyr,
-    devtools,
-    roxygen2
+    rstudioapi,
+    testthat (>= 3.0.0),
+    utils,
+    withr
+Config/testthat/edition: 3
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.1

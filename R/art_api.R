@@ -153,12 +153,10 @@ artList <- function() {
 #' @seealso [artVersion] and [artList]
 #'
 #' @export
-artRun <- function(filter=NULL, html=FALSE) {
-    stopifnot(is.null(filter) || is.character(filter))
-    if (!(html %in% c(FALSE,TRUE))) {
-           stop("Unexpected value of html:", html,
-                "\n    Expected one of 'TRUE' or 'FALSE'\n")
-    }
+artRun <- function(filter="", html=FALSE) {
+    stopifnot(is.character(filter))
+    stopifnot(is.logical(html))
+
     localenv = c(
         ART_GENERATE_HTML = as.character(html),
         ART_CALLERS_WD = getwd() # Try to write generated html files here
@@ -167,8 +165,7 @@ artRun <- function(filter=NULL, html=FALSE) {
 
     installedVersion = toString(utils::packageVersion("allelematch"))
     cat("    About to test installed version of allelematch:  <<<", installedVersion, ">>>\n", sep="")
-    result = testthat::test_package("amregtest", reporter = "Progress", filter=filter)
+    if (filter != "^$") testthat::test_package("amregtest", reporter = "Progress", filter=filter) # We can't start tests recursively, even for coverage tests
     cat("    Done testing installed version of allelematch:  <<<", installedVersion, ">>>\n", sep="")
-    invisible(result)
 }
 
