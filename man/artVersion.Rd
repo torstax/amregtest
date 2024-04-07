@@ -6,6 +6,9 @@
 \usage{
 artVersion()
 }
+\value{
+The currently installed version of \code{allelematch} as char
+}
 \description{
 Prints version of this package (\link{amregtest}) and of tested version of \link{allelematch}.\cr
 \cr
@@ -34,7 +37,6 @@ artRun(filter="^am|allelematch_1-amDataset")
 # in the [getwd] directory:
 artRun(filter='amExample3', html=TRUE)
 }
-
 
 }
 \seealso{

@@ -9,6 +9,8 @@
 #' \cr
 #' The version is specified in the file DESCRIPTION, tag "Version: ".
 #'
+#' @return The currently installed version of `allelematch` as char
+#'
 #' @examples
 #' # See what version of packages 'allelematch' and 'amregtest'
 #' # are currently installed:
@@ -33,15 +35,15 @@
 #' artRun(filter='amExample3', html=TRUE)
 #' }
 #'
-#'
 #' @seealso [artList], [artRun] and [amregtest]
 #' @export
 artVersion <- function() {
-    artVersionInner()
+    installedAmVersion = artVersionInner()
     cat("\n")
     cat("\n    This version of 'amregtest' was used to test 'allelematch' versions 2.5.3 and 2.5.2.")
     cat("\n    2.5.1 and earlier versions of 'allelematch' require older versions of R to work.")
     cat("\n\n")
+    return(invisible(installedAmVersion))
 }
 artVersionInner <- function() {
     installedArtVersion = toString(utils::packageVersion("amregtest"))
@@ -49,6 +51,7 @@ artVersionInner <- function() {
 
     cat("\n    Version of package 'amregtest' is", installedArtVersion)
     cat("\n    Installed (and thus tested) version of package 'allelematch' is:", installedAmVersion)
+    return(invisible(installedAmVersion))
 }
 
 
@@ -57,6 +60,8 @@ artVersionInner <- function() {
 #' @description
 #' Use the output to select a value for parameter `filter` to [artRun].
 #' Useful when debugging.
+#'
+#' @return A vector containing the names of all the tests
 #'
 #' @examples
 #' # See what version of packages 'allelematch' and 'amregtest'
@@ -74,8 +79,6 @@ artVersionInner <- function() {
 #' # Run all tests that start with 'am' and 'allelematch_1-amDataset':
 #' artRun(filter="^am|allelematch_1-amDataset")
 #' }
-#'
-#' @returns A vector containing all the tests names
 #'
 #' @seealso [artVersion] and [artRun]
 #'
@@ -97,7 +100,7 @@ artList <- function() {
     print(grep("^allelematch|^amExample", all, value=TRUE, invert=TRUE, perl=TRUE))
     cat("\n")
 
-    invisible(all)
+    return(invisible(all))
 }
 
 
@@ -109,6 +112,8 @@ artList <- function() {
 #' The full set of tests will take a couple of minutes. \cr
 #' \cr
 #' Call [artList] to see the available tests with without running them.
+#'
+#' @return NULL
 #'
 #' @details
 #' If any of the test executed with [artRun] should fail, then we want to be able
@@ -123,8 +128,6 @@ artList <- function() {
 #' @param filter    If specified, only tests with names matching this perl regular
 #'                  expression will be executed. See also [artList]
 #' @param html      TRUE or FALSE
-#'
-#' @returns NULL
 #'
 #' @examples
 #' # See what version of packages 'allelematch' and 'amregtest'
@@ -167,5 +170,6 @@ artRun <- function(filter="", html=FALSE) {
     cat("    About to test installed version of allelematch:  <<<", installedVersion, ">>>\n", sep="")
     if (filter != "^$") testthat::test_package("amregtest", reporter = "Progress", filter=filter) # We can't start tests recursively, even for coverage tests
     cat("    Done testing installed version of allelematch:  <<<", installedVersion, ">>>\n", sep="")
+    return(invisible(NULL))
 }
 

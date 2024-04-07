@@ -7,7 +7,7 @@
 artList()
 }
 \value{
-A vector containing all the tests names
+A vector containing the names of all the tests
 }
 \description{
 Use the output to select a value for parameter \code{filter} to \link{artRun}.
