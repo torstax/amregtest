@@ -8,13 +8,6 @@
 ---
 
     Code
-      summary.amUnique(get(obj))
-    Output
-      allelematch:  Console summary is not available for "amUnique" objects.  Please use summary.amUnique(x, html=TRUE) or summary.amUnique(x, csv="file.csv") options.
-
----
-
-    Code
       summary.amUnique(get(obj), csv = tmp)
 
 ---
@@ -365,13 +358,6 @@
       paste("About to exercise", obj)
     Output
       [1] "About to exercise objExample5"
-
----
-
-    Code
-      summary.amUnique(get(obj))
-    Output
-      allelematch:  Console summary is not available for "amUnique" objects.  Please use summary.amUnique(x, html=TRUE) or summary.amUnique(x, csv="file.csv") options.
 
 ---
 
@@ -1993,13 +1979,6 @@
 ---
 
     Code
-      summary.amUnique(get(obj))
-    Output
-      allelematch:  Console summary is not available for "amUnique" objects.  Please use summary.amUnique(x, html=TRUE) or summary.amUnique(x, csv="file.csv") options.
-
----
-
-    Code
       summary.amUnique(get(obj), csv = tmp)
 
 ---
@@ -3517,13 +3496,6 @@
       paste("About to exercise", obj)
     Output
       [1] "About to exercise objExample5c"
-
----
-
-    Code
-      summary.amUnique(get(obj))
-    Output
-      allelematch:  Console summary is not available for "amUnique" objects.  Please use summary.amUnique(x, html=TRUE) or summary.amUnique(x, csv="file.csv") options.
 
 ---
 

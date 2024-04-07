@@ -12,7 +12,7 @@ test_that("art_api functions working", {
 
   # These tests should give 100% test coverage for our API calls:
   expect_no_error(artVersion())
-  expect_gte(!!length(artList()), 15)
+  expect_output(artList(), "Reproduction of the examples in 'allelematchSuppDoc.pdf':")
   expect_no_error(artRun("^$")) # Special filter to avoid starting tests recursively
 
   sink()

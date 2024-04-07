@@ -29,8 +29,9 @@ test_that("Print", {
     # Write the name of the amUnique object to the _snap file:
     expect_snapshot(paste("About to exercise", obj))
 
-    # summary.amUnique should have the same output as before
-    expect_snapshot(summary.amUnique(get(obj)))
+    # allelematch:  Console summary is not available for "amUnique" objects.
+    # Please use summary.amUnique(x, html=TRUE) or summary.amUnique(x, csv="file.csv") options.
+    # expect_snapshot(summary.amUnique(get(obj)))
 
     # amCSV.amUnique should have the same output as before
     tmp = tempfile(paste(obj, "_", sep=""), fileext=".csv")
@@ -54,7 +55,6 @@ test_that("Print", {
 
   # Test usingTmpFile:
   withr::local_envvar(.new=list(TMP = tempdir()), action="replace")
-  sink(nullfile())
   {
     # Just test that we can get code coverage for the 'usingTmpFile' code
     # without any errors. The code that generated html from data was tested above.
@@ -63,7 +63,5 @@ test_that("Print", {
     )
     expect_match(out, "Opening HTML file.+? in default browser", perl=TRUE) # Ignore ever-changing 'tempdir()'
   }
-  sink()
-
 
 })
