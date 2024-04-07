@@ -41,6 +41,7 @@ test_that("amUnique(matchThreshold=0.9) for dataset ggSample", code = {
         tmp = tempfile(paste(ds, "_", sep=""), fileext=".csv")
         expect_snapshot(summary.amUnique(obj, csv=tmp))
         expect_snapshot(format(read.csv(tmp)))
+        file.remove(tmp)
 
         # # amHTML.amUnique should have the same output as before
         # tmp = tempfile(paste(ds, "_", sep=""), fileext=".html")
@@ -54,6 +55,8 @@ test_that("amUnique(matchThreshold=0.9) for dataset ggSample", code = {
         #         sep="\n")
         #
         # )
+        # file.remove(tmp)
+
 
         invisible(NULL)
     }

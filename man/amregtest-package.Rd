@@ -6,7 +6,7 @@
 \alias{amregtest-package}
 \title{amregtest: Runs Allelematch Regression Tests}
 \description{
-Automates regression testing when testing improvments of package \link{allelematch}.\cr\cr Exported functions are prefixed with "art" for "allelematch regression test".\cr \cr The exported functions are: \link{artVersion}, \link{artList} and \link{artRun}. \cr\cr The tests are based on \link{testthat}. The tests use data sets as input. These data sets are stored within the package. See \link{artData} \cr\cr The results of the tests are compared with pre-stored results, recorded with variants of \link{expect_snapshot}.
+Automates regression testing when testing improvements of package \link{allelematch}.\cr\cr Exported functions are prefixed with "art" for "allelematch regression test".\cr \cr The exported functions are: \link{artVersion}, \link{artList} and \link{artRun}. \cr\cr The tests are based on \link{testthat}. The tests use data sets as input. These data sets are stored within the package. See \link{artData} \cr\cr The results of the tests are compared with pre-stored results, recorded with variants of \link{expect_snapshot}.
 }
 \author{
 \strong{Maintainer}: Torvald Staxler \email{torvald.staxler@telia.com}

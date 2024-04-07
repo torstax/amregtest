@@ -37,6 +37,7 @@ test_that("Print", {
     tmp = tempfile(paste(obj, "_", sep=""), fileext=".csv")
     expect_snapshot(summary.amUnique(  get(obj), csv=tmp))
     expect_snapshot(format(read.csv(tmp)))
+    file.remove(tmp)
 
     # amHTML.amUnique should have the same output as before
     tmp = tempfile(paste(obj, "_", sep=""), fileext=".html")
@@ -48,8 +49,8 @@ test_that("Print", {
             readLines(tmp, warn=FALSE),
             perl=TRUE),
         sep="\n")
-
     )
+    file.remove(tmp)
   }
 
 

@@ -3,7 +3,7 @@ Title: Runs Allelematch Regression Tests
 Version: 1.0.1
 Authors@R: 
     person("Torvald", "Staxler", , "torvald.staxler@telia.com", role = c("aut", "cre"))
-Description: Automates regression testing when testing improvments of
+Description: Automates regression testing when testing improvements of
     package \link{allelematch}.\cr\cr Exported functions are prefixed with
     "art" for "allelematch regression test".\cr \cr The exported functions
     are: \link{artVersion}, \link{artList} and \link{artRun}.  \cr\cr The

@@ -50,6 +50,7 @@ test_that("amExample3 results from pg 10 in allelematchSuppDoc.pdf are 2.5.3 com
 
         # Ensure that the result is still the same as that from 2.5.3
         expect_snapshot_value(read.csv(file=summaryFile, colClasses="character"), style="deparse")
+        file.remove(summaryFile)
     }
 
     if(HTML) {
@@ -72,6 +73,7 @@ test_that("amExample3 results from pg 10 in allelematchSuppDoc.pdf are 2.5.3 com
 
         # Ensure that the result is still the same as that from 2.5.3
         expect_snapshot_value(read.csv(file=summaryFile, colClasses="character"), style="deparse")
+        file.remove(summaryFile)
     }
 
     if(HTML) {
@@ -94,6 +96,7 @@ test_that("amExample3 results from pg 10 in allelematchSuppDoc.pdf are 2.5.3 com
 
         # Re-read the generated .csv file:
         expect_snapshot_value(read.csv(file=summaryFile, colClasses="character"), style="deparse")
+        file.remove(summaryFile)
     }
 
     if(HTML) {

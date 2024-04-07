@@ -66,12 +66,14 @@ test_that("amExample1 from pg 5 in allelematchSuppDoc.pdf is 2.5.3 compatible", 
 
         # Ensure that the result is still the same as that from 2.5.3
         expect_snapshot_value(read.csv(summaryFile, colClasses="character"), style="deparse")
+        file.remove(summaryFile)
     }
 
     summary.amUnique(uniqueExample1, csv=summaryFile <- tempfile("example1_2.csv"), uniqueOnly=TRUE)
     {
         # Ensure that the result is still the same as that from 2.5.3
         expect_snapshot_value(read.csv(file=summaryFile, colClasses="character"), style="deparse")
+        file.remove(summaryFile)
     }
 
     example1chk <- amDataset(amExample1, indexColumn="sampleId",

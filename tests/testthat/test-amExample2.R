@@ -43,6 +43,7 @@ test_that("amExample2 results from pg 8 in allelematchSuppDoc.pdf 2.5.3 compatib
 
         # Ensure that the result is still the same as that from 2.5.3
         expect_snapshot_value(read.csv(file=summaryFile, colClasses="character"), style="deparse")
+        file.remove(summaryFile)
     }
 
     if(HTML) {
@@ -63,6 +64,7 @@ test_that("amExample2 results from pg 8 in allelematchSuppDoc.pdf 2.5.3 compatib
 
         # Ensure that the result is still the same as that from 2.5.3
         expect_snapshot_value(read.csv(file=summaryFile, colClasses="character"), style="deparse")
+        file.remove(summaryFile)
     }
 
     if(HTML) {

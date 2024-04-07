@@ -5,15 +5,14 @@
 attachment::att_amend_desc()
 
 # Check package coverage
-covr::package_coverage()
-covr::report()
+covr::package_coverage() ; covr::report()
 
 # Run tests
 devtools::test()
 testthat::test_dir("tests/testthat/")
 
 # Run examples
-devtools::run_examples()
+devtools::run_examples() # OK
 
 # autotest::autotest_package(test = TRUE)
 
@@ -26,17 +25,16 @@ withr::with_options(list(repos = c(CRAN = "https://cloud.r-project.org/")),
 # Check content
 # install.packages('checkhelper', repos = 'https://thinkr-open.r-universe.dev')
 # All functions must have either `@noRd` or an `@export`.
-checkhelper::find_missing_tags()
+checkhelper::find_missing_tags() # OK
 
 # Check that you let the house clean after the check, examples and tests
 # If you used parallel testing, you may need to avoid it for the next check with `Config/testthat/parallel: false` in DESCRIPTION
-all_files_remaining <- checkhelper::check_clean_userspace()
-all_files_remaining
+all_files_remaining <- checkhelper::check_clean_userspace() ; all_files_remaining
 # If needed, set back parallel testing with `Config/testthat/parallel: true` in DESCRIPTION
 
 # Check spelling - No typo
 # usethis::use_spell_check()
-spelling::spell_check_package()
+spelling::spell_check_package() # OK
 
 # Check URL are correct
 # install.packages('urlchecker', repos = 'https://r-lib.r-universe.dev')
@@ -45,7 +43,7 @@ urlchecker::url_update()
 
 # check on other distributions
 # _rhub
-devtools::check_rhub()
+devtools::check_rhub() # OK
 # List all R-hub platforms:
 rhub::platforms()
 buildpath <- devtools::build()
