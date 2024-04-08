@@ -50,7 +50,9 @@ test_that("amUnique(matchThreshold=0.9) for dataset ggSample", code = {
         #     cat(
         #         sub("summary generated: </b><em>.+?</em>",
         #             "summary generated: </b><em>(date)</em>",
-        #             readLines(tmp, warn=FALSE),
+        #             gsub("(\\t| )+?(\\n|$)","\\2",
+        #                  readLines(tmp, warn=FALSE),
+        #                  perl=TRUE),
         #             perl=TRUE),
         #         sep="\n")
         #

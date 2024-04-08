@@ -39,9 +39,11 @@ test_that("Print", {
     expect_snapshot(amHTML.amCluster( get(obj), htmlFile=tmp))
     expect_snapshot(
       cat(
-        sub("<tr><td><b>summary generated: </b><em>.+?</em></td></tr>",
-            "<tr><td><b>summary generated: </b><em>(date)</em></td></tr>",
-            readLines(tmp, warn=FALSE),
+        sub("summary generated: </b><em>.+?</em>",
+            "summary generated: </b><em>(date)</em>",
+            gsub("(\\t| )+?(\\n|$)","\\2",
+                 readLines(tmp, warn=FALSE),
+                 perl=TRUE),
             perl=TRUE),
         sep="\n")
     )

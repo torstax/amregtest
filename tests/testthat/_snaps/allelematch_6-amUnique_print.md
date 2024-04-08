@@ -29,7 +29,7 @@
 ---
 
     Code
-      cat(sub("summary generated: </b><em>.+?</em>", "summary generated: </b><em>(date)</em>", readLines(tmp, warn = FALSE), perl = TRUE), sep = "\n")
+      cat(sub("summary generated: </b><em>.+?</em>", "summary generated: </b><em>(date)</em>", gsub("(\\t| )+?(\\n|$)", "\\2", readLines(tmp, warn = FALSE), perl = TRUE), perl = TRUE), sep = "\n")
     Output
       <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
       
@@ -41,143 +41,143 @@
               html {
                   height: 100%;
               }
-              
+      
               body {
-                  background-color: inherit; 
-                  color: inherit; 
-                  font-family: Verdana; 
-                  font-size: xx-small; 
-                  margin: 0; 
+                  background-color: inherit;
+                  color: inherit;
+                  font-family: Verdana;
+                  font-size: xx-small;
+                  margin: 0;
                   height: 100%;
-              
+      
               }
-              
+      
               a:active {
-                  color: #CC0000; 
+                  color: #CC0000;
               }
-              
+      
               a:link {
-                  color: #CC0000; 
+                  color: #CC0000;
               }
-              
+      
               a:visited {
-                  color: #CC0000; 
+                  color: #CC0000;
               }
-              
+      
               .amMismatchAllele {
                   background-color: #CC0000;
                   color: white;
                   font-weight: bold;
               }
-              
+      
               .amMissingAllele {
                   background-color: #FFCCCC;
               }
-              
+      
               .amInterpolatedAllele {
                   background-color: blue;
                   color: white;
               }
-              
+      
               .amGrid {
                   border-collapse: separate;
               }
-              
+      
               .amGridContent {
-                  padding: 0;	
-                  border: 1px solid #7EACB1; 			
+                  padding: 0;
+                  border: 1px solid #7EACB1;
               }
-              
+      
       
               .amGridUpperPanel, .amGridLowerPanel {
-                  padding: 3px;	
+                  padding: 3px;
                   border-left: 0;
-                  border-right: 0;	
-                  background-color: #F4FAFB; 
-                  color: #2A769D;	 
-                  font-family: Verdana; 
-                  font-size: xx-small; 	
+                  border-right: 0;
+                  background-color: #F4FAFB;
+                  color: #2A769D;
+                  font-family: Verdana;
+                  font-size: xx-small;
               }
-              
+      
               .amGridUpperPanel {
                   border-top: 0px;
                   border-bottom: 1px solid;
-                  border-color: #7EACB1; 
+                  border-color: #7EACB1;
               }
-              
+      
               .amGridMiddlePanel {
-                  border: 0;	
+                  border: 0;
               }
-              
+      
               .amGridLowerPanel {
                   border-top: 1px solid;
-                  border-bottom: 0px; 
-                  border-color: #C2D4DA; 
+                  border-bottom: 0px;
+                  border-color: #C2D4DA;
               }
-              
+      
               .amGridUpperPanel td, .amGridLowerPanel td {
-                  color: #2A769D;	 
-                  font-family: Verdana; 
-                  font-size: xx-small; 		
+                  color: #2A769D;
+                  font-family: Verdana;
+                  font-size: xx-small;
               }
-              
-              
+      
+      
               .amTable {
                   border: 0;
                   border-spacing: 0;
                   border-collapse: collapse;
                   empty-cells: show;
                   width: 100%;
-                  font-family: Verdana; 
-                  font-size: xx-small; 			
+                  font-family: Verdana;
+                  font-size: xx-small;
               }
-              
-              .amTableSeparate {	
-                  border-collapse: separate;		
+      
+              .amTableSeparate {
+                  border-collapse: separate;
               }
-              
+      
               .amTable td {
-                  padding: 3px; 
-                  border-bottom: 1px solid; 
+                  padding: 3px;
+                  border-bottom: 1px solid;
                   border-top: 0px;
                   border-left: 0px;
-                  border-right: 1px solid; 
-                  border-color: #C2D4DA;  
+                  border-right: 1px solid;
+                  border-color: #C2D4DA;
                   white-space:nowrap;
               }
-              
-                  
+      
+      
               .amTable .amTableHeader, .amTable .amTableHeader td {
-                  background-color: #B7D8DC;	
-                  color: #000000; 
-                  border-bottom: 1px solid; 
-                  border-right: 1px solid; 
-                  border-color: #7EACB1; 
-                  background-repeat: repeat-x;		
+                  background-color: #B7D8DC;
+                  color: #000000;
+                  border-bottom: 1px solid;
+                  border-right: 1px solid;
+                  border-color: #7EACB1;
+                  background-repeat: repeat-x;
                   vertical-align: top;
                   white-space:nowrap;
               }
-              
+      
               .amPointer {
                   cursor: pointer;
               }
-              
-              
+      
+      
               .amTableHeaderBtn {
                   width: 100%;
-                  font-family: Verdana; 
-                  font-size: xx-small; 		
+                  font-family: Verdana;
+                  font-size: xx-small;
               }
-              
+      
               .amTableHeader .amTableHeaderBtn td {
                   background: transparent;
                   padding: 0;
                   border: 0;
-                  white-space: nowrap;		
+                  white-space: nowrap;
               }
-              
+      
               .amTableSelectRow {
-                  background-color: #FFFF66; 
+                  background-color: #FFFF66;
                   color: #000000;
               }
       
@@ -432,7 +432,7 @@
 ---
 
     Code
-      cat(sub("summary generated: </b><em>.+?</em>", "summary generated: </b><em>(date)</em>", readLines(tmp, warn = FALSE), perl = TRUE), sep = "\n")
+      cat(sub("summary generated: </b><em>.+?</em>", "summary generated: </b><em>(date)</em>", gsub("(\\t| )+?(\\n|$)", "\\2", readLines(tmp, warn = FALSE), perl = TRUE), perl = TRUE), sep = "\n")
     Output
       <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
       
@@ -444,143 +444,143 @@
               html {
                   height: 100%;
               }
-              
+      
               body {
-                  background-color: inherit; 
-                  color: inherit; 
-                  font-family: Verdana; 
-                  font-size: xx-small; 
-                  margin: 0; 
+                  background-color: inherit;
+                  color: inherit;
+                  font-family: Verdana;
+                  font-size: xx-small;
+                  margin: 0;
                   height: 100%;
-              
+      
               }
-              
+      
               a:active {
-                  color: #CC0000; 
+                  color: #CC0000;
               }
-              
+      
               a:link {
-                  color: #CC0000; 
+                  color: #CC0000;
               }
-              
+      
               a:visited {
-                  color: #CC0000; 
+                  color: #CC0000;
               }
-              
+      
               .amMismatchAllele {
                   background-color: #CC0000;
                   color: white;
                   font-weight: bold;
               }
-              
+      
               .amMissingAllele {
                   background-color: #FFCCCC;
               }
-              
+      
               .amInterpolatedAllele {
                   background-color: blue;
                   color: white;
               }
-              
+      
               .amGrid {
                   border-collapse: separate;
               }
-              
+      
               .amGridContent {
-                  padding: 0;	
-                  border: 1px solid #7EACB1; 			
+                  padding: 0;
+                  border: 1px solid #7EACB1;
               }
-              
+      
       
               .amGridUpperPanel, .amGridLowerPanel {
-                  padding: 3px;	
+                  padding: 3px;
                   border-left: 0;
-                  border-right: 0;	
-                  background-color: #F4FAFB; 
-                  color: #2A769D;	 
-                  font-family: Verdana; 
-                  font-size: xx-small; 	
+                  border-right: 0;
+                  background-color: #F4FAFB;
+                  color: #2A769D;
+                  font-family: Verdana;
+                  font-size: xx-small;
               }
-              
+      
               .amGridUpperPanel {
                   border-top: 0px;
                   border-bottom: 1px solid;
-                  border-color: #7EACB1; 
+                  border-color: #7EACB1;
               }
-              
+      
               .amGridMiddlePanel {
-                  border: 0;	
+                  border: 0;
               }
-              
+      
               .amGridLowerPanel {
                   border-top: 1px solid;
-                  border-bottom: 0px; 
-                  border-color: #C2D4DA; 
+                  border-bottom: 0px;
+                  border-color: #C2D4DA;
               }
-              
+      
               .amGridUpperPanel td, .amGridLowerPanel td {
-                  color: #2A769D;	 
-                  font-family: Verdana; 
-                  font-size: xx-small; 		
+                  color: #2A769D;
+                  font-family: Verdana;
+                  font-size: xx-small;
               }
-              
-              
+      
+      
               .amTable {
                   border: 0;
                   border-spacing: 0;
                   border-collapse: collapse;
                   empty-cells: show;
                   width: 100%;
-                  font-family: Verdana; 
-                  font-size: xx-small; 			
+                  font-family: Verdana;
+                  font-size: xx-small;
               }
-              
-              .amTableSeparate {	
-                  border-collapse: separate;		
+      
+              .amTableSeparate {
+                  border-collapse: separate;
               }
-              
+      
               .amTable td {
-                  padding: 3px; 
-                  border-bottom: 1px solid; 
+                  padding: 3px;
+                  border-bottom: 1px solid;
                   border-top: 0px;
                   border-left: 0px;
-                  border-right: 1px solid; 
-                  border-color: #C2D4DA;  
+                  border-right: 1px solid;
+                  border-color: #C2D4DA;
                   white-space:nowrap;
               }
-              
-                  
+      
+      
               .amTable .amTableHeader, .amTable .amTableHeader td {
-                  background-color: #B7D8DC;	
-                  color: #000000; 
-                  border-bottom: 1px solid; 
-                  border-right: 1px solid; 
-                  border-color: #7EACB1; 
-                  background-repeat: repeat-x;		
+                  background-color: #B7D8DC;
+                  color: #000000;
+                  border-bottom: 1px solid;
+                  border-right: 1px solid;
+                  border-color: #7EACB1;
+                  background-repeat: repeat-x;
                   vertical-align: top;
                   white-space:nowrap;
               }
-              
+      
               .amPointer {
                   cursor: pointer;
               }
-              
-              
+      
+      
               .amTableHeaderBtn {
                   width: 100%;
-                  font-family: Verdana; 
-                  font-size: xx-small; 		
+                  font-family: Verdana;
+                  font-size: xx-small;
               }
-              
+      
               .amTableHeader .amTableHeaderBtn td {
                   background: transparent;
                   padding: 0;
                   border: 0;
-                  white-space: nowrap;		
+                  white-space: nowrap;
               }
-              
+      
               .amTableSelectRow {
-                  background-color: #FFFF66; 
+                  background-color: #FFFF66;
                   color: #000000;
               }
       
@@ -2037,7 +2037,7 @@
 ---
 
     Code
-      cat(sub("summary generated: </b><em>.+?</em>", "summary generated: </b><em>(date)</em>", readLines(tmp, warn = FALSE), perl = TRUE), sep = "\n")
+      cat(sub("summary generated: </b><em>.+?</em>", "summary generated: </b><em>(date)</em>", gsub("(\\t| )+?(\\n|$)", "\\2", readLines(tmp, warn = FALSE), perl = TRUE), perl = TRUE), sep = "\n")
     Output
       <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
       
@@ -2049,143 +2049,143 @@
               html {
                   height: 100%;
               }
-              
+      
               body {
-                  background-color: inherit; 
-                  color: inherit; 
-                  font-family: Verdana; 
-                  font-size: xx-small; 
-                  margin: 0; 
+                  background-color: inherit;
+                  color: inherit;
+                  font-family: Verdana;
+                  font-size: xx-small;
+                  margin: 0;
                   height: 100%;
-              
+      
               }
-              
+      
               a:active {
-                  color: #CC0000; 
+                  color: #CC0000;
               }
-              
+      
               a:link {
-                  color: #CC0000; 
+                  color: #CC0000;
               }
-              
+      
               a:visited {
-                  color: #CC0000; 
+                  color: #CC0000;
               }
-              
+      
               .amMismatchAllele {
                   background-color: #CC0000;
                   color: white;
                   font-weight: bold;
               }
-              
+      
               .amMissingAllele {
                   background-color: #FFCCCC;
               }
-              
+      
               .amInterpolatedAllele {
                   background-color: blue;
                   color: white;
               }
-              
+      
               .amGrid {
                   border-collapse: separate;
               }
-              
+      
               .amGridContent {
-                  padding: 0;	
-                  border: 1px solid #7EACB1; 			
+                  padding: 0;
+                  border: 1px solid #7EACB1;
               }
-              
+      
       
               .amGridUpperPanel, .amGridLowerPanel {
-                  padding: 3px;	
+                  padding: 3px;
                   border-left: 0;
-                  border-right: 0;	
-                  background-color: #F4FAFB; 
-                  color: #2A769D;	 
-                  font-family: Verdana; 
-                  font-size: xx-small; 	
+                  border-right: 0;
+                  background-color: #F4FAFB;
+                  color: #2A769D;
+                  font-family: Verdana;
+                  font-size: xx-small;
               }
-              
+      
               .amGridUpperPanel {
                   border-top: 0px;
                   border-bottom: 1px solid;
-                  border-color: #7EACB1; 
+                  border-color: #7EACB1;
               }
-              
+      
               .amGridMiddlePanel {
-                  border: 0;	
+                  border: 0;
               }
-              
+      
               .amGridLowerPanel {
                   border-top: 1px solid;
-                  border-bottom: 0px; 
-                  border-color: #C2D4DA; 
+                  border-bottom: 0px;
+                  border-color: #C2D4DA;
               }
-              
+      
               .amGridUpperPanel td, .amGridLowerPanel td {
-                  color: #2A769D;	 
-                  font-family: Verdana; 
-                  font-size: xx-small; 		
+                  color: #2A769D;
+                  font-family: Verdana;
+                  font-size: xx-small;
               }
-              
-              
+      
+      
               .amTable {
                   border: 0;
                   border-spacing: 0;
                   border-collapse: collapse;
                   empty-cells: show;
                   width: 100%;
-                  font-family: Verdana; 
-                  font-size: xx-small; 			
+                  font-family: Verdana;
+                  font-size: xx-small;
               }
-              
-              .amTableSeparate {	
-                  border-collapse: separate;		
+      
+              .amTableSeparate {
+                  border-collapse: separate;
               }
-              
+      
               .amTable td {
-                  padding: 3px; 
-                  border-bottom: 1px solid; 
+                  padding: 3px;
+                  border-bottom: 1px solid;
                   border-top: 0px;
                   border-left: 0px;
-                  border-right: 1px solid; 
-                  border-color: #C2D4DA;  
+                  border-right: 1px solid;
+                  border-color: #C2D4DA;
                   white-space:nowrap;
               }
-              
-                  
+      
+      
               .amTable .amTableHeader, .amTable .amTableHeader td {
-                  background-color: #B7D8DC;	
-                  color: #000000; 
-                  border-bottom: 1px solid; 
-                  border-right: 1px solid; 
-                  border-color: #7EACB1; 
-                  background-repeat: repeat-x;		
+                  background-color: #B7D8DC;
+                  color: #000000;
+                  border-bottom: 1px solid;
+                  border-right: 1px solid;
+                  border-color: #7EACB1;
+                  background-repeat: repeat-x;
                   vertical-align: top;
                   white-space:nowrap;
               }
-              
+      
               .amPointer {
                   cursor: pointer;
               }
-              
-              
+      
+      
               .amTableHeaderBtn {
                   width: 100%;
-                  font-family: Verdana; 
-                  font-size: xx-small; 		
+                  font-family: Verdana;
+                  font-size: xx-small;
               }
-              
+      
               .amTableHeader .amTableHeaderBtn td {
                   background: transparent;
                   padding: 0;
                   border: 0;
-                  white-space: nowrap;		
+                  white-space: nowrap;
               }
-              
+      
               .amTableSelectRow {
-                  background-color: #FFFF66; 
+                  background-color: #FFFF66;
                   color: #000000;
               }
       
@@ -3558,7 +3558,7 @@
 ---
 
     Code
-      cat(sub("summary generated: </b><em>.+?</em>", "summary generated: </b><em>(date)</em>", readLines(tmp, warn = FALSE), perl = TRUE), sep = "\n")
+      cat(sub("summary generated: </b><em>.+?</em>", "summary generated: </b><em>(date)</em>", gsub("(\\t| )+?(\\n|$)", "\\2", readLines(tmp, warn = FALSE), perl = TRUE), perl = TRUE), sep = "\n")
     Output
       <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
       
@@ -3570,143 +3570,143 @@
               html {
                   height: 100%;
               }
-              
+      
               body {
-                  background-color: inherit; 
-                  color: inherit; 
-                  font-family: Verdana; 
-                  font-size: xx-small; 
-                  margin: 0; 
+                  background-color: inherit;
+                  color: inherit;
+                  font-family: Verdana;
+                  font-size: xx-small;
+                  margin: 0;
                   height: 100%;
-              
+      
               }
-              
+      
               a:active {
-                  color: #CC0000; 
+                  color: #CC0000;
               }
-              
+      
               a:link {
-                  color: #CC0000; 
+                  color: #CC0000;
               }
-              
+      
               a:visited {
-                  color: #CC0000; 
+                  color: #CC0000;
               }
-              
+      
               .amMismatchAllele {
                   background-color: #CC0000;
                   color: white;
                   font-weight: bold;
               }
-              
+      
               .amMissingAllele {
                   background-color: #FFCCCC;
               }
-              
+      
               .amInterpolatedAllele {
                   background-color: blue;
                   color: white;
               }
-              
+      
               .amGrid {
                   border-collapse: separate;
               }
-              
+      
               .amGridContent {
-                  padding: 0;	
-                  border: 1px solid #7EACB1; 			
+                  padding: 0;
+                  border: 1px solid #7EACB1;
               }
-              
+      
       
               .amGridUpperPanel, .amGridLowerPanel {
-                  padding: 3px;	
+                  padding: 3px;
                   border-left: 0;
-                  border-right: 0;	
-                  background-color: #F4FAFB; 
-                  color: #2A769D;	 
-                  font-family: Verdana; 
-                  font-size: xx-small; 	
+                  border-right: 0;
+                  background-color: #F4FAFB;
+                  color: #2A769D;
+                  font-family: Verdana;
+                  font-size: xx-small;
               }
-              
+      
               .amGridUpperPanel {
                   border-top: 0px;
                   border-bottom: 1px solid;
-                  border-color: #7EACB1; 
+                  border-color: #7EACB1;
               }
-              
+      
               .amGridMiddlePanel {
-                  border: 0;	
+                  border: 0;
               }
-              
+      
               .amGridLowerPanel {
                   border-top: 1px solid;
-                  border-bottom: 0px; 
-                  border-color: #C2D4DA; 
+                  border-bottom: 0px;
+                  border-color: #C2D4DA;
               }
-              
+      
               .amGridUpperPanel td, .amGridLowerPanel td {
-                  color: #2A769D;	 
-                  font-family: Verdana; 
-                  font-size: xx-small; 		
+                  color: #2A769D;
+                  font-family: Verdana;
+                  font-size: xx-small;
               }
-              
-              
+      
+      
               .amTable {
                   border: 0;
                   border-spacing: 0;
                   border-collapse: collapse;
                   empty-cells: show;
                   width: 100%;
-                  font-family: Verdana; 
-                  font-size: xx-small; 			
+                  font-family: Verdana;
+                  font-size: xx-small;
               }
-              
-              .amTableSeparate {	
-                  border-collapse: separate;		
+      
+              .amTableSeparate {
+                  border-collapse: separate;
               }
-              
+      
               .amTable td {
-                  padding: 3px; 
-                  border-bottom: 1px solid; 
+                  padding: 3px;
+                  border-bottom: 1px solid;
                   border-top: 0px;
                   border-left: 0px;
-                  border-right: 1px solid; 
-                  border-color: #C2D4DA;  
+                  border-right: 1px solid;
+                  border-color: #C2D4DA;
                   white-space:nowrap;
               }
-              
-                  
+      
+      
               .amTable .amTableHeader, .amTable .amTableHeader td {
-                  background-color: #B7D8DC;	
-                  color: #000000; 
-                  border-bottom: 1px solid; 
-                  border-right: 1px solid; 
-                  border-color: #7EACB1; 
-                  background-repeat: repeat-x;		
+                  background-color: #B7D8DC;
+                  color: #000000;
+                  border-bottom: 1px solid;
+                  border-right: 1px solid;
+                  border-color: #7EACB1;
+                  background-repeat: repeat-x;
                   vertical-align: top;
                   white-space:nowrap;
               }
-              
+      
               .amPointer {
                   cursor: pointer;
               }
-              
-              
+      
+      
               .amTableHeaderBtn {
                   width: 100%;
-                  font-family: Verdana; 
-                  font-size: xx-small; 		
+                  font-family: Verdana;
+                  font-size: xx-small;
               }
-              
+      
               .amTableHeader .amTableHeaderBtn td {
                   background: transparent;
                   padding: 0;
                   border: 0;
-                  white-space: nowrap;		
+                  white-space: nowrap;
               }
-              
+      
               .amTableSelectRow {
-                  background-color: #FFFF66; 
+                  background-color: #FFFF66;
                   color: #000000;
               }
       
