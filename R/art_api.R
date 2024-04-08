@@ -40,7 +40,7 @@
 artVersion <- function() {
     installedAmVersion = artVersionInner()
     cat("\n")
-    cat("\n    This version of 'amregtest' was used to test 'allelematch' versions 2.5.3 and 2.5.2.")
+    cat("\n    This version of 'amregtest' was used to test 'allelematch' versions 2.5.4, 2.5.3 and 2.5.2.")
     cat("\n    2.5.1 and earlier versions of 'allelematch' require older versions of R to work.")
     cat("\n\n")
     return(invisible(installedAmVersion))

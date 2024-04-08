@@ -37,9 +37,8 @@ test_that("amExample1 from pg 5 in allelematchSuppDoc.pdf is 2.5.3 compatible", 
         testthat::expect_match(output, "Best guess for unique profile morphology: ZeroSecondMinimum", fixed=TRUE, all=FALSE)
     }
 
-    # output = capture.output(
     expect_snapshot(
-        uniqueExample1 <- amUnique(example1, alleleMismatch=2)
+        uniqueExample1 <- amUnique(example1, alleleMismatch=2, verbose=FALSE), # TODO : Default of verbose changed in 2.5.4
     )
     {
         # testthat::expect_match(output, "allelematch:  assuming genotype columns are in pairs, representing 10 loci$", all=FALSE)

@@ -61,7 +61,7 @@
 ---
 
     Code
-      uniqueExample1 <- amUnique(example1, alleleMismatch = 2)
+      uniqueExample1 <- amUnique(example1, alleleMismatch = 2, verbose = FALSE)
     Output
       allelematch:  assuming genotype columns are in pairs, representing 10 loci
 

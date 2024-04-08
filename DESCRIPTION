@@ -1,6 +1,6 @@
 Package: amregtest
 Title: Runs Allelematch Regression Tests
-Version: 1.0.1
+Version: 1.0.2
 Authors@R: 
     person("Torvald", "Staxler", , "torvald.staxler@telia.com", role = c("aut", "cre", "cph"))
 Description: Automates regression testing when testing improvements of
