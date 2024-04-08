@@ -12,6 +12,6 @@ options(warnPartialMatchArgs=TRUE)
 #
 # [testthat] (and R CMD check) makes sure that the tests behave the same way
 # on every platform, by setting the collation locale to "C" and the language to "en".
-# See issue "locale / collation used in testhat #1181"
+# See issue "locale / collation used in testthat #1181"
 #  at https://github.com/r-lib/testthat/issues/1181#issuecomment-692851342
 

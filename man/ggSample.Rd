@@ -22,7 +22,7 @@ See the description of "radix" under \link{sort}.\cr\cr
 \link{testthat} (and R CMD check) makes sure that the tests behave the same way
 on every platform, by setting the collation locale to "C" and the language to "en".\cr
 See github issue
-\href{https://github.com/r-lib/testthat/issues/1181#issuecomment-692851342}{locale / collation used in testhat #1181}\cr\cr
+\href{https://github.com/r-lib/testthat/issues/1181#issuecomment-692851342}{locale / collation used in testthat #1181}\cr\cr
 }
 \references{
 \url{https://github.com/cran/allelematch}

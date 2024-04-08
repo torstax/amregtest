@@ -3,7 +3,7 @@
 #' @title Example data used by [amregtest]
 #'
 #' @description
-#' This example data is used when testing allelmatch backwards compatibility
+#' This example data is used when testing allelematch backwards compatibility
 #' with [artRun]. The tests load this data and passes it to [amDataset].\cr
 #' \cr
 #' It includes data that was imported from version 5.2.1 of [allelematch].
@@ -49,7 +49,7 @@ NULL
 #' Example 2 Good quality data set
 #'
 #' This is sample data copied from [allelematch::amExampleData] in version 5.2.1
-#' of package [allelematch]. We use this data to test allelmatch backwards compatibility.
+#' of package [allelematch]. We use this data to test allelematch backwards compatibility.
 #'
 #' The data in this example have also been simulated, this time to reflect the qualities
 #' of good quality data set, where genotyping error and missing data exist, but these can
@@ -68,7 +68,7 @@ NULL
 #' Example 3 Marginal quality data set
 #'
 #' This is sample data copied from [allelematch::amExampleData] in version 5.2.1
-#' of package [allelematch]. We use this data to test allelmatch backwards compatibility.
+#' of package [allelematch]. We use this data to test allelematch backwards compatibility.
 #'
 #' The data in this example have been simulated to represent a data set of marginal
 #' quality where the use of allelematch combined with careful manual review of the
@@ -87,7 +87,7 @@ NULL
 #' Example 4 Low quality data set
 #'
 #' This is sample data copied from [allelematch::amExampleData] in version 5.2.1
-#' of package [allelematch]. We use this data to test allelmatch backwards compatibility.
+#' of package [allelematch]. We use this data to test allelematch backwards compatibility.
 #'
 #' For this example we have simulated a low quality data set where uncertainty created
 #' by genotyping error and missing data, combined with a lack of information in the form
@@ -107,7 +107,7 @@ NULL
 #' Example 5 Wildlife data set
 #'
 #' This is sample data copied from [allelematch::amExampleData] in version 5.2.1
-#' of package [allelematch]. We use this data to test allelmatch backwards compatibility.
+#' of package [allelematch]. We use this data to test allelematch backwards compatibility.
 #'
 #' In this final example we use real data from the non-invasive sampling of a wildlife
 #' population. The data have been anonymized by changing sampling details. A single
@@ -148,7 +148,7 @@ NULL
 #' [testthat] (and R CMD check) makes sure that the tests behave the same way
 #' on every platform, by setting the collation locale to "C" and the language to "en".\cr
 #' See github issue
-#' \href{https://github.com/r-lib/testthat/issues/1181#issuecomment-692851342}{locale / collation used in testhat #1181}\cr\cr
+#' \href{https://github.com/r-lib/testthat/issues/1181#issuecomment-692851342}{locale / collation used in testthat #1181}\cr\cr
 #'
 #' @docType data
 #' @keywords data

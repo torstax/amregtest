@@ -29,7 +29,7 @@ checkhelper::find_missing_tags() # OK
 
 # Check that you let the house clean after the check, examples and tests
 # If you used parallel testing, you may need to avoid it for the next check with `Config/testthat/parallel: false` in DESCRIPTION
-all_files_remaining <- checkhelper::check_clean_userspace() ; all_files_remaining
+all_files_remaining <- checkhelper::check_clean_userspace() ; all_files_remaining # OK, except _snaps/*.md time stamps and tmp files outside of our control
 # If needed, set back parallel testing with `Config/testthat/parallel: true` in DESCRIPTION
 
 # Check spelling - No typo
@@ -38,32 +38,32 @@ spelling::spell_check_package() # OK
 
 # Check URL are correct
 # install.packages('urlchecker', repos = 'https://r-lib.r-universe.dev')
-urlchecker::url_check()
-urlchecker::url_update()
+urlchecker::url_check()  # OK
+urlchecker::url_update() # OK
 
 # check on other distributions
 # _rhub
 devtools::check_rhub() # OK
 # List all R-hub platforms:
 rhub::platforms()
-buildpath <- devtools::build()
-rhub::check_on_windows(check_args = "--force-multiarch",
+buildpath <- devtools::build() # OK
+rhub::check_on_windows(check_args = "--force-multiarch",  # OK
                        show_status = FALSE,
                        path = buildpath)
-rhub::check_on_solaris(show_status = FALSE, path = buildpath)
+#rhub::check_on_solaris(show_status = FALSE, path = buildpath) # No longer supported
 rhub::check(platform = "debian-clang-devel",
             show_status = FALSE,
-            path = buildpath)
+            path = buildpath)  # OK
 rhub::check(platform = "debian-gcc-devel",
             show_status = FALSE,
-            path = buildpath)
+            path = buildpath)  # OK
 rhub::check(platform = "fedora-clang-devel",
             show_status = FALSE,
-            path = buildpath)
-rhub::check(platform = "macos-highsierra-release-cran",
-            show_status = FALSE,
-            path = buildpath)
-rhub::check_for_cran(show_status = FALSE, path = buildpath)
+            path = buildpath)  # OK
+# rhub::check(platform = "macos-highsierra-release-cran",
+#             show_status = FALSE,
+#             path = buildpath)
+rhub::check_for_cran(show_status = FALSE, path = buildpath) # OK
 
 # _win devel CRAN
 devtools::check_win_devel()

@@ -1,16 +1,16 @@
 Package: amregtest
-Title: Runs Allelematch Regression Tests
+Title: Runs 'allelematch' Regression Tests
 Version: 1.0.1
 Authors@R: 
-    person("Torvald", "Staxler", , "torvald.staxler@telia.com", role = c("aut", "cre"))
+    person("Torvald", "Staxler", , "torvald.staxler@telia.com", role = c("aut", "cre", "cph"))
 Description: Automates regression testing when testing improvements of
     package \link{allelematch}.\cr\cr Exported functions are prefixed with
-    "art" for "allelematch regression test".\cr \cr The exported functions
-    are: \link{artVersion}, \link{artList} and \link{artRun}.  \cr\cr The
-    tests are based on \link{testthat}. The tests use data sets as input.
-    These data sets are stored within the package. See \link{artData}
-    \cr\cr The results of the tests are compared with pre-stored results,
-    recorded with variants of \link{expect_snapshot}.
+    "art" for "'allelematch' regression test".\cr \cr The exported
+    functions are: \link{artVersion}, \link{artList} and \link{artRun}.
+    \cr\cr The tests are based on \link{testthat}. The tests use data sets
+    as input.  These data sets are stored within the package. See
+    \link{artData} \cr\cr The results of the tests are compared with
+    pre-stored results, recorded with variants of \link{expect_snapshot}.
 License: MIT + file LICENSE
 Depends: 
     R (>= 2.10)
@@ -22,6 +22,7 @@ Imports:
     withr
 Config/testthat/edition: 3
 Encoding: UTF-8
+Language: en-US
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.1

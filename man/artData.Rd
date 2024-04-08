@@ -8,7 +8,7 @@
 Data frames with differing numbers of samples in rows, and alleles in columns. Missing data is represented as "-99".
 }
 \description{
-This example data is used when testing allelmatch backwards compatibility
+This example data is used when testing allelematch backwards compatibility
 with \link{artRun}. The tests load this data and passes it to \link{amDataset}.\cr
 \cr
 It includes data that was imported from version 5.2.1 of \link{allelematch}.

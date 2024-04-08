@@ -9,7 +9,7 @@ Data frame with differing numbers of samples in rows, and alleles in columns. Mi
 }
 \description{
 This is sample data copied from \link[allelematch:amExampleData]{allelematch::amExampleData} in version 5.2.1
-of package \link{allelematch}. We use this data to test allelmatch backwards compatibility.
+of package \link{allelematch}. We use this data to test allelematch backwards compatibility.
 }
 \details{
 The data in this example have been simulated to represent a data set of marginal
