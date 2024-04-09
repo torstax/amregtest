@@ -16,7 +16,9 @@ helpArgToString <- function(...) {
   v = v[! v == "=NULL"]
 
   # Return a string were the pairs are ", " -separated:
-  paste(v, collapse=", ")
+  ret = paste(v, collapse=", ")
+
+  return(ret)
 }
 
 # Attempts to prepend the supplied file name with a directory
@@ -29,12 +31,9 @@ helpHtml <- function(file) {
     }
     # dir = sub("^(C):", "/\\1", dir, perl=TRUE, fixed=FALSE)
     dir = sub("^C:", "", dir, perl=TRUE, fixed=FALSE)
-    # dir = "\"/c/Users/Torva/repo/regressiontest\""
     if(!dir.exists(dir)) stop("\n    dir = '", dir, "' does not exist!\n    getwd() = '", getwd(), "' ", sep="")
     longfile = paste(dir, "/", file, sep="")
     cat("\n    Writing html to :", longfile)
-
-    # return("/c/Users/Torva/repo/regressiontest/hej.html")
 
     return(longfile)
 }

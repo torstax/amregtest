@@ -4,10 +4,10 @@ Version: 1.0.2
 Authors@R: 
     person("Torvald", "Staxler", , "torvald.staxler@telia.com", role = c("aut", "cre", "cph"))
 Description: Automates regression testing when testing improvements of
-    package \link{allelematch}.\cr Exported functions are prefixed with
+    package '\link{allelematch}'.\cr Exported functions are prefixed with
     "art" for "'allelematch' regression test".\cr The exported functions
     are: \link{artVersion}, \link{artList} and \link{artRun}.  \cr The
-    tests are based on \link{testthat}. The tests use data sets as input.
+    tests are based on '\link{testthat}'. The tests use data sets as input.
     These data sets are stored within the package. See \link{artData} \cr
     The results of the tests are compared with pre-stored results,
     recorded with variants of \link{expect_snapshot}.
