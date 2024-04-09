@@ -19,9 +19,13 @@ devtools::install_github("torstax/amregtest")
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
-
 ``` r
+# The installed version of 'allelematch' 
+# will be tested by the installed version of 'amregtest':
+library(allelematch)
 library(amregtest)
-## basic example code
+
+# The testing is done by function 'artRun()'. 
+# See the help in RStudio:
+?artRun
 ```
