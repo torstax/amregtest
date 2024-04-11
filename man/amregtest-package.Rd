@@ -3,7 +3,7 @@
 \docType{package}
 \name{amregtest-package}
 \alias{amregtest-package}
-\title{amregtest: Runs AlleleMatch Regression Tests}
+\title{amregtest: Runs Allelematch Regression Tests}
 \description{
 Automates regression testing of package 'allelematch'. Over 2500 tests covers all functions in 'allelematch', reproduces the examples from the documentation and includes negative tests. The implementation is based on 'testthat'.
 }
