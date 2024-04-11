@@ -2,14 +2,16 @@
 ### allelematch test engine ###
 ###############################################################################
 
-#' Prints package version
+#' Returns package version
 #'
 #' @description
-#' Prints version of this package ([amregtest]) and of tested version of [allelematch].\cr
+#' Returns version of this package ([amregtest]).\cr
 #' \cr
 #' The version is specified in the file DESCRIPTION, tag "Version: ".
 #'
-#' @return The currently installed version of `allelematch` as char
+#' @param verbose logical. If TRUE, prints additional info to stdout, including version of [allelematch-package]
+#'
+#' @return The installed version of this package ([amregtest-package]) in a character vector of length one
 #'
 #' @examples
 #' # See what version of packages 'allelematch' and 'amregtest'
@@ -18,40 +20,28 @@
 #'
 #' # List the available tests:
 #' artList()
-#'
-#' \dontrun{
-#'
+#' \donttest{
 #' # Run all the tests:
-#' artRun()
+#' # artRun()  # Takes several minutes
 #'
 #' # Run the first of the available tests:
-#' artRun(filter="allelematch_1-amDataset")
-#'
-#' # Run all tests that start with 'am' and 'allelematch_1-amDataset':
-#' artRun(filter="^am|allelematch_1-amDataset")
-#'
-#' # Run the test 'amExample3' and let it generate .html files
-#' # in the [getwd] directory:
-#' artRun(filter='amExample3', html=TRUE)
+#' artRun(filter="allelematch_1-amDataset$")
 #' }
+#'
 #'
 #' @seealso [artList], [artRun] and [amregtest]
 #' @export
-artVersion <- function() {
-    installedAmVersion = artVersionInner()
-    cat("\n")
-    cat("\n    This version of 'amregtest' was used to test 'allelematch' versions 2.5.4, 2.5.3 and 2.5.2.")
-    cat("\n    2.5.1 and earlier versions of 'allelematch' require older versions of R to work.")
-    cat("\n\n")
-    return(invisible(installedAmVersion))
-}
-artVersionInner <- function() {
+artVersion <- function(verbose=TRUE) {
+    stopifnot(is.logical(verbose))
+
     installedArtVersion = toString(utils::packageVersion("amregtest"))
     installedAmVersion  = toString(utils::packageVersion("allelematch"))
 
-    cat("\n    Version of package 'amregtest' is", installedArtVersion)
-    cat("\n    Installed (and thus tested) version of package 'allelematch' is:", installedAmVersion)
-    return(invisible(installedAmVersion))
+    if (verbose) {
+        cat("\n    Version of package 'amregtest' is", installedArtVersion)
+        cat("\n    Installed (and thus tested) version of package 'allelematch' is:", installedAmVersion)
+    }
+    return(invisible(installedArtVersion))
 }
 
 
@@ -61,7 +51,9 @@ artVersionInner <- function() {
 #' Use the output to select a value for parameter `filter` to [artRun].
 #' Useful when debugging.
 #'
-#' @return A vector containing the names of all the tests
+#' @param verbose logical. If TRUE, prints additional info to stdout
+#'
+#' @return A character vector containing the names of all the tests
 #'
 #' @examples
 #' # See what version of packages 'allelematch' and 'amregtest'
@@ -70,35 +62,37 @@ artVersionInner <- function() {
 #'
 #' # List the available tests:
 #' artList()
-#'
-#' \dontrun{
+#' \donttest{
+#' # Run all the tests:
+#' # artRun()  # Takes several minutes
 #'
 #' # Run the first of the available tests:
-#' artRun(filter="allelematch_1-amDataset")
-#'
-#' # Run all tests that start with 'am' and 'allelematch_1-amDataset':
-#' artRun(filter="^am|allelematch_1-amDataset")
+#' artRun(filter="allelematch_1-amDataset$")
 #' }
 #'
 #' @seealso [artVersion] and [artRun]
 #'
 #' @export
-artList <- function() {
-    root = paste(system.file(package = "amregtest"), "tests/testthat/", sep="/")
+artList <- function(verbose=TRUE) {
+    stopifnot(is.logical(verbose))
 
-    cat('\nTests in files under "', root, '":\n', sep="")
+    root = paste(system.file(package = "amregtest"), "tests/testthat/", sep="/")
 
     all = gsub("^test-(.+?)\\.R", "\\1", grep("^test-.+?\\.R", list.files(root), value=TRUE), perl=TRUE)
 
-    cat("\nTests by functions in allelematch:\n")
-    print(grep("^allelematch", all, value=TRUE, perl=TRUE), width=50)
+    if (verbose) {
+        cat('\nTests in files under "', root, '":\n', sep="")
 
-    cat("\nReproduction of the examples in 'allelematchSuppDoc.pdf':\n")
-    print(grep("^amExample", all, value=TRUE, perl=TRUE))
+        cat("\nTests by functions in allelematch:\n")
+        print(grep("^allelematch", all, value=TRUE, perl=TRUE), width=50)
 
-    cat("\nOther:\n")
-    print(grep("^allelematch|^amExample", all, value=TRUE, invert=TRUE, perl=TRUE))
-    cat("\n")
+        cat("\nReproduction of the examples in 'allelematchSuppDoc.pdf':\n")
+        print(grep("^amExample", all, value=TRUE, perl=TRUE))
+
+        cat("\nOther:\n")
+        print(grep("^allelematch|^amExample", all, value=TRUE, invert=TRUE, perl=TRUE))
+        cat("\n")
+    }
 
     return(invisible(all))
 }
@@ -113,11 +107,11 @@ artList <- function() {
 #' \cr
 #' Call [artList] to see the available tests with without running them.
 #'
-#' @return NULL
+#' @return A list (invisibly) containing data about the test results as returned by [testthat::test_package]
 #'
 #' @details
 #' If any of the test executed with [artRun] should fail, then we want to be able
-#' to run that specific test under the debugger. \cr
+#' to run that specific test under the debugger. Character vector of length one.\cr
 #' \cr
 #' Set a breakpoint in `allelematch.R` and call `artRun(filter="<the test that reproduces the problem>")`\cr
 #' \cr
@@ -126,8 +120,8 @@ artList <- function() {
 #'
 #'
 #' @param filter    If specified, only tests with names matching this perl regular
-#'                  expression will be executed. See also [artList]
-#' @param html      TRUE or FALSE
+#'                  expression will be executed. Character vector of length 1. See also [artList]
+#' @param verbose   logical. If TRUE, prints version of tested allelematch to stdout
 #'
 #' @examples
 #' # See what version of packages 'allelematch' and 'amregtest'
@@ -136,40 +130,27 @@ artList <- function() {
 #'
 #' # List the available tests:
 #' artList()
-#'
-#' \dontrun{
-#'
+#' \donttest{
 #' # Run all the tests:
-#' artRun()
+#' # artRun()  # Takes several minutes
 #'
 #' # Run the first of the available tests:
-#' artRun(filter="allelematch_1-amDataset")
-#'
-#' # Run all tests that start with 'am' and 'allelematch_1-amDataset':
-#' artRun(filter="^am|allelematch_1-amDataset")
-#'
-#' # Run the test 'amExample3' and let it generate .html files
-#' # in the [getwd] directory:
-#' artRun(filter='amExample3', html=TRUE)
+#' artRun(filter="allelematch_1-amDataset$")
 #' }
 #'
 #' @seealso [artVersion] and [artList]
 #'
 #' @export
-artRun <- function(filter="", html=FALSE) {
-    stopifnot(is.character(filter))
-    stopifnot(is.logical(html))
-
-    localenv = c(
-        ART_GENERATE_HTML = as.character(html),
-        ART_CALLERS_WD = getwd() # Try to write generated html files here
-    )
-    withr::local_envvar(localenv)
+artRun <- function(filter="", verbose=TRUE) {
+    stopifnot(is.character(filter) && length(filter)==1)
+    stopifnot(is.logical(verbose))
 
     installedVersion = toString(utils::packageVersion("allelematch"))
-    cat("    About to test installed version of allelematch:  <<<", installedVersion, ">>>\n", sep="")
-    if (filter != "^$") testthat::test_package("amregtest", reporter = "Progress", filter=filter) # We can't start tests recursively, even for coverage tests
-    cat("    Done testing installed version of allelematch:  <<<", installedVersion, ">>>\n", sep="")
-    return(invisible(NULL))
+    if (verbose) cat("    About to test installed version of allelematch:  <<<", installedVersion, ">>>\n", sep="")
+    reporter <- ifelse(verbose, "Progress", testthat::check_reporter())
+    result = list()
+    if (filter != "^$") result = testthat::test_package("amregtest", reporter=reporter , filter=filter) # We can't start tests recursively, even for coverage tests
+    if (verbose) cat("    Done testing installed version of allelematch:  <<<", installedVersion, ">>>\n", sep="")
+    return(invisible(result))
 }
 

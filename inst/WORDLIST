@@ -2,11 +2,13 @@ CMD
 CTRL
 GG
 RStudio
+AlleleMatch
 Allelematch
 allelematch
 allelematchSuppDoc
 allelic
 amDataset
+amExample
 amExample1
 amExample2
 amExample3
@@ -17,6 +19,7 @@ artData
 artList
 artRun
 artVersion
+checksum
 cr
 csv
 ggSample
@@ -25,4 +28,5 @@ heterozygotes
 perl
 pre
 radix
+stdout
 testthat

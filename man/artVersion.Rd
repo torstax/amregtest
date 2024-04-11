@@ -2,15 +2,18 @@
 % Please edit documentation in R/art_api.R
 \name{artVersion}
 \alias{artVersion}
-\title{Prints package version}
+\title{Returns package version}
 \usage{
-artVersion()
+artVersion(verbose = TRUE)
+}
+\arguments{
+\item{verbose}{logical. If TRUE, prints additional info to stdout, including version of \link{allelematch-package}}
 }
 \value{
-The currently installed version of \code{allelematch} as char
+The installed version of this package (\link{amregtest-package}) in a character vector of length one
 }
 \description{
-Prints version of this package (\link{amregtest}) and of tested version of \link{allelematch}.\cr
+Returns version of this package (\link{amregtest}).\cr
 \cr
 The version is specified in the file DESCRIPTION, tag "Version: ".
 }
@@ -21,22 +24,14 @@ artVersion()
 
 # List the available tests:
 artList()
-
-\dontrun{
-
+\donttest{
 # Run all the tests:
-artRun()
+# artRun()  # Takes several minutes
 
 # Run the first of the available tests:
-artRun(filter="allelematch_1-amDataset")
-
-# Run all tests that start with 'am' and 'allelematch_1-amDataset':
-artRun(filter="^am|allelematch_1-amDataset")
-
-# Run the test 'amExample3' and let it generate .html files
-# in the [getwd] directory:
-artRun(filter='amExample3', html=TRUE)
+artRun(filter="allelematch_1-amDataset$")
 }
+
 
 }
 \seealso{

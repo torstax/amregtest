@@ -5,14 +5,14 @@
 \alias{artData}
 \title{Example data used by \link{amregtest}}
 \format{
-Data frames with differing numbers of samples in rows, and alleles in columns. Missing data is represented as "-99".
+Data frames with varying numbers of samples in rows, and alleles in columns. Missing data is represented as "-99".
 }
 \description{
 This example data is used when testing allelematch backwards compatibility
-with \link{artRun}. The tests load this data and passes it to \link{amDataset}.\cr
+using \link{artRun}. The tests load this data and passes it to \link{amDataset}.\cr
 \cr
 It includes data that was imported from version 5.2.1 of \link{allelematch}.
-It is still unchanged in 5.2.3. \cr
+It was still unchanged in 5.2.4. \cr
 \tabular{clcl}{
 \verb{  } \tab \link{amExample1}\verb{  }\tab \verb{  } \tab Example 1 High quality data set\cr
 \verb{  } \tab \link{amExample2}\tab \tab Example 2 Good quality data set\cr

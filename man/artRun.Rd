@@ -4,13 +4,16 @@
 \alias{artRun}
 \title{Runs the regression test}
 \usage{
-artRun(filter = "", html = FALSE)
+artRun(filter = "", verbose = TRUE)
 }
 \arguments{
 \item{filter}{If specified, only tests with names matching this perl regular
-expression will be executed. See also \link{artList}}
+expression will be executed. Character vector of length 1. See also \link{artList}}
 
-\item{html}{TRUE or FALSE}
+\item{verbose}{logical. If TRUE, prints version of tested allelematch to stdout}
+}
+\value{
+A list (invisibly) containing data about the test results as returned by \link[testthat:test_package]{testthat::test_package}
 }
 \description{
 Runs \link{allelematch} regression tests to make sure it is backwards compatible.\cr
@@ -21,7 +24,7 @@ Call \link{artList} to see the available tests with without running them.
 }
 \details{
 If any of the test executed with \link{artRun} should fail, then we want to be able
-to run that specific test under the debugger. \cr
+to run that specific test under the debugger. Character vector of length one.\cr
 \cr
 Set a breakpoint in \code{allelematch.R} and call \code{artRun(filter="<the test that reproduces the problem>")}\cr
 \cr
@@ -35,21 +38,12 @@ artVersion()
 
 # List the available tests:
 artList()
-
-\dontrun{
-
+\donttest{
 # Run all the tests:
-artRun()
+# artRun()  # Takes several minutes
 
 # Run the first of the available tests:
-artRun(filter="allelematch_1-amDataset")
-
-# Run all tests that start with 'am' and 'allelematch_1-amDataset':
-artRun(filter="^am|allelematch_1-amDataset")
-
-# Run the test 'amExample3' and let it generate .html files
-# in the [getwd] directory:
-artRun(filter='amExample3', html=TRUE)
+artRun(filter="allelematch_1-amDataset$")
 }
 
 }

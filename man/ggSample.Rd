@@ -4,25 +4,13 @@
 \name{ggSample}
 \alias{ggSample}
 \title{Data sets originating from GG work}
+\format{
+This data is saved on semicolon (";") delimited .csv format, as described under 'Details' in \link[utils:data]{utils::data}.\cr
+Data samples in rows, and alleles in columns. Missing data is represented as "-99".
+}
 \description{
 Large data set gathered from field work in 2022. Here used to test \link{allelematch} for backwards compatibility.
 Combines a reference db of known individuals with new samples to be analyzed.\cr\cr
-
-This data is saved on semicolon (";") delimited .csv format, as described under 'Details' in \link[utils:data]{utils::data}.\cr
-}
-\details{
-TODO : Move this to package introduction!
-
-NOTE that the output of \link{sort} is platform dependent.
-You get different results based on the locale. And \link{allelematch} uses \link{sort}.\cr\cr
-
-The sort order also depends on the size of the data to be sorted.
-See the description of "radix" under \link{sort}.\cr\cr
-
-\link{testthat} (and R CMD check) makes sure that the tests behave the same way
-on every platform, by setting the collation locale to "C" and the language to "en".\cr
-See github issue
-\href{https://github.com/r-lib/testthat/issues/1181#issuecomment-692851342}{locale / collation used in testthat #1181}\cr\cr
 }
 \references{
 \url{https://github.com/cran/allelematch}

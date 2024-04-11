@@ -2,14 +2,20 @@
 % Please edit documentation in R/amregtest-package.R
 \docType{package}
 \name{amregtest-package}
-\alias{amregtest}
 \alias{amregtest-package}
-\title{amregtest: Runs Allelematch Regression Tests}
+\title{amregtest: Runs AlleleMatch Regression Tests}
 \description{
-Automates regression testing when testing improvements of package '\link{allelematch}'.\cr Exported functions are prefixed with "art" for "'allelematch' regression test".\cr The exported functions are: \link{artVersion}, \link{artList} and \link{artRun}. \cr The tests are based on '\link{testthat}'. The tests use data sets as input. These data sets are stored within the package. See \link{artData} \cr The results of the tests are compared with pre-stored results, recorded with variants of \link{expect_snapshot}.
+Automates regression testing of package 'allelematch'. Over 2500 tests covers all functions in 'allelematch', reproduces the examples from the documentation and includes negative tests. The implementation is based on 'testthat'.
 }
 \author{
-\strong{Maintainer}: Torvald Staxler \email{torvald.staxler@telia.com} [copyright holder]
+\strong{Maintainer}: Torvald Staxler \email{torvald.staxler@telia.com}
+
+Other contributors:
+\itemize{
+  \item Department of Wildlife, Fish and Environmental Studies at Swedish University of Agricultural Sciences [copyright holder]
+  \item Göran Spong \email{Goran.Spong@slu.se} (Senior Lecturer at the Department of Wildlife, Fish and Environmental Studies) [copyright holder]
+  \item Paul Galpern \email{pgalpern@gmail.com} (Author of the excellent package 'allelematch' from which the five amExample data files have been copied under MIT license) [contributor]
+}
 
 }
 \keyword{internal}

@@ -4,10 +4,10 @@
 #'
 #' @description
 #' This example data is used when testing allelematch backwards compatibility
-#' with [artRun]. The tests load this data and passes it to [amDataset].\cr
+#' using [artRun]. The tests load this data and passes it to [amDataset].\cr
 #' \cr
 #' It includes data that was imported from version 5.2.1 of [allelematch].
-#' It is still unchanged in 5.2.3. \cr
+#' It was still unchanged in 5.2.4. \cr
 #' \tabular{clcl}{
 #'  `  ` \tab [amExample1]`  `\tab `  ` \tab Example 1 High quality data set\cr
 #'  `  ` \tab [amExample2]\tab \tab Example 2 Good quality data set\cr
@@ -23,7 +23,7 @@
 #'  `  ` \tab [ggSample]`  `\tab `  ` \tab Very large wildlife data set\cr
 #' }
 #'
-#' @format Data frames with differing numbers of samples in rows, and alleles in columns. Missing data is represented as "-99".
+#' @format Data frames with varying numbers of samples in rows, and alleles in columns. Missing data is represented as "-99".
 #'
 #' @docType data
 #' @references \url{https://github.com/cran/allelematch}
@@ -33,12 +33,15 @@ NULL
 
 #' Example 1 High quality data set
 #'
+#' This is sample data copied from [allelematch::amExampleData] in version 5.2.1
+#' of package [allelematch]. We use this data to test allelematch backwards compatibility.
+#'
 #' The data in this example is simulated to represent a high quality data set that might
 #' result from a laboratory protocol where samples were run multiple times to confirm their
 #' identity. It has no genotyping error, a near-zero missing data load, and approximately
 #' 60% of the individuals have been artificially resampled more than once.
 #'
-#' @format Data frame with differing numbers of samples in rows, and alleles in columns. Missing data is represented as "-99".
+#' @format Data frame with samples in rows, and alleles in columns. Missing data is represented as "-99".
 #'
 #' @name amExample1
 #' @docType data
@@ -57,7 +60,7 @@ NULL
 #' random 4% of heterozygotes lost their second allele to simulate an allele dropout, and
 #' a random 4% of samples at each locus had alleles set to missing.
 #'
-#' @format Data frame with differing numbers of samples in rows, and alleles in columns. Missing data is represented as "-99".
+#' @format Data frame with samples in rows, and alleles in columns. Missing data is represented as "-99".
 #'
 #' @name amExample2
 #' @docType data
@@ -76,7 +79,7 @@ NULL
 #' locus a random 4% of heterozygotes lost their second allele to simulate an allele dropout,
 #' and a random 10% of samples at each locus had alleles set to missing.
 #'
-#' @format Data frame with differing numbers of samples in rows, and alleles in columns. Missing data is represented as "-99".
+#' @format Data frame with samples in rows, and alleles in columns. Missing data is represented as "-99".
 #'
 #' @name amExample3
 #' @docType data
@@ -96,7 +99,7 @@ NULL
 #' simulate an allele dropout, and a random 20% of samples at each locus had alleles set
 #' to missing.
 #'
-#' @format Data frame with differing numbers of samples in rows, and alleles in columns. Missing data is represented as "-99".
+#' @format Data frame with samples in rows, and alleles in columns. Missing data is represented as "-99".
 #'
 #' @name amExample4
 #' @docType data
@@ -115,7 +118,7 @@ NULL
 #' locus. Missing data is also more common at some loci than at others, with a total load
 #' of about 10%.
 #'
-#' @format Data frame with differing numbers of samples in rows, and alleles in columns. Missing data is represented as "-99".
+#' @format Data frame with samples in rows, and alleles in columns. Missing data is represented as "-99".
 #'
 #' @name amExample5
 #' @docType data
@@ -132,23 +135,10 @@ NULL
 #' Large data set gathered from field work in 2022. Here used to test [allelematch] for backwards compatibility.
 #' Combines a reference db of known individuals with new samples to be analyzed.\cr\cr
 #'
-#' This data is saved on semicolon (";") delimited .csv format, as described under 'Details' in [utils::data].\cr
+#' @format This data is saved on semicolon (";") delimited .csv format, as described under 'Details' in [utils::data].\cr
+#' Data samples in rows, and alleles in columns. Missing data is represented as "-99".
 #'
 #' @references \url{https://github.com/cran/allelematch}
-#'
-#' @details
-#' TODO : Move this to package introduction!
-#'
-#' NOTE that the output of [sort] is platform dependent.
-#' You get different results based on the locale. And [allelematch] uses [sort].\cr\cr
-#'
-#' The sort order also depends on the size of the data to be sorted.
-#' See the description of "radix" under [sort].\cr\cr
-#'
-#' [testthat] (and R CMD check) makes sure that the tests behave the same way
-#' on every platform, by setting the collation locale to "C" and the language to "en".\cr
-#' See github issue
-#' \href{https://github.com/r-lib/testthat/issues/1181#issuecomment-692851342}{locale / collation used in testthat #1181}\cr\cr
 #'
 #' @docType data
 #' @keywords data

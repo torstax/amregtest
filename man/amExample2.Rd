@@ -5,7 +5,7 @@
 \alias{amExample2}
 \title{Example 2 Good quality data set}
 \format{
-Data frame with differing numbers of samples in rows, and alleles in columns. Missing data is represented as "-99".
+Data frame with samples in rows, and alleles in columns. Missing data is represented as "-99".
 }
 \description{
 This is sample data copied from \link[allelematch:amExampleData]{allelematch::amExampleData} in version 5.2.1

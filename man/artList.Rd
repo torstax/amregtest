@@ -4,10 +4,13 @@
 \alias{artList}
 \title{Lists available tests in \code{amregtest} without running them}
 \usage{
-artList()
+artList(verbose = TRUE)
+}
+\arguments{
+\item{verbose}{logical. If TRUE, prints additional info to stdout}
 }
 \value{
-A vector containing the names of all the tests
+A character vector containing the names of all the tests
 }
 \description{
 Use the output to select a value for parameter \code{filter} to \link{artRun}.
@@ -20,14 +23,12 @@ artVersion()
 
 # List the available tests:
 artList()
-
-\dontrun{
+\donttest{
+# Run all the tests:
+# artRun()  # Takes several minutes
 
 # Run the first of the available tests:
-artRun(filter="allelematch_1-amDataset")
-
-# Run all tests that start with 'am' and 'allelematch_1-amDataset':
-artRun(filter="^am|allelematch_1-amDataset")
+artRun(filter="allelematch_1-amDataset$")
 }
 
 }
