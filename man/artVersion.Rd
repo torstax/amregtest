@@ -7,7 +7,7 @@
 artVersion(verbose = TRUE)
 }
 \arguments{
-\item{verbose}{logical. If TRUE, prints additional info to stdout, including version of \link{allelematch-package}}
+\item{verbose}{logical. If TRUE (the default), prints additional info to stdout, including version of \link{allelematch-package}}
 }
 \value{
 The installed version of this package (\link{amregtest-package}) in a character vector of length one

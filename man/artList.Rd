@@ -7,7 +7,7 @@
 artList(verbose = TRUE)
 }
 \arguments{
-\item{verbose}{logical. If TRUE, prints additional info to stdout}
+\item{verbose}{logical. If TRUE (the default), prints additional info to stdout}
 }
 \value{
 A character vector containing the names of all the tests

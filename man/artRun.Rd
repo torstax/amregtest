@@ -10,13 +10,13 @@ artRun(filter = "", verbose = TRUE)
 \item{filter}{If specified, only tests with names matching this perl regular
 expression will be executed. Character vector of length 1. See also \link{artList}}
 
-\item{verbose}{logical. If TRUE, prints version of tested allelematch to stdout}
+\item{verbose}{logical. If TRUE (the default), prints version of tested allelematch to stdout}
 }
 \value{
 A list (invisibly) containing data about the test results as returned by \link[testthat:test_package]{testthat::test_package}
 }
 \description{
-Runs \link{allelematch} regression tests to make sure it is backwards compatible.\cr
+Runs regression tests on package \link{allelematch} to make sure it is backwards compatible.\cr
 \cr
 The full set of tests will take a couple of minutes. \cr
 \cr
@@ -24,7 +24,7 @@ Call \link{artList} to see the available tests with without running them.
 }
 \details{
 If any of the test executed with \link{artRun} should fail, then we want to be able
-to run that specific test under the debugger. Character vector of length one.\cr
+to run that specific test under the debugger.\cr
 \cr
 Set a breakpoint in \code{allelematch.R} and call \code{artRun(filter="<the test that reproduces the problem>")}\cr
 \cr
