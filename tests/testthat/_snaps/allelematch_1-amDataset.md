@@ -254,17 +254,3 @@
     "41", "42", "43", "NA"), dim = c(4L, 4L), dimnames = list(NULL, 
         c("LOC1a", "LOC1b", "LOC2a", "LOC2b"))), missingCode = "NA"), class = "amDataset")
 
----
-
-    Code
-      ds2 <- amDataset(sample, missingCode = NA)
-    Output
-      allelematch:  NA data converted to NA 
-
----
-
-    structure(list(index = c("AAA", "AAB", "AAC", "AAD"), multilocus = structure(c("11", 
-    "12", "13", "14", "21", "22", "23", "NA", "31", "32", "33", "NA", 
-    "41", "42", "43", "NA"), dim = c(4L, 4L), dimnames = list(NULL, 
-        c("LOC1a", "LOC1b", "LOC2a", "LOC2b"))), missingCode = "NA"), class = "amDataset")
-

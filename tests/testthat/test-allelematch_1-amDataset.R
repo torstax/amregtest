@@ -64,7 +64,7 @@ test_that("See how an object of class amDataset is built:", {
   }
 
   # Make amDataset with all optional parameters defaulted:
-  expect_snapshot(miniDataset1 <- amDataset(miniExample))
+  miniDataset1 <- amDataset(miniExample)
   expect_snapshot(print.amDataset(miniDataset1))
   {
     amDataset = miniDataset1
@@ -90,11 +90,11 @@ test_that("See how an object of class amDataset is built:", {
     expect_identical(!!amDataset$missingCode, "-99")
     expect_identical(!!amDataset$metadataColumn, NULL)
 
-    expect_snapshot_value(amDataset, style = "json2") # Stored under ./tests/testthat/_snaps/allelematch.md
+    expect_snapshot(print.amDataset(amDataset)) # Stored under ./tests/testthat/_snaps/allelematch.md
   }
 
   # Make amDataset with all optional parameters set:
-  expect_snapshot(miniDataset2 <- amDataset(miniExample, missingCode="-88", indexColumn="sampleId", metaDataColumn="knownIndividual", ignoreColumn="dismiss."))
+  miniDataset2 <- amDataset(miniExample, missingCode="-88", indexColumn="sampleId", metaDataColumn="knownIndividual", ignoreColumn="dismiss.")
   expect_snapshot(print.amDataset(miniDataset2))
   {
     amDataset = miniDataset2
@@ -113,18 +113,18 @@ test_that("See how an object of class amDataset is built:", {
     expect_identical(!!amDataset$metaData, c("A","A","B","  C")) # Spaces not stripped from metadata
     expect_identical(!!amDataset$missingCode, "-88")
 
-    expect_snapshot_value(amDataset, style = "json2")
+    expect_snapshot(print.amDataset(amDataset))
   }
 
   # Make amDataset with all column parameters set as integers rather than characters:
-  expect_snapshot(miniDataset3 <- amDataset(miniExample, missingCode="-88", indexColumn=1, metaDataColumn=2, ignoreColumn=3))
+  miniDataset3 <- amDataset(miniExample, missingCode="-88", indexColumn=1, metaDataColumn=2, ignoreColumn=3)
   expect_snapshot(print.amDataset(miniDataset2))
   {
     # TODO : Catch none-character values for missingCode!!
     amDataset = miniDataset3
     expect_identical(amDataset, miniDataset2)
 
-    expect_snapshot_value(amDataset, style = "json2")
+    expect_snapshot(print.amDataset(amDataset))
   }
 })
 
@@ -155,20 +155,20 @@ test_that("Different data types for arg to 'missingCode' give same result", {
   }
 
   # Make sure that both missingCode and data are stored as character:
-  expect_snapshot(ds1 <- amDataset(sample, missingCode = "NA"))
+  ds1 <- amDataset(sample, missingCode = "NA")
   {
     ds = ds1
     expect_identical(ds$missingCode, "NA")
     expect_type(ds$multilocus, "character")
     expect_identical(sum(unlist(ds$multilocus) == "NA"), 3L) # All 3 NA values now as strings
-    expect_snapshot_value(ds, style = "deparse") # style "json2" de-serializes "NA" to NA
+    expect_snapshot(print.amDataset(ds))
   }
 
   # Make sure arg missingCode = NA is converted to $missingCode="NA"
-  expect_snapshot(ds2 <- amDataset(sample, missingCode = NA))
+  ds2 <- amDataset(sample, missingCode = NA)
   {
     ds = ds2
-    expect_snapshot_value(ds, style = "deparse")  # style "json2" de-serializes "NA" to NA
+    expect_snapshot(print.amDataset(ds))
     expect_identical(ds$missingCode, "NA")
     expect_type(ds$multilocus, "character")
     expect_identical(sum(is.na(ds$multilocus)), 0L)

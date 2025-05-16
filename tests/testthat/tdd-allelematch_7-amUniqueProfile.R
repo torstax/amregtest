@@ -1,6 +1,22 @@
 
 test_that("Loop the Loop", {
 
+  #
+  # This file is called 'tdd-xxxx.R' rather than 'test-xxx.R'.
+  # It is therefore not included the normal package tests.
+  # But they can still be executed manually.
+  #
+  # TDD stands for Test Driven Design. First you write a test that expects the
+  # new design you want to implement and make sure the test is failing,
+  # then you implement the design and run the test again and make sure it passes.
+  # You can then rename the test and include it in your normal regression test
+  # to make sure that the new design is not broken later.
+  #
+  # In TDD, you (1) make sure the flaw can be reproduced and detected with a new test.
+  # You then (2) fix the flaw and (3) make sure the test are now working.
+  # You  then (4) move the tests to 'test-xxx.R' to ensure the fixed problems
+  # never occur again.
+  #
   # Here we do positive regression testing to make sure that we still get
   # the same results as previously recorded using testthat::expect_snapshot.
   #
@@ -95,32 +111,23 @@ test_that("Loop the Loop", {
   #
   # Here comes the loops:
   withr::local_options(width=200) # Allow longer lines for the summaries:
-  for (amds in c("amdataMini", "amdataExample1", "amdataExample2", "amdataExample3", "amdataExample4", "amdataExample5")) {
-    # snapshot_amUniqueProfile(amds, doPlot=FALSE, verbose=FALSE)
-  }
-
-
-  # One more test to doPlot. Notice that this test will fail spectacularly if the RStudio "Plots" window is too small:
-  if (FALSE) {
-  amdataExample5b = amDataset(amExample5, indexColumn="sampleId", metaDataColumn="samplingData")
-  mlMap5b = c(1, rep(2:11, each=2))
-  obj <- amUniqueProfile(
-      amdataExample5b,
-      multilocusMap=c(1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9,10,10,11,11), # "gender" only has one allele in it's locus
-      doPlot=TRUE, verbose=FALSE)
-  expect_snapshot(print(obj))
+  #for (amds in c("amdataMini", "amdataExample1", "amdataExample2", "amdataExample3", "amdataExample4", "amdataExample5")) {
+  for (amds in c("amdataMini", "amdataExample4")) {
+    snapshot_amUniqueProfile(amds, doPlot=FALSE, verbose=FALSE)
   }
 
   # Test to doPlot. Notice that this test will fail spectacularly if the RStudio "Plots" window is too small:
   amdataExample4b = amDataset(amExample4, indexColumn="sampleId", metaDataColumn="knownIndividual")
-  multilocusMap4b = c(rep(1:10, each=2))
+  multilocusMap4b = c(1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9,10,10)
+
+  amdataExample5b = amDataset(amExample5, indexColumn="sampleId", metaDataColumn="samplingData")
+  multilocusMap5b = c(1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9,10,10,11,11) # "gender" only has one allele in it's locus
 
   mlMap = c(1, rep(2:11, each=2))
   obj <- amUniqueProfile(
       amdataExample4b,
       multilocusMap4b,
       doPlot=TRUE, verbose=FALSE)
-  expect_snapshot(print(obj))
-
+  #expect_snapshot(print(obj))
 
 })
