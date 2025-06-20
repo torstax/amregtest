@@ -18,7 +18,7 @@ Useful when debugging.
 }
 \examples{
 # See what version of packages 'allelematch' and 'amregtest'
-# are currently installed:
+# are currently loaded:
 artVersion()
 
 # List the available tests:

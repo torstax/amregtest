@@ -28,12 +28,12 @@ to run that specific test under the debugger.\cr
 \cr
 Set a breakpoint in \code{allelematch.R} and call \code{artRun(filter="<the test that reproduces the problem>")}\cr
 \cr
-Note that it is the last installed version of \code{allelematch} that will be executed,
-not the last edited. In RStudio, CTRL+SHIFT+B will build and install.
+Note that it is the last loaded version of \code{allelematch} that will be executed,
+not the last edited. In RStudio, CTRL+SHIFT+B will build, install and load.
 }
 \examples{
 # See what version of packages 'allelematch' and 'amregtest'
-# are currently installed:
+# are currently loaded:
 artVersion()
 
 # List the available tests:

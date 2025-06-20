@@ -11,11 +11,11 @@
 #'
 #' @param verbose logical. If TRUE (the default), prints additional info to stdout, including version of [allelematch-package]
 #'
-#' @return The installed version of this package ([amregtest-package]) in a character vector of length one
+#' @return The loaded version of this package ([amregtest-package]) in a character vector of length one
 #'
 #' @examples
 #' # See what version of packages 'allelematch' and 'amregtest'
-#' # are currently installed:
+#' # are currently loaded:
 #' artVersion()
 #'
 #' # List the available tests:
@@ -34,14 +34,42 @@
 artVersion <- function(verbose=TRUE) {
     stopifnot(is.logical(verbose))
 
-    installedArtVersion = toString(utils::packageVersion("amregtest"))
-    installedAmVersion  = toString(utils::packageVersion("allelematch"))
+    loadedArtVersion = toString(utils::packageVersion("amregtest"))
+    loadedAmVersion  = toString(utils::packageVersion("allelematch"))
+    vLen = max(length(loadedArtVersion), length(loadedAmVersion))
 
     if (verbose) {
-        cat("\n    Version of package 'amregtest' is", installedArtVersion)
-        cat("\n    Installed (and thus tested) version of package 'allelematch' is:", installedAmVersion)
+        cat(sprintf("\n    Version of package 'amregtest'   is: %-10s %s",
+            loadedArtVersion,
+            builtAt("amregtest")))
+        cat(sprintf("\n    Version of package 'allelematch' is: %-10s %s",
+            loadedAmVersion, builtAt("allelematch")))
     }
-    return(invisible(installedArtVersion))
+    return(invisible(loadedArtVersion))
+}
+
+
+# Internal utility function to print the build time for a package:
+builtAt <- function(pkg) {
+    built <- packageDescription(pkg)$Built
+    if (is.null(built)) return(NA)
+
+    # Extract the timestamp string (third semicolon-separated field)
+    built_fields <- strsplit(built, ";")[[1]]
+    if (length(built_fields) < 3) return(NA)
+
+    timestamp_str <- trimws(built_fields[3])
+
+    # Convert to POSIXct, assuming string is UTC unless otherwise specified
+    ctBuildTime <- as.POSIXct(timestamp_str, tz = "UTC")
+
+    # Was the build made today?
+    form <- ifelse(as.Date(ctBuildTime, tz = Sys.timezone()) == Sys.Date(),
+                   "%H:%M",  # Was build today. Use timestamp.
+                   "%Y-%m-%d")  # Was built some othre day. Use date
+
+    # Convert to local time zone, time or date:
+    paste("(built ", format(ctBuildTime, format=form, tz = Sys.timezone()),")", sep="")
 }
 
 
@@ -57,7 +85,7 @@ artVersion <- function(verbose=TRUE) {
 #'
 #' @examples
 #' # See what version of packages 'allelematch' and 'amregtest'
-#' # are currently installed:
+#' # are currently loaded:
 #' artVersion()
 #'
 #' # List the available tests:
@@ -115,8 +143,8 @@ artList <- function(verbose=TRUE) {
 #' \cr
 #' Set a breakpoint in `allelematch.R` and call `artRun(filter="<the test that reproduces the problem>")`\cr
 #' \cr
-#' Note that it is the last installed version of `allelematch` that will be executed,
-#' not the last edited. In RStudio, CTRL+SHIFT+B will build and install.
+#' Note that it is the last loaded version of `allelematch` that will be executed,
+#' not the last edited. In RStudio, CTRL+SHIFT+B will build, install and load.
 #'
 #'
 #' @param filter    If specified, only tests with names matching this perl regular
@@ -125,7 +153,7 @@ artList <- function(verbose=TRUE) {
 #'
 #' @examples
 #' # See what version of packages 'allelematch' and 'amregtest'
-#' # are currently installed:
+#' # are currently loaded:
 #' artVersion()
 #'
 #' # List the available tests:
@@ -145,12 +173,12 @@ artRun <- function(filter="", verbose=TRUE) {
     stopifnot(is.character(filter) && length(filter)==1)
     stopifnot(is.logical(verbose))
 
-    installedVersion = toString(utils::packageVersion("allelematch"))
-    if (verbose) cat("    About to test installed version of allelematch:  <<<", installedVersion, ">>>\n", sep="")
+    loadedVersion = toString(utils::packageVersion("allelematch"))
+    if (verbose) cat("    About to test loaded version of allelematch:  <<<", loadedVersion, ">>>\n", sep="")
     reporter <- ifelse(verbose, "Progress", testthat::check_reporter())
     result = list()
     if (filter != "^$") result = testthat::test_package("amregtest", reporter=reporter , filter=filter) # We can't start tests recursively, even for coverage tests
-    if (verbose) cat("    Done testing installed version of allelematch:  <<<", installedVersion, ">>>\n", sep="")
+    if (verbose) cat("    Done testing loaded version of allelematch:  <<<", loadedVersion, ">>>\n", sep="")
     return(invisible(result))
 }
 
