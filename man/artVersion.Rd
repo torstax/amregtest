@@ -7,15 +7,20 @@
 artVersion(verbose = TRUE)
 }
 \arguments{
-\item{verbose}{logical. If TRUE (the default), prints additional info to stdout, including version of \link{allelematch-package}}
+\item{verbose}{logical. If TRUE (the default), prints additional info to stdout,
+including version of \link{allelematch-package} and build timestamps.}
 }
 \value{
 The loaded version of this package (\link{amregtest-package}) in a character vector of length one
 }
 \description{
-Returns version of this package (\link{amregtest}).\cr
+Displays version of this package (\link{amregtest}) and of \link{allelematch},
+together with build timestamps.\cr
 \cr
 The version is specified in the file DESCRIPTION, tag "Version: ".
+
+If \link{allelematch} was installed with \link{artInstallCranAllelematch} it will show
+a build timestamp from the installation, not from when it was published.
 }
 \examples{
 # See what version of packages 'allelematch' and 'amregtest'
@@ -35,5 +40,5 @@ artRun(filter="allelematch_1-amDataset$")
 
 }
 \seealso{
-\link{artList}, \link{artRun} and \link{amregtest}
+\link{artList}, \link{artRun}, \link{artInstallCranAllelematch} and \link{amregtest}
 }

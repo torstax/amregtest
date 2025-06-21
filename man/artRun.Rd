@@ -48,5 +48,5 @@ artRun(filter="allelematch_1-amDataset$")
 
 }
 \seealso{
-\link{artVersion} and \link{artList}
+\link{artVersion}, \link{artList}, \link{artInstallCranAllelematch} and \link{amregtest}
 }

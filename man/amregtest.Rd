@@ -6,11 +6,12 @@
 \description{
 Package 'amregtest' automates regression testing of package \link{allelematch}.
 
-The API is simple. There are only three functions:
+The API is simple. There are only four functions:
 \tabular{clcl}{
 \verb{  } \tab \link{artRun}\verb{  }\tab \verb{  } \tab Executes the test, or a subset of the tests\cr
 \verb{  } \tab \link{artList}\tab \tab Lists the available tests without running them\cr
 \verb{  } \tab \link{artVersion}\tab \tab Shows the used versions of \link{allelematch} and \link{amregtest}\cr
+\verb{  } \tab \link{artInstallCranAllelematch}\tab\verb{  } \tab Installs official CRAN version of \link{allelematch}\cr
 }
 
 The prefix "art" is short for "Allelematch Regression Test".

@@ -5,11 +5,17 @@
 #' Returns package version
 #'
 #' @description
-#' Returns version of this package ([amregtest]).\cr
+#' Displays version of this package ([amregtest]) and of [allelematch],
+#' together with build timestamps.\cr
 #' \cr
 #' The version is specified in the file DESCRIPTION, tag "Version: ".
 #'
-#' @param verbose logical. If TRUE (the default), prints additional info to stdout, including version of [allelematch-package]
+#' If [allelematch] was installed with [artInstallCranAllelematch] it will show
+#' a build timestamp from the installation, not from when it was published.
+#'
+#'
+#' @param verbose logical. If TRUE (the default), prints additional info to stdout,
+#' including version of [allelematch-package] and build timestamps.
 #'
 #' @return The loaded version of this package ([amregtest-package]) in a character vector of length one
 #'
@@ -29,10 +35,12 @@
 #' }
 #'
 #'
-#' @seealso [artList], [artRun] and [amregtest]
+#' @seealso [artList], [artRun], [artInstallCranAllelematch] and [amregtest]
 #' @export
 artVersion <- function(verbose=TRUE) {
     stopifnot(is.logical(verbose))
+
+    library(allelematch) # Loaded here rather than in the "Imports:" section of DESCRIPTION file
 
     loadedArtVersion = toString(utils::packageVersion("amregtest"))
     loadedAmVersion  = toString(utils::packageVersion("allelematch"))
@@ -51,14 +59,22 @@ artVersion <- function(verbose=TRUE) {
 
 # Internal utility function to print the build time for a package:
 builtAt <- function(pkg) {
-    built <- packageDescription(pkg)$Built
-    if (is.null(built)) return(NA)
+    # if (!is.null(descr <- packageDescription(pkg)$Packaged)) {
+    #     # Extract the timestamp string (third semicolon-separated field)
+    #     fields <- strsplit(descr, ";")[[1]]
+    #     if (length(fields) < 1) return("(??Bad Packaged date??)")
+    #
+    #     action <- "(Packaged "
+    #     timestamp_str <- trimws(fields[1])
+    # } else
+    if (!is.null(built <- packageDescription(pkg)$Built)) {
+        # Extract the timestamp string (third semicolon-separated field)
+        fields <- strsplit(built, ";")[[1]]
+        if (length(fields) < 3) return("(??Bad Build date??)")
 
-    # Extract the timestamp string (third semicolon-separated field)
-    built_fields <- strsplit(built, ";")[[1]]
-    if (length(built_fields) < 3) return(NA)
-
-    timestamp_str <- trimws(built_fields[3])
+        action <- "(Built "
+        timestamp_str <- trimws(fields[3])
+    }
 
     # Convert to POSIXct, assuming string is UTC unless otherwise specified
     ctBuildTime <- as.POSIXct(timestamp_str, tz = "UTC")
@@ -69,7 +85,7 @@ builtAt <- function(pkg) {
                    "%Y-%m-%d")  # Was built some othre day. Use date
 
     # Convert to local time zone, time or date:
-    paste("(built ", format(ctBuildTime, format=form, tz = Sys.timezone()),")", sep="")
+    paste(action, format(ctBuildTime, format=form, tz = Sys.timezone()),")", sep="")
 }
 
 
@@ -98,7 +114,7 @@ builtAt <- function(pkg) {
 #' artRun(filter="allelematch_1-amDataset$")
 #' }
 #'
-#' @seealso [artVersion] and [artRun]
+#' @seealso [artVersion], [artRun], [artInstallCranAllelematch] and [amregtest]
 #'
 #' @export
 artList <- function(verbose=TRUE) {
@@ -166,12 +182,14 @@ artList <- function(verbose=TRUE) {
 #' artRun(filter="allelematch_1-amDataset$")
 #' }
 #'
-#' @seealso [artVersion] and [artList]
+#' @seealso [artVersion], [artList], [artInstallCranAllelematch] and [amregtest]
 #'
 #' @export
 artRun <- function(filter="", verbose=TRUE) {
     stopifnot(is.character(filter) && length(filter)==1)
     stopifnot(is.logical(verbose))
+
+    library(allelematch) # Loaded here rather than in the "Imports:" section of DESCRIPTION file
 
     loadedVersion = toString(utils::packageVersion("allelematch"))
     if (verbose) cat("    About to test loaded version of allelematch:  <<<", loadedVersion, ">>>\n", sep="")
@@ -180,5 +198,33 @@ artRun <- function(filter="", verbose=TRUE) {
     if (filter != "^$") result = testthat::test_package("amregtest", reporter=reporter , filter=filter) # We can't start tests recursively, even for coverage tests
     if (verbose) cat("    Done testing loaded version of allelematch:  <<<", loadedVersion, ">>>\n", sep="")
     return(invisible(result))
+}
+
+
+#' Installs official version of 'allelematch' from CRAN.
+#'
+#' @param version. Default "2.5.4".
+#'
+#' @return TBD
+#'
+#' @description
+#' Note that the CRAN version will be built from source code at installation.
+#' This means that [artVersion] will show a "(Built HH:MM)" timestamp
+#' from the installation rather than from when it was published on CRAN.
+#'
+#' @examples
+#' # Install the default official version of 'allelematch' from CRAN:
+#' artInstallCranAllelematch()
+#'
+#' # Install another official version of 'allelematch' from CRAN:
+#' artInstallCranAllelematch("2.5.3")
+#'
+#' @seealso [artVersion], [artList], [artRun] and [amregtest]
+#'
+#' @export
+artInstallCranAllelematch <- function(version = "2.5.4") {
+    # install.packages("remotes") # Requires restarting R
+    library(remotes)
+    remotes::install_version("allelematch", version = version, repos = "http://cran.r-project.org")
 }
 
