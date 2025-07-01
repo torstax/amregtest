@@ -59,14 +59,7 @@ artVersion <- function(verbose=TRUE) {
 
 # Internal utility function to print the build time for a package:
 builtAt <- function(pkg) {
-    # if (!is.null(descr <- packageDescription(pkg)$Packaged)) {
-    #     # Extract the timestamp string (third semicolon-separated field)
-    #     fields <- strsplit(descr, ";")[[1]]
-    #     if (length(fields) < 1) return("(??Bad Packaged date??)")
-    #
-    #     action <- "(Packaged "
-    #     timestamp_str <- trimws(fields[1])
-    # } else
+    timestamp_str <- NULL
     if (!is.null(built <- packageDescription(pkg)$Built)) {
         # Extract the timestamp string (third semicolon-separated field)
         fields <- strsplit(built, ";")[[1]]
@@ -75,6 +68,8 @@ builtAt <- function(pkg) {
         action <- "(Built "
         timestamp_str <- trimws(fields[3])
     }
+
+    if (is.null(timestamp_str)) return("(timestamp not found)")
 
     # Convert to POSIXct, assuming string is UTC unless otherwise specified
     ctBuildTime <- as.POSIXct(timestamp_str, tz = "UTC")
@@ -226,5 +221,7 @@ artInstallCranAllelematch <- function(version = "2.5.4") {
     # install.packages("remotes") # Requires restarting R
     library(remotes)
     remotes::install_version("allelematch", version = version, repos = "http://cran.r-project.org")
+
+    library(allelematch)
 }
 
