@@ -1,5 +1,6 @@
 
 test_that("Print", {
+  library(allelematch)
 
   # Exercise the three ways to print the output from 'amCluster()' with
   # input data from different amDatasets:
@@ -37,16 +38,24 @@ test_that("Print", {
     # amHTML.amCluster should have the same output as before
     tmp = tempfile(paste(obj, "_", sep=""), fileext=".html")
     expect_snapshot(amHTML.amCluster( get(obj), htmlFile=tmp))
-    expect_snapshot(
-      cat(
-        sub("summary generated: </b><em>.+?</em>",
-            "summary generated: </b><em>(date)</em>",
-            gsub("(\\t| )+?(\\n|$)","\\2",
-                 readLines(tmp, warn=FALSE),
-                 perl=TRUE),
-            perl=TRUE),
-        sep="\n")
-    )
+    expect_snapshot_output({
+      readLines(tmp, warn = FALSE) |>
+        # strip 8 leading spaces at beginning of line
+        gsub("(\\n|^)        ", "\\1", x = _, perl = TRUE) |>
+        # strip trailing tabs/spaces before newlines
+        gsub("(\\t| )+?(\\n|$)", "\\2", x = _, perl = TRUE) |>
+        # scrub out the actual date
+        sub(
+          "summary generated: </b><em>.+?</em>",
+          "summary generated: </b><em>(date)</em>",
+          x = _
+        ) |>
+        # drop the lines containing "minComparableLoci"
+        grep("minComparableLoci", x = _, value = TRUE, fixed = TRUE, invert = TRUE) |>
+        # print each line on its own
+        cat(sep = "\n")
+    })
+
     file.remove(tmp)
   }
 
