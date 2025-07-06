@@ -1,6 +1,7 @@
 ######################################
 ### Helper functions for the tests ###
 ######################################
+library(allelematch)
 
 # Turns `...` into a string of <name>=<value> pairs
 helpArgToString <- function(...) {
