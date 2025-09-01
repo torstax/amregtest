@@ -9,9 +9,9 @@ Data frames with varying numbers of samples in rows, and alleles in columns. Mis
 }
 \description{
 This example data is used when testing allelematch backwards compatibility
-using \link{artRun}. The tests load this data and passes it to \link{amDataset}.\cr
+using \link{artRun}. The tests load this data and passes it to \link[allelematch:amDataset]{amDataset}.\cr
 \cr
-It includes data that was imported from version 5.2.1 of \link{allelematch}.
+It includes data that was imported from version 5.2.1 of \link[allelematch:allelematch-package]{allelematch}.
 It was still unchanged in 5.2.4. \cr
 \tabular{clcl}{
 \verb{  } \tab \link{amExample1}\verb{  }\tab \verb{  } \tab Example 1 High quality data set\cr

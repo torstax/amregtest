@@ -16,7 +16,7 @@ expression will be executed. Character vector of length 1. See also \link{artLis
 A list (invisibly) containing data about the test results as returned by \link[testthat:test_package]{testthat::test_package}
 }
 \description{
-Runs regression tests on package \link{allelematch} to make sure it is backwards compatible.\cr
+Runs regression tests on package \link[allelematch:allelematch-package]{allelematch} to make sure it is backwards compatible.\cr
 \cr
 The full set of tests will take a couple of minutes. \cr
 \cr

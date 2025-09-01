@@ -7,7 +7,7 @@
 artInstallCranAllelematch(version = "2.5.4")
 }
 \arguments{
-\item{version.}{Default "2.5.4".}
+\item{version}{string. Default "2.5.4".}
 }
 \value{
 TBD

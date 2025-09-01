@@ -5,17 +5,17 @@
 #' Returns package version
 #'
 #' @description
-#' Displays version of this package ([amregtest]) and of [allelematch],
+#' Displays version of this package ([amregtest]) and of [allelematch][allelematch::allelematch-package],
 #' together with build timestamps.\cr
 #' \cr
 #' The version is specified in the file DESCRIPTION, tag "Version: ".
 #'
-#' If [allelematch] was installed with [artInstallCranAllelematch] it will show
+#' If allelematch was installed with [artInstallCranAllelematch] it will show
 #' a build timestamp from the installation, not from when it was published.
 #'
 #'
 #' @param verbose logical. If TRUE (the default), prints additional info to stdout,
-#' including version of [allelematch-package] and build timestamps.
+#' including versions and build timestamps of 'allelematch' and 'amregtest'.
 #'
 #' @return The loaded version of this package ([amregtest-package]) in a character vector of length one
 #'
@@ -40,7 +40,7 @@
 artVersion <- function(verbose=TRUE) {
     stopifnot(is.logical(verbose))
 
-    library(allelematch) # Loaded here rather than in the "Imports:" section of DESCRIPTION file
+    requireNamespace("allelematch", quietly = TRUE) # Loaded here rather than in the "Imports:" section of DESCRIPTION file
 
     loadedArtVersion = toString(utils::packageVersion("amregtest"))
     loadedAmVersion  = toString(utils::packageVersion("allelematch"))
@@ -140,7 +140,7 @@ artList <- function(verbose=TRUE) {
 #' Runs the regression test
 #'
 #' @description
-#' Runs regression tests on package [allelematch] to make sure it is backwards compatible.\cr
+#' Runs regression tests on package [allelematch][allelematch::allelematch-package] to make sure it is backwards compatible.\cr
 #' \cr
 #' The full set of tests will take a couple of minutes. \cr
 #' \cr
@@ -184,7 +184,7 @@ artRun <- function(filter="", verbose=TRUE) {
     stopifnot(is.character(filter) && length(filter)==1)
     stopifnot(is.logical(verbose))
 
-    library(allelematch) # Loaded here rather than in the "Imports:" section of DESCRIPTION file
+    requireNamespace("allelematch", quietly = TRUE) # Loaded here rather than in the "Imports:" section of DESCRIPTION file
 
     loadedVersion = toString(utils::packageVersion("allelematch"))
     if (verbose) cat("    About to test loaded version of allelematch:  <<<", loadedVersion, ">>>\n", sep="")
@@ -198,7 +198,7 @@ artRun <- function(filter="", verbose=TRUE) {
 
 #' Installs official version of 'allelematch' from CRAN.
 #'
-#' @param version. Default "2.5.4".
+#' @param version   string. Default "2.5.5".
 #'
 #' @return TBD
 #'
@@ -217,11 +217,10 @@ artRun <- function(filter="", verbose=TRUE) {
 #' @seealso [artVersion], [artList], [artRun] and [amregtest]
 #'
 #' @export
-artInstallCranAllelematch <- function(version = "2.5.4") {
-    # install.packages("remotes") # Requires restarting R
-    library(remotes)
+artInstallCranAllelematch <- function(version = "2.5.5") {
+    unloadNamespace("allelematch")
     remotes::install_version("allelematch", version = version, repos = "http://cran.r-project.org")
 
-    library(allelematch)
+    requireNamespace("allelematch", quietly = TRUE)
 }
 

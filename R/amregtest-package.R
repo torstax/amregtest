@@ -18,14 +18,14 @@ NULL
 #' @title Package Overview
 #'
 #' @description
-#' Package 'amregtest' automates regression testing of package [allelematch].
+#' Package 'amregtest' automates regression testing of package [allelematch][allelematch::allelematch-package].
 #'
 #' The API is simple. There are only four functions:
 #' \tabular{clcl}{
 #'  `  ` \tab [artRun]`  `\tab `  ` \tab Executes the test, or a subset of the tests\cr
 #'  `  ` \tab [artList]\tab \tab Lists the available tests without running them\cr
-#'  `  ` \tab [artVersion]\tab \tab Shows the used versions of [allelematch] and [amregtest]\cr
-#'  `  ` \tab [artInstallCranAllelematch]\tab`  ` \tab Installs official CRAN version of [allelematch]\cr
+#'  `  ` \tab [artVersion]\tab \tab Shows the used versions of 'allelematch' and 'amregtest'\cr
+#'  `  ` \tab [artInstallCranAllelematch]\tab`  ` \tab Installs official CRAN version of 'allelematch'\cr
 #' }
 #'
 #' The prefix "art" is short for "Allelematch Regression Test".
