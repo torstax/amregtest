@@ -5,17 +5,20 @@
 #' Returns package version
 #'
 #' @description
-#' Returns version of this package ([amregtest]).\cr
+#' Displays version of this package ([amregtest]) and of [allelematch][allelematch::allelematch-package],
+#' together with build timestamps.\cr
 #' \cr
 #' The version is specified in the file DESCRIPTION, tag "Version: ".
 #'
-#' @param verbose logical. If TRUE, prints additional info to stdout, including version of [allelematch-package]
 #'
-#' @return The installed version of this package ([amregtest-package]) in a character vector of length one
+#' @param verbose logical. If TRUE (the default), prints additional info to stdout,
+#' including versions and build timestamps of 'allelematch' and 'amregtest'.
+#'
+#' @return The loaded version of this package ([amregtest-package]) in a character vector of length one
 #'
 #' @examples
 #' # See what version of packages 'allelematch' and 'amregtest'
-#' # are currently installed:
+#' # are currently loaded:
 #' artVersion()
 #'
 #' # List the available tests:
@@ -51,13 +54,13 @@ artVersion <- function(verbose=TRUE) {
 #' Use the output to select a value for parameter `filter` to [artRun].
 #' Useful when debugging.
 #'
-#' @param verbose logical. If TRUE, prints additional info to stdout
+#' @param verbose logical. If TRUE (the default), prints additional info to stdout
 #'
 #' @return A character vector containing the names of all the tests
 #'
 #' @examples
 #' # See what version of packages 'allelematch' and 'amregtest'
-#' # are currently installed:
+#' # are currently loaded:
 #' artVersion()
 #'
 #' # List the available tests:
@@ -101,7 +104,7 @@ artList <- function(verbose=TRUE) {
 #' Runs the regression test
 #'
 #' @description
-#' Runs [allelematch] regression tests to make sure it is backwards compatible.\cr
+#' Runs regression tests on package [allelematch][allelematch::allelematch-package] to make sure it is backwards compatible.\cr
 #' \cr
 #' The full set of tests will take a couple of minutes. \cr
 #' \cr
@@ -111,21 +114,21 @@ artList <- function(verbose=TRUE) {
 #'
 #' @details
 #' If any of the test executed with [artRun] should fail, then we want to be able
-#' to run that specific test under the debugger. Character vector of length one.\cr
+#' to run that specific test under the debugger.\cr
 #' \cr
 #' Set a breakpoint in `allelematch.R` and call `artRun(filter="<the test that reproduces the problem>")`\cr
 #' \cr
-#' Note that it is the last installed version of `allelematch` that will be executed,
-#' not the last edited. In RStudio, CTRL+SHIFT+B will build and install.
+#' Note that it is the last loaded version of `allelematch` that will be executed,
+#' not the last edited. In RStudio, CTRL+SHIFT+B will build, install and load.
 #'
 #'
 #' @param filter    If specified, only tests with names matching this perl regular
 #'                  expression will be executed. Character vector of length 1. See also [artList]
-#' @param verbose   logical. If TRUE, prints version of tested allelematch to stdout
+#' @param verbose   logical. If TRUE (the default), prints version of tested allelematch to stdout
 #'
 #' @examples
 #' # See what version of packages 'allelematch' and 'amregtest'
-#' # are currently installed:
+#' # are currently loaded:
 #' artVersion()
 #'
 #' # List the available tests:

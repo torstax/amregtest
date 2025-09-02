@@ -9,7 +9,7 @@ This data is saved on semicolon (";") delimited .csv format, as described under 
 Data samples in rows, and alleles in columns. Missing data is represented as "-99".
 }
 \description{
-Large data set gathered from field work in 2022. Here used to test \link{allelematch} for backwards compatibility.
+Large data set gathered from field work in 2022. Here used to test package \link[allelematch:allelematch-package]{allelematch} for backwards compatibility.
 Combines a reference db of known individuals with new samples to be analyzed.\cr\cr
 }
 \references{

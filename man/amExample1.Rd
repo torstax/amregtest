@@ -8,8 +8,8 @@
 Data frame with samples in rows, and alleles in columns. Missing data is represented as "-99".
 }
 \description{
-This is sample data copied from \link[allelematch:amExampleData]{allelematch::amExampleData} in version 5.2.1
-of package \link{allelematch}. We use this data to test allelematch backwards compatibility.
+This is sample data copied from \link[allelematch:amExampleData]{amExampleData} in version 5.2.1
+of package \link[allelematch:allelematch-package]{allelematch}. We use this data to test 'allelematch' backwards compatibility.
 }
 \details{
 The data in this example is simulated to represent a high quality data set that might

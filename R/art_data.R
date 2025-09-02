@@ -4,10 +4,10 @@
 #'
 #' @description
 #' This example data is used when testing allelematch backwards compatibility
-#' using [artRun]. The tests load this data and passes it to [amDataset].\cr
+#' using [artRun]. The tests load this data and passes it to [amDataset][allelematch::amDataset].\cr
 #' \cr
-#' It includes data that was imported from version 5.2.1 of [allelematch].
-#' It was still unchanged in 5.2.4. \cr
+#' It includes data that was imported from version 5.2.1 of [allelematch][allelematch::allelematch-package].
+#' It was still unchanged in 5.2.5. \cr
 #' \tabular{clcl}{
 #'  `  ` \tab [amExample1]`  `\tab `  ` \tab Example 1 High quality data set\cr
 #'  `  ` \tab [amExample2]\tab \tab Example 2 Good quality data set\cr
@@ -33,8 +33,8 @@ NULL
 
 #' Example 1 High quality data set
 #'
-#' This is sample data copied from [allelematch::amExampleData] in version 5.2.1
-#' of package [allelematch]. We use this data to test allelematch backwards compatibility.
+#' This is sample data copied from [amExampleData][allelematch::amExampleData] in version 5.2.1
+#' of package [allelematch][allelematch::allelematch-package]. We use this data to test 'allelematch' backwards compatibility.
 #'
 #' The data in this example is simulated to represent a high quality data set that might
 #' result from a laboratory protocol where samples were run multiple times to confirm their
@@ -51,8 +51,8 @@ NULL
 
 #' Example 2 Good quality data set
 #'
-#' This is sample data copied from [allelematch::amExampleData] in version 5.2.1
-#' of package [allelematch]. We use this data to test allelematch backwards compatibility.
+#' This is sample data copied from [amExampleData][allelematch::amExampleData] in version 5.2.1
+#' of package [allelematch][allelematch::allelematch-package].
 #'
 #' The data in this example have also been simulated, this time to reflect the qualities
 #' of good quality data set, where genotyping error and missing data exist, but these can
@@ -70,8 +70,8 @@ NULL
 
 #' Example 3 Marginal quality data set
 #'
-#' This is sample data copied from [allelematch::amExampleData] in version 5.2.1
-#' of package [allelematch]. We use this data to test allelematch backwards compatibility.
+#' This is sample data copied from [amExampleData][allelematch::amExampleData] in version 5.2.1
+#' of package [allelematch][allelematch::allelematch-package].
 #'
 #' The data in this example have been simulated to represent a data set of marginal
 #' quality where the use of allelematch combined with careful manual review of the
@@ -89,8 +89,8 @@ NULL
 
 #' Example 4 Low quality data set
 #'
-#' This is sample data copied from [allelematch::amExampleData] in version 5.2.1
-#' of package [allelematch]. We use this data to test allelematch backwards compatibility.
+#' This is sample data copied from [amExampleData][allelematch::amExampleData] in version 5.2.1
+#' of package [allelematch][allelematch::allelematch-package].
 #'
 #' For this example we have simulated a low quality data set where uncertainty created
 #' by genotyping error and missing data, combined with a lack of information in the form
@@ -109,8 +109,8 @@ NULL
 
 #' Example 5 Wildlife data set
 #'
-#' This is sample data copied from [allelematch::amExampleData] in version 5.2.1
-#' of package [allelematch]. We use this data to test allelematch backwards compatibility.
+#' This is sample data copied from [amExampleData][allelematch::amExampleData] in version 5.2.1
+#' of package [allelematch][allelematch::allelematch-package].
 #'
 #' In this final example we use real data from the non-invasive sampling of a wildlife
 #' population. The data have been anonymized by changing sampling details. A single
@@ -132,7 +132,7 @@ NULL
 #' @title Data sets originating from GG work
 #'
 #' @description
-#' Large data set gathered from field work in 2022. Here used to test [allelematch] for backwards compatibility.
+#' Large data set gathered from field work in 2022. Here used to test package [allelematch][allelematch::allelematch-package] for backwards compatibility.
 #' Combines a reference db of known individuals with new samples to be analyzed.\cr\cr
 #'
 #' @format This data is saved on semicolon (";") delimited .csv format, as described under 'Details' in [utils::data].\cr

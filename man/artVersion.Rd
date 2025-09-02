@@ -7,19 +7,21 @@
 artVersion(verbose = TRUE)
 }
 \arguments{
-\item{verbose}{logical. If TRUE, prints additional info to stdout, including version of \link{allelematch-package}}
+\item{verbose}{logical. If TRUE (the default), prints additional info to stdout,
+including versions and build timestamps of 'allelematch' and 'amregtest'.}
 }
 \value{
-The installed version of this package (\link{amregtest-package}) in a character vector of length one
+The loaded version of this package (\link{amregtest-package}) in a character vector of length one
 }
 \description{
-Returns version of this package (\link{amregtest}).\cr
+Displays version of this package (\link{amregtest}) and of \link[allelematch:allelematch-package]{allelematch},
+together with build timestamps.\cr
 \cr
 The version is specified in the file DESCRIPTION, tag "Version: ".
 }
 \examples{
 # See what version of packages 'allelematch' and 'amregtest'
-# are currently installed:
+# are currently loaded:
 artVersion()
 
 # List the available tests:
