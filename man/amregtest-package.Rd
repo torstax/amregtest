@@ -10,6 +10,11 @@ Automates regression testing of package 'allelematch'. Over 2500 tests covers al
 \author{
 \strong{Maintainer}: Torvald Staxler \email{torvald.staxler@telia.com}
 
+Authors:
+\itemize{
+  \item Torvald Staxler \email{torvald.staxler@telia.com}
+}
+
 Other contributors:
 \itemize{
   \item Department of Wildlife, Fish and Environmental Studies at Swedish University of Agricultural Sciences [copyright holder]
