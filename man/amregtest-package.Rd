@@ -5,10 +5,23 @@
 \alias{amregtest-package}
 \title{amregtest: Runs Allelematch Regression Tests}
 \description{
-Automates regression testing of package 'allelematch'. Over 2500 tests covers all functions in 'allelematch', reproduces the examples from the documentation and includes negative tests. The implementation is based on 'testthat'.
+Automates regression testing of package 'allelematch'. Over 2500 tests cover all functions in 'allelematch', reproduce the examples from the documentation, and include negative tests. The implementation is based on 'testthat'.
+}
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/torvald-staxler/amregtest}
+  \item Report bugs at \url{https://github.com/torvald-staxler/amregtest/issues}
+}
+
 }
 \author{
 \strong{Maintainer}: Torvald Staxler \email{torvald.staxler@telia.com}
+
+Authors:
+\itemize{
+  \item Torvald Staxler \email{torvald.staxler@telia.com}
+}
 
 Other contributors:
 \itemize{
