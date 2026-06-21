@@ -3,19 +3,19 @@ Title: Runs Allelematch Regression Tests
 Version: 1.0.3.9008
 Authors@R: c(
     person("Department of Wildlife, Fish and Environmental Studies at Swedish University of Agricultural Sciences", role = "cph"),
-    person("Göran", "Spong", , "Goran.Spong@slu.se", role = "cph",
+    person("Göran", "Spong", email = "Goran.Spong@slu.se", role = "cph",
            comment = "Senior Lecturer at the Department of Wildlife, Fish and Environmental Studies"),
-    person("Paul", "Galpern", , "pgalpern@gmail.com", role = "ctb",
+    person("Paul", "Galpern", email = "pgalpern@gmail.com", role = "ctb",
            comment = "Author of the excellent package 'allelematch' from which the five amExample data files have been copied under MIT license"),
-    person("Torvald", "Staxler", , "torvald.staxler@telia.com", role = c("aut", "cre"))
+    person("Torvald", "Staxler", email = "torvald.staxler@telia.com", role = c("aut", "cre"))
   )
 Description: Automates regression testing of package 'allelematch'. Over
-    2500 tests covers all functions in 'allelematch', reproduces the
-    examples from the documentation and includes negative tests. The
+    2500 tests cover all functions in 'allelematch', reproduce the
+    examples from the documentation and include negative tests. The
     implementation is based on 'testthat'.
 License: MIT + file LICENSE
 Depends: 
-    R (>= 2.10)
+    R (>= 3.5)
 Imports: 
     digest,
     remotes,
@@ -29,5 +29,5 @@ Config/testthat/edition: 3
 Encoding: UTF-8
 Language: en-US
 LazyData: true
-Roxygen: list(markdown = TRUE)
+Config/roxygen2/markdown: TRUE
 Config/roxygen2/version: 8.0.0
