@@ -150,7 +150,12 @@ artRun <- function(filter="", verbose=TRUE) {
 
     installedVersion = toString(utils::packageVersion("allelematch"))
     if (verbose) cat("    About to test installed version of allelematch:  <<<", installedVersion, ">>>\n", sep="")
-    reporter <- ifelse(verbose, "Progress", testthat::check_reporter())
+
+    reporter <-
+        if (!verbose) testthat::check_reporter() # Keep silent unless there are errors.
+        else if(interactive()) "Progress"        # Nice interactive progress bar in RStudio
+        else ColumnReporter$new()                # Nice columns to stdout
+
     result = list()
     if (filter != "^$") result = testthat::test_package("amregtest", reporter=reporter , filter=filter) # We can't start tests recursively, even for coverage tests
     if (verbose) cat("    Done testing installed version of allelematch:  <<<", installedVersion, ">>>\n", sep="")
