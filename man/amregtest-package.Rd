@@ -10,8 +10,8 @@ Automates regression testing of package 'allelematch'. Over 2500 tests cover all
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://github.com/torvald-staxler/amregtest}
-  \item Report bugs at \url{https://github.com/torvald-staxler/amregtest/issues}
+  \item \url{https://github.com/torstax/amregtest}
+  \item Report bugs at \url{https://github.com/torstax/amregtest/issues}
 }
 
 }

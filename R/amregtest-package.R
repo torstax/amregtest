@@ -6,6 +6,7 @@
 #    Order: "testthat depends on withr, so withr must come first"
 #' @import utils
 #' @import digest
+#' @importFrom R6 R6Class
 #' @import remotes
 #' @import withr
 #' @import testthat
@@ -25,7 +26,7 @@ NULL
 #' \tabular{clcl}{
 #'  `  ` \tab [artRun]`  `\tab `  ` \tab Executes the test, or a subset of the tests\cr
 #'  `  ` \tab [artList]\tab \tab Lists the available tests without running them\cr
-#'  `  ` \tab [artVersion]\tab \tab Shows the installed versions of 'allelematch' and 'amregtest'\cr
+#'  `  ` \tab [artVersion]\tab \tab Shows the used versions of 'allelematch' and 'amregtest'\cr
 #' }
 #'
 #' The prefix "art" is short for "Allelematch Regression Test".
