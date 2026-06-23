@@ -8,9 +8,9 @@ Package 'amregtest' automates regression testing of package \link[allelematch:al
 
 The API is simple. There are only three functions:
 \tabular{clcl}{
-\verb{  } \tab \link{artRun}\verb{  }\tab \verb{  } \tab Executes the test, or a subset of the tests\cr
-\verb{  } \tab \link{artList}\tab \tab Lists the available tests without running them\cr
-\verb{  } \tab \link{artVersion}\tab \tab Shows the used versions of 'allelematch' and 'amregtest'\cr
+\verb{  } \tab \code{\link[=artRun]{artRun()}}\verb{  }\tab \verb{  } \tab Executes the test, or a subset of the tests\cr
+\verb{  } \tab \code{\link[=artList]{artList()}}\tab \tab Lists the available tests without running them\cr
+\verb{  } \tab \code{\link[=artVersion]{artVersion()}}\tab \tab Shows the used versions of 'allelematch' and 'amregtest'\cr
 }
 
 The prefix "art" is short for "Allelematch Regression Test".

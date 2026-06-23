@@ -75,10 +75,10 @@ artRun(filter = "amExample2|amExample4")
     ##     About to test installed version of allelematch:  <<<2.5.5>>>
     ## FAILED  WARNINGS  SKIPPED  OK      FILE
     ## ------------------------------------------------------------------------ 
-    ## 0       0         0        14      test-amExample2.R
-    ## 0       0         0        14      test-amExample4.R
+    ## 0       0         1        7       test-amExample2.R
+    ## 0       0         1        9       test-amExample4.R
     ## ------------------------------------------------------------------------ 
-    ## 0       0         0        28      TOTAL
+    ## 0       0         2        16      TOTAL
     ##     Done testing installed version of allelematch:  <<<2.5.5>>>
 
 List all available tests without running them:
@@ -88,7 +88,7 @@ artList()
 ```
 
     ## 
-    ## Tests in files under "C:/Users/Torva/AppData/Local/R/win-library/4.6/amregtest/tests/testthat/":
+    ## Tests in files under "C:/Users/Torva/AppData/Local/Temp/Rtmpgdk8em/temp_libpath70876ce2bb7/amregtest/tests/testthat/":
     ## 
     ## Tests by functions in allelematch:
     ##  [1] "allelematch_1-amDataset"          
@@ -119,5 +119,5 @@ artVersion()
 ```
 
     ## 
-    ##     Version of package 'amregtest' is 1.0.6.9001
+    ##     Version of package 'amregtest' is 1.0.6
     ##     Installed (and thus tested) version of package 'allelematch' is: 2.5.5

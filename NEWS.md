@@ -1,3 +1,14 @@
+# amregtest 1.0.6
+
+## New features
+
+* Now detecting and reporting detritus files that are leaked to TEMP during a test.
+
+* All detected detritus files are now deleted after the test.
+
+* Latest 'allelematch' version tested so far: 2.5.5
+
+
 # amregtest 1.0.3
 
 ## New features

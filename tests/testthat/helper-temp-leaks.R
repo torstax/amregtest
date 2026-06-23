@@ -11,24 +11,35 @@
 #      so that HTML files etc. remain openable in a browser during the run.
 #
 # All leaked files are removed in one pass after the full suite finishes,
-# via withr::defer() on testthat::teardown_env().
+# via withr::defer() on testthat::teardown_env() — when available.
+# (devtools::test() initialises teardown_env() after helpers are sourced,
+# so deferred cleanup is skipped in that workflow; temp files are left for
+# the OS to clean up at session end.)
 
 # Accumulate leaked paths across all tests.
 .leak_log <- new.env(parent = emptyenv())
 .leak_log$files <- character(0)
 
 # Schedule cleanup for after the full suite.
-withr::defer(
-  {
-    to_remove <- .leak_log$files[file.exists(.leak_log$files)]
-    if (length(to_remove) > 0) {
-      message(sprintf("\nCleaning up %d leaked TEMP file(s):\n  %s",
-                      length(to_remove),
-                      paste(to_remove, collapse = "\n  ")))
-      try(file.remove(to_remove), silent = TRUE)
-    }
-  },
-  envir = testthat::teardown_env()
+# teardown_env() is only available when running via testthat::test_package()
+# (i.e. artRun()). devtools::test() uses test_local() and initialises
+# teardown_env() after helpers are sourced, so we degrade gracefully: if
+# teardown_env() is not ready yet, skip the deferred cleanup (temp files will
+# be removed when the R session ends).
+tryCatch(
+  withr::defer(
+    {
+      to_remove <- .leak_log$files[file.exists(.leak_log$files)]
+      if (length(to_remove) > 0) {
+        message(sprintf("\nCleaning up %d leaked TEMP file(s):\n  %s",
+                        length(to_remove),
+                        paste(to_remove, collapse = "\n  ")))
+        try(file.remove(to_remove), silent = TRUE)
+      }
+    },
+    envir = testthat::teardown_env()
+  ),
+  error = function(e) NULL
 )
 
 test_that <- function(desc, code) {

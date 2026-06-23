@@ -24,14 +24,15 @@ NULL
 #'
 #' The API is simple. There are only three functions:
 #' \tabular{clcl}{
-#'  `  ` \tab [artRun]`  `\tab `  ` \tab Executes the test, or a subset of the tests\cr
-#'  `  ` \tab [artList]\tab \tab Lists the available tests without running them\cr
-#'  `  ` \tab [artVersion]\tab \tab Shows the used versions of 'allelematch' and 'amregtest'\cr
+#'  `  ` \tab [artRun()]`  `\tab `  ` \tab Executes the test, or a subset of the tests\cr
+#'  `  ` \tab [artList()]\tab \tab Lists the available tests without running them\cr
+#'  `  ` \tab [artVersion()]\tab \tab Shows the used versions of 'allelematch' and 'amregtest'\cr
 #' }
 #'
 #' The prefix "art" is short for "Allelematch Regression Test".
 #'
 #' See [artData] for a description of data sets used as input.
+
 #'
 #' @references [amregtest-package]
 #' @references \url{https://github.com/cran/allelematch}
