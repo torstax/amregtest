@@ -40,6 +40,11 @@ test_that <- function(desc, code) {
                          all.files = TRUE)
     leaked <- setdiff(after, before)
     leaked <- leaked[file.exists(leaked)]   # race-condition guard
+    # PNG files are graphics-device artefacts (open png() device writing to
+    # a temp file). They only appear in interactive/RStudio sessions, not
+    # during R CMD check on CRAN, and we intentionally leave devices open
+    # so plots remain inspectable after the test.
+    leaked <- leaked[!grepl("\\.png$", leaked, ignore.case = TRUE)]
 
     if (length(leaked) > 0) {
       warning(sprintf(
