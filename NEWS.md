@@ -1,4 +1,4 @@
-# amregtest 1.0.6
+# amregtest 1.0.7
 
 ## New features
 
