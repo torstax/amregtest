@@ -1,26 +1,26 @@
 #' @name artData
 #'
-#' @title Example data used by [amregtest]
+#' @title Example data used by \link{amregtest}
 #'
 #' @description
 #' This example data is used when testing allelematch backwards compatibility
-#' using [artRun]. The tests load this data and passes it to [amDataset][allelematch::amDataset].\cr
+#' using \link{artRun}. The tests load this data and passes it to [amDataset][allelematch::amDataset].\cr
 #' \cr
 #' It includes data that was imported from version 5.2.1 of [allelematch][allelematch::allelematch-package].
 #' It was still unchanged in 5.2.5. \cr
 #' \tabular{clcl}{
-#'  `  ` \tab [amExample1]`  `\tab `  ` \tab Example 1 High quality data set\cr
-#'  `  ` \tab [amExample2]\tab \tab Example 2 Good quality data set\cr
-#'  `  ` \tab [amExample3]\tab \tab Example 3 Marginal quality data set\cr
-#'  `  ` \tab [amExample4]\tab \tab Example 4 Low quality data set\cr
-#'  `  ` \tab [amExample5]\tab \tab Example 5 Wildlife data set\cr
+#'  `  ` \tab \link{amExample1}`  `\tab `  ` \tab Example 1 High quality data set\cr
+#'  `  ` \tab \link{amExample2}\tab \tab Example 2 Good quality data set\cr
+#'  `  ` \tab \link{amExample3}\tab \tab Example 3 Marginal quality data set\cr
+#'  `  ` \tab \link{amExample4}\tab \tab Example 4 Low quality data set\cr
+#'  `  ` \tab \link{amExample5}\tab \tab Example 5 Wildlife data set\cr
 #' }
 #' See \href{https://github.com/cran/allelematch/blob/2.5.1/inst/doc/allelematchSuppDoc.pdf}{allelematchSuppDoc.pdf}
 #' for a more detailed description. \cr
 #'
 #' It also includes a large data set gathered from field work:\cr
 #' \tabular{clcl}{
-#'  `  ` \tab [ggSample]`  `\tab `  ` \tab Very large wildlife data set\cr
+#'  `  ` \tab \link{ggSample}`  `\tab `  ` \tab Very large wildlife data set\cr
 #' }
 #'
 #' @format Data frames with varying numbers of samples in rows, and alleles in columns. Missing data is represented as "-99".
