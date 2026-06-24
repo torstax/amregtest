@@ -5,7 +5,7 @@
 #' Returns package version
 #'
 #' @description
-#' Displays version of this package ([amregtest]) and of [allelematch][allelematch::allelematch-package],
+#' Displays version of this package (\link{amregtest}) and of [allelematch][allelematch::allelematch-package],
 #' together with build timestamps.\cr
 #' \cr
 #' The version is specified in the file DESCRIPTION, tag "Version: ".
@@ -14,7 +14,7 @@
 #' @param verbose logical. If TRUE (the default), prints additional info to stdout,
 #' including versions and build timestamps of 'allelematch' and 'amregtest'.
 #'
-#' @return The loaded version of this package ([amregtest-package]) in a character vector of length one
+#' @return The loaded version of this package (\link{amregtest-package}) in a character vector of length one
 #'
 #' @examples
 #' # See what version of packages 'allelematch' and 'amregtest'
@@ -32,7 +32,7 @@
 #' }
 #'
 #'
-#' @seealso [artList], [artRun] and [amregtest]
+#' @seealso \link{artList}, \link{artRun} and \link{amregtest}
 #' @export
 artVersion <- function(verbose=TRUE) {
     stopifnot(is.logical(verbose))
@@ -51,7 +51,7 @@ artVersion <- function(verbose=TRUE) {
 #' Lists available tests in `amregtest` without running them
 #'
 #' @description
-#' Use the output to select a value for parameter `filter` to [artRun].
+#' Use the output to select a value for parameter `filter` to \link{artRun}.
 #' Useful when debugging.
 #'
 #' @param verbose logical. If TRUE (the default), prints additional info to stdout
@@ -73,7 +73,7 @@ artVersion <- function(verbose=TRUE) {
 #' artRun(filter="allelematch_1-amDataset$")
 #' }
 #'
-#' @seealso [artVersion] and [artRun]
+#' @seealso \link{artVersion} and \link{artRun}
 #'
 #' @export
 artList <- function(verbose=TRUE) {
@@ -108,12 +108,12 @@ artList <- function(verbose=TRUE) {
 #' \cr
 #' The full set of tests will take a couple of minutes. \cr
 #' \cr
-#' Call [artList] to see the available tests with without running them.
+#' Call \link{artList} to see the available tests without running them.
 #'
 #' @return A list (invisibly) containing data about the test results as returned by [testthat::test_package]
 #'
 #' @details
-#' If any of the test executed with [artRun] should fail, then we want to be able
+#' If any of the test executed with \link{artRun} should fail, then we want to be able
 #' to run that specific test under the debugger.\cr
 #' \cr
 #' Set a breakpoint in `allelematch.R` and call `artRun(filter="<the test that reproduces the problem>")`\cr
@@ -123,7 +123,7 @@ artList <- function(verbose=TRUE) {
 #'
 #'
 #' @param filter    If specified, only tests with names matching this perl regular
-#'                  expression will be executed. Character vector of length 1. See also [artList]
+#'                  expression will be executed. Character vector of length 1. See also \link{artList}
 #' @param verbose   logical. If TRUE (the default), prints version of tested allelematch to stdout
 #'
 #' @examples
@@ -141,12 +141,17 @@ artList <- function(verbose=TRUE) {
 #' artRun(filter="allelematch_1-amDataset$")
 #' }
 #'
-#' @seealso [artVersion] and [artList]
+#' @seealso \link{artVersion} and \link{artList}
 #'
 #' @export
 artRun <- function(filter="", verbose=TRUE) {
     stopifnot(is.character(filter) && length(filter)==1)
     stopifnot(is.logical(verbose))
+
+    # Propagate the verbosity to the deferred cleanup code in helper-temp-leaks.R
+    # withr ensures the effect lasts until the ENTIRE function returns
+    env_value = if(verbose) "true" else "false"
+    withr::local_envvar(c("ART_VERBOSE" = env_value))
 
     installedVersion = toString(utils::packageVersion("allelematch"))
     if (verbose) cat("    About to test installed version of allelematch:  <<<", installedVersion, ">>>\n", sep="")
