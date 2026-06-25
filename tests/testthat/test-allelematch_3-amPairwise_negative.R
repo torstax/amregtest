@@ -38,20 +38,20 @@ test_that("Validation of arguments to amPairwise() is working", {
 
   # Test checks against invalid first param to amDataSet(multilocusDataset):
   {
-    expect_error(amPairwise(NULL),  "allelematch:  amDatasetFocal and amDatasetComparison must be an object of class \"amDataset\"")
-    expect_error(amPairwise(NA),    "allelematch:  amDatasetFocal and amDatasetComparison must be an object of class \"amDataset\"")
-    expect_error(amPairwise(2),     "allelematch:  amDatasetFocal and amDatasetComparison must be an object of class \"amDataset\"")
+    expect_error(amPairwise(NULL),  "allelematch:\\s+amDatasetFocal and amDatasetComparison must be an object of class \"amDataset\"")
+    expect_error(amPairwise(NA),    "allelematch:\\s+amDatasetFocal and amDatasetComparison must be an object of class \"amDataset\"")
+    expect_error(amPairwise(2),     "allelematch:\\s+amDatasetFocal and amDatasetComparison must be an object of class \"amDataset\"")
     expect_error(amPairwise(hipphopp=2), "unused argument")
-    expect_error(amPairwise(amdataOdd2), "allelematch:  please specify alleleMismatch OR matchThreshold.")
+    expect_error(amPairwise(amdataOdd2), "allelematch:\\s+please specify alleleMismatch OR matchThreshold.")
 
     # An odd number of columns does not generate an error. Maybe it should?
-    # expect_error(amPairwise(amdataOdd2, alleleMismatch=5), "allelematch:  there are an odd number of genotype columns in amDatasetFocal")
+    # expect_error(amPairwise(amdataOdd2, alleleMismatch=5), "allelematch:\\s+there are an odd number of genotype columns in amDatasetFocal")
   }
 
   # Test blocking of invalid arguments for second parameter, amDatasetComparison:
   amdata = amdataMini1
   {
-    must_be_amDataset = 'allelematch:  amDatasetFocal and amDatasetComparison must be an object of class "amDataset"'
+    must_be_amDataset = 'allelematch:\\s+amDatasetFocal and amDatasetComparison must be an object of class "amDataset"'
 
     expect_error(amPairwise(amdata, amDatasetComparison = 0),   must_be_amDataset)
     expect_error(amPairwise(amdata, amDatasetComparison = 3),   must_be_amDataset)
@@ -60,22 +60,22 @@ test_that("Validation of arguments to amPairwise() is working", {
     expect_error(amPairwise(amdata, amDatasetComparison = ""),  must_be_amDataset)
     expect_error(amPairwise(amdata, 1.00000000000000001),       must_be_amDataset)
     expect_error(amPairwise(amdata, 1,0),                       must_be_amDataset)
-    expect_error(amPairwise(amdata, amDatasetComparison = amdataOdd2),  "allelematch:  please specify alleleMismatch OR matchThreshold")
+    expect_error(amPairwise(amdata, amDatasetComparison = amdataOdd2),  "allelematch:\\s+please specify alleleMismatch OR matchThreshold")
     expect_error(amPairwise(amdata, amDatasetComparison = amdataOdd2, alleleMismatch=2),  "amDatasetFocal and amDatasetComparison must have the same number of columns / loci")
     expect_error(amPairwise(amdata, amDatasetComparison = amdataOdd2, matchThreshold=0.5),"amDatasetFocal and amDatasetComparison must have the same number of columns / loci")
   }
 
   # Use the valid amdata to test blocking of other invalid arguments:
   {
-    expect_error(amPairwise(amdata, missingMethod = 0),   "allelematch:  missingMethod must equal 1 or 2")
-    expect_error(amPairwise(amdata, missingMethod = 3),   "allelematch:  missingMethod must equal 1 or 2")
+    expect_error(amPairwise(amdata, missingMethod = 0),   "allelematch:\\s+missingMethod must equal 1 or 2")
+    expect_error(amPairwise(amdata, missingMethod = 3),   "allelematch:\\s+missingMethod must equal 1 or 2")
     expect_error(amPairwise(amdata, missingMethod = NULL),"argument is of length zero")
-    expect_error(amPairwise(amdata, missingMethod = NA),  "allelematch:  missingMethod must equal 1 or 2")
-    expect_error(amPairwise(amdata, missingMethod = "2.0"), "allelematch:  missingMethod must equal 1 or 2")
-    expect_error(amPairwise(amdata, missingMethod = " 2"), "allelematch:  missingMethod must equal 1 or 2")
-    expect_error(amPairwise(amdata, missingMethod = "2 "), "allelematch:  missingMethod must equal 1 or 2")
+    expect_error(amPairwise(amdata, missingMethod = NA),  "allelematch:\\s+missingMethod must equal 1 or 2")
+    expect_error(amPairwise(amdata, missingMethod = "2.0"), "allelematch:\\s+missingMethod must equal 1 or 2")
+    expect_error(amPairwise(amdata, missingMethod = " 2"), "allelematch:\\s+missingMethod must equal 1 or 2")
+    expect_error(amPairwise(amdata, missingMethod = "2 "), "allelematch:\\s+missingMethod must equal 1 or 2")
     expect_error(amPairwise(amdata, missingMethod = 2,0),  must_be_amDataset)
-    expect_error(amPairwise(amdata, missingMethod = 2.000000000000001), "allelematch:  missingMethod must equal 1 or 2")
+    expect_error(amPairwise(amdata, missingMethod = 2.000000000000001), "allelematch:\\s+missingMethod must equal 1 or 2")
 
     expect_snapshot_value(amdata, style = "json2")
 
