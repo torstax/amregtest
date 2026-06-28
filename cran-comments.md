@@ -58,7 +58,7 @@ close open graphics devices before attempting deletion. Files that are still
 held by an open `pdf()` or `png()` device cannot be removed on Windows, and
 the resulting warning was not suppressed at the top level. 
 
-Also, the attempt in 1.0.9 to delay the removal of all temporary files to the 
+Also, the attempt in 1.0.8 to delay the removal of all temporary files to the 
 end of the test suite with withr::defer() did not delete the files in time 
 before they were detected as leaked by the CRAN check.
 
