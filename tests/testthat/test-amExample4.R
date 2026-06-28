@@ -39,7 +39,7 @@ test_that("amExample4 results from pg 14 in allelematchSuppDoc.pdf are 2.5.3 com
         uniqueExample4 <- amUnique(example4, alleleMismatch=1)
     )
     {
-        testthat::expect_match(output, "allelematch:  assuming genotype columns are in pairs, representing 10 loci$", all=FALSE)
+        testthat::expect_match(output, "assuming genotype columns are in pairs, representing 10 loci$", all=FALSE)
 
         # Ensure that the result is still the same as that from 2.5.3:
         expect_snapshot_value(uniqueExample4, style="deparse")
@@ -60,7 +60,7 @@ test_that("amExample4 results from pg 14 in allelematchSuppDoc.pdf are 2.5.3 com
         uniqueExample4ballpark <- amUnique(example4, alleleMismatch=6)
     )
     {
-        testthat::expect_match(output, "allelematch:  assuming genotype columns are in pairs, representing 10 loci$", all=FALSE)
+        testthat::expect_match(output, "assuming genotype columns are in pairs, representing 10 loci$", all=FALSE)
 
         # Ensure that the result is still the same as that from 2.5.3:
         # expect_snapshot_value(uniqueExample4ballpark, style="deparse") # (Couldn't serialize)
@@ -81,7 +81,7 @@ test_that("amExample4 results from pg 14 in allelematchSuppDoc.pdf are 2.5.3 com
         uniqueExample4high <- amUnique(example4, alleleMismatch=6)
     )
     {
-        testthat::expect_match(output, "allelematch:  assuming genotype columns are in pairs, representing 10 loci$", all=FALSE)
+        testthat::expect_match(output, "assuming genotype columns are in pairs, representing 10 loci$", all=FALSE)
 
         # Ensure that the result is still the same as that from 2.5.3:
         # expect_snapshot_value(uniqueExample4high, style="deparse") # Couldn't serialize

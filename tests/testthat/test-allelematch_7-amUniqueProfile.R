@@ -59,7 +59,7 @@ test_that("Loop the Loop", {
         ret = c(paste("\n  Error    : ", e$message, "\n  Rejected : ", cmdstr, "\n"))
 
         # Differ between expected and unexpected errors:
-        if (!grepl("no clusters formed.  Please set cutHeight lower and run again", e$message, perl=TRUE)) {
+        if (!grepl("no clusters formed.\\s+Please set cutHeight lower and run again", e$message, perl=TRUE)) {
           # Some unexpected error happened. Print it to the screen for easier debugging.
           message("\n  ", ret, "\n  error class = ", format(class(e)), sep="")
 

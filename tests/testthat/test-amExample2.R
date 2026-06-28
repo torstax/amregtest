@@ -33,7 +33,7 @@ test_that("amExample2 results from pg 8 in allelematchSuppDoc.pdf 2.5.3 compatib
     )
     {
         # Check that the output to STDOUT is still the same as that from 2.5.3:
-        testthat::expect_match(output, "allelematch:  assuming genotype columns are in pairs, representing 10 loci$", all=FALSE)
+        testthat::expect_match(output, "assuming genotype columns are in pairs, representing 10 loci$", all=FALSE)
 
         # Ensure that the result is still the same as that from 2.5.3:
         expect_snapshot_value(uniqueExample2, style="deparse")
@@ -54,7 +54,7 @@ test_that("amExample2 results from pg 8 in allelematchSuppDoc.pdf 2.5.3 compatib
             uniqueExample2 <- amUnique(example2, alleleMismatch=3, doPsib="all")
     )
     {
-        testthat::expect_match(output, "allelematch:  assuming genotype columns are in pairs, representing 10 loci$", all=FALSE)
+        testthat::expect_match(output, "assuming genotype columns are in pairs, representing 10 loci$", all=FALSE)
 
         # Ensure that the result is still the same as that from 2.5.3:
         expect_snapshot_value(uniqueExample2, style="deparse")
@@ -83,7 +83,7 @@ test_that("amExample2 results from pg 8 in allelematchSuppDoc.pdf 2.5.3 compatib
         uniqueExample2chk <- amUnique(example2chk, alleleMismatch=2)
     )
     {
-        testthat::expect_match(output, "allelematch:  assuming genotype columns are in pairs, representing 10 loci$", all=FALSE)
+        testthat::expect_match(output, "assuming genotype columns are in pairs, representing 10 loci$", all=FALSE)
 
         # Ensure that the result is still the same as that from 2.5.3:
         expect_snapshot_value(uniqueExample2chk, style="deparse")

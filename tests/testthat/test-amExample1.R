@@ -41,7 +41,7 @@ test_that("amExample1 from pg 5 in allelematchSuppDoc.pdf is 2.5.3 compatible", 
         uniqueExample1 <- amUnique(example1, alleleMismatch=2, verbose=FALSE), # TODO : Default of verbose changed in 2.5.4
     )
     {
-        # testthat::expect_match(output, "allelematch:  assuming genotype columns are in pairs, representing 10 loci$", all=FALSE)
+        # testthat::expect_match(output, "assuming genotype columns are in pairs, representing 10 loci$", all=FALSE)
 
         # Ensure that the result is still the same as that from 2.5.3:
         expect_snapshot_value(uniqueExample1, style="deparse")
@@ -87,7 +87,7 @@ test_that("amExample1 from pg 5 in allelematchSuppDoc.pdf is 2.5.3 compatible", 
         uniqueExample1chk <- amUnique(example1chk, alleleMismatch=2)
     )
     {
-        testthat::expect_match(output, "allelematch:  assuming genotype columns are in pairs, representing 10 loci$", all=FALSE)
+        testthat::expect_match(output, "assuming genotype columns are in pairs, representing 10 loci$", all=FALSE)
 
         # Ensure that the result is still the same as that from 2.5.3:
         expect_snapshot_value(uniqueExample1chk, style="deparse")

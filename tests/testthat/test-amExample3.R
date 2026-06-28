@@ -40,7 +40,7 @@ test_that("amExample3 results from pg 10 in allelematchSuppDoc.pdf are 2.5.3 com
         uniqueExample3 <- amUnique(example3, alleleMismatch=6)
     )
     {
-        testthat::expect_match(output, "allelematch:  assuming genotype columns are in pairs, representing 10 loci$", all=FALSE)
+        testthat::expect_match(output, "assuming genotype columns are in pairs, representing 10 loci$", all=FALSE)
 
         # Ensure that the result is still the same as that from 2.5.3:
         expect_snapshot_value(uniqueExample3, style="deparse")

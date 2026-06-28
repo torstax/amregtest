@@ -1068,7 +1068,8 @@
     Output
       
         No amUnique object generated: 
-        Error    :  allelematch:  amCluster:  no clusters formed.  Please set cutHeight lower and run again. 
+        Error    :  allelematch: amCluster: no clusters formed. Please set cutHeight lower and run again. 
+        Test     :  test-allelematch_6-amUnique 
         Rejected :  amUnique(amdataMini, cutHeight=1, doPsib="missing", consensusMethod=1) 
 
 ---
@@ -1085,7 +1086,8 @@
     Output
       
         No amUnique object generated: 
-        Error    :  allelematch:  amCluster:  no clusters formed.  Please set cutHeight lower and run again. 
+        Error    :  allelematch: amCluster: no clusters formed. Please set cutHeight lower and run again. 
+        Test     :  test-allelematch_6-amUnique 
         Rejected :  amUnique(amdataMini, cutHeight=1, doPsib="missing", consensusMethod=2) 
 
 ---
@@ -1102,7 +1104,8 @@
     Output
       
         No amUnique object generated: 
-        Error    :  allelematch:  amCluster:  no clusters formed.  Please set cutHeight lower and run again. 
+        Error    :  allelematch: amCluster: no clusters formed. Please set cutHeight lower and run again. 
+        Test     :  test-allelematch_6-amUnique 
         Rejected :  amUnique(amdataMini, cutHeight=1, doPsib="missing", consensusMethod=3) 
 
 ---
@@ -1119,7 +1122,8 @@
     Output
       
         No amUnique object generated: 
-        Error    :  allelematch:  amCluster:  no clusters formed.  Please set cutHeight lower and run again. 
+        Error    :  allelematch: amCluster: no clusters formed. Please set cutHeight lower and run again. 
+        Test     :  test-allelematch_6-amUnique 
         Rejected :  amUnique(amdataMini, cutHeight=1, doPsib="missing", consensusMethod=4) 
 
 ---
@@ -1136,7 +1140,8 @@
     Output
       
         No amUnique object generated: 
-        Error    :  allelematch:  amCluster:  no clusters formed.  Please set cutHeight lower and run again. 
+        Error    :  allelematch: amCluster: no clusters formed. Please set cutHeight lower and run again. 
+        Test     :  test-allelematch_6-amUnique 
         Rejected :  amUnique(amdataMini, cutHeight=1, doPsib="all", consensusMethod=1) 
 
 ---
@@ -1153,7 +1158,8 @@
     Output
       
         No amUnique object generated: 
-        Error    :  allelematch:  amCluster:  no clusters formed.  Please set cutHeight lower and run again. 
+        Error    :  allelematch: amCluster: no clusters formed. Please set cutHeight lower and run again. 
+        Test     :  test-allelematch_6-amUnique 
         Rejected :  amUnique(amdataMini, cutHeight=1, doPsib="all", consensusMethod=2) 
 
 ---
@@ -1170,7 +1176,8 @@
     Output
       
         No amUnique object generated: 
-        Error    :  allelematch:  amCluster:  no clusters formed.  Please set cutHeight lower and run again. 
+        Error    :  allelematch: amCluster: no clusters formed. Please set cutHeight lower and run again. 
+        Test     :  test-allelematch_6-amUnique 
         Rejected :  amUnique(amdataMini, cutHeight=1, doPsib="all", consensusMethod=3) 
 
 ---
@@ -1187,7 +1194,8 @@
     Output
       
         No amUnique object generated: 
-        Error    :  allelematch:  amCluster:  no clusters formed.  Please set cutHeight lower and run again. 
+        Error    :  allelematch: amCluster: no clusters formed. Please set cutHeight lower and run again. 
+        Test     :  test-allelematch_6-amUnique 
         Rejected :  amUnique(amdataMini, cutHeight=1, doPsib="all", consensusMethod=4) 
 
 ---
@@ -2332,7 +2340,8 @@
     Output
       
         No amUnique object generated: 
-        Error    :  allelematch:  amCluster:  no clusters formed.  Please set cutHeight lower and run again. 
+        Error    :  allelematch: amCluster: no clusters formed. Please set cutHeight lower and run again. 
+        Test     :  test-allelematch_6-amUnique 
         Rejected :  amUnique(amdataExample1, cutHeight=0.9, doPsib="missing", consensusMethod=1) 
 
 ---
@@ -2349,7 +2358,8 @@
     Output
       
         No amUnique object generated: 
-        Error    :  allelematch:  amCluster:  no clusters formed.  Please set cutHeight lower and run again. 
+        Error    :  allelematch: amCluster: no clusters formed. Please set cutHeight lower and run again. 
+        Test     :  test-allelematch_6-amUnique 
         Rejected :  amUnique(amdataExample1, cutHeight=0.9, doPsib="missing", consensusMethod=2) 
 
 ---
@@ -2366,7 +2376,8 @@
     Output
       
         No amUnique object generated: 
-        Error    :  allelematch:  amCluster:  no clusters formed.  Please set cutHeight lower and run again. 
+        Error    :  allelematch: amCluster: no clusters formed. Please set cutHeight lower and run again. 
+        Test     :  test-allelematch_6-amUnique 
         Rejected :  amUnique(amdataExample1, cutHeight=0.9, doPsib="missing", consensusMethod=3) 
 
 ---
@@ -2383,7 +2394,8 @@
     Output
       
         No amUnique object generated: 
-        Error    :  allelematch:  amCluster:  no clusters formed.  Please set cutHeight lower and run again. 
+        Error    :  allelematch: amCluster: no clusters formed. Please set cutHeight lower and run again. 
+        Test     :  test-allelematch_6-amUnique 
         Rejected :  amUnique(amdataExample1, cutHeight=0.9, doPsib="missing", consensusMethod=4) 
 
 ---
@@ -2400,7 +2412,8 @@
     Output
       
         No amUnique object generated: 
-        Error    :  allelematch:  amCluster:  no clusters formed.  Please set cutHeight lower and run again. 
+        Error    :  allelematch: amCluster: no clusters formed. Please set cutHeight lower and run again. 
+        Test     :  test-allelematch_6-amUnique 
         Rejected :  amUnique(amdataExample1, cutHeight=0.9, doPsib="all", consensusMethod=1) 
 
 ---
@@ -2417,7 +2430,8 @@
     Output
       
         No amUnique object generated: 
-        Error    :  allelematch:  amCluster:  no clusters formed.  Please set cutHeight lower and run again. 
+        Error    :  allelematch: amCluster: no clusters formed. Please set cutHeight lower and run again. 
+        Test     :  test-allelematch_6-amUnique 
         Rejected :  amUnique(amdataExample1, cutHeight=0.9, doPsib="all", consensusMethod=2) 
 
 ---
@@ -2434,7 +2448,8 @@
     Output
       
         No amUnique object generated: 
-        Error    :  allelematch:  amCluster:  no clusters formed.  Please set cutHeight lower and run again. 
+        Error    :  allelematch: amCluster: no clusters formed. Please set cutHeight lower and run again. 
+        Test     :  test-allelematch_6-amUnique 
         Rejected :  amUnique(amdataExample1, cutHeight=0.9, doPsib="all", consensusMethod=3) 
 
 ---
@@ -2451,7 +2466,8 @@
     Output
       
         No amUnique object generated: 
-        Error    :  allelematch:  amCluster:  no clusters formed.  Please set cutHeight lower and run again. 
+        Error    :  allelematch: amCluster: no clusters formed. Please set cutHeight lower and run again. 
+        Test     :  test-allelematch_6-amUnique 
         Rejected :  amUnique(amdataExample1, cutHeight=0.9, doPsib="all", consensusMethod=4) 
 
 ---
@@ -4441,6 +4457,7 @@
       
         No amUnique object generated: 
         Error    :  'x' must be atomic 
+        Test     :  test-allelematch_6-amUnique 
         Rejected :  amUnique(amdataExample2, cutHeight=0.9, doPsib="missing", consensusMethod=1) 
 
 ---
@@ -4560,6 +4577,7 @@
       
         No amUnique object generated: 
         Error    :  'x' must be atomic 
+        Test     :  test-allelematch_6-amUnique 
         Rejected :  amUnique(amdataExample2, cutHeight=0.9, doPsib="all", consensusMethod=1) 
 
 ---
@@ -4679,6 +4697,7 @@
       
         No amUnique object generated: 
         Error    :  'x' must be atomic 
+        Test     :  test-allelematch_6-amUnique 
         Rejected :  amUnique(amdataExample2, cutHeight=0.95, doPsib="missing", consensusMethod=1) 
 
 ---
@@ -4798,6 +4817,7 @@
       
         No amUnique object generated: 
         Error    :  'x' must be atomic 
+        Test     :  test-allelematch_6-amUnique 
         Rejected :  amUnique(amdataExample2, cutHeight=0.95, doPsib="all", consensusMethod=1) 
 
 ---
@@ -4917,6 +4937,7 @@
       
         No amUnique object generated: 
         Error    :  'x' must be atomic 
+        Test     :  test-allelematch_6-amUnique 
         Rejected :  amUnique(amdataExample2, cutHeight=0.99, doPsib="missing", consensusMethod=1) 
 
 ---
@@ -5036,6 +5057,7 @@
       
         No amUnique object generated: 
         Error    :  'x' must be atomic 
+        Test     :  test-allelematch_6-amUnique 
         Rejected :  amUnique(amdataExample2, cutHeight=0.99, doPsib="all", consensusMethod=1) 
 
 ---
@@ -5155,6 +5177,7 @@
       
         No amUnique object generated: 
         Error    :  'x' must be atomic 
+        Test     :  test-allelematch_6-amUnique 
         Rejected :  amUnique(amdataExample2, cutHeight=1, doPsib="missing", consensusMethod=1) 
 
 ---
@@ -5274,6 +5297,7 @@
       
         No amUnique object generated: 
         Error    :  'x' must be atomic 
+        Test     :  test-allelematch_6-amUnique 
         Rejected :  amUnique(amdataExample2, cutHeight=1, doPsib="all", consensusMethod=1) 
 
 ---
@@ -8581,6 +8605,7 @@
       
         No amUnique object generated: 
         Error    :  'x' must be atomic 
+        Test     :  test-allelematch_6-amUnique 
         Rejected :  amUnique(amdataExample4, cutHeight=0.7, doPsib="missing", consensusMethod=1) 
 
 ---
@@ -8645,7 +8670,8 @@
     Output
       
         No amUnique object generated: 
-        Error    :  allelematch:  amCluster:  no clusters formed.  Please set cutHeight lower and run again. 
+        Error    :  allelematch: amCluster: no clusters formed. Please set cutHeight lower and run again. 
+        Test     :  test-allelematch_6-amUnique 
         Rejected :  amUnique(amdataExample4, cutHeight=0.7, doPsib="missing", consensusMethod=3) 
 
 ---
@@ -8697,6 +8723,7 @@
       
         No amUnique object generated: 
         Error    :  'x' must be atomic 
+        Test     :  test-allelematch_6-amUnique 
         Rejected :  amUnique(amdataExample4, cutHeight=0.7, doPsib="all", consensusMethod=1) 
 
 ---
@@ -8761,7 +8788,8 @@
     Output
       
         No amUnique object generated: 
-        Error    :  allelematch:  amCluster:  no clusters formed.  Please set cutHeight lower and run again. 
+        Error    :  allelematch: amCluster: no clusters formed. Please set cutHeight lower and run again. 
+        Test     :  test-allelematch_6-amUnique 
         Rejected :  amUnique(amdataExample4, cutHeight=0.7, doPsib="all", consensusMethod=3) 
 
 ---
@@ -8813,6 +8841,7 @@
       
         No amUnique object generated: 
         Error    :  'x' must be atomic 
+        Test     :  test-allelematch_6-amUnique 
         Rejected :  amUnique(amdataExample4, cutHeight=0.9, doPsib="missing", consensusMethod=1) 
 
 ---
@@ -8883,7 +8912,8 @@
     Output
       
         No amUnique object generated: 
-        Error    :  allelematch:  amCluster:  no clusters formed.  Please set cutHeight lower and run again. 
+        Error    :  allelematch: amCluster: no clusters formed. Please set cutHeight lower and run again. 
+        Test     :  test-allelematch_6-amUnique 
         Rejected :  amUnique(amdataExample4, cutHeight=0.9, doPsib="missing", consensusMethod=3) 
 
 ---
@@ -8935,6 +8965,7 @@
       
         No amUnique object generated: 
         Error    :  'x' must be atomic 
+        Test     :  test-allelematch_6-amUnique 
         Rejected :  amUnique(amdataExample4, cutHeight=0.9, doPsib="all", consensusMethod=1) 
 
 ---
@@ -9005,7 +9036,8 @@
     Output
       
         No amUnique object generated: 
-        Error    :  allelematch:  amCluster:  no clusters formed.  Please set cutHeight lower and run again. 
+        Error    :  allelematch: amCluster: no clusters formed. Please set cutHeight lower and run again. 
+        Test     :  test-allelematch_6-amUnique 
         Rejected :  amUnique(amdataExample4, cutHeight=0.9, doPsib="all", consensusMethod=3) 
 
 ---
@@ -9057,6 +9089,7 @@
       
         No amUnique object generated: 
         Error    :  'x' must be atomic 
+        Test     :  test-allelematch_6-amUnique 
         Rejected :  amUnique(amdataExample4, cutHeight=0.95, doPsib="missing", consensusMethod=1) 
 
 ---
@@ -9127,7 +9160,8 @@
     Output
       
         No amUnique object generated: 
-        Error    :  allelematch:  amCluster:  no clusters formed.  Please set cutHeight lower and run again. 
+        Error    :  allelematch: amCluster: no clusters formed. Please set cutHeight lower and run again. 
+        Test     :  test-allelematch_6-amUnique 
         Rejected :  amUnique(amdataExample4, cutHeight=0.95, doPsib="missing", consensusMethod=3) 
 
 ---
@@ -9179,6 +9213,7 @@
       
         No amUnique object generated: 
         Error    :  'x' must be atomic 
+        Test     :  test-allelematch_6-amUnique 
         Rejected :  amUnique(amdataExample4, cutHeight=0.95, doPsib="all", consensusMethod=1) 
 
 ---
@@ -9249,7 +9284,8 @@
     Output
       
         No amUnique object generated: 
-        Error    :  allelematch:  amCluster:  no clusters formed.  Please set cutHeight lower and run again. 
+        Error    :  allelematch: amCluster: no clusters formed. Please set cutHeight lower and run again. 
+        Test     :  test-allelematch_6-amUnique 
         Rejected :  amUnique(amdataExample4, cutHeight=0.95, doPsib="all", consensusMethod=3) 
 
 ---
@@ -9301,6 +9337,7 @@
       
         No amUnique object generated: 
         Error    :  'x' must be atomic 
+        Test     :  test-allelematch_6-amUnique 
         Rejected :  amUnique(amdataExample4, cutHeight=0.99, doPsib="missing", consensusMethod=1) 
 
 ---
@@ -9371,7 +9408,8 @@
     Output
       
         No amUnique object generated: 
-        Error    :  allelematch:  amCluster:  no clusters formed.  Please set cutHeight lower and run again. 
+        Error    :  allelematch: amCluster: no clusters formed. Please set cutHeight lower and run again. 
+        Test     :  test-allelematch_6-amUnique 
         Rejected :  amUnique(amdataExample4, cutHeight=0.99, doPsib="missing", consensusMethod=3) 
 
 ---
@@ -9423,6 +9461,7 @@
       
         No amUnique object generated: 
         Error    :  'x' must be atomic 
+        Test     :  test-allelematch_6-amUnique 
         Rejected :  amUnique(amdataExample4, cutHeight=0.99, doPsib="all", consensusMethod=1) 
 
 ---
@@ -9493,7 +9532,8 @@
     Output
       
         No amUnique object generated: 
-        Error    :  allelematch:  amCluster:  no clusters formed.  Please set cutHeight lower and run again. 
+        Error    :  allelematch: amCluster: no clusters formed. Please set cutHeight lower and run again. 
+        Test     :  test-allelematch_6-amUnique 
         Rejected :  amUnique(amdataExample4, cutHeight=0.99, doPsib="all", consensusMethod=3) 
 
 ---
@@ -9545,6 +9585,7 @@
       
         No amUnique object generated: 
         Error    :  'x' must be atomic 
+        Test     :  test-allelematch_6-amUnique 
         Rejected :  amUnique(amdataExample4, cutHeight=1, doPsib="missing", consensusMethod=1) 
 
 ---
@@ -9615,7 +9656,8 @@
     Output
       
         No amUnique object generated: 
-        Error    :  allelematch:  amCluster:  no clusters formed.  Please set cutHeight lower and run again. 
+        Error    :  allelematch: amCluster: no clusters formed. Please set cutHeight lower and run again. 
+        Test     :  test-allelematch_6-amUnique 
         Rejected :  amUnique(amdataExample4, cutHeight=1, doPsib="missing", consensusMethod=3) 
 
 ---
@@ -9667,6 +9709,7 @@
       
         No amUnique object generated: 
         Error    :  'x' must be atomic 
+        Test     :  test-allelematch_6-amUnique 
         Rejected :  amUnique(amdataExample4, cutHeight=1, doPsib="all", consensusMethod=1) 
 
 ---
@@ -9737,7 +9780,8 @@
     Output
       
         No amUnique object generated: 
-        Error    :  allelematch:  amCluster:  no clusters formed.  Please set cutHeight lower and run again. 
+        Error    :  allelematch: amCluster: no clusters formed. Please set cutHeight lower and run again. 
+        Test     :  test-allelematch_6-amUnique 
         Rejected :  amUnique(amdataExample4, cutHeight=1, doPsib="all", consensusMethod=3) 
 
 ---
@@ -10381,6 +10425,7 @@
       
         No amUnique object generated: 
         Error    :  'x' must be atomic 
+        Test     :  test-allelematch_6-amUnique 
         Rejected :  amUnique(amdataExample5, cutHeight=0.5, doPsib="missing", consensusMethod=1) 
 
 ---
@@ -10546,6 +10591,7 @@
       
         No amUnique object generated: 
         Error    :  'x' must be atomic 
+        Test     :  test-allelematch_6-amUnique 
         Rejected :  amUnique(amdataExample5, cutHeight=0.5, doPsib="all", consensusMethod=1) 
 
 ---
@@ -10711,6 +10757,7 @@
       
         No amUnique object generated: 
         Error    :  'x' must be atomic 
+        Test     :  test-allelematch_6-amUnique 
         Rejected :  amUnique(amdataExample5, cutHeight=0.7, doPsib="missing", consensusMethod=1) 
 
 ---
@@ -10845,6 +10892,7 @@
       
         No amUnique object generated: 
         Error    :  'x' must be atomic 
+        Test     :  test-allelematch_6-amUnique 
         Rejected :  amUnique(amdataExample5, cutHeight=0.7, doPsib="all", consensusMethod=1) 
 
 ---
@@ -10979,6 +11027,7 @@
       
         No amUnique object generated: 
         Error    :  'x' must be atomic 
+        Test     :  test-allelematch_6-amUnique 
         Rejected :  amUnique(amdataExample5, cutHeight=0.9, doPsib="missing", consensusMethod=1) 
 
 ---
@@ -11098,6 +11147,7 @@
       
         No amUnique object generated: 
         Error    :  'x' must be atomic 
+        Test     :  test-allelematch_6-amUnique 
         Rejected :  amUnique(amdataExample5, cutHeight=0.9, doPsib="all", consensusMethod=1) 
 
 ---
@@ -11217,6 +11267,7 @@
       
         No amUnique object generated: 
         Error    :  'x' must be atomic 
+        Test     :  test-allelematch_6-amUnique 
         Rejected :  amUnique(amdataExample5, cutHeight=0.95, doPsib="missing", consensusMethod=1) 
 
 ---
@@ -11336,6 +11387,7 @@
       
         No amUnique object generated: 
         Error    :  'x' must be atomic 
+        Test     :  test-allelematch_6-amUnique 
         Rejected :  amUnique(amdataExample5, cutHeight=0.95, doPsib="all", consensusMethod=1) 
 
 ---
@@ -11455,6 +11507,7 @@
       
         No amUnique object generated: 
         Error    :  'x' must be atomic 
+        Test     :  test-allelematch_6-amUnique 
         Rejected :  amUnique(amdataExample5, cutHeight=0.99, doPsib="missing", consensusMethod=1) 
 
 ---
@@ -11574,6 +11627,7 @@
       
         No amUnique object generated: 
         Error    :  'x' must be atomic 
+        Test     :  test-allelematch_6-amUnique 
         Rejected :  amUnique(amdataExample5, cutHeight=0.99, doPsib="all", consensusMethod=1) 
 
 ---
@@ -11693,6 +11747,7 @@
       
         No amUnique object generated: 
         Error    :  'x' must be atomic 
+        Test     :  test-allelematch_6-amUnique 
         Rejected :  amUnique(amdataExample5, cutHeight=1, doPsib="missing", consensusMethod=1) 
 
 ---
@@ -11812,6 +11867,7 @@
       
         No amUnique object generated: 
         Error    :  'x' must be atomic 
+        Test     :  test-allelematch_6-amUnique 
         Rejected :  amUnique(amdataExample5, cutHeight=1, doPsib="all", consensusMethod=1) 
 
 ---
