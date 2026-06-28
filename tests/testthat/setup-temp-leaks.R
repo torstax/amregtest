@@ -9,12 +9,17 @@
 
 withr::defer(
   {
+    keep_files <- toupper(Sys.getenv("ART_KEEP_LEAKED_FILES_IN_TEMP")) == "TRUE"
     if (length(.art_leaked) > 0) {
-      if (!interactive()) graphics.off()
+      # if (!interactive()) graphics.off()
+      #
+      # is_png <- grepl("\\.png$", .art_leaked, ignore.case = TRUE)
+      # keep   <- if (interactive()) .art_leaked[ is_png] else character(0)
+      # to_del <- if (interactive()) .art_leaked[!is_png] else .art_leaked
 
-      is_png <- grepl("\\.png$", .art_leaked, ignore.case = TRUE)
-      keep   <- if (interactive()) .art_leaked[ is_png] else character(0)
-      to_del <- if (interactive()) .art_leaked[!is_png] else .art_leaked
+      graphics.off()
+      keep   <- if (keep_files) .art_leaked  else character(0)
+      to_del <- if (keep_files) character(0) else .art_leaked
 
       if (length(to_del) > 0) {
         suppressWarnings(file.remove(to_del))
@@ -26,7 +31,7 @@ withr::defer(
       }
       if (length(keep) > 0) {
         message(sprintf(
-          "Keeping %d PNG TEMP file(s) for inspection:\n  %s",
+          "Keeping %d file(s) for inspection:\n  %s",
           length(keep),
           paste(keep, collapse = "\n  ")
         ))
