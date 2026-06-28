@@ -2,8 +2,9 @@
 
 0 errors ✔ | 0 warnings ✔ | 0 notes ✔
 
-This is a resubmission of amregtest, version 1.0.7, addressing two problems
-found in the CRAN check of version 1.0.6 on 2026-06-24.
+This is a resubmission of amregtest addressing two problems
+that were initially found in the CRAN check of version 1.0.6 on 2026-06-24
+and one more that was found in the CRAN check of 1.0.7 on 2026-06-25.
 
 ### Problem 1 — Test error in `test-allelematch_6-amUnique_negative.R`
 
@@ -57,12 +58,35 @@ close open graphics devices before attempting deletion. Files that are still
 held by an open `pdf()` or `png()` device cannot be removed on Windows, and
 the resulting warning was not suppressed at the top level.
 
-**Fix:** In non-interactive sessions (such as CRAN), `graphics.off()` is now
+**Fix:** Function `graphics.off()` is now
 called before file removal, closing any open graphics devices so that all
 locked files can be deleted. In interactive sessions, PNG files are
 intentionally preserved so that plots remain visible in the RStudio Plots
 pane; all other temporary files (HTML, PDF, …) are still removed. File
 removal warnings are suppressed consistently in both cases.
+
+---
+
+### Problem 3 — Multipple spaces from allelematch compressed to single spaces
+
+**Symptom:** On some CRAN test servers, amregtest reported expected error messages
+from allelematch as failed tests, because the messages contained less spaces 
+when they arrived at amregtest than they did when allelematch threw them 
+by calling 'stop'.
+
+The effected error message is the same as that from problem 1, but thrown 
+from other parts of the allelematch code:
+```
+Error: allelematch: amCluster: no clusters formed. Please set cutHeight lower and run again.
+```
+
+**Root cause:** Some combinations of updated software compresses multipple spaces
+to single spaces when the error message is passed from allelematch to amregtest.
+
+**Fix:** Let amregtest compress multipple spaces to single spaces 
+before matching them against the expected error message.
+This way the test will pass even if the error message has been compressed 
+to single spaces by external software.
 
 ---
 
