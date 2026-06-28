@@ -56,14 +56,17 @@ In file.remove(to_remove) :
 **Root cause:** The temporary file cleanup introduced in version 1.0.6 did not
 close open graphics devices before attempting deletion. Files that are still
 held by an open `pdf()` or `png()` device cannot be removed on Windows, and
-the resulting warning was not suppressed at the top level.
+the resulting warning was not suppressed at the top level. 
 
-**Fix:** Function `graphics.off()` is now
-called before file removal, closing any open graphics devices so that all
-locked files can be deleted. In interactive sessions, PNG files are
-intentionally preserved so that plots remain visible in the RStudio Plots
-pane; all other temporary files (HTML, PDF, …) are still removed. File
-removal warnings are suppressed consistently in both cases.
+Also, the attempt in 1.0.9 to delay the removal of all temporary files to the 
+end of the test suite with withr::defer() did not delete the files in time 
+before they were detected as leaked by the CRAN check.
+
+**Fix:** If the environment variable ART_KEEP_LEAKED_FILES_IN_TEMP is set, 
+the temporary files are preserved for inspection after the test suite.
+Function `graphics.off()` is now called before file removal, 
+closing any open graphics devices so that all
+locked files can be deleted. 
 
 ---
 
