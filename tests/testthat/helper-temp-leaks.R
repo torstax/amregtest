@@ -32,7 +32,7 @@ test_that <- function(desc, code) {
     if (.Platform$OS.type != "windows") {
       escaped_htm <- list.files(
         dirname(tempdir()),
-        pattern = paste0("^", basename(tempdir()), "\\\\"),
+        pattern = paste0("^", basename(tempdir()), "\\\\am.*\\.htm$"),
         full.names = TRUE
       )
       leaked <- c(leaked, escaped_htm)
