@@ -23,6 +23,20 @@ test_that <- function(desc, code) {
     after  <- list.files(tempdir(), recursive = TRUE, full.names = TRUE,
                          all.files = TRUE)
     leaked <- setdiff(after, before)
+
+    # On non-Windows, allelematch's amHTML.* functions build paths with a
+    # Windows-style "\" separator, e.g. paste(tempdir(), "\\", "amXXX.htm").
+    # Unix path parsing splits only on "/", so the file lands in
+    # dirname(tempdir()) with a name like "RtmpXXX\amXXX.htm" — one level
+    # above tempdir() and invisible to the scan above.  Catch those here.
+    if (.Platform$OS.type != "windows") {
+      escaped_htm <- list.files(
+        dirname(tempdir()),
+        pattern = paste0("^", basename(tempdir()), "\\\\"),
+        full.names = TRUE
+      )
+      leaked <- c(leaked, escaped_htm)
+    }
     leaked <- leaked[file.exists(leaked)]   # race-condition guard
     keep_files <- toupper(Sys.getenv("ART_KEEP_LEAKED_FILES_IN_TEMP")) == "TRUE"
 

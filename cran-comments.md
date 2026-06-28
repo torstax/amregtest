@@ -53,14 +53,18 @@ In file.remove(to_remove) :
   cannot remove file '.../pdf4ddc5aff2c10', reason 'Permission denied'
 ```
 
-**Root cause:** The temporary file cleanup introduced in version 1.0.6 did not
+**Root cause:** The allelematch code uses a the path to the temporary .htm file,
+
+```
+  oldTmpFiles <- Sys.glob(paste(htmlFilePath, "\\am*.htm", sep = ""))
+```
+
+that places the file one directory above the system temporary directory.
+
+Also, the temporary file cleanup introduced in version 1.0.6 did not
 close open graphics devices before attempting deletion. Files that are still
 held by an open `pdf()` or `png()` device cannot be removed on Windows, and
 the resulting warning was not suppressed at the top level. 
-
-Also, the attempt in 1.0.8 to delay the removal of all temporary files to the 
-end of the test suite with withr::defer() did not delete the files in time 
-before they were detected as leaked by the CRAN check.
 
 **Fix:** If the environment variable ART_KEEP_LEAKED_FILES_IN_TEMP is set, 
 the temporary files are preserved for inspection after the test suite.
