@@ -1,7 +1,7 @@
 Package: amregtest
 Title: Runs Allelematch Regression Tests
-Version: 1.0.10
-Date: 2026-06-28
+Version: 1.1.0
+Date: 2026-07-04
 Authors@R: c(
     person("Department of Wildlife, Fish and Environmental Studies at Swedish University of Agricultural Sciences",
            role = "cph"),
