@@ -3,7 +3,7 @@
 ## New features
 
 * Adapted to cosmetic backwards incompatibilities in allelematch 2.6.0:
- - Data set 'allelematch::amExamle5' changed because column name "gender" changed to "sex"
+ - Data set 'allelematch::amExample5' changed because column name "gender" changed to "sex"
  - Lot's of white space changes in the output from functions called 'print.XXX()' and 'amHTML.XXX()'.
  - Some white space changes in some abort messages from detection of parameter errors
 We still support the 2.5.X versions of allelematch.
