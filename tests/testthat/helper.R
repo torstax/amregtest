@@ -2,6 +2,14 @@
 ### Helper functions for the tests ###
 ######################################
 
+# Load the amregtest version of example data sets from this package
+# into the global environment. Needs to match the tests:
+data("amExample1", package = "amregtest", envir = .GlobalEnv)
+data("amExample2", package = "amregtest", envir = .GlobalEnv)
+data("amExample3", package = "amregtest", envir = .GlobalEnv)
+data("amExample4", package = "amregtest", envir = .GlobalEnv)
+data("amExample5", package = "amregtest", envir = .GlobalEnv)
+
 # Turns `...` into a string of <name>=<value> pairs
 helpArgToString <- function(...) {
   # form the `...` arguments into a string on the form "<name1>=<value1>, <name2>=<value2> ..."

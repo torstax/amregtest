@@ -9,18 +9,33 @@ test_that("We are running the 3rd edition of testthat", code = {
 test_that("amExamples have not changed in allelematch", {
 
     # Calculate a checksum for data stored under ./data/ in a package:
+    env <- environment() # Use a local environment to avoid polluting the global environment with data sets
     md5sum <- function(name, package) {
         stopifnot(is.character(name) && is.character(package))
-        utils::data(list = c(name), package=package)[1]
-        cs = digest::digest(get(name))
+        utils::data(list = c(name), package=package, envir = env)[1]
+        cs = digest::digest(get(name, envir = env))
         return(cs)
     }
+
+    # 2.6.0 of allelematch introduced some cosmetic changes,
+    # including changing the column name "gender" to "sex" in amExample5.
+    # This changed the md5sum for that data set, so we need to check the version
+    # of allelematch to know which md5sum to expect.
+    amversion <- packageVersion("allelematch")
 
     expect_identical(md5sum("amExample1", package="allelematch"), '25108ea88af5cc916ed887c82eb89840')
     expect_identical(md5sum("amExample2", package="allelematch"), 'a438a316c63bbc024c3fe0eb564c4edb')
     expect_identical(md5sum("amExample3", package="allelematch"), '242ef242fc6afd413d13f7f7739823af')
     expect_identical(md5sum("amExample4", package="allelematch"), 'd7a34f4319c15e8042fe01cdfed18bc3')
-    expect_identical(md5sum("amExample5", package="allelematch"), 'cce57ddcaaa4ae31902b6036a0a90f8e')
+    if(amversion < "2.6.0") { # Versions 2.5.5 and earlier had a different md5sum for amExample5
+      expect_identical(md5sum("amExample5", package="allelematch"), 'cce57ddcaaa4ae31902b6036a0a90f8e')
+    } else {
+      # Only difference is the change in one column name from "gender" to "sex":
+      expect_identical(md5sum("amExample5", package="allelematch"), '5f481f6287de5d5cc05277b645ba0642')
+    }
+
+    # Load the 2.5.5 version for use in our tests where we assume "gender":
+    data("amExample5", package="amregtest", envir = env) # Load the 2.5.5 version from amregtest
 
     expect_identical(dim(amExample1), c( 20L, 22L))
     expect_identical(dim(amExample2), c(148L, 22L))

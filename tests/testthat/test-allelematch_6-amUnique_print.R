@@ -22,26 +22,30 @@ test_that("Print", {
                          matchThreshold=0.7)
   sink()
 
+  # The print output changed with regards to spaces in 2.6.0 of allelematch:
+  amvariant <- as.character(packageVersion("allelematch")[1, 1:2])
+
   # Run each of the data sets through the tree ways to print the results:
   withr::local_options(width=200) # Allow longer lines for the summaries:
   for (obj in c("objMini", "objExample5", "objExample5b", "objExample5c")) {
 
     # Write the name of the amUnique object to the _snap file:
-    expect_snapshot(paste("About to exercise", obj))
+    expect_snapshot(paste("About to exercise", obj), variant=amvariant)
 
     # allelematch:  Console summary is not available for "amUnique" objects.
     # Please use summary.amUnique(x, html=TRUE) or summary.amUnique(x, csv="file.csv") options.
-    # expect_snapshot(summary.amUnique(get(obj)))
+    # expect_snapshot(summary.amUnique(get(obj)), variant=amvariant)
 
     # amCSV.amUnique should have the same output as before
     tmp = tempfile(paste(obj, "_", sep=""), fileext=".csv")
-    expect_snapshot(summary.amUnique(  get(obj), csv=tmp))
-    expect_snapshot(format(read.csv(tmp)))
+    expect_snapshot(summary.amUnique(  get(obj), csv=tmp), variant=amvariant)
+    expect_snapshot(format(read.csv(tmp)), variant=amvariant)
     file.remove(tmp)
 
     # amHTML.amUnique should have the same output as before
     tmp = tempfile(paste(obj, "_", sep=""), fileext=".html")
-    expect_snapshot(summary.amUnique( get(obj), html=tmp))
+    expect_snapshot(summary.amUnique( get(obj), html=tmp),
+                    variant=amvariant)
     expect_snapshot(
       cat(
         sub("summary generated: </b><em>.+?</em>",
@@ -50,7 +54,8 @@ test_that("Print", {
                 readLines(tmp, warn=FALSE),
                 perl=TRUE),
             perl=TRUE),
-        sep="\n")
+        sep="\n"),
+      variant=amvariant
     )
     file.remove(tmp)
   }
