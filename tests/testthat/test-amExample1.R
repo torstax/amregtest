@@ -16,11 +16,12 @@ test_that("amExample1 from pg 5 in allelematchSuppDoc.pdf is 2.5.3 compatible", 
     # Test the results within curly brackets ("{ ... }") below the instructions.
     data("amExample1")
     expect_snapshot(
-        example1 <- amDataset(amExample1, indexColumn="sampleId", ignoreColumn="knownIndividual", missingCode="-99")
+        example1 <- amDataset(amExample1, indexColumn="sampleId", ignoreColumn="knownIndividual", missingCode="-99"),
+        variant = amvariant
     )
     {
         # Ensure that the result is still the same as that from 2.5.3:
-        expect_snapshot_value(example1, style="deparse")
+        expect_snapshot_value(example1, style="deparse", variant = amvariant)
     }
 
     output <- capture.output(
@@ -30,21 +31,22 @@ test_that("amExample1 from pg 5 in allelematchSuppDoc.pdf is 2.5.3 compatible", 
         # Ensure that the result is still the same as that from 2.5.3:
         # cat("\nOutput from amUniqueProfile:\n", output, "\nEnd of output\n", sep="\n    ")
 
-        testthat::expect_match(output, "missing data load for input dataset is 0.005 ", fixed=TRUE, all=FALSE)
-        testthat::expect_match(output, "allelic diversity for input dataset is 6.1 ", fixed=TRUE, all=FALSE)
+        testthat::expect_match(output, "missing data load for input dataset is 0\\.005\\b", all=FALSE)
+        testthat::expect_match(output, "allelic diversity for input dataset is 6\\.1\\b", all=FALSE)
         testthat::expect_match(output, "Best guess for optimal parameter at alleleMismatch=2 OR matchThreshold=0.9 OR cutHeight=0.1", fixed=TRUE, all=FALSE)
-        testthat::expect_match(output, "Best guess for optimal parameter at alleleMismatch=2 OR matchThreshold=0.9 OR cutHeight=0.1$", all=FALSE)
+        testthat::expect_match(output, "Best guess for optimal parameter at alleleMismatch=2 OR matchThreshold=0.9 OR cutHeight=0\\.1$", all=FALSE)
         testthat::expect_match(output, "Best guess for unique profile morphology: ZeroSecondMinimum", fixed=TRUE, all=FALSE)
     }
 
     expect_snapshot(
         uniqueExample1 <- amUnique(example1, alleleMismatch=2, verbose=FALSE), # TODO : Default of verbose changed in 2.5.4
+        variant = amvariant
     )
     {
         # testthat::expect_match(output, "assuming genotype columns are in pairs, representing 10 loci$", all=FALSE)
 
         # Ensure that the result is still the same as that from 2.5.3:
-        expect_snapshot_value(uniqueExample1, style="deparse")
+        expect_snapshot_value(uniqueExample1, style="deparse", variant = amvariant)
     }
 
     if(HTML) {
@@ -55,7 +57,8 @@ test_that("amExample1 from pg 5 in allelematchSuppDoc.pdf is 2.5.3 compatible", 
     }
 
     expect_snapshot(
-        summary.amUnique(uniqueExample1, csv=summaryFile <- tempfile("example1_1.csv"))
+        summary.amUnique(uniqueExample1, csv=summaryFile <- tempfile("example1_1.csv")),
+        variant = amvariant
     )
     {
         # Note that the example from allelematchSuppDoc.pdf, summary(uniqueExample1, csv="example1_1.csv"),
@@ -64,14 +67,16 @@ test_that("amExample1 from pg 5 in allelematchSuppDoc.pdf is 2.5.3 compatible", 
         # We add the "summaryFile <- tempfile("example1_1.csv")" to avoid that tests generate unwanted files in the workspace.
 
         # Ensure that the result is still the same as that from 2.5.3
-        expect_snapshot_value(read.csv(summaryFile, colClasses="character"), style="deparse")
+        expect_snapshot_value(read.csv(summaryFile, colClasses="character"),
+                              style="deparse", variant = amvariant)
         file.remove(summaryFile)
     }
 
     summary.amUnique(uniqueExample1, csv=summaryFile <- tempfile("example1_2.csv"), uniqueOnly=TRUE)
     {
         # Ensure that the result is still the same as that from 2.5.3
-        expect_snapshot_value(read.csv(file=summaryFile, colClasses="character"), style="deparse")
+        expect_snapshot_value(read.csv(file=summaryFile, colClasses="character"),
+                              style="deparse", variant = amvariant)
         file.remove(summaryFile)
     }
 
@@ -79,7 +84,7 @@ test_that("amExample1 from pg 5 in allelematchSuppDoc.pdf is 2.5.3 compatible", 
       metaDataColumn="knownIndividual", missingCode="-99")
     {
         # Ensure that the result is still the same as that from 2.5.3:
-        expect_snapshot_value(example1chk, style="deparse")
+        expect_snapshot_value(example1chk, style="deparse", variant = amvariant)
     }
 
 
@@ -90,7 +95,7 @@ test_that("amExample1 from pg 5 in allelematchSuppDoc.pdf is 2.5.3 compatible", 
         testthat::expect_match(output, "assuming genotype columns are in pairs, representing 10 loci$", all=FALSE)
 
         # Ensure that the result is still the same as that from 2.5.3:
-        expect_snapshot_value(uniqueExample1chk, style="deparse")
+        expect_snapshot_value(uniqueExample1chk, style="deparse", variant = amvariant)
     }
 
     if(HTML) {

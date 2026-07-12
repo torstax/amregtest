@@ -19,7 +19,7 @@ test_that("amExample3 results from pg 10 in allelematchSuppDoc.pdf are 2.5.3 com
       metaDataColumn="knownIndividual", missingCode="-99")
     {
         # Ensure that the result is still the same as that from 2.5.3:
-        expect_snapshot_value(example3, style="deparse")
+        expect_snapshot_value(example3, style="deparse", variant = amvariant)
     }
 
     output = capture.output(
@@ -29,8 +29,8 @@ test_that("amExample3 results from pg 10 in allelematchSuppDoc.pdf are 2.5.3 com
         # Ensure that the result is still the same as that from 2.5.3:
         # cat("\nOutput from amUniqueProfile:\n", output, "\nEnd of output\n", sep="\n    ")
 
-        testthat::expect_match(output, "missing data load for input dataset is 0.097 ", fixed=TRUE, all=FALSE)
-        testthat::expect_match(output, "allelic diversity for input dataset is 8.2 ", fixed=TRUE, all=FALSE)
+        testthat::expect_match(output, "missing data load for input dataset is 0\\.097\\b", all=FALSE)
+        testthat::expect_match(output, "allelic diversity for input dataset is 8\\.2\\b", all=FALSE)
         testthat::expect_match(output, "Best guess for optimal parameter at alleleMismatch=6 OR matchThreshold=0.7 OR cutHeight=0.3$", all=FALSE)
         testthat::expect_match(output, "Best guess for unique profile morphology: NonZeroSecondMinimum$", all=FALSE)
         testthat::expect_match(output, "Use extra caution.", fixed=TRUE, all=FALSE)
@@ -43,13 +43,13 @@ test_that("amExample3 results from pg 10 in allelematchSuppDoc.pdf are 2.5.3 com
         testthat::expect_match(output, "assuming genotype columns are in pairs, representing 10 loci$", all=FALSE)
 
         # Ensure that the result is still the same as that from 2.5.3:
-        expect_snapshot_value(uniqueExample3, style="deparse")
+        expect_snapshot_value(uniqueExample3, style="deparse", variant = amvariant)
 
         # Generate a summary file:
         summary.amUnique(uniqueExample3, csv=summaryFile <- tempfile("example3_1.csv"))
 
         # Ensure that the result is still the same as that from 2.5.3
-        expect_snapshot_value(read.csv(file=summaryFile, colClasses="character"), style="deparse")
+        expect_snapshot_value(read.csv(file=summaryFile, colClasses="character"), style="deparse", variant = amvariant)
         file.remove(summaryFile)
     }
 
@@ -66,13 +66,14 @@ test_that("amExample3 results from pg 10 in allelematchSuppDoc.pdf are 2.5.3 com
         # testthat::expect_match(output, "^$", perl=TRUE, all=FALSE) # (Empty output)
 
         # Ensure that the result is still the same as that from 2.5.3:
-        expect_snapshot_value(unclassifiedExample3, style="deparse")
+        expect_snapshot_value(unclassifiedExample3, style="deparse", variant = amvariant)
 
         # Generate a summary file:
         summary.amPairwise(unclassifiedExample3, csv=summaryFile <- tempfile("example3_2.csv"))
 
         # Ensure that the result is still the same as that from 2.5.3
-        expect_snapshot_value(read.csv(file=summaryFile, colClasses="character"), style="deparse")
+        expect_snapshot_value(read.csv(file=summaryFile, colClasses="character"),
+                              style="deparse", variant = amvariant)
         file.remove(summaryFile)
     }
 
@@ -89,13 +90,14 @@ test_that("amExample3 results from pg 10 in allelematchSuppDoc.pdf are 2.5.3 com
         # testthat::expect_match(output, "^$", all=FALSE) # (Empty output)
 
         # Ensure that the result is still the same as that from 2.5.3:
-        expect_snapshot_value(multipleMatchExample3, style="deparse")
+        expect_snapshot_value(multipleMatchExample3, style="deparse", variant = amvariant)
 
         # Generate a summary file:
         summary.amPairwise(multipleMatchExample3, csv=summaryFile <- tempfile("example3_3.csv"))
 
         # Re-read the generated .csv file:
-        expect_snapshot_value(read.csv(file=summaryFile, colClasses="character"), style="deparse")
+        expect_snapshot_value(read.csv(file=summaryFile, colClasses="character"),
+                              style="deparse", variant = amvariant)
         file.remove(summaryFile)
     }
 

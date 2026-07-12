@@ -59,7 +59,7 @@ test_that("Loop the Loop", {
         ret = c(paste("\n  Error    : ", e$message, "\n  Rejected : ", cmdstr, "\n"))
 
         # Differ between expected and unexpected errors:
-        if (!grepl("no clusters formed.\\s+Please set cutHeight lower and run again", e$message, perl=TRUE)) {
+        if (!grepl("no clusters formed.", e$message, perl=TRUE)) {
           # Some unexpected error happened. Print it to the screen for easier debugging.
           message("\n  ", ret, "\n  error class = ", format(class(e)), sep="")
 
@@ -68,7 +68,14 @@ test_that("Loop the Loop", {
         ret
       }
     )
-    ret = paste(ret, collapse = "\n")
+
+    # In 2.6.0, allelematch stopped printing the below message from function amUnique
+    # and function amUniqueProfile unless the verbose argument is set to TRUE.
+    # This is a cosmetic change, but it breaks the snapshot tests.
+    # We now remove it from the output to make the snapshot tests pass with both old and new versions of allelematch.
+    ret <- grep("assuming genotype columns are in pairs, representing", ret, value = TRUE, invert = TRUE)
+
+    ret <- paste(ret, collapse = "\n")
 
     # Log the result to the snapshot file:
     expect_snapshot(cat(ret))

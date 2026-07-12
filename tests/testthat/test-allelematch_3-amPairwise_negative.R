@@ -11,7 +11,7 @@ test_that("Validation of arguments to amPairwise() is working", {
   {
     expect_snapshot(print(miniExample1))
     expect_snapshot(amdataMini1 <- amDataset(miniExample1))
-    expect_snapshot(print.amDataset(amdataMini1))
+    expect_snapshot(print.amDataset(amdataMini1), variant = amvariant)
     expect_snapshot_value(amdataMini1, style="json2")
 
     expect_identical(class(amdataMini1), "amDataset")
@@ -29,7 +29,7 @@ test_that("Validation of arguments to amPairwise() is working", {
   {
     expect_snapshot(print(oddExample2))
     expect_snapshot(amdataOdd2 <- amDataset(oddExample2))
-    expect_snapshot(print.amDataset(amdataOdd2))
+    expect_snapshot(print.amDataset(amdataOdd2), variant = amvariant)
     expect_snapshot_value(amdataOdd2, style = "json2")
   }
 

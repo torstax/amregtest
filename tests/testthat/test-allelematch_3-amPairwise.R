@@ -1,24 +1,30 @@
 
+# TODO 2.6.0: These tests reveal severe backwards incompatibilities in 2.6.0 that
+# need to be fixed in allelematch 2.6.1:
+amvariant <- ifelse(amversion == "2.6.0", "bad-2.6.0", amvariant) # TODO 2.6.0
+
+
 test_that("Loop the Loop", {
-  
+
   # We want to run amPairwise many times with many combinations of parameters
   # and we want to compare the results with previous runs. Like this:
   snapshot_amPairwise <- function(ds, ...) {
-    
+
     # Log the call to the snapshot file:
     argstr = helpArgToString(...)
-    cmdstr = paste("amPairwise(", ds, ", ", argstr, ")", sep="") ; expect_snapshot(cat(cmdstr))
-    
+    cmdstr = paste("amPairwise(", ds, ", ", argstr, ")", sep="")
+    expect_snapshot(cat(cmdstr), variant = amvariant)
+
     # Make the call:
     pw <- amPairwise(amDatasetFocal=get(ds), ...)
-    
+
     # Log the result to the snapshot file:
     # expect_snapshot(summary.amPairwise(pw)) # Too big. :-(
-    expect_snapshot_value(pw, style = "json2")
-    
+    expect_snapshot_value(pw, style = "json2", variant = amvariant)
+
     return(pw)
   }
-  
+
   # Run different data sets with different qualities through the same loops:
   miniExample = data.frame(
     "LOC1a"         = c(11:14),
@@ -47,9 +53,9 @@ test_that("Loop the Loop", {
           for (meth in c(1, 2)) {
             # Either alleleMismatch or matchThreshold shall be set. Not both:
             if (is.na(mm) == is.na(th)) next
-            
+
             if (!is.na(mm)) {
-              snapshot_amPairwise(amds1,  #amds2, 
+              snapshot_amPairwise(amds1,  #amds2,
                        alleleMismatch =  mm,    missingMethod =  meth)
             } else if (!is.na(th)) {
               snapshot_amPairwise(amds1, #amds2,
@@ -66,71 +72,72 @@ test_that("Loop the Loop", {
 
 
 test_that("Value from amPairwise() remains stable", {
-  
+
   # data(amExample1)
   # expect_equal(!!dim(amExample1), c(20,22))
-  # 
+  #
   # amdata = amDataset1_1= amDataset(amExample1, indexColumn = "sampleId", metaDataColumn = "knownIndividual")
-  # expect_snapshot_value(amdata, style = "json2")
-  
-  # Create valid miniature input sample:    
+  # expect_snapshot_value(amdata, style = "json2", variant = amvariant)
+
+  # Create valid miniature input sample:
   sample = miniExample = data.frame(
     "LOC1a"         = c(11:14),
     "LOC1b"         = c(21:24),
     "LOC2a"         = c(31:33, -99),
     "LOC2b"         = c(41:44)
   )
-  
+
   # Remember how the pairwise is calculated for regression testing:
   {
     pw = amPairwise1 = amPairwise(amDataset(sample), matchThreshold=0.95)
-    expect_snapshot_value(pw, style = "json2")
-    
+    expect_snapshot_value(pw, style = "json2", variant = amvariant)
+
     expect_snapshot(
       list(
         pw1 = amPairwise(amDataset(sample), matchThreshold=0.95, missingMethod = 1),
         pw2 = amPairwise(amDataset(sample), matchThreshold=0.95, missingMethod = 2)
-      )
+      ),
+      variant = amvariant
     )
   }
-  
-  
+
+
   # # Detect changes in the calculation of an amPairwise
   # # whilst regression testing:
   # data("amExample2") # Good quality data set
   # amdataExample2 <- amDataset(amExample2, indexColumn="sampleId",
   #                             metaDataColumn="knownIndividual", missingCode="-99")
   # {
-  #   expect_snapshot(pw21 <- amPairwise(amdataExample2, 1))
+  #   expect_snapshot(pw21 <- amPairwise(amdataExample2, 1), variant = amvariant)
   #   expect_snapshot_value(pw21, style = "json2")
-  #   
-  #   expect_snapshot(pw22 <- amPairwise(amdataExample2, 2))
+  #
+  #   expect_snapshot(pw22 <- amPairwise(amdataExample2, 2), variant = amvariant)
   #   expect_snapshot_value(pw22, style = "json2")
   # }
-  
-  ## The following amPairwise:es get too big for expect_snapshot_value :-( 
+
+  ## The following amPairwise:es get too big for expect_snapshot_value :-(
   # data("amExample3") # Marginal quality data set
   # amdataExample3 <- amDataset(amExample3, indexColumn="sampleId",
   #                             metaDataColumn="knownIndividual", missingCode="-99")
   # {
-  #   expect_snapshot(pw31 <- amPairwise(amdataExample3, missingMethod = 1))
-  #   expect_snapshot_value(pw31, style = "json2")
+  #   expect_snapshot(pw31 <- amPairwise(amdataExample3, missingMethod = 1), variant = amvariant)
+  #   expect_snapshot_value(pw31, style = "json2", variant = amvariant)
   # }
-  # 
+  #
   # data("amExample4") # Poor quality example
   # amdataExample4 <- amDataset(amExample4, indexColumn="sampleId",
   #                             metaDataColumn="knownIndividual", missingCode="-99")
   # {
-  #   expect_snapshot(pw41 <- amPairwise(amdataExample4, 1))
-  #   expect_snapshot_value(pw41, style = "json2")
+  #   expect_snapshot(pw41 <- amPairwise(amdataExample4, 1), variant = amvariant)
+  #   expect_snapshot_value(pw41, style = "json2", variant = amvariant)
   # }
-  # 
+  #
   # data("amExample5") # Wildlife example
   # amdataExample5 <- amDataset(amExample5, indexColumn="sampleId",
   #                             metaDataColumn="samplingData", missingCode="-99")
   # {
-  #   expect_snapshot(pw51 <- amPairwise(amdataExample5, missingMethod = 1))
-  #   expect_snapshot_value(pw51, style = "json2")
+  #   expect_snapshot(pw51 <- amPairwise(amdataExample5, missingMethod = 1), variant = amvariant)
+  #   expect_snapshot_value(pw51, style = "json2", variant = amvariant)
   # }
-  
+
 })

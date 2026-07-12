@@ -20,7 +20,7 @@ test_that("Validation of arguments to amMatrix() is working", {
   {
     expect_snapshot(print(miniExample))
     expect_snapshot(amdataMini <- amDataset(miniExample))
-    expect_snapshot(print.amDataset(amdataMini))
+    expect_snapshot(print.amDataset(amdataMini), variant = amvariant)
   }
 
   # Use the valid amdata to test blocking of other invalid arguments:

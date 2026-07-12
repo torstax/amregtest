@@ -75,12 +75,12 @@ test_that("See how an object of class amDataset is built:", {
                      as.data.frame(list(sampleId = 1L, knownIndividual = "A", "dismiss." = "Rain",
                           LOC1a = 11L, LOC1b = 21L, LOC2a = 31, LOC2b = 41L)))
 
-    expect_snapshot(print(miniExample))
+    expect_snapshot(print(miniExample), variant = amvariant)
   }
 
   # Make amDataset with all optional parameters defaulted:
   expect_snapshot(miniDataset1 <- amDataset(miniExample))
-  expect_snapshot(print.amDataset(miniDataset1))
+  expect_snapshot(print.amDataset(miniDataset1), variant = amvariant)
   {
     amDataset = miniDataset1
     expect_identical(!!class(amDataset), "amDataset")
@@ -110,7 +110,7 @@ test_that("See how an object of class amDataset is built:", {
 
   # Make amDataset with all optional parameters set:
   expect_snapshot(miniDataset2 <- amDataset(miniExample, missingCode="-88", indexColumn="sampleId", metaDataColumn="knownIndividual", ignoreColumn="dismiss."))
-  expect_snapshot(print.amDataset(miniDataset2))
+  expect_snapshot(print.amDataset(miniDataset2), variant = amvariant)
   {
     amDataset = miniDataset2
     expect_identical(!!class(amDataset), "amDataset")
@@ -133,7 +133,7 @@ test_that("See how an object of class amDataset is built:", {
 
   # Make amDataset with all column parameters set as integers rather than characters:
   expect_snapshot(miniDataset3 <- amDataset(miniExample, missingCode="-88", indexColumn=1, metaDataColumn=2, ignoreColumn=3))
-  expect_snapshot(print.amDataset(miniDataset2))
+  expect_snapshot(print.amDataset(miniDataset2), variant = amvariant)
   {
     # TODO : Catch none-character values for missingCode!!
     amDataset = miniDataset3
@@ -170,20 +170,20 @@ test_that("Different data types for arg to 'missingCode' give same result", {
   }
 
   # Make sure that both missingCode and data are stored as character:
-  expect_snapshot(ds1 <- amDataset(sample, missingCode = "NA"))
+  expect_snapshot(ds1 <- amDataset(sample, missingCode = "NA"), variant = amvariant)
   {
     ds = ds1
     expect_identical(ds$missingCode, "NA")
     expect_type(ds$multilocus, "character")
     expect_identical(sum(unlist(ds$multilocus) == "NA"), 3L) # All 3 NA values now as strings
-    expect_snapshot_value(ds, style = "deparse") # style "json2" de-serializes "NA" to NA
+    expect_snapshot_value(ds, style = "deparse", variant = amvariant) # style "json2" de-serializes "NA" to NA
   }
 
   # Make sure arg missingCode = NA is converted to $missingCode="NA"
-  expect_snapshot(ds2 <- amDataset(sample, missingCode = NA))
+  expect_snapshot(ds2 <- amDataset(sample, missingCode = NA), variant = amvariant)
   {
     ds = ds2
-    expect_snapshot_value(ds, style = "deparse")  # style "json2" de-serializes "NA" to NA
+    expect_snapshot_value(ds, style = "deparse", variant = amvariant)  # style "json2" de-serializes "NA" to NA
     expect_identical(ds$missingCode, "NA")
     expect_type(ds$multilocus, "character")
     expect_identical(sum(is.na(ds$multilocus)), 0L)

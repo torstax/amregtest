@@ -22,7 +22,8 @@ test_that("amUnique(matchThreshold=0.9) for dataset ggSample", code = {
     expect_identical(dim(ggSample), c(1658L, 187L))
 
     # Load the sample into an allelematch amDataset:
-    expect_snapshot(ggDataset <- allelematch::amDataset(ggSample, indexColumn=1, missingCode="-99"))
+    expect_snapshot(ggDataset <- allelematch::amDataset(ggSample, indexColumn=1, missingCode="-99"),
+                    variant = amvariant)
 
     # We want to run amUnique many times with many combinations of parameters,
     # and we want to compare the results with previous runs. Like this:
@@ -30,7 +31,7 @@ test_that("amUnique(matchThreshold=0.9) for dataset ggSample", code = {
 
         # Log the call to the snapshot file:
         argstr = helpArgToString(...)
-        cmdstr = paste("obj <- amUnique(", ds, ", ", argstr, ")", sep="") ; expect_snapshot(cat(cmdstr))
+        cmdstr = paste("obj <- amUnique(", ds, ", ", argstr, ")", sep="") ; expect_snapshot(cat(cmdstr), variant = amvariant)
 
         # Make the call to allelematch:
         sink(nullfile()) # Block output from 'cat' within allelematch
@@ -39,8 +40,8 @@ test_that("amUnique(matchThreshold=0.9) for dataset ggSample", code = {
 
         # amCSV.amUnique should have the same output as before
         tmp = tempfile(paste(ds, "_", sep=""), fileext=".csv")
-        expect_snapshot(summary.amUnique(obj, csv=tmp))
-        expect_snapshot(format(read.csv(tmp)))
+        expect_snapshot(summary.amUnique(obj, csv=tmp), variant = amvariant)
+        expect_snapshot(format(read.csv(tmp)), variant = amvariant)
         file.remove(tmp)
 
         # # amHTML.amUnique should have the same output as before
@@ -54,7 +55,8 @@ test_that("amUnique(matchThreshold=0.9) for dataset ggSample", code = {
         #                  readLines(tmp, warn=FALSE),
         #                  perl=TRUE),
         #             perl=TRUE),
-        #         sep="\n")
+        #         sep="\n"),
+        #     variant = amvariant
         #
         # )
         # file.remove(tmp)

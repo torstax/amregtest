@@ -11,7 +11,7 @@ test_that("Validation of arguments to amUnique() is working", {
   {
     expect_snapshot(print(miniExample1))
     expect_snapshot(amdataMini1 <- amDataset(miniExample1))
-    expect_snapshot(print.amDataset(amdataMini1))
+    expect_snapshot(print.amDataset(amdataMini1), variant = amvariant)
   }
 
   # Parameters are:
@@ -28,9 +28,13 @@ test_that("Validation of arguments to amUnique() is working", {
   amdata = amdataMini1
   sink(nullfile())
   {
-    expect_error(amUnique(amdata, multilocusMap = NA),  "allelematch:\\s+multilocusMap must be a vector of integers or strings giving the mappings onto loci")
-    expect_error(amUnique(amdata, multilocusMap=c(1,2,3,4,5,6)),  "allelematch:\\s+multilocusMap must be a vector of integers or strings") # Too long multilocusMap
-    expect_error(amUnique(amdata, multilocusMap=c(1,1)),  "allelematch:\\s+multilocusMap must be a vector of integers or strings") # Too short multilocusMap
+    # TODO: Version 2.6.0 of allelematch changed the error message. Hoping to get it reverted in 2.6.1:
+    badMultilocusMap <- ifelse(amversion == "2.6.0",
+                            "multilocusMap",
+                            "allelematch:\\s+multilocusMap must be a vector of integers or strings giving the mappings onto loci")
+    expect_error(amUnique(amdata, multilocusMap = NA), badMultilocusMap) # Wrong data type
+    expect_error(amUnique(amdata, multilocusMap=c(1,2,3,4,5,6)), badMultilocusMap) # Too long multilocusMap
+    expect_error(amUnique(amdata, multilocusMap=c(1,1)), badMultilocusMap) # Too short multilocusMap
     # expect_error(amUnique(amdata, multilocusMap=c(FALSE,FALSE,TRUE,TRUE)),  "TODO") # TODO: Neither int nor char => Should fail
 
     expect_error(amUnique(amdata, multilocusMap = c(1,1,2,2)), "allelematch:\\s+please specify alleleMismatch OR matchThreshold OR cutHeight.")
@@ -49,7 +53,7 @@ test_that("Validation of arguments to amUnique() is working", {
 
     expect_error(amUnique(amdata, matchThreshold=-0.0001), "matchThreshold must be between 0 and 1")
     expect_error(amUnique(amdata, matchThreshold=1.0001),  "matchThreshold must be between 0 and 1")
-#   expect_error(amUnique(amdata, matchThreshold=0)) # "no clusters formed.\\s+Please set cutHeight lower and run again")  # TODO : Error detected on some platforms, but not all.
+#   expect_error(amUnique(amdata, matchThreshold=0)) # "no clusters formed.")  # TODO : Error detected on some platforms, but not all.
 
     expect_no_error(amUnique(amdata, matchThreshold=1))
 

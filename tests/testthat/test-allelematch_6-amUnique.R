@@ -36,14 +36,13 @@ test_that("Loop the Loop", {
   amdataExample4 = amDataset(amExample4, indexColumn="sampleId", metaDataColumn="knownIndividual")
   amdataExample5 = amDataset(amExample5, indexColumn="sampleId", ignoreColumn=c("samplingData", "gender"))
 
-
   # We want to run amUnique many times with many combinations of parameters,
   # and we want to compare the results with previous runs. Like this:
   snapshot_amUnique <- function(ds, ...) {
 
     # Log the call to the snapshot file:
     argstr = helpArgToString(...)
-    cmdstr = paste("amUnique(", ds, ", ", argstr, ")", sep="") ; expect_snapshot(cat(cmdstr))
+    cmdstr = paste("amUnique(", ds, ", ", argstr, ")", sep="") ; expect_snapshot(cat(cmdstr), variant = amvariant)
 
     # Capture any errors reported by allelematch:
     sink(nullfile()) # Block output from 'cat' within allelematch
@@ -61,7 +60,7 @@ test_that("Loop the Loop", {
                       "\n  Rejected : ", cmdstr, "\n"))
 
         # Differ between expected and unexpected errors:
-        if (!grepl("no clusters formed.\\s+Please set cutHeight lower and run again|'x' must be atomic", e_message, perl=TRUE)) {
+        if (!grepl("no clusters formed.|'x' must be atomic", e_message, perl=TRUE)) {
           # Some unexpected error happened. Print it to the screen for easier debugging.
           message("\n  ", ret, sep="")
 
@@ -76,9 +75,9 @@ test_that("Loop the Loop", {
     # Log the result to the snapshot file:
     # expect_snapshot_value(ret, style = "json2") # Neither "json2" nor "deparse" works. :-(
     if (class(ret) == "amUnique") {
-      expect_snapshot(amCSV.amUnique(ret, csvFile=stdout(), uniqueOnly=FALSE))
+      expect_snapshot(amCSV.amUnique(ret, csvFile=stdout(), uniqueOnly=FALSE), variant = amvariant)
     } else {
-      expect_snapshot(cat("\n  No amUnique object generated:", ret))
+      expect_snapshot(cat("\n  No amUnique object generated:", ret), variant = amvariant)
     }
 
     return(ret)

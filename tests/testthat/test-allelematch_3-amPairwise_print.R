@@ -17,9 +17,6 @@ test_that("Print", {
   objExample5 = amPairwise(amDataset(amExample5, indexColumn="sampleId", ignoreColumn=c("samplingData", "gender")), alleleMismatch=0.5)
   objExample5b= amPairwise(amDataset(amExample5, indexColumn="sampleId"), alleleMismatch=0.5)
 
-  # The print output changed with regards to spaces in 2.6.0 of allelematch:
-  amvariant <- as.character(packageVersion("allelematch")[1, 1:2])
-
   # Run each of the data sets through the tree ways to print the results:
   withr::local_options(width=200) # Allow longer lines for the summaries:
   for (obj in c("objMini", "objExample5", "objExample5b")) {
