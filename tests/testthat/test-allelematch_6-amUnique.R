@@ -54,7 +54,7 @@ test_that("Loop the Loop", {
       ## If the call fails, return the error message and
       ## the method and arguments that threw the error:
       error = function(e) {
-        e_message <- trimws(gsub("[ \t]+", " ", e$message)) # Work around space changes with never versions
+        e_message <- helpModernizeMsgs(e$message) # addapt to changes in allelematch messages in 2.6.0
         ret = c(paste("\n  Error    : ", e_message,
                       "\n  Test     : ", "test-allelematch_6-amUnique",
                       "\n  Rejected : ", cmdstr, "\n"))
