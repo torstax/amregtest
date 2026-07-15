@@ -5,8 +5,7 @@ test_that("Loop the Loop - amExample2", {
   # need to be fixed in allelematch 2.6.1:
   amvariant <- ifelse(amversion == "2.6.0", "bad-2.6.0", amvariant) # TODO 2.6.0
 
-  data("amExample2")
-  amExample2    <- amExample2[1:20, ] # Keep first 20 rows to save time and disk
+  amExample2 <- ro$amExample2[1:20, ] # Keep first 20 rows to save time and disk
   amdataExample2 <- amDataset(amExample2, indexColumn = "sampleId", metaDataColumn = "knownIndividual")
 
   sink(nullfile())

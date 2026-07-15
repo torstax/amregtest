@@ -8,11 +8,11 @@ test_that("Loop the Loop", {
     "LOC2a"         = c(31:33, -99),
     "LOC2b"         = c(41:44)
   )
-  data("amExample1")
-  data("amExample2") ; amExample2 = amExample2[c(1:20),] # Just keep the first 20 rows to save speed and disk
-  data("amExample3") ; amExample3 = amExample3[c(1:20),] # Just keep the first 20 rows to save speed and disk
-  data("amExample4") ; amExample4 = amExample4[c(1:20),] # Just keep the first 20 rows to save speed and disk
-  data("amExample5") ; amExample5 = amExample5[c(1:20),] # Just keep the first 20 rows to save speed and disk
+  amExample1 <- ro$amExample1
+  amExample2 <- ro$amExample2[1:20, ] # Just keep the first 20 rows to save speed and disk
+  amExample3 <- ro$amExample3[1:20, ] # Just keep the first 20 rows to save speed and disk
+  amExample4 <- ro$amExample4[1:20, ] # Just keep the first 20 rows to save speed and disk
+  amExample5 <- ro$amExample5[1:20, ] # Just keep the first 20 rows to save speed and disk
 
   amdataMini     = amDataset(miniExample)
   amdataExample1 = amDataset(amExample1, indexColumn="sampleId", metaDataColumn="knownIndividual")

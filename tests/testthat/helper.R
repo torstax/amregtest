@@ -3,13 +3,18 @@
 ######################################
 library(allelematch)
 
-# Load the amregtest version of example data sets from this package
-# into the global environment. Needs to match the tests:
-data("amExample1", package = "amregtest", envir = .GlobalEnv)
-data("amExample2", package = "amregtest", envir = .GlobalEnv)
-data("amExample3", package = "amregtest", envir = .GlobalEnv)
-data("amExample4", package = "amregtest", envir = .GlobalEnv)
-data("amExample5", package = "amregtest", envir = .GlobalEnv)
+# Load the amregtest version of example data sets into a locked, read-only
+# environment `ro`. Tests reference ro$amExample1 etc., or take a local copy.
+# Locking prevents any bare data("amExampleN") call in a test from silently
+# overwriting the shared data with the allelematch version.
+ro <- new.env(parent = emptyenv())
+data("amExample1", package = "amregtest", envir = ro)
+data("amExample2", package = "amregtest", envir = ro)
+data("amExample3", package = "amregtest", envir = ro)
+data("amExample4", package = "amregtest", envir = ro)
+data("amExample5", package = "amregtest", envir = ro)
+#data("ggSample",  package = "amregtest", envir = ro) # Only load this if you need it. It is a very large data set.
+lockEnvironment(ro, bindings = TRUE)
 
 # Turns `...` into a string of <name>=<value> pairs
 helpArgToString <- function(...) {

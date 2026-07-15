@@ -12,7 +12,7 @@ test_that("Print", {
     "LOC2a"         = c(31:33, -99),
     "LOC2b"         = c(41:44)
   )
-  data("amExample5") ; amExample5 = amExample5[c(1:20),] # Just keep the first 20 rows to save speed and disk
+  amExample5 <- ro$amExample5[1:20, ] # Just keep the first 20 rows to save speed and disk
 
   sink(nullfile()) # Drop cat output to stdout
   objMini     = amUnique(amDataset(miniExample), matchThreshold=0.5)
@@ -42,7 +42,7 @@ test_that("Print", {
 
     # amHTML.amUnique should have the same output as before
     tmp = tempfile(paste(obj, "_", sep=""), fileext=".html")
-    expect_snapshot(summary.amUnique( get(obj), html=tmp), 
+    expect_snapshot(summary.amUnique( get(obj), html=tmp),
                     variant=amvariant)
     expect_snapshot_output({
       readLines(tmp, warn = FALSE) |>

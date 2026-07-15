@@ -14,7 +14,7 @@ test_that("amExample1 from pg 5 in allelematchSuppDoc.pdf is 2.5.3 compatible", 
 
     # Follow the instructions from allelematchSuppDoc.pdf:
     # Test the results within curly brackets ("{ ... }") below the instructions.
-    data("amExample1")
+    amExample1 <- ro$amExample1
     expect_snapshot(
         example1 <- amDataset(amExample1, indexColumn="sampleId", ignoreColumn="knownIndividual", missingCode="-99"),
         variant = amvariant

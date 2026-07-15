@@ -14,7 +14,7 @@ test_that("amExample3 results from pg 10 in allelematchSuppDoc.pdf are 2.5.3 com
     withr::local_options(width=200) # Allow longer lines for the summaries:
 
     # Follow the instructions from allelematchSuppDoc.pdf, pg 10:
-    data("amExample3")
+    amExample3 <- ro$amExample3
     example3 <- amDataset(amExample3, indexColumn="sampleId",
       metaDataColumn="knownIndividual", missingCode="-99")
     {

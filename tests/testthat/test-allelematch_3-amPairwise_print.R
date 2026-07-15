@@ -12,7 +12,7 @@ test_that("Print", {
     "LOC2a"         = c(31:33, -99),
     "LOC2b"         = c(41:44)
   )
-  data("amExample5") ; amExample5 = amExample5[c(1:20),] # Just keep the first 20 rows to save speed and disk
+  amExample5 <- ro$amExample5[1:20, ] # Just keep the first 20 rows to save speed and disk
 
   objMini     = amPairwise(amDataset(miniExample), alleleMismatch=0.5)
   objExample5 = amPairwise(amDataset(amExample5, indexColumn="sampleId", ignoreColumn=c("samplingData", "gender")), alleleMismatch=0.5)
