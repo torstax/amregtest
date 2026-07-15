@@ -1,0 +1,64 @@
+---
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(message = FALSE, warning = FALSE)
+```
+
+# amregtest
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+"`amregtest`" stands for "`allelematch` regression test".
+[`allelematch`](https://cran.r-project.org/package=allelematch) is an R package
+for identifying and removing duplicate multilocus genotypes from microsatellite
+data sets. `amregtest` verifies that `allelematch` remains backwards compatible
+across versions.
+
+By decoupling the regression test suite from the main `allelematch` source code
+and its specific `testthat` dependencies, `amregtest` allows you to run
+regression tests against *any* version of `allelematch` without modifying the
+package under test.
+
+## Installation
+
+You can install the development version of `amregtest` from GitHub with:
+
+```r
+# install.packages("devtools")
+devtools::install_github("torstax/amregtest")
+```
+
+## Usage
+
+```{r libraries}
+library(allelematch)
+library(amregtest)
+```
+
+Run the full regression test suite against your currently installed version of
+`allelematch` (takes a few minutes):
+
+```{r run-all, fig.show='hide', results='hold', cache=TRUE}
+artRun()
+```
+
+To run only tests whose names match a Perl regular expression:
+
+```{r run-filter, fig.show='hide', results='hold'}
+artRun(filter = "amExample2|amExample4")
+```
+
+List all available tests without running them:
+
+```{r list}
+artList()
+```
+
+Check the installed versions of `allelematch` and `amregtest`:
+
+```{r version}
+artVersion()
+```

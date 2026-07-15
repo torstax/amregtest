@@ -9,7 +9,7 @@ Data frame with samples in rows, and alleles in columns. Missing data is represe
 }
 \description{
 This is sample data copied from \link[allelematch:amExampleData]{amExampleData} in version 5.2.1
-of package \link[allelematch:allelematch-package]{allelematch}. We use this data to test allelematch backwards compatibility.
+of package \link[allelematch:allelematch-package]{allelematch}.
 }
 \details{
 For this example we have simulated a low quality data set where uncertainty created

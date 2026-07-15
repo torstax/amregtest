@@ -18,21 +18,20 @@ test_that("Print", {
   objExample5 = amCluster(amDataset(amExample5, indexColumn="sampleId", ignoreColumn=c("samplingData", "gender")))
   objExample5b= amCluster(amDataset(amExample5, indexColumn="sampleId"))
 
-
   # Run each of the data sets through the tree ways to print the results:
   withr::local_options(width=200) # Allow longer lines for the summaries:
   for (obj in c("objMini", "objExample5", "objExample5b")) {
 
     # Write the name of the obj to the _snap file:
-    expect_snapshot(paste("About to exercise", obj))
+    expect_snapshot(paste("About to exercise", obj), variant=amvariant)
 
     # summary.amCluster should have the same output as before
-    expect_snapshot(summary.amCluster(get(obj)))
+    expect_snapshot(summary.amCluster(get(obj)), variant=amvariant)
 
     # amCSV.amCluster should have the same output as before
     tmp = tempfile(paste(obj, "_", sep=""), fileext=".csv")
-    expect_snapshot(amCSV.amCluster(  get(obj), csvFile=tmp))
-    expect_snapshot(format(read.csv(tmp)))
+    expect_snapshot(amCSV.amCluster(  get(obj), csvFile=tmp), variant=amvariant)
+    expect_snapshot(format(read.csv(tmp)), variant=amvariant)
     file.remove(tmp)
 
     # amHTML.amCluster should have the same output as before
@@ -54,7 +53,7 @@ test_that("Print", {
         grep("minComparableLoci", x = _, value = TRUE, fixed = TRUE, invert = TRUE) |>
         # print each line on its own
         cat(sep = "\n")
-    })
+    }, variant=amvariant)
 
     file.remove(tmp)
   }

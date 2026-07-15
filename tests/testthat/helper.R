@@ -3,6 +3,14 @@
 ######################################
 library(allelematch)
 
+# Load the amregtest version of example data sets from this package
+# into the global environment. Needs to match the tests:
+data("amExample1", package = "amregtest", envir = .GlobalEnv)
+data("amExample2", package = "amregtest", envir = .GlobalEnv)
+data("amExample3", package = "amregtest", envir = .GlobalEnv)
+data("amExample4", package = "amregtest", envir = .GlobalEnv)
+data("amExample5", package = "amregtest", envir = .GlobalEnv)
+
 # Turns `...` into a string of <name>=<value> pairs
 helpArgToString <- function(...) {
   # form the `...` arguments into a string on the form "<name1>=<value1>, <name2>=<value2> ..."
@@ -38,6 +46,20 @@ helpHtml <- function(file) {
 
     return(longfile)
 }
+
+helpModernizeMsgs <- function(msgs) {
+  # Adapt cosmetic change in 2.6.0 in error messages
+  # from older versions of allelematch to the new format.
+  msgs <- gsub(":  ", ": ", msgs, fixed = TRUE) # Change double spaces after ":" to single space.
+  msgs <- gsub(
+    "no clusters formed\\.\\h+Please set cutHeight lower and run again\\.", # 2.5 style
+    "no clusters formed.", # 2.6 style
+    msgs, perl = TRUE
+  )
+  msgs <- gsub("\\h$", "",  msgs, perl = TRUE)  # Remove white space from end of line.
+  return(msgs)
+}
+
 # snapshot_amPairwise()
 #
 # Note that the amDataset parameters are passed as variable names rather than

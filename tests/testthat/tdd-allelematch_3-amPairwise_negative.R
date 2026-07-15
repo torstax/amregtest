@@ -34,8 +34,8 @@ test_that("Test Driven Design, TDD - Tests that are still failing", {
     expect_identical(class(amdata), "amDataset")
     
     # TODO: These arguments do not throw errors. But maybe they should:
-    expect_error(amPairwise(amdata, missingMethod = "2", alleleMismatch=2), regexp="allelematch:  missingMethod must equal( 0,)? 1 or 2")
-    expect_error(amPairwise(amdata, missingMethod = 2.0, alleleMismatch=2), regexp="allelematch:  missingMethod must equal( 0,)? 1 or 2")
+    expect_error(amPairwise(amdata, missingMethod = "2", alleleMismatch=2), "missingMethod must equal 1 or 2")
+    expect_error(amPairwise(amdata, missingMethod = 2.0, alleleMismatch=2), "missingMethod must equal 1 or 2")
 
     # This call does not generate any error:    
     amPairwise(amdata, matchThreshold=0.5)

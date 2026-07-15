@@ -9,18 +9,33 @@ test_that("We are running the 3rd edition of testthat", code = {
 test_that("amExamples have not changed in allelematch", {
 
     # Calculate a checksum for data stored under ./data/ in a package:
+    env <- environment() # Use a local environment to avoid polluting the global environment with data sets
     md5sum <- function(name, package) {
         stopifnot(is.character(name) && is.character(package))
-        utils::data(list = c(name), package=package)[1]
-        cs = digest::digest(get(name))
+        utils::data(list = c(name), package=package, envir = env)[1]
+        cs = digest::digest(get(name, envir = env))
         return(cs)
     }
+
+    # 2.6.0 of allelematch introduced some cosmetic changes,
+    # including changing the column name "gender" to "sex" in amExample5.
+    # This changed the md5sum for that data set, so we need to check the version
+    # of allelematch to know which md5sum to expect.
+    amversion <- packageVersion("allelematch")
 
     expect_identical(md5sum("amExample1", package="allelematch"), '25108ea88af5cc916ed887c82eb89840')
     expect_identical(md5sum("amExample2", package="allelematch"), 'a438a316c63bbc024c3fe0eb564c4edb')
     expect_identical(md5sum("amExample3", package="allelematch"), '242ef242fc6afd413d13f7f7739823af')
     expect_identical(md5sum("amExample4", package="allelematch"), 'd7a34f4319c15e8042fe01cdfed18bc3')
-    expect_identical(md5sum("amExample5", package="allelematch"), 'cce57ddcaaa4ae31902b6036a0a90f8e')
+    if(amversion < "2.6.0") { # Versions 2.5.5 and earlier had a different md5sum for amExample5
+      expect_identical(md5sum("amExample5", package="allelematch"), 'cce57ddcaaa4ae31902b6036a0a90f8e')
+    } else {
+      # Only difference is the change in one column name from "gender" to "sex":
+      expect_identical(md5sum("amExample5", package="allelematch"), '5f481f6287de5d5cc05277b645ba0642')
+    }
+
+    # Load the 2.5.5 version for use in our tests where we assume "gender":
+    data("amExample5", package="amregtest", envir = env) # Load the 2.5.5 version from amregtest
 
     expect_identical(dim(amExample1), c( 20L, 22L))
     expect_identical(dim(amExample2), c(148L, 22L))
@@ -60,12 +75,12 @@ test_that("See how an object of class amDataset is built:", {
                      as.data.frame(list(sampleId = 1L, knownIndividual = "A", "dismiss." = "Rain",
                           LOC1a = 11L, LOC1b = 21L, LOC2a = 31, LOC2b = 41L)))
 
-    expect_snapshot(print(miniExample))
+    expect_snapshot(print(miniExample), variant = amvariant)
   }
 
   # Make amDataset with all optional parameters defaulted:
   expect_snapshot(miniDataset1 <- amDataset(miniExample))
-  expect_snapshot(print.amDataset(miniDataset1))
+  expect_snapshot(print.amDataset(miniDataset1), variant = amvariant)
   {
     amDataset = miniDataset1
     expect_identical(!!class(amDataset), "amDataset")
@@ -95,7 +110,7 @@ test_that("See how an object of class amDataset is built:", {
 
   # Make amDataset with all optional parameters set:
   expect_snapshot(miniDataset2 <- amDataset(miniExample, missingCode="-88", indexColumn="sampleId", metaDataColumn="knownIndividual", ignoreColumn="dismiss."))
-  expect_snapshot(print.amDataset(miniDataset2))
+  expect_snapshot(print.amDataset(miniDataset2), variant = amvariant)
   {
     amDataset = miniDataset2
     expect_identical(!!class(amDataset), "amDataset")
@@ -118,7 +133,7 @@ test_that("See how an object of class amDataset is built:", {
 
   # Make amDataset with all column parameters set as integers rather than characters:
   expect_snapshot(miniDataset3 <- amDataset(miniExample, missingCode="-88", indexColumn=1, metaDataColumn=2, ignoreColumn=3))
-  expect_snapshot(print.amDataset(miniDataset2))
+  expect_snapshot(print.amDataset(miniDataset2), variant = amvariant)
   {
     # TODO : Catch none-character values for missingCode!!
     amDataset = miniDataset3
@@ -155,20 +170,20 @@ test_that("Different data types for arg to 'missingCode' give same result", {
   }
 
   # Make sure that both missingCode and data are stored as character:
-  expect_snapshot(ds1 <- amDataset(sample, missingCode = "NA"))
+  expect_snapshot(ds1 <- amDataset(sample, missingCode = "NA"), variant = amvariant)
   {
     ds = ds1
     expect_identical(ds$missingCode, "NA")
     expect_type(ds$multilocus, "character")
     expect_identical(sum(unlist(ds$multilocus) == "NA"), 3L) # All 3 NA values now as strings
-    expect_snapshot_value(ds, style = "deparse") # style "json2" de-serializes "NA" to NA
+    expect_snapshot_value(ds, style = "deparse", variant = amvariant) # style "json2" de-serializes "NA" to NA
   }
 
   # Make sure arg missingCode = NA is converted to $missingCode="NA"
-  expect_snapshot(ds2 <- amDataset(sample, missingCode = NA))
+  expect_snapshot(ds2 <- amDataset(sample, missingCode = NA), variant = amvariant)
   {
     ds = ds2
-    expect_snapshot_value(ds, style = "deparse")  # style "json2" de-serializes "NA" to NA
+    expect_snapshot_value(ds, style = "deparse", variant = amvariant)  # style "json2" de-serializes "NA" to NA
     expect_identical(ds$missingCode, "NA")
     expect_type(ds$multilocus, "character")
     expect_identical(sum(is.na(ds$multilocus)), 0L)

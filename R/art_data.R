@@ -1,26 +1,26 @@
 #' @name artData
 #'
-#' @title Example data used by [amregtest]
+#' @title Example data used by \link{amregtest}
 #'
 #' @description
 #' This example data is used when testing allelematch backwards compatibility
-#' using [artRun]. The tests load this data and passes it to [amDataset][allelematch::amDataset].\cr
+#' using \link{artRun}. The tests load this data and passes it to [amDataset][allelematch::amDataset].\cr
 #' \cr
 #' It includes data that was imported from version 5.2.1 of [allelematch][allelematch::allelematch-package].
-#' It was still unchanged in 5.2.4. \cr
+#' It was still unchanged in 5.2.5. \cr
 #' \tabular{clcl}{
-#'  `  ` \tab [amExample1]`  `\tab `  ` \tab Example 1 High quality data set\cr
-#'  `  ` \tab [amExample2]\tab \tab Example 2 Good quality data set\cr
-#'  `  ` \tab [amExample3]\tab \tab Example 3 Marginal quality data set\cr
-#'  `  ` \tab [amExample4]\tab \tab Example 4 Low quality data set\cr
-#'  `  ` \tab [amExample5]\tab \tab Example 5 Wildlife data set\cr
+#'  `  ` \tab \link{amExample1}`  `\tab `  ` \tab Example 1 High quality data set\cr
+#'  `  ` \tab \link{amExample2}\tab \tab Example 2 Good quality data set\cr
+#'  `  ` \tab \link{amExample3}\tab \tab Example 3 Marginal quality data set\cr
+#'  `  ` \tab \link{amExample4}\tab \tab Example 4 Low quality data set\cr
+#'  `  ` \tab \link{amExample5}\tab \tab Example 5 Wildlife data set\cr
 #' }
 #' See \href{https://github.com/cran/allelematch/blob/2.5.1/inst/doc/allelematchSuppDoc.pdf}{allelematchSuppDoc.pdf}
 #' for a more detailed description. \cr
 #'
 #' It also includes a large data set gathered from field work:\cr
 #' \tabular{clcl}{
-#'  `  ` \tab [ggSample]`  `\tab `  ` \tab Very large wildlife data set\cr
+#'  `  ` \tab \link{ggSample}`  `\tab `  ` \tab Very large wildlife data set\cr
 #' }
 #'
 #' @format Data frames with varying numbers of samples in rows, and alleles in columns. Missing data is represented as "-99".
@@ -34,7 +34,7 @@ NULL
 #' Example 1 High quality data set
 #'
 #' This is sample data copied from [amExampleData][allelematch::amExampleData] in version 5.2.1
-#' of package [allelematch][allelematch::allelematch-package]. We use this data to test allelematch backwards compatibility.
+#' of package [allelematch][allelematch::allelematch-package].
 #'
 #' The data in this example is simulated to represent a high quality data set that might
 #' result from a laboratory protocol where samples were run multiple times to confirm their
@@ -52,7 +52,7 @@ NULL
 #' Example 2 Good quality data set
 #'
 #' This is sample data copied from [amExampleData][allelematch::amExampleData] in version 5.2.1
-#' of package [allelematch][allelematch::allelematch-package]. We use this data to test allelematch backwards compatibility.
+#' of package [allelematch][allelematch::allelematch-package].
 #'
 #' The data in this example have also been simulated, this time to reflect the qualities
 #' of good quality data set, where genotyping error and missing data exist, but these can
@@ -71,7 +71,7 @@ NULL
 #' Example 3 Marginal quality data set
 #'
 #' This is sample data copied from [amExampleData][allelematch::amExampleData] in version 5.2.1
-#' of package [allelematch][allelematch::allelematch-package]. We use this data to test allelematch backwards compatibility.
+#' of package [allelematch][allelematch::allelematch-package].
 #'
 #' The data in this example have been simulated to represent a data set of marginal
 #' quality where the use of allelematch combined with careful manual review of the
@@ -90,7 +90,7 @@ NULL
 #' Example 4 Low quality data set
 #'
 #' This is sample data copied from [amExampleData][allelematch::amExampleData] in version 5.2.1
-#' of package [allelematch][allelematch::allelematch-package]. We use this data to test allelematch backwards compatibility.
+#' of package [allelematch][allelematch::allelematch-package].
 #'
 #' For this example we have simulated a low quality data set where uncertainty created
 #' by genotyping error and missing data, combined with a lack of information in the form
@@ -110,7 +110,7 @@ NULL
 #' Example 5 Wildlife data set
 #'
 #' This is sample data copied from [amExampleData][allelematch::amExampleData] in version 5.2.1
-#' of package [allelematch][allelematch::allelematch-package]. We use this data to test allelematch backwards compatibility.
+#' of package [allelematch][allelematch::allelematch-package].
 #'
 #' In this final example we use real data from the non-invasive sampling of a wildlife
 #' population. The data have been anonymized by changing sampling details. A single

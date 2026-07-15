@@ -10,7 +10,6 @@
     Code
       cat(ret)
     Output
-      allelematch:  assuming genotype columns are in pairs, representing 3 loci
         matchThreshold cutHeight alleleMismatch samples unique unclassified multipleMatch guessOptimum missingDataLoad allelicDiversity guessMorphology
       1      1.0000000 0.0000000              0       4      4            0             0        FALSE           0.083              7.3        ZeroFlat
       2      0.8333333 0.1666667              1       4      4            0             0         TRUE           0.083              7.3        ZeroFlat
@@ -28,7 +27,6 @@
     Code
       cat(ret)
     Output
-      allelematch:  assuming genotype columns are in pairs, representing 10 loci
         matchThreshold cutHeight alleleMismatch samples unique unclassified multipleMatch guessOptimum missingDataLoad allelicDiversity   guessMorphology
       1           1.00      0.00              0      20     13            0             0        FALSE           0.005              6.1 ZeroSecondMinimum
       2           0.95      0.05              1      20     13            0             2        FALSE           0.005              6.1 ZeroSecondMinimum
@@ -52,7 +50,6 @@
     Code
       cat(ret)
     Output
-      allelematch:  assuming genotype columns are in pairs, representing 10 loci
         matchThreshold cutHeight alleleMismatch samples unique unclassified multipleMatch guessOptimum missingDataLoad allelicDiversity   guessMorphology
       1           1.00      0.00              0     148    140            0             0        FALSE           0.046              7.9 ZeroSecondMinimum
       2           0.95      0.05              1     148    136            0            25        FALSE           0.046              7.9 ZeroSecondMinimum
@@ -76,7 +73,6 @@
     Code
       cat(ret)
     Output
-      allelematch:  assuming genotype columns are in pairs, representing 10 loci
         matchThreshold cutHeight alleleMismatch samples unique unclassified multipleMatch guessOptimum missingDataLoad allelicDiversity      guessMorphology
       1           1.00      0.00              0     319    291            0             0        FALSE           0.097              8.2 NonZeroSecondMinimum
       2           0.95      0.05              1     319    281            0            97        FALSE           0.097              8.2 NonZeroSecondMinimum
@@ -100,7 +96,6 @@
     Code
       cat(ret)
     Output
-      allelematch:  assuming genotype columns are in pairs, representing 10 loci
         matchThreshold cutHeight alleleMismatch samples unique unclassified multipleMatch guessOptimum missingDataLoad allelicDiversity guessMorphology
       1           1.00      0.00              0     307    307            0             0        FALSE           0.199              4.8 NoSecondMinimum
       2           0.95      0.05              1     307    307            0            42         TRUE           0.199              4.8 NoSecondMinimum
@@ -124,7 +119,6 @@
     Code
       cat(ret)
     Output
-      allelematch:  assuming genotype columns are in pairs, representing 10 loci
         matchThreshold cutHeight alleleMismatch samples unique unclassified multipleMatch guessOptimum missingDataLoad allelicDiversity      guessMorphology
       1           1.00      0.00              0     335    253            0             0        FALSE           0.064              6.4 NonZeroSecondMinimum
       2           0.95      0.05              1     335    233            0            95        FALSE           0.064              6.4 NonZeroSecondMinimum

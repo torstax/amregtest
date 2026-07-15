@@ -30,10 +30,10 @@ test_that("Test Driven Design, TDD - Tests that are still failing", {
   # These parameters should probably have caused errors:
   {
     # Correct argument value, but wrong data type:
-    expect_error(amMatrix(amdata, missingMethod = "2"), regexp="allelematch:  missingMethod must equal( 0,)? 1 or 2")
-    expect_error(amMatrix(amdata, missingMethod = 2.0), regexp="allelematch:  missingMethod must equal( 0,)? 1 or 2")
-    expect_error(amMatrix(amdata, missingMethod = 1.00000000000000001), regexp="allelematch:  missingMethod must equal( 0,)? 1 or 2")
-    expect_error(amMatrix(amdata, 1.00000000000000001), regexp="allelematch:  missingMethod must equal( 0,)? 1 or 2")
+    expect_error(amMatrix(amdata, missingMethod = "2"), "missingMethod must equal 1 or 2")
+    expect_error(amMatrix(amdata, missingMethod = 2.0), "missingMethod must equal 1 or 2")
+    expect_error(amMatrix(amdata, missingMethod = 1.00000000000000001), "missingMethod must equal 1 or 2")
+    expect_error(amMatrix(amdata, 1.00000000000000001), "missingMethod must equal 1 or 2")
   }
 
   # The following arguments to missingMethod pas. Maybe they shouldn't:

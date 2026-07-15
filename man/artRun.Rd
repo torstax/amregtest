@@ -20,7 +20,7 @@ Runs regression tests on package \link[allelematch:allelematch-package]{allelema
 \cr
 The full set of tests will take a couple of minutes. \cr
 \cr
-Call \link{artList} to see the available tests with without running them.
+Call \link{artList} to see the available tests without running them.
 }
 \details{
 If any of the test executed with \link{artRun} should fail, then we want to be able

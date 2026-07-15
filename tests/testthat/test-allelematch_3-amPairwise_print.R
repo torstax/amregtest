@@ -24,20 +24,21 @@ test_that("Print", {
   for (obj in c("objMini", "objExample5", "objExample5b")) {
 
     # Write the name of the amPairwise object to the _snap file:
-    expect_snapshot(paste("About to exercise", obj))
+    expect_snapshot(paste("About to exercise", obj), variant=amvariant)
 
     # summary.amPairwise should have the same output as before
-    expect_snapshot(summary.amPairwise(get(obj)))
+    expect_snapshot(summary.amPairwise(get(obj)), variant=amvariant)
 
     # amCSV.amPairwise should have the same output as before
     tmp = tempfile(paste(obj, "_", sep=""), fileext=".csv")
-    expect_snapshot(amCSV.amPairwise(  get(obj), csvFile=tmp))
-    expect_snapshot(format(read.csv(tmp)))
+    expect_snapshot(amCSV.amPairwise(  get(obj), csvFile=tmp), variant=amvariant)
+    expect_snapshot(format(read.csv(tmp)), variant=amvariant)
     file.remove(tmp)
 
     # amHTML.amPairwise should have the same output as before
     tmp = tempfile(paste(obj, "_", sep=""), fileext=".html")
-    expect_snapshot(amHTML.amPairwise( get(obj), htmlFile=tmp))
+    expect_snapshot(amHTML.amPairwise( get(obj), htmlFile=tmp),
+                    variant=amvariant)
     expect_snapshot_output(
     #   cat(
     #     sub("summary generated: </b><em>.+?</em>",
@@ -63,7 +64,8 @@ test_that("Print", {
         # drop the lines containing "minComparableLoci"
         grep("minComparableLoci", x = _, value = TRUE, fixed = TRUE, invert = TRUE) |>
         # print each line on its own
-        cat(sep = "\n")
+        cat(sep = "\n"),
+      variant=amvariant
     )
 
 

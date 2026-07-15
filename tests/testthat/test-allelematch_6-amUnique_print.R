@@ -28,32 +28,22 @@ test_that("Print", {
   for (obj in c("objMini", "objExample5", "objExample5b", "objExample5c")) {
 
     # Write the name of the amUnique object to the _snap file:
-    expect_snapshot(paste("About to exercise", obj))
+    expect_snapshot(paste("About to exercise", obj), variant=amvariant)
 
     # allelematch:  Console summary is not available for "amUnique" objects.
     # Please use summary.amUnique(x, html=TRUE) or summary.amUnique(x, csv="file.csv") options.
-    # expect_snapshot(summary.amUnique(get(obj)))
+    # expect_snapshot(summary.amUnique(get(obj)), variant=amvariant)
 
     # amCSV.amUnique should have the same output as before
     tmp = tempfile(paste(obj, "_", sep=""), fileext=".csv")
-    expect_snapshot(summary.amUnique(  get(obj), csv=tmp))
-    expect_snapshot(format(read.csv(tmp)))
+    expect_snapshot(summary.amUnique(  get(obj), csv=tmp), variant=amvariant)
+    expect_snapshot(format(read.csv(tmp)), variant=amvariant)
     file.remove(tmp)
 
     # amHTML.amUnique should have the same output as before
     tmp = tempfile(paste(obj, "_", sep=""), fileext=".html")
-    expect_snapshot(summary.amUnique( get(obj), html=tmp))
-    # expect_snapshot_output(
-    #   cat(
-    #     sub("summary generated: </b><em>.+?</em>",
-    #         "summary generated: </b><em>(date)</em>",
-    #         gsub("(\\t| )+?(\\n|$)","\\2",
-    #             readLines(tmp, warn=FALSE),
-    #             perl=TRUE),
-    #         perl=TRUE),
-    #     sep="\n")
-    # )
-
+    expect_snapshot(summary.amUnique( get(obj), html=tmp), 
+                    variant=amvariant)
     expect_snapshot_output({
       readLines(tmp, warn = FALSE) |>
         # strip 8 leading spaces at beginning of line
@@ -61,19 +51,16 @@ test_that("Print", {
         # strip trailing tabs/spaces before newlines
         gsub("(\\t| )+?(\\n|$)", "\\2", x = _, perl = TRUE) |>
         # scrub out the actual date
-        sub(
-          "summary generated: </b><em>.+?</em>",
-          "summary generated: </b><em>(date)</em>",
+        sub("summary generated: </b><em>.+?</em>",
+            "summary generated: </b><em>(date)</em>",
           x = _
         ) |>
         # drop the lines containing "minComparableLoci"
         grep("minComparableLoci", x = _, value = TRUE, fixed = TRUE, invert = TRUE) |>
         # print each line on its own
         cat(sep = "\n")
-    })
-
-
-
+    }, variant=amvariant
+    )
     file.remove(tmp)
   }
 
