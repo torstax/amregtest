@@ -65,6 +65,33 @@ helpModernizeMsgs <- function(msgs) {
   return(msgs)
 }
 
+# Scrub the html file of time stamp and unnecessary white-space
+# before writing it to the snapshot file and then deleting it:
+snapshot_scrubHtmlFile  <- function(htmlFile, variant = NULL) {
+  if(!file.exists(htmlFile)) stop("\n    htmlFile = '", htmlFile, "' does not exist!\n    getwd() = '", getwd(), "' ", sep="")
+
+  # Scrub the html file of time stamp and unnecessary white-space.
+  expect_snapshot_output(
+    readLines(htmlFile, warn = FALSE) |>
+      # strip 8 leading spaces at beginning of line
+      gsub("(\\n|^)        ", "\\1", x = _, perl = TRUE) |>
+      # strip trailing tabs/spaces before newlines
+      gsub("(\\t| )+?(\\n|$)", "\\2", x = _, perl = TRUE) |>
+      # scrub out the actual date
+      sub(
+        "summary generated: </b><em>.+?</em>",
+        "summary generated: </b><em>(date)</em>",
+        x = _
+      ) |>
+      # drop the lines containing "minComparableLoci"
+      grep("minComparableLoci", x = _, value = TRUE, fixed = TRUE, invert = TRUE) |>
+      # print each line on its own
+      cat(sep = "\n"),
+    variant=variant
+  )
+  file.remove(htmlFile)
+}
+
 # snapshot_amPairwise()
 #
 # Note that the amDataset parameters are passed as variable names rather than
@@ -73,20 +100,20 @@ helpModernizeMsgs <- function(msgs) {
 #
 # We want to run amPairwise many times with many combinations of parameters
 # and we want to compare the results with previous runs. Like this:
-snapshot_amPairwise <- function(ds1, ds2=ds1, ...) {
+snapshot_amPairwise_2 <- function(ds1, ds2=ds1, ...) { # This is the version from main
 
   # Log the call to the snapshot file:
   argstr = helpArgToString(...)
   cmdstr = paste("amPairwise(", ds1, ", ", ds2, ", ", argstr, ")", sep="") ; expect_snapshot(cat(cmdstr))
 
   amds1 = get(ds1, envir = parent.frame()) ; stopifnot(inherits(amds1, "amDataset"))
-  amds2 = get(ds2, envir = parent.frame()) ; stopifnot(inherits(amds1, "amDataset"))
+  amds2 = get(ds2, envir = parent.frame()) ; stopifnot(inherits(amds2, "amDataset"))
 
   # Make the call:
-  pw <- amPairwise(amDatasetFocal=amds1, amDatasetComparison =amds2, ...)
+  pw <- allelematch::amPairwise(amDatasetFocal=amds1, amDatasetComparison =amds2, ...)
 
   # Log the result to the snapshot file:
-  expect_snapshot(summary.amPairwise(pw)) # Too big. :-(
+  expect_snapshot(allelematch::summary.amPairwise(pw)) # Too big. :-(
   # expect_snapshot_value(pw, style = "json2")
 
   return(pw)
@@ -96,7 +123,7 @@ snapshot_amPairwise <- function(ds1, ds2=ds1, ...) {
 
 # We want to run amUnique many times with many combinations of parameters,
 # and we want to compare the results with previous runs. Like this:
-snapshot_amUnique <- function(ds, ...) {
+snapshot_amUnique_2 <- function(ds, ...) { # This is the version from main
 
   # Log the call to the snapshot file:
   argstr = helpArgToString(...)
@@ -107,7 +134,7 @@ snapshot_amUnique <- function(ds, ...) {
   ret <- tryCatch(
 
     # Make the call to allelematch:
-    amUnique(amDatasetFocal=get(ds, envir = parent.frame()), ...),
+    allelematch::amUnique(amDatasetFocal=get(ds, envir = parent.frame()), ...),
 
     ## If the call fails, return the error message and
     ## the method and arguments that threw the error:
@@ -130,7 +157,7 @@ snapshot_amUnique <- function(ds, ...) {
   # Log the result to the snapshot file:
   # expect_snapshot_value(ret, style = "json2") # Neither "json2" nor "deparse" works. :-(
   if (class(ret) == "amUnique") {
-    expect_snapshot(amCSV.amUnique(ret, csvFile=stdout(), uniqueOnly=FALSE))
+    expect_snapshot(allelematch::amCSV.amUnique(ret, csvFile=stdout(), uniqueOnly=FALSE))
   } else {
     expect_snapshot(cat("\n  No amUnique object generated:", ret))
   }

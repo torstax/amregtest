@@ -1,6 +1,5 @@
 
 test_that("Print", {
-  library(allelematch)
 
   # Exercise the three ways to print the output from 'amCluster()' with
   # input data from different amDatasets:
@@ -23,7 +22,7 @@ test_that("Print", {
   for (obj in c("objMini", "objExample5", "objExample5b")) {
 
     # Write the name of the obj to the _snap file:
-    expect_snapshot(paste("About to exercise", obj), variant=amvariant)
+    expect_snapshot_output(cat("About to exercise", obj), variant=amvariant)
 
     # summary.amCluster should have the same output as before
     expect_snapshot(summary.amCluster(get(obj)), variant=amvariant)
@@ -36,26 +35,8 @@ test_that("Print", {
 
     # amHTML.amCluster should have the same output as before
     tmp = tempfile(paste(obj, "_", sep=""), fileext=".html")
-    expect_snapshot(amHTML.amCluster( get(obj), htmlFile=tmp))
-    expect_snapshot_output({
-      readLines(tmp, warn = FALSE) |>
-        # strip 8 leading spaces at beginning of line
-        gsub("(\\n|^)        ", "\\1", x = _, perl = TRUE) |>
-        # strip trailing tabs/spaces before newlines
-        gsub("(\\t| )+?(\\n|$)", "\\2", x = _, perl = TRUE) |>
-        # scrub out the actual date
-        sub(
-          "summary generated: </b><em>.+?</em>",
-          "summary generated: </b><em>(date)</em>",
-          x = _
-        ) |>
-        # drop the lines containing "minComparableLoci"
-        grep("minComparableLoci", x = _, value = TRUE, fixed = TRUE, invert = TRUE) |>
-        # print each line on its own
-        cat(sep = "\n")
-    }, variant=amvariant)
-
-    file.remove(tmp)
+    expect_snapshot(amHTML.amCluster( get(obj), htmlFile=tmp), variant=amvariant)
+    snapshot_scrubHtmlFile(tmp, variant=amvariant)
   }
 
   # Test usingTmpFile:

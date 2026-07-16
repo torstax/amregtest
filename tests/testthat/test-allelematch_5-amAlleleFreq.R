@@ -34,7 +34,7 @@ test_that("Loop the Loop", {
     {
       argstr = ifelse(is.null(multilocusMap), "", paste(", multilocusMap=c(", paste(multilocusMap, collapse=", "), ")", sep=""))
       cmdstr = paste("amAlleleFreq(", ds, argstr, ")", sep="")
-      expect_snapshot(cat(cmdstr), variant = amvariant)
+      expect_snapshot_output(cat(cmdstr), variant = amvariant)
     }
 
     # Capture any errors reported by allelematch:

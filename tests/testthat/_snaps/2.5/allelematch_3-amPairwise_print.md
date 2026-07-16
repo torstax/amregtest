@@ -1,9 +1,6 @@
 # Print
 
-    Code
-      paste("About to exercise", obj)
-    Output
-      [1] "About to exercise objMini"
+    About to exercise objMini
 
 ---
 
@@ -315,10 +312,7 @@
 
 ---
 
-    Code
-      paste("About to exercise", obj)
-    Output
-      [1] "About to exercise objExample5"
+    About to exercise objExample5
 
 ---
 
@@ -1726,10 +1720,7 @@
 
 ---
 
-    Code
-      paste("About to exercise", obj)
-    Output
-      [1] "About to exercise objExample5b"
+    About to exercise objExample5b
 
 ---
 

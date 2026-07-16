@@ -6,6 +6,7 @@
 data/*_actual.csv
 tests/testthat/*.pdf
 tests/testthat/*.html
+*.new.md
 foo*
 *.foo
 *.hidden

@@ -11,7 +11,7 @@ test_that("Validation of arguments to amUnique() is working", {
   {
     expect_snapshot(print(miniExample1))
     expect_snapshot(amdataMini1 <- amDataset(miniExample1))
-    expect_snapshot(print.amDataset(amdataMini1), variant = amvariant)
+    expect_snapshot(print(amdataMini1))
   }
 
   # Parameters are:

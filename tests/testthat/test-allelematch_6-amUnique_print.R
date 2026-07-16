@@ -28,7 +28,7 @@ test_that("Print", {
   for (obj in c("objMini", "objExample5", "objExample5b", "objExample5c")) {
 
     # Write the name of the amUnique object to the _snap file:
-    expect_snapshot(paste("About to exercise", obj), variant=amvariant)
+    expect_snapshot_output(cat("About to exercise", obj), variant=amvariant)
 
     # allelematch:  Console summary is not available for "amUnique" objects.
     # Please use summary.amUnique(x, html=TRUE) or summary.amUnique(x, csv="file.csv") options.
@@ -44,24 +44,8 @@ test_that("Print", {
     tmp = tempfile(paste(obj, "_", sep=""), fileext=".html")
     expect_snapshot(summary.amUnique( get(obj), html=tmp),
                     variant=amvariant)
-    expect_snapshot_output({
-      readLines(tmp, warn = FALSE) |>
-        # strip 8 leading spaces at beginning of line
-        gsub("(\\n|^)        ", "\\1", x = _, perl = TRUE) |>
-        # strip trailing tabs/spaces before newlines
-        gsub("(\\t| )+?(\\n|$)", "\\2", x = _, perl = TRUE) |>
-        # scrub out the actual date
-        sub("summary generated: </b><em>.+?</em>",
-            "summary generated: </b><em>(date)</em>",
-          x = _
-        ) |>
-        # drop the lines containing "minComparableLoci"
-        grep("minComparableLoci", x = _, value = TRUE, fixed = TRUE, invert = TRUE) |>
-        # print each line on its own
-        cat(sep = "\n")
-    }, variant=amvariant
-    )
-    file.remove(tmp)
+    snapshot_scrubHtmlFile(tmp, variant=amvariant)
+
   }
 
 

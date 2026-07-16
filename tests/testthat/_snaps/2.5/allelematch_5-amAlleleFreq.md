@@ -1,9 +1,6 @@
 # Loop the Loop
 
-    Code
-      cat(cmdstr)
-    Output
-      amAlleleFreq(amdataMini)
+    amAlleleFreq(amdataMini)
 
 ---
 
@@ -47,10 +44,7 @@
 
 ---
 
-    Code
-      cat(cmdstr)
-    Output
-      amAlleleFreq(amdataMini, multilocusMap=c(1, 1, 2, 2))
+    amAlleleFreq(amdataMini, multilocusMap=c(1, 1, 2, 2))
 
 ---
 
@@ -94,10 +88,7 @@
 
 ---
 
-    Code
-      cat(cmdstr)
-    Output
-      amAlleleFreq(amdataExample1)
+    amAlleleFreq(amdataExample1)
 
 ---
 
@@ -231,10 +222,7 @@
 
 ---
 
-    Code
-      cat(cmdstr)
-    Output
-      amAlleleFreq(amdataExample2)
+    amAlleleFreq(amdataExample2)
 
 ---
 
@@ -371,10 +359,7 @@
 
 ---
 
-    Code
-      cat(cmdstr)
-    Output
-      amAlleleFreq(amdataExample3)
+    amAlleleFreq(amdataExample3)
 
 ---
 
@@ -504,10 +489,7 @@
 
 ---
 
-    Code
-      cat(cmdstr)
-    Output
-      amAlleleFreq(amdataExample4)
+    amAlleleFreq(amdataExample4)
 
 ---
 
@@ -615,10 +597,7 @@
 
 ---
 
-    Code
-      cat(cmdstr)
-    Output
-      amAlleleFreq(amdataExample5)
+    amAlleleFreq(amdataExample5)
 
 ---
 
