@@ -1,9 +1,6 @@
 # Print
 
-    Code
-      paste("About to exercise", obj)
-    Output
-      [1] "About to exercise objMini"
+    About to exercise objMini
 
 ---
 
@@ -28,230 +25,224 @@
 
 ---
 
-    Code
-      cat(sub("summary generated: </b><em>.+?</em>", "summary generated: </b><em>(date)</em>", gsub("(\\t| )+?(\\n|$)", "\\2", readLines(tmp, warn = FALSE), perl = TRUE), perl = TRUE), sep = "\n")
-    Output
-      <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-      <html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' lang='en'><head>
-      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
-      <title>allelematch: amUnique() output</title>
-      <style type="text/css">
-      
-              html { height: 100%; }
-              body { background-color: inherit; color: inherit; font-family: Verdana; font-size: xx-small; margin: 0; height: 100%; }
-              a:active, a:link, a:visited { color: #CC0000; }
-              .amMismatchAllele { background-color: #CC0000; color: white; font-weight: bold; }
-              .amMissingAllele { background-color: #FFCCCC; }
-              .amInterpolatedAllele { background-color: blue; color: white; }
-              .amGrid { border-collapse: separate; }
-              .amGridContent { padding: 0; border: 1px solid #7EACB1; }
-              .amGridUpperPanel, .amGridLowerPanel { padding: 3px; background-color: #F4FAFB; color: #2A769D; font-family: Verdana; font-size: xx-small; }
-              .amGridUpperPanel { border-top: 0px; border-bottom: 1px solid; border-color: #7EACB1; }
-              .amGridMiddlePanel { border: 0; }
-              .amGridLowerPanel { border-top: 1px solid; border-bottom: 0px; border-color: #C2D4DA; }
-              .amGridUpperPanel td, .amGridLowerPanel td { color: #2A769D; font-family: Verdana; font-size: xx-small; }
-              .amTable { border: 0; border-spacing: 0; border-collapse: collapse; empty-cells: show; width: 100%; font-family: Verdana; font-size: xx-small; }
-              .amTableSeparate { border-collapse: separate; }
-              .amTable td { padding: 3px; border-bottom: 1px solid; border-right: 1px solid; border-color: #C2D4DA; white-space:nowrap; }
-              .amTable .amTableHeader, .amTable .amTableHeader td { background-color: #B7D8DC; color: #000000; border-bottom: 1px solid; border-right: 1px solid; border-color: #7EACB1; vertical-align: top; white-space:nowrap; }
-              .amPointer { cursor: pointer; }
-              .amTableHeaderBtn { width: 100%; font-family: Verdana; font-size: xx-small; }
-              .amTableHeader .amTableHeaderBtn td { background: transparent; padding: 0; border: 0; white-space: nowrap; }
-              .amTableSelectRow { background-color: #FFFF66; color: #000000; }
-      
-      </style>
-      </head><body>
-      <div style="margin-left:5%; margin-right:5%">
-      <br><table cellspacing="0" class="amGrid"><tr><td class="amGridContent">
-      <div class="amGridUpperPanel">
-      <div style="font-size:x-small;"><table>
-      <tr><td style="width:400px;"><span style="font-size:20px;">allelematch<br>unique analysis</span><br><br></td></tr>
-      <tr><td><b>
-      unique N=</b><em>4</em></td></tr>
-      <tr><td><b>samples N=</b><em>4</em></td></tr>
-      <tr><td><b><br>loci N=</b><em>2</em></td></tr>
-      <tr><td><b>locus names: </b><em>LOC1a-LOC1b, LOC2a-LOC2b</em></td></tr>
-      <tr><td><b><br>missing data represented by: </b><em>-99</em></td></tr>
-      <tr><td><b>clustered genotypes consensus method: </b><em>1</em></td></tr>
-      <tr><td><b>Psib calculated for: </b><em>samples with no mismatches</em></td></tr>
-      <tr><td><b><br>alleleMismatch (m-hat; maximum number of mismatching alleles): </b><em>2</em></td></tr>
-      <tr><td><b>cutHeight (d-hat; dynamic tree cutting height): </b><em>0.5</em></td></tr>
-      <tr><td><b>matchThreshold (s-hat; lowest matching score returned): </b><em>0.5</em></td></tr>
-      <tr><td><b><br>unclassified N=</b><em>0</em></td></tr>
-      <tr><td><b>multipleMatch N=</b><em>0</em></td></tr>
-      <tr><td><b><br>Note: Unique genotypes are determined based on clustering of scores.</b><em> Psib appears for reference purposes.</em></td></tr>
-      <tr><td><b><br>summary generated: </b><em>(date)</em></td></tr>
-      </table></div></div></td></tr></table><br><br>
-      <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><span style="font-size:medium;">Unique genotypes</span></div><div class="amGridMiddlePanel">
-      <table cellspacing="0" class="amTable amTableSeparate">
-      <tr class="amTableHeader">
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      </tr>
-      <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
-      <td><div><a href="#AAA">Jump</a></div></td>
-      <td><div>AAA</div></td>
-      <td><div>11</div></td>
-      <td><div>21</div></td>
-      <td><div>31</div></td>
-      <td><div>41</div></td>
-      <td><div>0.11</div></td>
-      <td><div>UNIQUE</div></td>
-      </tr>
-      <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
-      <td><div><a href="#AAB">Jump</a></div></td>
-      <td><div>AAB</div></td>
-      <td><div>12</div></td>
-      <td><div>22</div></td>
-      <td><div>32</div></td>
-      <td><div>42</div></td>
-      <td><div>0.11</div></td>
-      <td><div>UNIQUE</div></td>
-      </tr>
-      <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
-      <td><div><a href="#AAC">Jump</a></div></td>
-      <td><div>AAC</div></td>
-      <td><div>13</div></td>
-      <td><div>23</div></td>
-      <td><div>33</div></td>
-      <td><div>43</div></td>
-      <td><div>0.11</div></td>
-      <td><div>UNIQUE</div></td>
-      </tr>
-      <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
-      <td><div><a href="#AAD">Jump</a></div></td>
-      <td><div>AAD</div></td>
-      <td><div>14</div></td>
-      <td><div>24</div></td>
-      <td><div>-99</div></td>
-      <td><div>44</div></td>
-      <td><div>0.32</div></td>
-      <td><div>UNIQUE</div></td>
-      </tr>
-      </table></div><div class="amGridLowerPanel"><span>There were 4 unique genotypes identified using the parameters supplied.</span></div></td></tr></table><br><br>
-      <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="AAA"><span style="font-size:medium;">Unique genotype (1 of 4)</span></a></div><div class="amGridMiddlePanel">
-      <table cellspacing="0" class="amTable amTableSeparate">
-      <tr class="amTableHeader">
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      </tr>
-      <tr>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>AAA</div></td>
-      <td class="amTableSelectRow"><div>11</div></td>
-      <td class="amTableSelectRow"><div>21</div></td>
-      <td class="amTableSelectRow"><div>31</div></td>
-      <td class="amTableSelectRow"><div>41</div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>UNIQUE</div></td>
-      </tr>
-      <tr><td><div></div></td><td><div>AAA</div></td><td><div>11</div></td><td><div>21</div></td><td><div>31</div></td><td><div>41</div></td><td><div>0.11</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
-      </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 4 samples, returning score>=0.5<br>Psib calculated for samples with no mismatches.</span></div>
-      </td></tr></table><br><br>
-      <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="AAB"><span style="font-size:medium;">Unique genotype (2 of 4)</span></a></div><div class="amGridMiddlePanel">
-      <table cellspacing="0" class="amTable amTableSeparate">
-      <tr class="amTableHeader">
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      </tr>
-      <tr>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>AAB</div></td>
-      <td class="amTableSelectRow"><div>12</div></td>
-      <td class="amTableSelectRow"><div>22</div></td>
-      <td class="amTableSelectRow"><div>32</div></td>
-      <td class="amTableSelectRow"><div>42</div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>UNIQUE</div></td>
-      </tr>
-      <tr><td><div></div></td><td><div>AAB</div></td><td><div>12</div></td><td><div>22</div></td><td><div>32</div></td><td><div>42</div></td><td><div>0.11</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
-      </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 4 samples, returning score>=0.5<br>Psib calculated for samples with no mismatches.</span></div>
-      </td></tr></table><br><br>
-      <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="AAC"><span style="font-size:medium;">Unique genotype (3 of 4)</span></a></div><div class="amGridMiddlePanel">
-      <table cellspacing="0" class="amTable amTableSeparate">
-      <tr class="amTableHeader">
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      </tr>
-      <tr>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>AAC</div></td>
-      <td class="amTableSelectRow"><div>13</div></td>
-      <td class="amTableSelectRow"><div>23</div></td>
-      <td class="amTableSelectRow"><div>33</div></td>
-      <td class="amTableSelectRow"><div>43</div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>UNIQUE</div></td>
-      </tr>
-      <tr><td><div></div></td><td><div>AAC</div></td><td><div>13</div></td><td><div>23</div></td><td><div>33</div></td><td><div>43</div></td><td><div>0.11</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
-      </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 4 samples, returning score>=0.5<br>Psib calculated for samples with no mismatches.</span></div>
-      </td></tr></table><br><br>
-      <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="AAD"><span style="font-size:medium;">Unique genotype (4 of 4)</span></a></div><div class="amGridMiddlePanel">
-      <table cellspacing="0" class="amTable amTableSeparate">
-      <tr class="amTableHeader">
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      </tr>
-      <tr>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>AAD</div></td>
-      <td class="amTableSelectRow"><div>14</div></td>
-      <td class="amTableSelectRow"><div>24</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>44</div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>UNIQUE</div></td>
-      </tr>
-      <tr><td><div></div></td><td><div>AAD</div></td><td><div>14</div></td><td><div>24</div></td><td><div class="amMissingAllele">-99</div></td><td><div>44</div></td><td><div>0.32</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
-      </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 4 samples, returning score>=0.5<br>Psib calculated for samples with no mismatches.</span></div>
-      </td></tr></table><br><br>
-      <span style="font-size:x-small;">Generated by allelematch: an R package<br></span><span style="font-size:x-small;">To reference this analysis please use citation("allelematch")<br><br></span></div>
-      </body></html>
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    <html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' lang='en'><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+    <title>allelematch: amUnique() output</title>
+    <style type="text/css">
+    
+    html { height: 100%; }
+    body { background-color: inherit; color: inherit; font-family: Verdana; font-size: xx-small; margin: 0; height: 100%; }
+    a:active, a:link, a:visited { color: #CC0000; }
+    .amMismatchAllele { background-color: #CC0000; color: white; font-weight: bold; }
+    .amMissingAllele { background-color: #FFCCCC; }
+    .amInterpolatedAllele { background-color: blue; color: white; }
+    .amGrid { border-collapse: separate; }
+    .amGridContent { padding: 0; border: 1px solid #7EACB1; }
+    .amGridUpperPanel, .amGridLowerPanel { padding: 3px; background-color: #F4FAFB; color: #2A769D; font-family: Verdana; font-size: xx-small; }
+    .amGridUpperPanel { border-top: 0px; border-bottom: 1px solid; border-color: #7EACB1; }
+    .amGridMiddlePanel { border: 0; }
+    .amGridLowerPanel { border-top: 1px solid; border-bottom: 0px; border-color: #C2D4DA; }
+    .amGridUpperPanel td, .amGridLowerPanel td { color: #2A769D; font-family: Verdana; font-size: xx-small; }
+    .amTable { border: 0; border-spacing: 0; border-collapse: collapse; empty-cells: show; width: 100%; font-family: Verdana; font-size: xx-small; }
+    .amTableSeparate { border-collapse: separate; }
+    .amTable td { padding: 3px; border-bottom: 1px solid; border-right: 1px solid; border-color: #C2D4DA; white-space:nowrap; }
+    .amTable .amTableHeader, .amTable .amTableHeader td { background-color: #B7D8DC; color: #000000; border-bottom: 1px solid; border-right: 1px solid; border-color: #7EACB1; vertical-align: top; white-space:nowrap; }
+    .amPointer { cursor: pointer; }
+    .amTableHeaderBtn { width: 100%; font-family: Verdana; font-size: xx-small; }
+    .amTableHeader .amTableHeaderBtn td { background: transparent; padding: 0; border: 0; white-space: nowrap; }
+    .amTableSelectRow { background-color: #FFFF66; color: #000000; }
+    
+    </style>
+    </head><body>
+    <div style="margin-left:5%; margin-right:5%">
+    <br><table cellspacing="0" class="amGrid"><tr><td class="amGridContent">
+    <div class="amGridUpperPanel">
+    <div style="font-size:x-small;"><table>
+    <tr><td style="width:400px;"><span style="font-size:20px;">allelematch<br>unique analysis</span><br><br></td></tr>
+    <tr><td><b>
+    unique N=</b><em>4</em></td></tr>
+    <tr><td><b>samples N=</b><em>4</em></td></tr>
+    <tr><td><b><br>loci N=</b><em>2</em></td></tr>
+    <tr><td><b>locus names: </b><em>LOC1a-LOC1b, LOC2a-LOC2b</em></td></tr>
+    <tr><td><b><br>missing data represented by: </b><em>-99</em></td></tr>
+    <tr><td><b>clustered genotypes consensus method: </b><em>1</em></td></tr>
+    <tr><td><b>Psib calculated for: </b><em>samples with no mismatches</em></td></tr>
+    <tr><td><b><br>alleleMismatch (m-hat; maximum number of mismatching alleles): </b><em>2</em></td></tr>
+    <tr><td><b>cutHeight (d-hat; dynamic tree cutting height): </b><em>0.5</em></td></tr>
+    <tr><td><b>matchThreshold (s-hat; lowest matching score returned): </b><em>0.5</em></td></tr>
+    <tr><td><b><br>unclassified N=</b><em>0</em></td></tr>
+    <tr><td><b>multipleMatch N=</b><em>0</em></td></tr>
+    <tr><td><b><br>Note: Unique genotypes are determined based on clustering of scores.</b><em> Psib appears for reference purposes.</em></td></tr>
+    <tr><td><b><br>summary generated: </b><em>(date)</em></td></tr>
+    </table></div></div></td></tr></table><br><br>
+    <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><span style="font-size:medium;">Unique genotypes</span></div><div class="amGridMiddlePanel">
+    <table cellspacing="0" class="amTable amTableSeparate">
+    <tr class="amTableHeader">
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    </tr>
+    <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
+    <td><div><a href="#AAA">Jump</a></div></td>
+    <td><div>AAA</div></td>
+    <td><div>11</div></td>
+    <td><div>21</div></td>
+    <td><div>31</div></td>
+    <td><div>41</div></td>
+    <td><div>0.11</div></td>
+    <td><div>UNIQUE</div></td>
+    </tr>
+    <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
+    <td><div><a href="#AAB">Jump</a></div></td>
+    <td><div>AAB</div></td>
+    <td><div>12</div></td>
+    <td><div>22</div></td>
+    <td><div>32</div></td>
+    <td><div>42</div></td>
+    <td><div>0.11</div></td>
+    <td><div>UNIQUE</div></td>
+    </tr>
+    <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
+    <td><div><a href="#AAC">Jump</a></div></td>
+    <td><div>AAC</div></td>
+    <td><div>13</div></td>
+    <td><div>23</div></td>
+    <td><div>33</div></td>
+    <td><div>43</div></td>
+    <td><div>0.11</div></td>
+    <td><div>UNIQUE</div></td>
+    </tr>
+    <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
+    <td><div><a href="#AAD">Jump</a></div></td>
+    <td><div>AAD</div></td>
+    <td><div>14</div></td>
+    <td><div>24</div></td>
+    <td><div>-99</div></td>
+    <td><div>44</div></td>
+    <td><div>0.32</div></td>
+    <td><div>UNIQUE</div></td>
+    </tr>
+    </table></div><div class="amGridLowerPanel"><span>There were 4 unique genotypes identified using the parameters supplied.</span></div></td></tr></table><br><br>
+    <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="AAA"><span style="font-size:medium;">Unique genotype (1 of 4)</span></a></div><div class="amGridMiddlePanel">
+    <table cellspacing="0" class="amTable amTableSeparate">
+    <tr class="amTableHeader">
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    </tr>
+    <tr>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>AAA</div></td>
+    <td class="amTableSelectRow"><div>11</div></td>
+    <td class="amTableSelectRow"><div>21</div></td>
+    <td class="amTableSelectRow"><div>31</div></td>
+    <td class="amTableSelectRow"><div>41</div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>UNIQUE</div></td>
+    </tr>
+    <tr><td><div></div></td><td><div>AAA</div></td><td><div>11</div></td><td><div>21</div></td><td><div>31</div></td><td><div>41</div></td><td><div>0.11</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
+    </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 4 samples, returning score>=0.5<br>Psib calculated for samples with no mismatches.</span></div>
+    </td></tr></table><br><br>
+    <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="AAB"><span style="font-size:medium;">Unique genotype (2 of 4)</span></a></div><div class="amGridMiddlePanel">
+    <table cellspacing="0" class="amTable amTableSeparate">
+    <tr class="amTableHeader">
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    </tr>
+    <tr>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>AAB</div></td>
+    <td class="amTableSelectRow"><div>12</div></td>
+    <td class="amTableSelectRow"><div>22</div></td>
+    <td class="amTableSelectRow"><div>32</div></td>
+    <td class="amTableSelectRow"><div>42</div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>UNIQUE</div></td>
+    </tr>
+    <tr><td><div></div></td><td><div>AAB</div></td><td><div>12</div></td><td><div>22</div></td><td><div>32</div></td><td><div>42</div></td><td><div>0.11</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
+    </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 4 samples, returning score>=0.5<br>Psib calculated for samples with no mismatches.</span></div>
+    </td></tr></table><br><br>
+    <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="AAC"><span style="font-size:medium;">Unique genotype (3 of 4)</span></a></div><div class="amGridMiddlePanel">
+    <table cellspacing="0" class="amTable amTableSeparate">
+    <tr class="amTableHeader">
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    </tr>
+    <tr>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>AAC</div></td>
+    <td class="amTableSelectRow"><div>13</div></td>
+    <td class="amTableSelectRow"><div>23</div></td>
+    <td class="amTableSelectRow"><div>33</div></td>
+    <td class="amTableSelectRow"><div>43</div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>UNIQUE</div></td>
+    </tr>
+    <tr><td><div></div></td><td><div>AAC</div></td><td><div>13</div></td><td><div>23</div></td><td><div>33</div></td><td><div>43</div></td><td><div>0.11</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
+    </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 4 samples, returning score>=0.5<br>Psib calculated for samples with no mismatches.</span></div>
+    </td></tr></table><br><br>
+    <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="AAD"><span style="font-size:medium;">Unique genotype (4 of 4)</span></a></div><div class="amGridMiddlePanel">
+    <table cellspacing="0" class="amTable amTableSeparate">
+    <tr class="amTableHeader">
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    </tr>
+    <tr>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>AAD</div></td>
+    <td class="amTableSelectRow"><div>14</div></td>
+    <td class="amTableSelectRow"><div>24</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>44</div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>UNIQUE</div></td>
+    </tr>
+    <tr><td><div></div></td><td><div>AAD</div></td><td><div>14</div></td><td><div>24</div></td><td><div class="amMissingAllele">-99</div></td><td><div>44</div></td><td><div>0.32</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
+    </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 4 samples, returning score>=0.5<br>Psib calculated for samples with no mismatches.</span></div>
+    </td></tr></table><br><br>
+    <span style="font-size:x-small;">Generated by allelematch: an R package<br></span><span style="font-size:x-small;">To reference this analysis please use citation("allelematch")<br><br></span></div>
+    </body></html>
 
 ---
 
-    Code
-      paste("About to exercise", obj)
-    Output
-      [1] "About to exercise objExample5"
+    About to exercise objExample5
 
 ---
 
@@ -325,1468 +316,1462 @@
 
 ---
 
-    Code
-      cat(sub("summary generated: </b><em>.+?</em>", "summary generated: </b><em>(date)</em>", gsub("(\\t| )+?(\\n|$)", "\\2", readLines(tmp, warn = FALSE), perl = TRUE), perl = TRUE), sep = "\n")
-    Output
-      <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-      <html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' lang='en'><head>
-      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
-      <title>allelematch: amUnique() output</title>
-      <style type="text/css">
-      
-              html { height: 100%; }
-              body { background-color: inherit; color: inherit; font-family: Verdana; font-size: xx-small; margin: 0; height: 100%; }
-              a:active, a:link, a:visited { color: #CC0000; }
-              .amMismatchAllele { background-color: #CC0000; color: white; font-weight: bold; }
-              .amMissingAllele { background-color: #FFCCCC; }
-              .amInterpolatedAllele { background-color: blue; color: white; }
-              .amGrid { border-collapse: separate; }
-              .amGridContent { padding: 0; border: 1px solid #7EACB1; }
-              .amGridUpperPanel, .amGridLowerPanel { padding: 3px; background-color: #F4FAFB; color: #2A769D; font-family: Verdana; font-size: xx-small; }
-              .amGridUpperPanel { border-top: 0px; border-bottom: 1px solid; border-color: #7EACB1; }
-              .amGridMiddlePanel { border: 0; }
-              .amGridLowerPanel { border-top: 1px solid; border-bottom: 0px; border-color: #C2D4DA; }
-              .amGridUpperPanel td, .amGridLowerPanel td { color: #2A769D; font-family: Verdana; font-size: xx-small; }
-              .amTable { border: 0; border-spacing: 0; border-collapse: collapse; empty-cells: show; width: 100%; font-family: Verdana; font-size: xx-small; }
-              .amTableSeparate { border-collapse: separate; }
-              .amTable td { padding: 3px; border-bottom: 1px solid; border-right: 1px solid; border-color: #C2D4DA; white-space:nowrap; }
-              .amTable .amTableHeader, .amTable .amTableHeader td { background-color: #B7D8DC; color: #000000; border-bottom: 1px solid; border-right: 1px solid; border-color: #7EACB1; vertical-align: top; white-space:nowrap; }
-              .amPointer { cursor: pointer; }
-              .amTableHeaderBtn { width: 100%; font-family: Verdana; font-size: xx-small; }
-              .amTableHeader .amTableHeaderBtn td { background: transparent; padding: 0; border: 0; white-space: nowrap; }
-              .amTableSelectRow { background-color: #FFFF66; color: #000000; }
-      
-      </style>
-      </head><body>
-      <div style="margin-left:5%; margin-right:5%">
-      <br><table cellspacing="0" class="amGrid"><tr><td class="amGridContent">
-      <div class="amGridUpperPanel">
-      <div style="font-size:x-small;"><table>
-      <tr><td style="width:400px;"><span style="font-size:20px;">allelematch<br>unique analysis</span><br><br></td></tr>
-      <tr><td><b>
-      unique N=</b><em>16</em></td></tr>
-      <tr><td><b>samples N=</b><em>20</em></td></tr>
-      <tr><td><b><br>loci N=</b><em>10</em></td></tr>
-      <tr><td><b>locus names: </b><em>LOC1a-LOC1b, LOC2a-LOC2b, LOC3a-LOC3b, LOC4a-LOC4b, LOC5a-LOC5b, LOC6a-LOC6b, LOC7a-LOC7b, LOC8a-LOC8b, LOC9a-LOC9b, LOC10a-LOC10b</em></td></tr>
-      <tr><td><b><br>missing data represented by: </b><em>-99</em></td></tr>
-      <tr><td><b>clustered genotypes consensus method: </b><em>1</em></td></tr>
-      <tr><td><b>Psib calculated for: </b><em>samples with no mismatches</em></td></tr>
-      <tr><td><b><br>alleleMismatch (m-hat; maximum number of mismatching alleles): </b><em>6</em></td></tr>
-      <tr><td><b>cutHeight (d-hat; dynamic tree cutting height): </b><em>0.3</em></td></tr>
-      <tr><td><b>matchThreshold (s-hat; lowest matching score returned): </b><em>0.7</em></td></tr>
-      <tr><td><b><br>unclassified N=</b><em>0</em></td></tr>
-      <tr><td><b>multipleMatch N=</b><em>6</em></td></tr>
-      <tr><td><b><br>Note: Unique genotypes are determined based on clustering of scores.</b><em> Psib appears for reference purposes.</em></td></tr>
-      <tr><td><b><br>summary generated: </b><em>(date)</em></td></tr>
-      </table></div></div></td></tr></table><br><br>
-      <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><span style="font-size:medium;">Unique genotypes</span></div><div class="amGridMiddlePanel">
-      <table cellspacing="0" class="amTable amTableSeparate">
-      <tr class="amTableHeader">
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      </tr>
-      <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
-      <td><div><a href="#1001.ON.CA">Jump</a></div></td>
-      <td><div>1001.ON.CA</div></td>
-      <td><div>382</div></td>
-      <td><div>384</div></td>
-      <td><div>230</div></td>
-      <td><div>236</div></td>
-      <td><div>-99</div></td>
-      <td><div>-99</div></td>
-      <td><div>185</div></td>
-      <td><div>185</div></td>
-      <td><div>301</div></td>
-      <td><div>301</div></td>
-      <td><div>223</div></td>
-      <td><div>223</div></td>
-      <td><div>192</div></td>
-      <td><div>192</div></td>
-      <td><div>118</div></td>
-      <td><div>118</div></td>
-      <td><div>296</div></td>
-      <td><div>304</div></td>
-      <td><div>166</div></td>
-      <td><div>166</div></td>
-      <td><div>0.0013</div></td>
-      <td><div>UNIQUE</div></td>
-      </tr>
-      <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
-      <td><div><a href="#1002.ON.CA">Jump</a></div></td>
-      <td><div>1002.ON.CA</div></td>
-      <td><div>382</div></td>
-      <td><div>384</div></td>
-      <td><div>230</div></td>
-      <td><div>236</div></td>
-      <td><div>-99</div></td>
-      <td><div>-99</div></td>
-      <td><div>181</div></td>
-      <td><div>193</div></td>
-      <td><div>299</div></td>
-      <td><div>299</div></td>
-      <td><div>223</div></td>
-      <td><div>223</div></td>
-      <td><div>202</div></td>
-      <td><div>202</div></td>
-      <td><div>118</div></td>
-      <td><div>118</div></td>
-      <td><div>288</div></td>
-      <td><div>296</div></td>
-      <td><div>166</div></td>
-      <td><div>166</div></td>
-      <td><div>0.0041</div></td>
-      <td><div>CHECK_UNIQUE</div></td>
-      </tr>
-      <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
-      <td><div><a href="#1003.ON.CA">Jump</a></div></td>
-      <td><div>1003.ON.CA</div></td>
-      <td><div>382</div></td>
-      <td><div>382</div></td>
-      <td><div>224</div></td>
-      <td><div>242</div></td>
-      <td><div>-99</div></td>
-      <td><div>-99</div></td>
-      <td><div>185</div></td>
-      <td><div>191</div></td>
-      <td><div>285</div></td>
-      <td><div>299</div></td>
-      <td><div>223</div></td>
-      <td><div>223</div></td>
-      <td><div>192</div></td>
-      <td><div>202</div></td>
-      <td><div>102</div></td>
-      <td><div>118</div></td>
-      <td><div>298</div></td>
-      <td><div>304</div></td>
-      <td><div>166</div></td>
-      <td><div>172</div></td>
-      <td><div>0.00075</div></td>
-      <td><div>CHECK_UNIQUE</div></td>
-      </tr>
-      <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
-      <td><div><a href="#1004.ON.CA">Jump</a></div></td>
-      <td><div>1004.ON.CA</div></td>
-      <td><div>382</div></td>
-      <td><div>384</div></td>
-      <td><div>232</div></td>
-      <td><div>236</div></td>
-      <td><div>-99</div></td>
-      <td><div>-99</div></td>
-      <td><div>193</div></td>
-      <td><div>193</div></td>
-      <td><div>299</div></td>
-      <td><div>301</div></td>
-      <td><div>223</div></td>
-      <td><div>223</div></td>
-      <td><div>192</div></td>
-      <td><div>216</div></td>
-      <td><div>102</div></td>
-      <td><div>108</div></td>
-      <td><div>296</div></td>
-      <td><div>304</div></td>
-      <td><div>168</div></td>
-      <td><div>174</div></td>
-      <td><div>0.00055</div></td>
-      <td><div>UNIQUE</div></td>
-      </tr>
-      <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
-      <td><div><a href="#1006.ON.CA">Jump</a></div></td>
-      <td><div>1006.ON.CA</div></td>
-      <td><div>382</div></td>
-      <td><div>384</div></td>
-      <td><div>224</div></td>
-      <td><div>230</div></td>
-      <td><div>-99</div></td>
-      <td><div>-99</div></td>
-      <td><div>181</div></td>
-      <td><div>193</div></td>
-      <td><div>285</div></td>
-      <td><div>285</div></td>
-      <td><div>223</div></td>
-      <td><div>223</div></td>
-      <td><div>198</div></td>
-      <td><div>202</div></td>
-      <td><div>114</div></td>
-      <td><div>116</div></td>
-      <td><div>288</div></td>
-      <td><div>296</div></td>
-      <td><div>166</div></td>
-      <td><div>166</div></td>
-      <td><div>0.0012</div></td>
-      <td><div>UNIQUE</div></td>
-      </tr>
-      <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
-      <td><div><a href="#1008.ON.CA">Jump</a></div></td>
-      <td><div>1008.ON.CA</div></td>
-      <td><div>382</div></td>
-      <td><div>382</div></td>
-      <td><div>224</div></td>
-      <td><div>230</div></td>
-      <td><div>-99</div></td>
-      <td><div>-99</div></td>
-      <td><div>185</div></td>
-      <td><div>193</div></td>
-      <td><div>285</div></td>
-      <td><div>285</div></td>
-      <td><div>223</div></td>
-      <td><div>223</div></td>
-      <td><div>192</div></td>
-      <td><div>202</div></td>
-      <td><div>118</div></td>
-      <td><div>118</div></td>
-      <td><div>296</div></td>
-      <td><div>304</div></td>
-      <td><div>166</div></td>
-      <td><div>166</div></td>
-      <td><div>&nbsp; &nbsp; ---</div></td>
-      <td><div>CHECK_UNIQUE</div></td>
-      </tr>
-      <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
-      <td><div><a href="#1010.ON.CA">Jump</a></div></td>
-      <td><div>1010.ON.CA</div></td>
-      <td><div>382</div></td>
-      <td><div>384</div></td>
-      <td><div>230</div></td>
-      <td><div>244</div></td>
-      <td><div>-99</div></td>
-      <td><div>-99</div></td>
-      <td><div>191</div></td>
-      <td><div>193</div></td>
-      <td><div>299</div></td>
-      <td><div>299</div></td>
-      <td><div>227</div></td>
-      <td><div>227</div></td>
-      <td><div>202</div></td>
-      <td><div>204</div></td>
-      <td><div>118</div></td>
-      <td><div>118</div></td>
-      <td><div>296</div></td>
-      <td><div>296</div></td>
-      <td><div>166</div></td>
-      <td><div>166</div></td>
-      <td><div>&nbsp; &nbsp; ---</div></td>
-      <td><div>CHECK_UNIQUE</div></td>
-      </tr>
-      <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
-      <td><div><a href="#1011.ON.CA">Jump</a></div></td>
-      <td><div>1011.ON.CA</div></td>
-      <td><div>382</div></td>
-      <td><div>384</div></td>
-      <td><div>224</div></td>
-      <td><div>224</div></td>
-      <td><div>-99</div></td>
-      <td><div>-99</div></td>
-      <td><div>193</div></td>
-      <td><div>193</div></td>
-      <td><div>299</div></td>
-      <td><div>299</div></td>
-      <td><div>223</div></td>
-      <td><div>223</div></td>
-      <td><div>210</div></td>
-      <td><div>214</div></td>
-      <td><div>106</div></td>
-      <td><div>112</div></td>
-      <td><div>288</div></td>
-      <td><div>296</div></td>
-      <td><div>166</div></td>
-      <td><div>172</div></td>
-      <td><div>0.002</div></td>
-      <td><div>UNIQUE</div></td>
-      </tr>
-      <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
-      <td><div><a href="#1013.ON.CA">Jump</a></div></td>
-      <td><div>1013.ON.CA</div></td>
-      <td><div>382</div></td>
-      <td><div>384</div></td>
-      <td><div>232</div></td>
-      <td><div>232</div></td>
-      <td><div>-99</div></td>
-      <td><div>-99</div></td>
-      <td><div>193</div></td>
-      <td><div>193</div></td>
-      <td><div>299</div></td>
-      <td><div>299</div></td>
-      <td><div>213</div></td>
-      <td><div>221</div></td>
-      <td><div>210</div></td>
-      <td><div>210</div></td>
-      <td><div>118</div></td>
-      <td><div>118</div></td>
-      <td><div>296</div></td>
-      <td><div>306</div></td>
-      <td><div>166</div></td>
-      <td><div>172</div></td>
-      <td><div>0.0011</div></td>
-      <td><div>UNIQUE</div></td>
-      </tr>
-      <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
-      <td><div><a href="#1014.ON.CA">Jump</a></div></td>
-      <td><div>1014.ON.CA</div></td>
-      <td><div>384</div></td>
-      <td><div>384</div></td>
-      <td><div>232</div></td>
-      <td><div>238</div></td>
-      <td><div>-99</div></td>
-      <td><div>-99</div></td>
-      <td><div>193</div></td>
-      <td><div>199</div></td>
-      <td><div>299</div></td>
-      <td><div>301</div></td>
-      <td><div>213</div></td>
-      <td><div>213</div></td>
-      <td><div>210</div></td>
-      <td><div>210</div></td>
-      <td><div>102</div></td>
-      <td><div>108</div></td>
-      <td><div>296</div></td>
-      <td><div>296</div></td>
-      <td><div>174</div></td>
-      <td><div>174</div></td>
-      <td><div>0.00019</div></td>
-      <td><div>UNIQUE</div></td>
-      </tr>
-      <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
-      <td><div><a href="#1015.ON.CA">Jump</a></div></td>
-      <td><div>1015.ON.CA</div></td>
-      <td><div>382</div></td>
-      <td><div>382</div></td>
-      <td><div>224</div></td>
-      <td><div>232</div></td>
-      <td><div>-99</div></td>
-      <td><div>-99</div></td>
-      <td><div>193</div></td>
-      <td><div>193</div></td>
-      <td><div>299</div></td>
-      <td><div>299</div></td>
-      <td><div>223</div></td>
-      <td><div>223</div></td>
-      <td><div>210</div></td>
-      <td><div>216</div></td>
-      <td><div>106</div></td>
-      <td><div>106</div></td>
-      <td><div>296</div></td>
-      <td><div>306</div></td>
-      <td><div>166</div></td>
-      <td><div>166</div></td>
-      <td><div>0.0031</div></td>
-      <td><div>UNIQUE</div></td>
-      </tr>
-      <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
-      <td><div><a href="#1016.ON.CA">Jump</a></div></td>
-      <td><div>1016.ON.CA</div></td>
-      <td><div>382</div></td>
-      <td><div>384</div></td>
-      <td><div>224</div></td>
-      <td><div>232</div></td>
-      <td><div>-99</div></td>
-      <td><div>-99</div></td>
-      <td><div>193</div></td>
-      <td><div>193</div></td>
-      <td><div>-99</div></td>
-      <td><div>-99</div></td>
-      <td><div>213</div></td>
-      <td><div>221</div></td>
-      <td><div>210</div></td>
-      <td><div>210</div></td>
-      <td><div>106</div></td>
-      <td><div>112</div></td>
-      <td><div>288</div></td>
-      <td><div>288</div></td>
-      <td><div>166</div></td>
-      <td><div>166</div></td>
-      <td><div>0.0016</div></td>
-      <td><div>UNIQUE</div></td>
-      </tr>
-      <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
-      <td><div><a href="#1017.ON.CA">Jump</a></div></td>
-      <td><div>1017.ON.CA</div></td>
-      <td><div>382</div></td>
-      <td><div>388</div></td>
-      <td><div>230</div></td>
-      <td><div>230</div></td>
-      <td><div>-99</div></td>
-      <td><div>-99</div></td>
-      <td><div>181</div></td>
-      <td><div>185</div></td>
-      <td><div>285</div></td>
-      <td><div>299</div></td>
-      <td><div>223</div></td>
-      <td><div>223</div></td>
-      <td><div>202</div></td>
-      <td><div>202</div></td>
-      <td><div>106</div></td>
-      <td><div>118</div></td>
-      <td><div>304</div></td>
-      <td><div>304</div></td>
-      <td><div>166</div></td>
-      <td><div>166</div></td>
-      <td><div>0.0015</div></td>
-      <td><div>UNIQUE</div></td>
-      </tr>
-      <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
-      <td><div><a href="#1018.ON.CA">Jump</a></div></td>
-      <td><div>1018.ON.CA</div></td>
-      <td><div>384</div></td>
-      <td><div>384</div></td>
-      <td><div>224</div></td>
-      <td><div>230</div></td>
-      <td><div>-99</div></td>
-      <td><div>-99</div></td>
-      <td><div>185</div></td>
-      <td><div>199</div></td>
-      <td><div>285</div></td>
-      <td><div>299</div></td>
-      <td><div>223</div></td>
-      <td><div>223</div></td>
-      <td><div>198</div></td>
-      <td><div>204</div></td>
-      <td><div>116</div></td>
-      <td><div>118</div></td>
-      <td><div>296</div></td>
-      <td><div>296</div></td>
-      <td><div>166</div></td>
-      <td><div>166</div></td>
-      <td><div>0.0015</div></td>
-      <td><div>UNIQUE</div></td>
-      </tr>
-      <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
-      <td><div><a href="#1019.ON.CA">Jump</a></div></td>
-      <td><div>1019.ON.CA</div></td>
-      <td><div>382</div></td>
-      <td><div>384</div></td>
-      <td><div>224</div></td>
-      <td><div>230</div></td>
-      <td><div>159</div></td>
-      <td><div>159</div></td>
-      <td><div>193</div></td>
-      <td><div>193</div></td>
-      <td><div>299</div></td>
-      <td><div>299</div></td>
-      <td><div>223</div></td>
-      <td><div>223</div></td>
-      <td><div>202</div></td>
-      <td><div>202</div></td>
-      <td><div>106</div></td>
-      <td><div>118</div></td>
-      <td><div>298</div></td>
-      <td><div>298</div></td>
-      <td><div>166</div></td>
-      <td><div>166</div></td>
-      <td><div>0.0025</div></td>
-      <td><div>UNIQUE</div></td>
-      </tr>
-      <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
-      <td><div><a href="#1020.ON.CA">Jump</a></div></td>
-      <td><div>1020.ON.CA</div></td>
-      <td><div>382</div></td>
-      <td><div>384</div></td>
-      <td><div>224</div></td>
-      <td><div>230</div></td>
-      <td><div>155</div></td>
-      <td><div>167</div></td>
-      <td><div>185</div></td>
-      <td><div>193</div></td>
-      <td><div>299</div></td>
-      <td><div>299</div></td>
-      <td><div>223</div></td>
-      <td><div>223</div></td>
-      <td><div>202</div></td>
-      <td><div>204</div></td>
-      <td><div>106</div></td>
-      <td><div>106</div></td>
-      <td><div>296</div></td>
-      <td><div>304</div></td>
-      <td><div>166</div></td>
-      <td><div>166</div></td>
-      <td><div>0.0016</div></td>
-      <td><div>UNIQUE</div></td>
-      </tr>
-      </table></div><div class="amGridLowerPanel"><span>There were 16 unique genotypes identified using the parameters supplied.</span></div></td></tr></table><br><br>
-      <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1001.ON.CA"><span style="font-size:medium;">Unique genotype (1 of 16)</span></a></div><div class="amGridMiddlePanel">
-      <table cellspacing="0" class="amTable amTableSeparate">
-      <tr class="amTableHeader">
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      </tr>
-      <tr>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>1001.ON.CA</div></td>
-      <td class="amTableSelectRow"><div>382</div></td>
-      <td class="amTableSelectRow"><div>384</div></td>
-      <td class="amTableSelectRow"><div>230</div></td>
-      <td class="amTableSelectRow"><div>236</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>185</div></td>
-      <td class="amTableSelectRow"><div>185</div></td>
-      <td class="amTableSelectRow"><div>301</div></td>
-      <td class="amTableSelectRow"><div>301</div></td>
-      <td class="amTableSelectRow"><div>223</div></td>
-      <td class="amTableSelectRow"><div>223</div></td>
-      <td class="amTableSelectRow"><div>192</div></td>
-      <td class="amTableSelectRow"><div>192</div></td>
-      <td class="amTableSelectRow"><div>118</div></td>
-      <td class="amTableSelectRow"><div>118</div></td>
-      <td class="amTableSelectRow"><div>296</div></td>
-      <td class="amTableSelectRow"><div>304</div></td>
-      <td class="amTableSelectRow"><div>166</div></td>
-      <td class="amTableSelectRow"><div>166</div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>UNIQUE</div></td>
-      </tr>
-      <tr><td><div></div></td><td><div>1001.ON.CA</div></td><td><div>382</div></td><td><div>384</div></td><td><div>230</div></td><td><div>236</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>185</div></td><td><div>185</div></td><td><div>301</div></td><td><div>301</div></td><td><div>223</div></td><td><div>223</div></td><td><div>192</div></td><td><div>192</div></td><td><div>118</div></td><td><div>118</div></td><td><div>296</div></td><td><div>304</div></td><td><div>166</div></td><td><div>166</div></td><td><div>0.0013</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
-      </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
-      </td></tr></table><br><br>
-      <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1002.ON.CA"><span style="font-size:medium;">Unique genotype (2 of 16)</span></a></div><div class="amGridMiddlePanel">
-      <table cellspacing="0" class="amTable amTableSeparate">
-      <tr class="amTableHeader">
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      </tr>
-      <tr>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>1002.ON.CA</div></td>
-      <td class="amTableSelectRow"><div>382</div></td>
-      <td class="amTableSelectRow"><div>384</div></td>
-      <td class="amTableSelectRow"><div>230</div></td>
-      <td class="amTableSelectRow"><div>236</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>181</div></td>
-      <td class="amTableSelectRow"><div>193</div></td>
-      <td class="amTableSelectRow"><div>299</div></td>
-      <td class="amTableSelectRow"><div>299</div></td>
-      <td class="amTableSelectRow"><div>223</div></td>
-      <td class="amTableSelectRow"><div>223</div></td>
-      <td class="amTableSelectRow"><div>202</div></td>
-      <td class="amTableSelectRow"><div>202</div></td>
-      <td class="amTableSelectRow"><div>118</div></td>
-      <td class="amTableSelectRow"><div>118</div></td>
-      <td class="amTableSelectRow"><div>288</div></td>
-      <td class="amTableSelectRow"><div>296</div></td>
-      <td class="amTableSelectRow"><div>166</div></td>
-      <td class="amTableSelectRow"><div>166</div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>CHECK_UNIQUE</div></td>
-      </tr>
-      <tr><td><div><span style="color:red; font-weight:bold;">!!!</span></div></td><td><div>1002.ON.CA</div></td><td><div>382</div></td><td><div>384</div></td><td><div>230</div></td><td><div>236</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>181</div></td><td><div>193</div></td><td><div>299</div></td><td><div>299</div></td><td><div>223</div></td><td><div>223</div></td><td><div>202</div></td><td><div>202</div></td><td><div>118</div></td><td><div>118</div></td><td><div>288</div></td><td><div>296</div></td><td><div>166</div></td><td><div>166</div></td><td><div>0.0041</div></td><td><div>1.0</div></td><td><div>MULTIPLE_MATCH</div></td></tr>
-      <tr><td><div><span style="color:red; font-weight:bold;">!!!</span></div></td><td><div>1010.ON.CA</div></td><td><div>382</div></td><td><div>384</div></td><td><div>230</div></td><td><div class="amMismatchAllele">244</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMismatchAllele">191</div></td><td><div>193</div></td><td><div>299</div></td><td><div>299</div></td><td><div class="amMismatchAllele">227</div></td><td><div class="amMismatchAllele">227</div></td><td><div>202</div></td><td><div class="amMismatchAllele">204</div></td><td><div>118</div></td><td><div>118</div></td><td><div class="amMismatchAllele">296</div></td><td><div>296</div></td><td><div>166</div></td><td><div>166</div></td><td><div>&nbsp; &nbsp; ---</div></td><td><div>0.7</div></td><td><div>MULTIPLE_MATCH</div></td></tr>
-      </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br><span style="color:red">multipleMatch samples present</span><br>Psib calculated for samples with no mismatches.</span></div>
-      </td></tr></table><br><br>
-      <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1003.ON.CA"><span style="font-size:medium;">Unique genotype (3 of 16)</span></a></div><div class="amGridMiddlePanel">
-      <table cellspacing="0" class="amTable amTableSeparate">
-      <tr class="amTableHeader">
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      </tr>
-      <tr>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>1003.ON.CA</div></td>
-      <td class="amTableSelectRow"><div>382</div></td>
-      <td class="amTableSelectRow"><div>382</div></td>
-      <td class="amTableSelectRow"><div>224</div></td>
-      <td class="amTableSelectRow"><div>242</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>185</div></td>
-      <td class="amTableSelectRow"><div>191</div></td>
-      <td class="amTableSelectRow"><div>285</div></td>
-      <td class="amTableSelectRow"><div>299</div></td>
-      <td class="amTableSelectRow"><div>223</div></td>
-      <td class="amTableSelectRow"><div>223</div></td>
-      <td class="amTableSelectRow"><div>192</div></td>
-      <td class="amTableSelectRow"><div>202</div></td>
-      <td class="amTableSelectRow"><div>102</div></td>
-      <td class="amTableSelectRow"><div>118</div></td>
-      <td class="amTableSelectRow"><div>298</div></td>
-      <td class="amTableSelectRow"><div>304</div></td>
-      <td class="amTableSelectRow"><div>166</div></td>
-      <td class="amTableSelectRow"><div>172</div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>CHECK_UNIQUE</div></td>
-      </tr>
-      <tr><td><div><span style="color:red; font-weight:bold;">!!!</span></div></td><td><div>1003.ON.CA</div></td><td><div>382</div></td><td><div>382</div></td><td><div>224</div></td><td><div>242</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>185</div></td><td><div>191</div></td><td><div>285</div></td><td><div>299</div></td><td><div>223</div></td><td><div>223</div></td><td><div>192</div></td><td><div>202</div></td><td><div>102</div></td><td><div>118</div></td><td><div>298</div></td><td><div>304</div></td><td><div>166</div></td><td><div>172</div></td><td><div>0.00075</div></td><td><div>1.0</div></td><td><div>MULTIPLE_MATCH</div></td></tr>
-      <tr><td><div><span style="color:red; font-weight:bold;">!!!</span></div></td><td><div>1005.ON.CA</div></td><td><div>382</div></td><td><div>382</div></td><td><div>224</div></td><td><div>242</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>185</div></td><td><div>191</div></td><td><div>285</div></td><td><div>299</div></td><td><div>223</div></td><td><div>223</div></td><td><div>192</div></td><td><div>202</div></td><td><div>102</div></td><td><div>118</div></td><td><div>298</div></td><td><div>304</div></td><td><div>166</div></td><td><div>172</div></td><td><div>0.00075</div></td><td><div>1.0</div></td><td><div>MULTIPLE_MATCH</div></td></tr>
-      <tr><td><div><span style="color:red; font-weight:bold;">!!!</span></div></td><td><div>1008.ON.CA</div></td><td><div>382</div></td><td><div>382</div></td><td><div>224</div></td><td><div class="amMismatchAllele">230</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>185</div></td><td><div class="amMismatchAllele">193</div></td><td><div>285</div></td><td><div class="amMismatchAllele">285</div></td><td><div>223</div></td><td><div>223</div></td><td><div>192</div></td><td><div>202</div></td><td><div class="amMismatchAllele">118</div></td><td><div>118</div></td><td><div class="amMismatchAllele">296</div></td><td><div>304</div></td><td><div>166</div></td><td><div class="amMismatchAllele">166</div></td><td><div>&nbsp; &nbsp; ---</div></td><td><div>0.7</div></td><td><div>MULTIPLE_MATCH</div></td></tr>
-      <tr><td><div><span style="color:red; font-weight:bold;">!!!</span></div></td><td><div>1009.ON.CA</div></td><td><div>382</div></td><td><div>382</div></td><td><div>224</div></td><td><div class="amMismatchAllele">230</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>185</div></td><td><div class="amMismatchAllele">193</div></td><td><div>285</div></td><td><div class="amMismatchAllele">285</div></td><td><div>223</div></td><td><div>223</div></td><td><div>192</div></td><td><div>202</div></td><td><div class="amMismatchAllele">118</div></td><td><div>118</div></td><td><div class="amMismatchAllele">296</div></td><td><div>304</div></td><td><div>166</div></td><td><div class="amMismatchAllele">166</div></td><td><div>&nbsp; &nbsp; ---</div></td><td><div>0.7</div></td><td><div>MULTIPLE_MATCH</div></td></tr>
-      </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br><span style="color:red">multipleMatch samples present</span><br>Psib calculated for samples with no mismatches.</span></div>
-      </td></tr></table><br><br>
-      <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1004.ON.CA"><span style="font-size:medium;">Unique genotype (4 of 16)</span></a></div><div class="amGridMiddlePanel">
-      <table cellspacing="0" class="amTable amTableSeparate">
-      <tr class="amTableHeader">
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      </tr>
-      <tr>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>1004.ON.CA</div></td>
-      <td class="amTableSelectRow"><div>382</div></td>
-      <td class="amTableSelectRow"><div>384</div></td>
-      <td class="amTableSelectRow"><div>232</div></td>
-      <td class="amTableSelectRow"><div>236</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>193</div></td>
-      <td class="amTableSelectRow"><div>193</div></td>
-      <td class="amTableSelectRow"><div>299</div></td>
-      <td class="amTableSelectRow"><div>301</div></td>
-      <td class="amTableSelectRow"><div>223</div></td>
-      <td class="amTableSelectRow"><div>223</div></td>
-      <td class="amTableSelectRow"><div>192</div></td>
-      <td class="amTableSelectRow"><div>216</div></td>
-      <td class="amTableSelectRow"><div>102</div></td>
-      <td class="amTableSelectRow"><div>108</div></td>
-      <td class="amTableSelectRow"><div>296</div></td>
-      <td class="amTableSelectRow"><div>304</div></td>
-      <td class="amTableSelectRow"><div>168</div></td>
-      <td class="amTableSelectRow"><div>174</div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>UNIQUE</div></td>
-      </tr>
-      <tr><td><div></div></td><td><div>1004.ON.CA</div></td><td><div>382</div></td><td><div>384</div></td><td><div>232</div></td><td><div>236</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>193</div></td><td><div>193</div></td><td><div>299</div></td><td><div>301</div></td><td><div>223</div></td><td><div>223</div></td><td><div>192</div></td><td><div>216</div></td><td><div>102</div></td><td><div>108</div></td><td><div>296</div></td><td><div>304</div></td><td><div>168</div></td><td><div>174</div></td><td><div>0.00055</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
-      </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
-      </td></tr></table><br><br>
-      <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1006.ON.CA"><span style="font-size:medium;">Unique genotype (5 of 16)</span></a></div><div class="amGridMiddlePanel">
-      <table cellspacing="0" class="amTable amTableSeparate">
-      <tr class="amTableHeader">
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      </tr>
-      <tr>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>1006.ON.CA</div></td>
-      <td class="amTableSelectRow"><div>382</div></td>
-      <td class="amTableSelectRow"><div>384</div></td>
-      <td class="amTableSelectRow"><div>224</div></td>
-      <td class="amTableSelectRow"><div>230</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>181</div></td>
-      <td class="amTableSelectRow"><div>193</div></td>
-      <td class="amTableSelectRow"><div>285</div></td>
-      <td class="amTableSelectRow"><div>285</div></td>
-      <td class="amTableSelectRow"><div>223</div></td>
-      <td class="amTableSelectRow"><div>223</div></td>
-      <td class="amTableSelectRow"><div>198</div></td>
-      <td class="amTableSelectRow"><div>202</div></td>
-      <td class="amTableSelectRow"><div>114</div></td>
-      <td class="amTableSelectRow"><div>116</div></td>
-      <td class="amTableSelectRow"><div>288</div></td>
-      <td class="amTableSelectRow"><div>296</div></td>
-      <td class="amTableSelectRow"><div>166</div></td>
-      <td class="amTableSelectRow"><div>166</div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>UNIQUE</div></td>
-      </tr>
-      <tr><td><div></div></td><td><div>1006.ON.CA</div></td><td><div>382</div></td><td><div>384</div></td><td><div>224</div></td><td><div>230</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>181</div></td><td><div>193</div></td><td><div>285</div></td><td><div>285</div></td><td><div>223</div></td><td><div>223</div></td><td><div>198</div></td><td><div>202</div></td><td><div>114</div></td><td><div>116</div></td><td><div>288</div></td><td><div>296</div></td><td><div>166</div></td><td><div>166</div></td><td><div>0.0012</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
-      <tr><td><div></div></td><td><div>1007.ON.CA</div></td><td><div>382</div></td><td><div>384</div></td><td><div>224</div></td><td><div>230</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>181</div></td><td><div>193</div></td><td><div>285</div></td><td><div>285</div></td><td><div>223</div></td><td><div>223</div></td><td><div>198</div></td><td><div>202</div></td><td><div>114</div></td><td><div>116</div></td><td><div>288</div></td><td><div>296</div></td><td><div>166</div></td><td><div>166</div></td><td><div>0.0012</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
-      </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
-      </td></tr></table><br><br>
-      <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1008.ON.CA"><span style="font-size:medium;">Unique genotype (6 of 16)</span></a></div><div class="amGridMiddlePanel">
-      <table cellspacing="0" class="amTable amTableSeparate">
-      <tr class="amTableHeader">
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      </tr>
-      <tr>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>1008.ON.CA</div></td>
-      <td class="amTableSelectRow"><div>382</div></td>
-      <td class="amTableSelectRow"><div>382</div></td>
-      <td class="amTableSelectRow"><div>224</div></td>
-      <td class="amTableSelectRow"><div>230</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>185</div></td>
-      <td class="amTableSelectRow"><div>193</div></td>
-      <td class="amTableSelectRow"><div>285</div></td>
-      <td class="amTableSelectRow"><div>285</div></td>
-      <td class="amTableSelectRow"><div>223</div></td>
-      <td class="amTableSelectRow"><div>223</div></td>
-      <td class="amTableSelectRow"><div>192</div></td>
-      <td class="amTableSelectRow"><div>202</div></td>
-      <td class="amTableSelectRow"><div>118</div></td>
-      <td class="amTableSelectRow"><div>118</div></td>
-      <td class="amTableSelectRow"><div>296</div></td>
-      <td class="amTableSelectRow"><div>304</div></td>
-      <td class="amTableSelectRow"><div>166</div></td>
-      <td class="amTableSelectRow"><div>166</div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>CHECK_UNIQUE</div></td>
-      </tr>
-      <tr><td><div><span style="color:red; font-weight:bold;">!!!</span></div></td><td><div>1008.ON.CA</div></td><td><div>382</div></td><td><div>382</div></td><td><div>224</div></td><td><div class="amMismatchAllele">230</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>185</div></td><td><div class="amMismatchAllele">193</div></td><td><div>285</div></td><td><div class="amMismatchAllele">285</div></td><td><div>223</div></td><td><div>223</div></td><td><div>192</div></td><td><div>202</div></td><td><div class="amMismatchAllele">118</div></td><td><div>118</div></td><td><div class="amMismatchAllele">296</div></td><td><div>304</div></td><td><div>166</div></td><td><div class="amMismatchAllele">166</div></td><td><div>&nbsp; &nbsp; ---</div></td><td><div>1.0</div></td><td><div>MULTIPLE_MATCH</div></td></tr>
-      <tr><td><div><span style="color:red; font-weight:bold;">!!!</span></div></td><td><div>1009.ON.CA</div></td><td><div>382</div></td><td><div>382</div></td><td><div>224</div></td><td><div class="amMismatchAllele">230</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>185</div></td><td><div class="amMismatchAllele">193</div></td><td><div>285</div></td><td><div class="amMismatchAllele">285</div></td><td><div>223</div></td><td><div>223</div></td><td><div>192</div></td><td><div>202</div></td><td><div class="amMismatchAllele">118</div></td><td><div>118</div></td><td><div class="amMismatchAllele">296</div></td><td><div>304</div></td><td><div>166</div></td><td><div class="amMismatchAllele">166</div></td><td><div>&nbsp; &nbsp; ---</div></td><td><div>1.0</div></td><td><div>MULTIPLE_MATCH</div></td></tr>
-      <tr><td><div><span style="color:red; font-weight:bold;">!!!</span></div></td><td><div>1003.ON.CA</div></td><td><div>382</div></td><td><div>382</div></td><td><div>224</div></td><td><div>242</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>185</div></td><td><div>191</div></td><td><div>285</div></td><td><div>299</div></td><td><div>223</div></td><td><div>223</div></td><td><div>192</div></td><td><div>202</div></td><td><div>102</div></td><td><div>118</div></td><td><div>298</div></td><td><div>304</div></td><td><div>166</div></td><td><div>172</div></td><td><div>0.00075</div></td><td><div>0.7</div></td><td><div>MULTIPLE_MATCH</div></td></tr>
-      <tr><td><div><span style="color:red; font-weight:bold;">!!!</span></div></td><td><div>1005.ON.CA</div></td><td><div>382</div></td><td><div>382</div></td><td><div>224</div></td><td><div>242</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>185</div></td><td><div>191</div></td><td><div>285</div></td><td><div>299</div></td><td><div>223</div></td><td><div>223</div></td><td><div>192</div></td><td><div>202</div></td><td><div>102</div></td><td><div>118</div></td><td><div>298</div></td><td><div>304</div></td><td><div>166</div></td><td><div>172</div></td><td><div>0.00075</div></td><td><div>0.7</div></td><td><div>MULTIPLE_MATCH</div></td></tr>
-      </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br><span style="color:red">multipleMatch samples present</span><br>Psib calculated for samples with no mismatches.</span></div>
-      </td></tr></table><br><br>
-      <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1010.ON.CA"><span style="font-size:medium;">Unique genotype (7 of 16)</span></a></div><div class="amGridMiddlePanel">
-      <table cellspacing="0" class="amTable amTableSeparate">
-      <tr class="amTableHeader">
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      </tr>
-      <tr>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>1010.ON.CA</div></td>
-      <td class="amTableSelectRow"><div>382</div></td>
-      <td class="amTableSelectRow"><div>384</div></td>
-      <td class="amTableSelectRow"><div>230</div></td>
-      <td class="amTableSelectRow"><div>244</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>191</div></td>
-      <td class="amTableSelectRow"><div>193</div></td>
-      <td class="amTableSelectRow"><div>299</div></td>
-      <td class="amTableSelectRow"><div>299</div></td>
-      <td class="amTableSelectRow"><div>227</div></td>
-      <td class="amTableSelectRow"><div>227</div></td>
-      <td class="amTableSelectRow"><div>202</div></td>
-      <td class="amTableSelectRow"><div>204</div></td>
-      <td class="amTableSelectRow"><div>118</div></td>
-      <td class="amTableSelectRow"><div>118</div></td>
-      <td class="amTableSelectRow"><div>296</div></td>
-      <td class="amTableSelectRow"><div>296</div></td>
-      <td class="amTableSelectRow"><div>166</div></td>
-      <td class="amTableSelectRow"><div>166</div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>CHECK_UNIQUE</div></td>
-      </tr>
-      <tr><td><div><span style="color:red; font-weight:bold;">!!!</span></div></td><td><div>1010.ON.CA</div></td><td><div>382</div></td><td><div>384</div></td><td><div>230</div></td><td><div class="amMismatchAllele">244</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMismatchAllele">191</div></td><td><div>193</div></td><td><div>299</div></td><td><div>299</div></td><td><div class="amMismatchAllele">227</div></td><td><div class="amMismatchAllele">227</div></td><td><div>202</div></td><td><div class="amMismatchAllele">204</div></td><td><div>118</div></td><td><div>118</div></td><td><div class="amMismatchAllele">296</div></td><td><div>296</div></td><td><div>166</div></td><td><div>166</div></td><td><div>&nbsp; &nbsp; ---</div></td><td><div>1.0</div></td><td><div>MULTIPLE_MATCH</div></td></tr>
-      <tr><td><div><span style="color:red; font-weight:bold;">!!!</span></div></td><td><div>1002.ON.CA</div></td><td><div>382</div></td><td><div>384</div></td><td><div>230</div></td><td><div>236</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>181</div></td><td><div>193</div></td><td><div>299</div></td><td><div>299</div></td><td><div>223</div></td><td><div>223</div></td><td><div>202</div></td><td><div>202</div></td><td><div>118</div></td><td><div>118</div></td><td><div>288</div></td><td><div>296</div></td><td><div>166</div></td><td><div>166</div></td><td><div>0.0041</div></td><td><div>0.7</div></td><td><div>MULTIPLE_MATCH</div></td></tr>
-      </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br><span style="color:red">multipleMatch samples present</span><br>Psib calculated for samples with no mismatches.</span></div>
-      </td></tr></table><br><br>
-      <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1011.ON.CA"><span style="font-size:medium;">Unique genotype (8 of 16)</span></a></div><div class="amGridMiddlePanel">
-      <table cellspacing="0" class="amTable amTableSeparate">
-      <tr class="amTableHeader">
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      </tr>
-      <tr>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>1011.ON.CA</div></td>
-      <td class="amTableSelectRow"><div>382</div></td>
-      <td class="amTableSelectRow"><div>384</div></td>
-      <td class="amTableSelectRow"><div>224</div></td>
-      <td class="amTableSelectRow"><div>224</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>193</div></td>
-      <td class="amTableSelectRow"><div>193</div></td>
-      <td class="amTableSelectRow"><div>299</div></td>
-      <td class="amTableSelectRow"><div>299</div></td>
-      <td class="amTableSelectRow"><div>223</div></td>
-      <td class="amTableSelectRow"><div>223</div></td>
-      <td class="amTableSelectRow"><div>210</div></td>
-      <td class="amTableSelectRow"><div>214</div></td>
-      <td class="amTableSelectRow"><div>106</div></td>
-      <td class="amTableSelectRow"><div>112</div></td>
-      <td class="amTableSelectRow"><div>288</div></td>
-      <td class="amTableSelectRow"><div>296</div></td>
-      <td class="amTableSelectRow"><div>166</div></td>
-      <td class="amTableSelectRow"><div>172</div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>UNIQUE</div></td>
-      </tr>
-      <tr><td><div></div></td><td><div>1011.ON.CA</div></td><td><div>382</div></td><td><div>384</div></td><td><div>224</div></td><td><div>224</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>193</div></td><td><div>193</div></td><td><div>299</div></td><td><div>299</div></td><td><div>223</div></td><td><div>223</div></td><td><div>210</div></td><td><div>214</div></td><td><div>106</div></td><td><div>112</div></td><td><div>288</div></td><td><div>296</div></td><td><div>166</div></td><td><div>172</div></td><td><div>0.002</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
-      <tr><td><div></div></td><td><div>1012.ON.CA</div></td><td><div>382</div></td><td><div>384</div></td><td><div>224</div></td><td><div>224</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>193</div></td><td><div>193</div></td><td><div>299</div></td><td><div>299</div></td><td><div>223</div></td><td><div>223</div></td><td><div>210</div></td><td><div>214</div></td><td><div>106</div></td><td><div>112</div></td><td><div>288</div></td><td><div>296</div></td><td><div>166</div></td><td><div>172</div></td><td><div>0.002</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
-      </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
-      </td></tr></table><br><br>
-      <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1013.ON.CA"><span style="font-size:medium;">Unique genotype (9 of 16)</span></a></div><div class="amGridMiddlePanel">
-      <table cellspacing="0" class="amTable amTableSeparate">
-      <tr class="amTableHeader">
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      </tr>
-      <tr>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>1013.ON.CA</div></td>
-      <td class="amTableSelectRow"><div>382</div></td>
-      <td class="amTableSelectRow"><div>384</div></td>
-      <td class="amTableSelectRow"><div>232</div></td>
-      <td class="amTableSelectRow"><div>232</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>193</div></td>
-      <td class="amTableSelectRow"><div>193</div></td>
-      <td class="amTableSelectRow"><div>299</div></td>
-      <td class="amTableSelectRow"><div>299</div></td>
-      <td class="amTableSelectRow"><div>213</div></td>
-      <td class="amTableSelectRow"><div>221</div></td>
-      <td class="amTableSelectRow"><div>210</div></td>
-      <td class="amTableSelectRow"><div>210</div></td>
-      <td class="amTableSelectRow"><div>118</div></td>
-      <td class="amTableSelectRow"><div>118</div></td>
-      <td class="amTableSelectRow"><div>296</div></td>
-      <td class="amTableSelectRow"><div>306</div></td>
-      <td class="amTableSelectRow"><div>166</div></td>
-      <td class="amTableSelectRow"><div>172</div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>UNIQUE</div></td>
-      </tr>
-      <tr><td><div></div></td><td><div>1013.ON.CA</div></td><td><div>382</div></td><td><div>384</div></td><td><div>232</div></td><td><div>232</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>193</div></td><td><div>193</div></td><td><div>299</div></td><td><div>299</div></td><td><div>213</div></td><td><div>221</div></td><td><div>210</div></td><td><div>210</div></td><td><div>118</div></td><td><div>118</div></td><td><div>296</div></td><td><div>306</div></td><td><div>166</div></td><td><div>172</div></td><td><div>0.0011</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
-      </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
-      </td></tr></table><br><br>
-      <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1014.ON.CA"><span style="font-size:medium;">Unique genotype (10 of 16)</span></a></div><div class="amGridMiddlePanel">
-      <table cellspacing="0" class="amTable amTableSeparate">
-      <tr class="amTableHeader">
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      </tr>
-      <tr>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>1014.ON.CA</div></td>
-      <td class="amTableSelectRow"><div>384</div></td>
-      <td class="amTableSelectRow"><div>384</div></td>
-      <td class="amTableSelectRow"><div>232</div></td>
-      <td class="amTableSelectRow"><div>238</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>193</div></td>
-      <td class="amTableSelectRow"><div>199</div></td>
-      <td class="amTableSelectRow"><div>299</div></td>
-      <td class="amTableSelectRow"><div>301</div></td>
-      <td class="amTableSelectRow"><div>213</div></td>
-      <td class="amTableSelectRow"><div>213</div></td>
-      <td class="amTableSelectRow"><div>210</div></td>
-      <td class="amTableSelectRow"><div>210</div></td>
-      <td class="amTableSelectRow"><div>102</div></td>
-      <td class="amTableSelectRow"><div>108</div></td>
-      <td class="amTableSelectRow"><div>296</div></td>
-      <td class="amTableSelectRow"><div>296</div></td>
-      <td class="amTableSelectRow"><div>174</div></td>
-      <td class="amTableSelectRow"><div>174</div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>UNIQUE</div></td>
-      </tr>
-      <tr><td><div></div></td><td><div>1014.ON.CA</div></td><td><div>384</div></td><td><div>384</div></td><td><div>232</div></td><td><div>238</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>193</div></td><td><div>199</div></td><td><div>299</div></td><td><div>301</div></td><td><div>213</div></td><td><div>213</div></td><td><div>210</div></td><td><div>210</div></td><td><div>102</div></td><td><div>108</div></td><td><div>296</div></td><td><div>296</div></td><td><div>174</div></td><td><div>174</div></td><td><div>0.00019</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
-      </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
-      </td></tr></table><br><br>
-      <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1015.ON.CA"><span style="font-size:medium;">Unique genotype (11 of 16)</span></a></div><div class="amGridMiddlePanel">
-      <table cellspacing="0" class="amTable amTableSeparate">
-      <tr class="amTableHeader">
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      </tr>
-      <tr>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>1015.ON.CA</div></td>
-      <td class="amTableSelectRow"><div>382</div></td>
-      <td class="amTableSelectRow"><div>382</div></td>
-      <td class="amTableSelectRow"><div>224</div></td>
-      <td class="amTableSelectRow"><div>232</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>193</div></td>
-      <td class="amTableSelectRow"><div>193</div></td>
-      <td class="amTableSelectRow"><div>299</div></td>
-      <td class="amTableSelectRow"><div>299</div></td>
-      <td class="amTableSelectRow"><div>223</div></td>
-      <td class="amTableSelectRow"><div>223</div></td>
-      <td class="amTableSelectRow"><div>210</div></td>
-      <td class="amTableSelectRow"><div>216</div></td>
-      <td class="amTableSelectRow"><div>106</div></td>
-      <td class="amTableSelectRow"><div>106</div></td>
-      <td class="amTableSelectRow"><div>296</div></td>
-      <td class="amTableSelectRow"><div>306</div></td>
-      <td class="amTableSelectRow"><div>166</div></td>
-      <td class="amTableSelectRow"><div>166</div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>UNIQUE</div></td>
-      </tr>
-      <tr><td><div></div></td><td><div>1015.ON.CA</div></td><td><div>382</div></td><td><div>382</div></td><td><div>224</div></td><td><div>232</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>193</div></td><td><div>193</div></td><td><div>299</div></td><td><div>299</div></td><td><div>223</div></td><td><div>223</div></td><td><div>210</div></td><td><div>216</div></td><td><div>106</div></td><td><div>106</div></td><td><div>296</div></td><td><div>306</div></td><td><div>166</div></td><td><div>166</div></td><td><div>0.0031</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
-      </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
-      </td></tr></table><br><br>
-      <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1016.ON.CA"><span style="font-size:medium;">Unique genotype (12 of 16)</span></a></div><div class="amGridMiddlePanel">
-      <table cellspacing="0" class="amTable amTableSeparate">
-      <tr class="amTableHeader">
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      </tr>
-      <tr>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>1016.ON.CA</div></td>
-      <td class="amTableSelectRow"><div>382</div></td>
-      <td class="amTableSelectRow"><div>384</div></td>
-      <td class="amTableSelectRow"><div>224</div></td>
-      <td class="amTableSelectRow"><div>232</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>193</div></td>
-      <td class="amTableSelectRow"><div>193</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>213</div></td>
-      <td class="amTableSelectRow"><div>221</div></td>
-      <td class="amTableSelectRow"><div>210</div></td>
-      <td class="amTableSelectRow"><div>210</div></td>
-      <td class="amTableSelectRow"><div>106</div></td>
-      <td class="amTableSelectRow"><div>112</div></td>
-      <td class="amTableSelectRow"><div>288</div></td>
-      <td class="amTableSelectRow"><div>288</div></td>
-      <td class="amTableSelectRow"><div>166</div></td>
-      <td class="amTableSelectRow"><div>166</div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>UNIQUE</div></td>
-      </tr>
-      <tr><td><div></div></td><td><div>1016.ON.CA</div></td><td><div>382</div></td><td><div>384</div></td><td><div>224</div></td><td><div>232</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>193</div></td><td><div>193</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>213</div></td><td><div>221</div></td><td><div>210</div></td><td><div>210</div></td><td><div>106</div></td><td><div>112</div></td><td><div>288</div></td><td><div>288</div></td><td><div>166</div></td><td><div>166</div></td><td><div>0.0016</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
-      </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
-      </td></tr></table><br><br>
-      <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1017.ON.CA"><span style="font-size:medium;">Unique genotype (13 of 16)</span></a></div><div class="amGridMiddlePanel">
-      <table cellspacing="0" class="amTable amTableSeparate">
-      <tr class="amTableHeader">
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      </tr>
-      <tr>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>1017.ON.CA</div></td>
-      <td class="amTableSelectRow"><div>382</div></td>
-      <td class="amTableSelectRow"><div>388</div></td>
-      <td class="amTableSelectRow"><div>230</div></td>
-      <td class="amTableSelectRow"><div>230</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>181</div></td>
-      <td class="amTableSelectRow"><div>185</div></td>
-      <td class="amTableSelectRow"><div>285</div></td>
-      <td class="amTableSelectRow"><div>299</div></td>
-      <td class="amTableSelectRow"><div>223</div></td>
-      <td class="amTableSelectRow"><div>223</div></td>
-      <td class="amTableSelectRow"><div>202</div></td>
-      <td class="amTableSelectRow"><div>202</div></td>
-      <td class="amTableSelectRow"><div>106</div></td>
-      <td class="amTableSelectRow"><div>118</div></td>
-      <td class="amTableSelectRow"><div>304</div></td>
-      <td class="amTableSelectRow"><div>304</div></td>
-      <td class="amTableSelectRow"><div>166</div></td>
-      <td class="amTableSelectRow"><div>166</div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>UNIQUE</div></td>
-      </tr>
-      <tr><td><div></div></td><td><div>1017.ON.CA</div></td><td><div>382</div></td><td><div>388</div></td><td><div>230</div></td><td><div>230</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>181</div></td><td><div>185</div></td><td><div>285</div></td><td><div>299</div></td><td><div>223</div></td><td><div>223</div></td><td><div>202</div></td><td><div>202</div></td><td><div>106</div></td><td><div>118</div></td><td><div>304</div></td><td><div>304</div></td><td><div>166</div></td><td><div>166</div></td><td><div>0.0015</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
-      </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
-      </td></tr></table><br><br>
-      <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1018.ON.CA"><span style="font-size:medium;">Unique genotype (14 of 16)</span></a></div><div class="amGridMiddlePanel">
-      <table cellspacing="0" class="amTable amTableSeparate">
-      <tr class="amTableHeader">
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      </tr>
-      <tr>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>1018.ON.CA</div></td>
-      <td class="amTableSelectRow"><div>384</div></td>
-      <td class="amTableSelectRow"><div>384</div></td>
-      <td class="amTableSelectRow"><div>224</div></td>
-      <td class="amTableSelectRow"><div>230</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>185</div></td>
-      <td class="amTableSelectRow"><div>199</div></td>
-      <td class="amTableSelectRow"><div>285</div></td>
-      <td class="amTableSelectRow"><div>299</div></td>
-      <td class="amTableSelectRow"><div>223</div></td>
-      <td class="amTableSelectRow"><div>223</div></td>
-      <td class="amTableSelectRow"><div>198</div></td>
-      <td class="amTableSelectRow"><div>204</div></td>
-      <td class="amTableSelectRow"><div>116</div></td>
-      <td class="amTableSelectRow"><div>118</div></td>
-      <td class="amTableSelectRow"><div>296</div></td>
-      <td class="amTableSelectRow"><div>296</div></td>
-      <td class="amTableSelectRow"><div>166</div></td>
-      <td class="amTableSelectRow"><div>166</div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>UNIQUE</div></td>
-      </tr>
-      <tr><td><div></div></td><td><div>1018.ON.CA</div></td><td><div>384</div></td><td><div>384</div></td><td><div>224</div></td><td><div>230</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>185</div></td><td><div>199</div></td><td><div>285</div></td><td><div>299</div></td><td><div>223</div></td><td><div>223</div></td><td><div>198</div></td><td><div>204</div></td><td><div>116</div></td><td><div>118</div></td><td><div>296</div></td><td><div>296</div></td><td><div>166</div></td><td><div>166</div></td><td><div>0.0015</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
-      </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
-      </td></tr></table><br><br>
-      <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1019.ON.CA"><span style="font-size:medium;">Unique genotype (15 of 16)</span></a></div><div class="amGridMiddlePanel">
-      <table cellspacing="0" class="amTable amTableSeparate">
-      <tr class="amTableHeader">
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      </tr>
-      <tr>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>1019.ON.CA</div></td>
-      <td class="amTableSelectRow"><div>382</div></td>
-      <td class="amTableSelectRow"><div>384</div></td>
-      <td class="amTableSelectRow"><div>224</div></td>
-      <td class="amTableSelectRow"><div>230</div></td>
-      <td class="amTableSelectRow"><div>159</div></td>
-      <td class="amTableSelectRow"><div>159</div></td>
-      <td class="amTableSelectRow"><div>193</div></td>
-      <td class="amTableSelectRow"><div>193</div></td>
-      <td class="amTableSelectRow"><div>299</div></td>
-      <td class="amTableSelectRow"><div>299</div></td>
-      <td class="amTableSelectRow"><div>223</div></td>
-      <td class="amTableSelectRow"><div>223</div></td>
-      <td class="amTableSelectRow"><div>202</div></td>
-      <td class="amTableSelectRow"><div>202</div></td>
-      <td class="amTableSelectRow"><div>106</div></td>
-      <td class="amTableSelectRow"><div>118</div></td>
-      <td class="amTableSelectRow"><div>298</div></td>
-      <td class="amTableSelectRow"><div>298</div></td>
-      <td class="amTableSelectRow"><div>166</div></td>
-      <td class="amTableSelectRow"><div>166</div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>UNIQUE</div></td>
-      </tr>
-      <tr><td><div></div></td><td><div>1019.ON.CA</div></td><td><div>382</div></td><td><div>384</div></td><td><div>224</div></td><td><div>230</div></td><td><div>159</div></td><td><div>159</div></td><td><div>193</div></td><td><div>193</div></td><td><div>299</div></td><td><div>299</div></td><td><div>223</div></td><td><div>223</div></td><td><div>202</div></td><td><div>202</div></td><td><div>106</div></td><td><div>118</div></td><td><div>298</div></td><td><div>298</div></td><td><div>166</div></td><td><div>166</div></td><td><div>0.0025</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
-      </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
-      </td></tr></table><br><br>
-      <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1020.ON.CA"><span style="font-size:medium;">Unique genotype (16 of 16)</span></a></div><div class="amGridMiddlePanel">
-      <table cellspacing="0" class="amTable amTableSeparate">
-      <tr class="amTableHeader">
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      </tr>
-      <tr>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>1020.ON.CA</div></td>
-      <td class="amTableSelectRow"><div>382</div></td>
-      <td class="amTableSelectRow"><div>384</div></td>
-      <td class="amTableSelectRow"><div>224</div></td>
-      <td class="amTableSelectRow"><div>230</div></td>
-      <td class="amTableSelectRow"><div>155</div></td>
-      <td class="amTableSelectRow"><div>167</div></td>
-      <td class="amTableSelectRow"><div>185</div></td>
-      <td class="amTableSelectRow"><div>193</div></td>
-      <td class="amTableSelectRow"><div>299</div></td>
-      <td class="amTableSelectRow"><div>299</div></td>
-      <td class="amTableSelectRow"><div>223</div></td>
-      <td class="amTableSelectRow"><div>223</div></td>
-      <td class="amTableSelectRow"><div>202</div></td>
-      <td class="amTableSelectRow"><div>204</div></td>
-      <td class="amTableSelectRow"><div>106</div></td>
-      <td class="amTableSelectRow"><div>106</div></td>
-      <td class="amTableSelectRow"><div>296</div></td>
-      <td class="amTableSelectRow"><div>304</div></td>
-      <td class="amTableSelectRow"><div>166</div></td>
-      <td class="amTableSelectRow"><div>166</div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>UNIQUE</div></td>
-      </tr>
-      <tr><td><div></div></td><td><div>1020.ON.CA</div></td><td><div>382</div></td><td><div>384</div></td><td><div>224</div></td><td><div>230</div></td><td><div>155</div></td><td><div>167</div></td><td><div>185</div></td><td><div>193</div></td><td><div>299</div></td><td><div>299</div></td><td><div>223</div></td><td><div>223</div></td><td><div>202</div></td><td><div>204</div></td><td><div>106</div></td><td><div>106</div></td><td><div>296</div></td><td><div>304</div></td><td><div>166</div></td><td><div>166</div></td><td><div>0.0016</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
-      </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
-      </td></tr></table><br><br>
-      <span style="font-size:x-small;">Generated by allelematch: an R package<br></span><span style="font-size:x-small;">To reference this analysis please use citation("allelematch")<br><br></span></div>
-      </body></html>
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    <html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' lang='en'><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+    <title>allelematch: amUnique() output</title>
+    <style type="text/css">
+    
+    html { height: 100%; }
+    body { background-color: inherit; color: inherit; font-family: Verdana; font-size: xx-small; margin: 0; height: 100%; }
+    a:active, a:link, a:visited { color: #CC0000; }
+    .amMismatchAllele { background-color: #CC0000; color: white; font-weight: bold; }
+    .amMissingAllele { background-color: #FFCCCC; }
+    .amInterpolatedAllele { background-color: blue; color: white; }
+    .amGrid { border-collapse: separate; }
+    .amGridContent { padding: 0; border: 1px solid #7EACB1; }
+    .amGridUpperPanel, .amGridLowerPanel { padding: 3px; background-color: #F4FAFB; color: #2A769D; font-family: Verdana; font-size: xx-small; }
+    .amGridUpperPanel { border-top: 0px; border-bottom: 1px solid; border-color: #7EACB1; }
+    .amGridMiddlePanel { border: 0; }
+    .amGridLowerPanel { border-top: 1px solid; border-bottom: 0px; border-color: #C2D4DA; }
+    .amGridUpperPanel td, .amGridLowerPanel td { color: #2A769D; font-family: Verdana; font-size: xx-small; }
+    .amTable { border: 0; border-spacing: 0; border-collapse: collapse; empty-cells: show; width: 100%; font-family: Verdana; font-size: xx-small; }
+    .amTableSeparate { border-collapse: separate; }
+    .amTable td { padding: 3px; border-bottom: 1px solid; border-right: 1px solid; border-color: #C2D4DA; white-space:nowrap; }
+    .amTable .amTableHeader, .amTable .amTableHeader td { background-color: #B7D8DC; color: #000000; border-bottom: 1px solid; border-right: 1px solid; border-color: #7EACB1; vertical-align: top; white-space:nowrap; }
+    .amPointer { cursor: pointer; }
+    .amTableHeaderBtn { width: 100%; font-family: Verdana; font-size: xx-small; }
+    .amTableHeader .amTableHeaderBtn td { background: transparent; padding: 0; border: 0; white-space: nowrap; }
+    .amTableSelectRow { background-color: #FFFF66; color: #000000; }
+    
+    </style>
+    </head><body>
+    <div style="margin-left:5%; margin-right:5%">
+    <br><table cellspacing="0" class="amGrid"><tr><td class="amGridContent">
+    <div class="amGridUpperPanel">
+    <div style="font-size:x-small;"><table>
+    <tr><td style="width:400px;"><span style="font-size:20px;">allelematch<br>unique analysis</span><br><br></td></tr>
+    <tr><td><b>
+    unique N=</b><em>16</em></td></tr>
+    <tr><td><b>samples N=</b><em>20</em></td></tr>
+    <tr><td><b><br>loci N=</b><em>10</em></td></tr>
+    <tr><td><b>locus names: </b><em>LOC1a-LOC1b, LOC2a-LOC2b, LOC3a-LOC3b, LOC4a-LOC4b, LOC5a-LOC5b, LOC6a-LOC6b, LOC7a-LOC7b, LOC8a-LOC8b, LOC9a-LOC9b, LOC10a-LOC10b</em></td></tr>
+    <tr><td><b><br>missing data represented by: </b><em>-99</em></td></tr>
+    <tr><td><b>clustered genotypes consensus method: </b><em>1</em></td></tr>
+    <tr><td><b>Psib calculated for: </b><em>samples with no mismatches</em></td></tr>
+    <tr><td><b><br>alleleMismatch (m-hat; maximum number of mismatching alleles): </b><em>6</em></td></tr>
+    <tr><td><b>cutHeight (d-hat; dynamic tree cutting height): </b><em>0.3</em></td></tr>
+    <tr><td><b>matchThreshold (s-hat; lowest matching score returned): </b><em>0.7</em></td></tr>
+    <tr><td><b><br>unclassified N=</b><em>0</em></td></tr>
+    <tr><td><b>multipleMatch N=</b><em>6</em></td></tr>
+    <tr><td><b><br>Note: Unique genotypes are determined based on clustering of scores.</b><em> Psib appears for reference purposes.</em></td></tr>
+    <tr><td><b><br>summary generated: </b><em>(date)</em></td></tr>
+    </table></div></div></td></tr></table><br><br>
+    <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><span style="font-size:medium;">Unique genotypes</span></div><div class="amGridMiddlePanel">
+    <table cellspacing="0" class="amTable amTableSeparate">
+    <tr class="amTableHeader">
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    </tr>
+    <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
+    <td><div><a href="#1001.ON.CA">Jump</a></div></td>
+    <td><div>1001.ON.CA</div></td>
+    <td><div>382</div></td>
+    <td><div>384</div></td>
+    <td><div>230</div></td>
+    <td><div>236</div></td>
+    <td><div>-99</div></td>
+    <td><div>-99</div></td>
+    <td><div>185</div></td>
+    <td><div>185</div></td>
+    <td><div>301</div></td>
+    <td><div>301</div></td>
+    <td><div>223</div></td>
+    <td><div>223</div></td>
+    <td><div>192</div></td>
+    <td><div>192</div></td>
+    <td><div>118</div></td>
+    <td><div>118</div></td>
+    <td><div>296</div></td>
+    <td><div>304</div></td>
+    <td><div>166</div></td>
+    <td><div>166</div></td>
+    <td><div>0.0013</div></td>
+    <td><div>UNIQUE</div></td>
+    </tr>
+    <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
+    <td><div><a href="#1002.ON.CA">Jump</a></div></td>
+    <td><div>1002.ON.CA</div></td>
+    <td><div>382</div></td>
+    <td><div>384</div></td>
+    <td><div>230</div></td>
+    <td><div>236</div></td>
+    <td><div>-99</div></td>
+    <td><div>-99</div></td>
+    <td><div>181</div></td>
+    <td><div>193</div></td>
+    <td><div>299</div></td>
+    <td><div>299</div></td>
+    <td><div>223</div></td>
+    <td><div>223</div></td>
+    <td><div>202</div></td>
+    <td><div>202</div></td>
+    <td><div>118</div></td>
+    <td><div>118</div></td>
+    <td><div>288</div></td>
+    <td><div>296</div></td>
+    <td><div>166</div></td>
+    <td><div>166</div></td>
+    <td><div>0.0041</div></td>
+    <td><div>CHECK_UNIQUE</div></td>
+    </tr>
+    <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
+    <td><div><a href="#1003.ON.CA">Jump</a></div></td>
+    <td><div>1003.ON.CA</div></td>
+    <td><div>382</div></td>
+    <td><div>382</div></td>
+    <td><div>224</div></td>
+    <td><div>242</div></td>
+    <td><div>-99</div></td>
+    <td><div>-99</div></td>
+    <td><div>185</div></td>
+    <td><div>191</div></td>
+    <td><div>285</div></td>
+    <td><div>299</div></td>
+    <td><div>223</div></td>
+    <td><div>223</div></td>
+    <td><div>192</div></td>
+    <td><div>202</div></td>
+    <td><div>102</div></td>
+    <td><div>118</div></td>
+    <td><div>298</div></td>
+    <td><div>304</div></td>
+    <td><div>166</div></td>
+    <td><div>172</div></td>
+    <td><div>0.00075</div></td>
+    <td><div>CHECK_UNIQUE</div></td>
+    </tr>
+    <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
+    <td><div><a href="#1004.ON.CA">Jump</a></div></td>
+    <td><div>1004.ON.CA</div></td>
+    <td><div>382</div></td>
+    <td><div>384</div></td>
+    <td><div>232</div></td>
+    <td><div>236</div></td>
+    <td><div>-99</div></td>
+    <td><div>-99</div></td>
+    <td><div>193</div></td>
+    <td><div>193</div></td>
+    <td><div>299</div></td>
+    <td><div>301</div></td>
+    <td><div>223</div></td>
+    <td><div>223</div></td>
+    <td><div>192</div></td>
+    <td><div>216</div></td>
+    <td><div>102</div></td>
+    <td><div>108</div></td>
+    <td><div>296</div></td>
+    <td><div>304</div></td>
+    <td><div>168</div></td>
+    <td><div>174</div></td>
+    <td><div>0.00055</div></td>
+    <td><div>UNIQUE</div></td>
+    </tr>
+    <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
+    <td><div><a href="#1006.ON.CA">Jump</a></div></td>
+    <td><div>1006.ON.CA</div></td>
+    <td><div>382</div></td>
+    <td><div>384</div></td>
+    <td><div>224</div></td>
+    <td><div>230</div></td>
+    <td><div>-99</div></td>
+    <td><div>-99</div></td>
+    <td><div>181</div></td>
+    <td><div>193</div></td>
+    <td><div>285</div></td>
+    <td><div>285</div></td>
+    <td><div>223</div></td>
+    <td><div>223</div></td>
+    <td><div>198</div></td>
+    <td><div>202</div></td>
+    <td><div>114</div></td>
+    <td><div>116</div></td>
+    <td><div>288</div></td>
+    <td><div>296</div></td>
+    <td><div>166</div></td>
+    <td><div>166</div></td>
+    <td><div>0.0012</div></td>
+    <td><div>UNIQUE</div></td>
+    </tr>
+    <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
+    <td><div><a href="#1008.ON.CA">Jump</a></div></td>
+    <td><div>1008.ON.CA</div></td>
+    <td><div>382</div></td>
+    <td><div>382</div></td>
+    <td><div>224</div></td>
+    <td><div>230</div></td>
+    <td><div>-99</div></td>
+    <td><div>-99</div></td>
+    <td><div>185</div></td>
+    <td><div>193</div></td>
+    <td><div>285</div></td>
+    <td><div>285</div></td>
+    <td><div>223</div></td>
+    <td><div>223</div></td>
+    <td><div>192</div></td>
+    <td><div>202</div></td>
+    <td><div>118</div></td>
+    <td><div>118</div></td>
+    <td><div>296</div></td>
+    <td><div>304</div></td>
+    <td><div>166</div></td>
+    <td><div>166</div></td>
+    <td><div>&nbsp; &nbsp; ---</div></td>
+    <td><div>CHECK_UNIQUE</div></td>
+    </tr>
+    <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
+    <td><div><a href="#1010.ON.CA">Jump</a></div></td>
+    <td><div>1010.ON.CA</div></td>
+    <td><div>382</div></td>
+    <td><div>384</div></td>
+    <td><div>230</div></td>
+    <td><div>244</div></td>
+    <td><div>-99</div></td>
+    <td><div>-99</div></td>
+    <td><div>191</div></td>
+    <td><div>193</div></td>
+    <td><div>299</div></td>
+    <td><div>299</div></td>
+    <td><div>227</div></td>
+    <td><div>227</div></td>
+    <td><div>202</div></td>
+    <td><div>204</div></td>
+    <td><div>118</div></td>
+    <td><div>118</div></td>
+    <td><div>296</div></td>
+    <td><div>296</div></td>
+    <td><div>166</div></td>
+    <td><div>166</div></td>
+    <td><div>&nbsp; &nbsp; ---</div></td>
+    <td><div>CHECK_UNIQUE</div></td>
+    </tr>
+    <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
+    <td><div><a href="#1011.ON.CA">Jump</a></div></td>
+    <td><div>1011.ON.CA</div></td>
+    <td><div>382</div></td>
+    <td><div>384</div></td>
+    <td><div>224</div></td>
+    <td><div>224</div></td>
+    <td><div>-99</div></td>
+    <td><div>-99</div></td>
+    <td><div>193</div></td>
+    <td><div>193</div></td>
+    <td><div>299</div></td>
+    <td><div>299</div></td>
+    <td><div>223</div></td>
+    <td><div>223</div></td>
+    <td><div>210</div></td>
+    <td><div>214</div></td>
+    <td><div>106</div></td>
+    <td><div>112</div></td>
+    <td><div>288</div></td>
+    <td><div>296</div></td>
+    <td><div>166</div></td>
+    <td><div>172</div></td>
+    <td><div>0.002</div></td>
+    <td><div>UNIQUE</div></td>
+    </tr>
+    <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
+    <td><div><a href="#1013.ON.CA">Jump</a></div></td>
+    <td><div>1013.ON.CA</div></td>
+    <td><div>382</div></td>
+    <td><div>384</div></td>
+    <td><div>232</div></td>
+    <td><div>232</div></td>
+    <td><div>-99</div></td>
+    <td><div>-99</div></td>
+    <td><div>193</div></td>
+    <td><div>193</div></td>
+    <td><div>299</div></td>
+    <td><div>299</div></td>
+    <td><div>213</div></td>
+    <td><div>221</div></td>
+    <td><div>210</div></td>
+    <td><div>210</div></td>
+    <td><div>118</div></td>
+    <td><div>118</div></td>
+    <td><div>296</div></td>
+    <td><div>306</div></td>
+    <td><div>166</div></td>
+    <td><div>172</div></td>
+    <td><div>0.0011</div></td>
+    <td><div>UNIQUE</div></td>
+    </tr>
+    <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
+    <td><div><a href="#1014.ON.CA">Jump</a></div></td>
+    <td><div>1014.ON.CA</div></td>
+    <td><div>384</div></td>
+    <td><div>384</div></td>
+    <td><div>232</div></td>
+    <td><div>238</div></td>
+    <td><div>-99</div></td>
+    <td><div>-99</div></td>
+    <td><div>193</div></td>
+    <td><div>199</div></td>
+    <td><div>299</div></td>
+    <td><div>301</div></td>
+    <td><div>213</div></td>
+    <td><div>213</div></td>
+    <td><div>210</div></td>
+    <td><div>210</div></td>
+    <td><div>102</div></td>
+    <td><div>108</div></td>
+    <td><div>296</div></td>
+    <td><div>296</div></td>
+    <td><div>174</div></td>
+    <td><div>174</div></td>
+    <td><div>0.00019</div></td>
+    <td><div>UNIQUE</div></td>
+    </tr>
+    <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
+    <td><div><a href="#1015.ON.CA">Jump</a></div></td>
+    <td><div>1015.ON.CA</div></td>
+    <td><div>382</div></td>
+    <td><div>382</div></td>
+    <td><div>224</div></td>
+    <td><div>232</div></td>
+    <td><div>-99</div></td>
+    <td><div>-99</div></td>
+    <td><div>193</div></td>
+    <td><div>193</div></td>
+    <td><div>299</div></td>
+    <td><div>299</div></td>
+    <td><div>223</div></td>
+    <td><div>223</div></td>
+    <td><div>210</div></td>
+    <td><div>216</div></td>
+    <td><div>106</div></td>
+    <td><div>106</div></td>
+    <td><div>296</div></td>
+    <td><div>306</div></td>
+    <td><div>166</div></td>
+    <td><div>166</div></td>
+    <td><div>0.0031</div></td>
+    <td><div>UNIQUE</div></td>
+    </tr>
+    <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
+    <td><div><a href="#1016.ON.CA">Jump</a></div></td>
+    <td><div>1016.ON.CA</div></td>
+    <td><div>382</div></td>
+    <td><div>384</div></td>
+    <td><div>224</div></td>
+    <td><div>232</div></td>
+    <td><div>-99</div></td>
+    <td><div>-99</div></td>
+    <td><div>193</div></td>
+    <td><div>193</div></td>
+    <td><div>-99</div></td>
+    <td><div>-99</div></td>
+    <td><div>213</div></td>
+    <td><div>221</div></td>
+    <td><div>210</div></td>
+    <td><div>210</div></td>
+    <td><div>106</div></td>
+    <td><div>112</div></td>
+    <td><div>288</div></td>
+    <td><div>288</div></td>
+    <td><div>166</div></td>
+    <td><div>166</div></td>
+    <td><div>0.0016</div></td>
+    <td><div>UNIQUE</div></td>
+    </tr>
+    <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
+    <td><div><a href="#1017.ON.CA">Jump</a></div></td>
+    <td><div>1017.ON.CA</div></td>
+    <td><div>382</div></td>
+    <td><div>388</div></td>
+    <td><div>230</div></td>
+    <td><div>230</div></td>
+    <td><div>-99</div></td>
+    <td><div>-99</div></td>
+    <td><div>181</div></td>
+    <td><div>185</div></td>
+    <td><div>285</div></td>
+    <td><div>299</div></td>
+    <td><div>223</div></td>
+    <td><div>223</div></td>
+    <td><div>202</div></td>
+    <td><div>202</div></td>
+    <td><div>106</div></td>
+    <td><div>118</div></td>
+    <td><div>304</div></td>
+    <td><div>304</div></td>
+    <td><div>166</div></td>
+    <td><div>166</div></td>
+    <td><div>0.0015</div></td>
+    <td><div>UNIQUE</div></td>
+    </tr>
+    <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
+    <td><div><a href="#1018.ON.CA">Jump</a></div></td>
+    <td><div>1018.ON.CA</div></td>
+    <td><div>384</div></td>
+    <td><div>384</div></td>
+    <td><div>224</div></td>
+    <td><div>230</div></td>
+    <td><div>-99</div></td>
+    <td><div>-99</div></td>
+    <td><div>185</div></td>
+    <td><div>199</div></td>
+    <td><div>285</div></td>
+    <td><div>299</div></td>
+    <td><div>223</div></td>
+    <td><div>223</div></td>
+    <td><div>198</div></td>
+    <td><div>204</div></td>
+    <td><div>116</div></td>
+    <td><div>118</div></td>
+    <td><div>296</div></td>
+    <td><div>296</div></td>
+    <td><div>166</div></td>
+    <td><div>166</div></td>
+    <td><div>0.0015</div></td>
+    <td><div>UNIQUE</div></td>
+    </tr>
+    <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
+    <td><div><a href="#1019.ON.CA">Jump</a></div></td>
+    <td><div>1019.ON.CA</div></td>
+    <td><div>382</div></td>
+    <td><div>384</div></td>
+    <td><div>224</div></td>
+    <td><div>230</div></td>
+    <td><div>159</div></td>
+    <td><div>159</div></td>
+    <td><div>193</div></td>
+    <td><div>193</div></td>
+    <td><div>299</div></td>
+    <td><div>299</div></td>
+    <td><div>223</div></td>
+    <td><div>223</div></td>
+    <td><div>202</div></td>
+    <td><div>202</div></td>
+    <td><div>106</div></td>
+    <td><div>118</div></td>
+    <td><div>298</div></td>
+    <td><div>298</div></td>
+    <td><div>166</div></td>
+    <td><div>166</div></td>
+    <td><div>0.0025</div></td>
+    <td><div>UNIQUE</div></td>
+    </tr>
+    <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
+    <td><div><a href="#1020.ON.CA">Jump</a></div></td>
+    <td><div>1020.ON.CA</div></td>
+    <td><div>382</div></td>
+    <td><div>384</div></td>
+    <td><div>224</div></td>
+    <td><div>230</div></td>
+    <td><div>155</div></td>
+    <td><div>167</div></td>
+    <td><div>185</div></td>
+    <td><div>193</div></td>
+    <td><div>299</div></td>
+    <td><div>299</div></td>
+    <td><div>223</div></td>
+    <td><div>223</div></td>
+    <td><div>202</div></td>
+    <td><div>204</div></td>
+    <td><div>106</div></td>
+    <td><div>106</div></td>
+    <td><div>296</div></td>
+    <td><div>304</div></td>
+    <td><div>166</div></td>
+    <td><div>166</div></td>
+    <td><div>0.0016</div></td>
+    <td><div>UNIQUE</div></td>
+    </tr>
+    </table></div><div class="amGridLowerPanel"><span>There were 16 unique genotypes identified using the parameters supplied.</span></div></td></tr></table><br><br>
+    <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1001.ON.CA"><span style="font-size:medium;">Unique genotype (1 of 16)</span></a></div><div class="amGridMiddlePanel">
+    <table cellspacing="0" class="amTable amTableSeparate">
+    <tr class="amTableHeader">
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    </tr>
+    <tr>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>1001.ON.CA</div></td>
+    <td class="amTableSelectRow"><div>382</div></td>
+    <td class="amTableSelectRow"><div>384</div></td>
+    <td class="amTableSelectRow"><div>230</div></td>
+    <td class="amTableSelectRow"><div>236</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>185</div></td>
+    <td class="amTableSelectRow"><div>185</div></td>
+    <td class="amTableSelectRow"><div>301</div></td>
+    <td class="amTableSelectRow"><div>301</div></td>
+    <td class="amTableSelectRow"><div>223</div></td>
+    <td class="amTableSelectRow"><div>223</div></td>
+    <td class="amTableSelectRow"><div>192</div></td>
+    <td class="amTableSelectRow"><div>192</div></td>
+    <td class="amTableSelectRow"><div>118</div></td>
+    <td class="amTableSelectRow"><div>118</div></td>
+    <td class="amTableSelectRow"><div>296</div></td>
+    <td class="amTableSelectRow"><div>304</div></td>
+    <td class="amTableSelectRow"><div>166</div></td>
+    <td class="amTableSelectRow"><div>166</div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>UNIQUE</div></td>
+    </tr>
+    <tr><td><div></div></td><td><div>1001.ON.CA</div></td><td><div>382</div></td><td><div>384</div></td><td><div>230</div></td><td><div>236</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>185</div></td><td><div>185</div></td><td><div>301</div></td><td><div>301</div></td><td><div>223</div></td><td><div>223</div></td><td><div>192</div></td><td><div>192</div></td><td><div>118</div></td><td><div>118</div></td><td><div>296</div></td><td><div>304</div></td><td><div>166</div></td><td><div>166</div></td><td><div>0.0013</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
+    </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
+    </td></tr></table><br><br>
+    <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1002.ON.CA"><span style="font-size:medium;">Unique genotype (2 of 16)</span></a></div><div class="amGridMiddlePanel">
+    <table cellspacing="0" class="amTable amTableSeparate">
+    <tr class="amTableHeader">
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    </tr>
+    <tr>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>1002.ON.CA</div></td>
+    <td class="amTableSelectRow"><div>382</div></td>
+    <td class="amTableSelectRow"><div>384</div></td>
+    <td class="amTableSelectRow"><div>230</div></td>
+    <td class="amTableSelectRow"><div>236</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>181</div></td>
+    <td class="amTableSelectRow"><div>193</div></td>
+    <td class="amTableSelectRow"><div>299</div></td>
+    <td class="amTableSelectRow"><div>299</div></td>
+    <td class="amTableSelectRow"><div>223</div></td>
+    <td class="amTableSelectRow"><div>223</div></td>
+    <td class="amTableSelectRow"><div>202</div></td>
+    <td class="amTableSelectRow"><div>202</div></td>
+    <td class="amTableSelectRow"><div>118</div></td>
+    <td class="amTableSelectRow"><div>118</div></td>
+    <td class="amTableSelectRow"><div>288</div></td>
+    <td class="amTableSelectRow"><div>296</div></td>
+    <td class="amTableSelectRow"><div>166</div></td>
+    <td class="amTableSelectRow"><div>166</div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>CHECK_UNIQUE</div></td>
+    </tr>
+    <tr><td><div><span style="color:red; font-weight:bold;">!!!</span></div></td><td><div>1002.ON.CA</div></td><td><div>382</div></td><td><div>384</div></td><td><div>230</div></td><td><div>236</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>181</div></td><td><div>193</div></td><td><div>299</div></td><td><div>299</div></td><td><div>223</div></td><td><div>223</div></td><td><div>202</div></td><td><div>202</div></td><td><div>118</div></td><td><div>118</div></td><td><div>288</div></td><td><div>296</div></td><td><div>166</div></td><td><div>166</div></td><td><div>0.0041</div></td><td><div>1.0</div></td><td><div>MULTIPLE_MATCH</div></td></tr>
+    <tr><td><div><span style="color:red; font-weight:bold;">!!!</span></div></td><td><div>1010.ON.CA</div></td><td><div>382</div></td><td><div>384</div></td><td><div>230</div></td><td><div class="amMismatchAllele">244</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMismatchAllele">191</div></td><td><div>193</div></td><td><div>299</div></td><td><div>299</div></td><td><div class="amMismatchAllele">227</div></td><td><div class="amMismatchAllele">227</div></td><td><div>202</div></td><td><div class="amMismatchAllele">204</div></td><td><div>118</div></td><td><div>118</div></td><td><div class="amMismatchAllele">296</div></td><td><div>296</div></td><td><div>166</div></td><td><div>166</div></td><td><div>&nbsp; &nbsp; ---</div></td><td><div>0.7</div></td><td><div>MULTIPLE_MATCH</div></td></tr>
+    </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br><span style="color:red">multipleMatch samples present</span><br>Psib calculated for samples with no mismatches.</span></div>
+    </td></tr></table><br><br>
+    <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1003.ON.CA"><span style="font-size:medium;">Unique genotype (3 of 16)</span></a></div><div class="amGridMiddlePanel">
+    <table cellspacing="0" class="amTable amTableSeparate">
+    <tr class="amTableHeader">
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    </tr>
+    <tr>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>1003.ON.CA</div></td>
+    <td class="amTableSelectRow"><div>382</div></td>
+    <td class="amTableSelectRow"><div>382</div></td>
+    <td class="amTableSelectRow"><div>224</div></td>
+    <td class="amTableSelectRow"><div>242</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>185</div></td>
+    <td class="amTableSelectRow"><div>191</div></td>
+    <td class="amTableSelectRow"><div>285</div></td>
+    <td class="amTableSelectRow"><div>299</div></td>
+    <td class="amTableSelectRow"><div>223</div></td>
+    <td class="amTableSelectRow"><div>223</div></td>
+    <td class="amTableSelectRow"><div>192</div></td>
+    <td class="amTableSelectRow"><div>202</div></td>
+    <td class="amTableSelectRow"><div>102</div></td>
+    <td class="amTableSelectRow"><div>118</div></td>
+    <td class="amTableSelectRow"><div>298</div></td>
+    <td class="amTableSelectRow"><div>304</div></td>
+    <td class="amTableSelectRow"><div>166</div></td>
+    <td class="amTableSelectRow"><div>172</div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>CHECK_UNIQUE</div></td>
+    </tr>
+    <tr><td><div><span style="color:red; font-weight:bold;">!!!</span></div></td><td><div>1003.ON.CA</div></td><td><div>382</div></td><td><div>382</div></td><td><div>224</div></td><td><div>242</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>185</div></td><td><div>191</div></td><td><div>285</div></td><td><div>299</div></td><td><div>223</div></td><td><div>223</div></td><td><div>192</div></td><td><div>202</div></td><td><div>102</div></td><td><div>118</div></td><td><div>298</div></td><td><div>304</div></td><td><div>166</div></td><td><div>172</div></td><td><div>0.00075</div></td><td><div>1.0</div></td><td><div>MULTIPLE_MATCH</div></td></tr>
+    <tr><td><div><span style="color:red; font-weight:bold;">!!!</span></div></td><td><div>1005.ON.CA</div></td><td><div>382</div></td><td><div>382</div></td><td><div>224</div></td><td><div>242</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>185</div></td><td><div>191</div></td><td><div>285</div></td><td><div>299</div></td><td><div>223</div></td><td><div>223</div></td><td><div>192</div></td><td><div>202</div></td><td><div>102</div></td><td><div>118</div></td><td><div>298</div></td><td><div>304</div></td><td><div>166</div></td><td><div>172</div></td><td><div>0.00075</div></td><td><div>1.0</div></td><td><div>MULTIPLE_MATCH</div></td></tr>
+    <tr><td><div><span style="color:red; font-weight:bold;">!!!</span></div></td><td><div>1008.ON.CA</div></td><td><div>382</div></td><td><div>382</div></td><td><div>224</div></td><td><div class="amMismatchAllele">230</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>185</div></td><td><div class="amMismatchAllele">193</div></td><td><div>285</div></td><td><div class="amMismatchAllele">285</div></td><td><div>223</div></td><td><div>223</div></td><td><div>192</div></td><td><div>202</div></td><td><div class="amMismatchAllele">118</div></td><td><div>118</div></td><td><div class="amMismatchAllele">296</div></td><td><div>304</div></td><td><div>166</div></td><td><div class="amMismatchAllele">166</div></td><td><div>&nbsp; &nbsp; ---</div></td><td><div>0.7</div></td><td><div>MULTIPLE_MATCH</div></td></tr>
+    <tr><td><div><span style="color:red; font-weight:bold;">!!!</span></div></td><td><div>1009.ON.CA</div></td><td><div>382</div></td><td><div>382</div></td><td><div>224</div></td><td><div class="amMismatchAllele">230</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>185</div></td><td><div class="amMismatchAllele">193</div></td><td><div>285</div></td><td><div class="amMismatchAllele">285</div></td><td><div>223</div></td><td><div>223</div></td><td><div>192</div></td><td><div>202</div></td><td><div class="amMismatchAllele">118</div></td><td><div>118</div></td><td><div class="amMismatchAllele">296</div></td><td><div>304</div></td><td><div>166</div></td><td><div class="amMismatchAllele">166</div></td><td><div>&nbsp; &nbsp; ---</div></td><td><div>0.7</div></td><td><div>MULTIPLE_MATCH</div></td></tr>
+    </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br><span style="color:red">multipleMatch samples present</span><br>Psib calculated for samples with no mismatches.</span></div>
+    </td></tr></table><br><br>
+    <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1004.ON.CA"><span style="font-size:medium;">Unique genotype (4 of 16)</span></a></div><div class="amGridMiddlePanel">
+    <table cellspacing="0" class="amTable amTableSeparate">
+    <tr class="amTableHeader">
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    </tr>
+    <tr>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>1004.ON.CA</div></td>
+    <td class="amTableSelectRow"><div>382</div></td>
+    <td class="amTableSelectRow"><div>384</div></td>
+    <td class="amTableSelectRow"><div>232</div></td>
+    <td class="amTableSelectRow"><div>236</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>193</div></td>
+    <td class="amTableSelectRow"><div>193</div></td>
+    <td class="amTableSelectRow"><div>299</div></td>
+    <td class="amTableSelectRow"><div>301</div></td>
+    <td class="amTableSelectRow"><div>223</div></td>
+    <td class="amTableSelectRow"><div>223</div></td>
+    <td class="amTableSelectRow"><div>192</div></td>
+    <td class="amTableSelectRow"><div>216</div></td>
+    <td class="amTableSelectRow"><div>102</div></td>
+    <td class="amTableSelectRow"><div>108</div></td>
+    <td class="amTableSelectRow"><div>296</div></td>
+    <td class="amTableSelectRow"><div>304</div></td>
+    <td class="amTableSelectRow"><div>168</div></td>
+    <td class="amTableSelectRow"><div>174</div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>UNIQUE</div></td>
+    </tr>
+    <tr><td><div></div></td><td><div>1004.ON.CA</div></td><td><div>382</div></td><td><div>384</div></td><td><div>232</div></td><td><div>236</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>193</div></td><td><div>193</div></td><td><div>299</div></td><td><div>301</div></td><td><div>223</div></td><td><div>223</div></td><td><div>192</div></td><td><div>216</div></td><td><div>102</div></td><td><div>108</div></td><td><div>296</div></td><td><div>304</div></td><td><div>168</div></td><td><div>174</div></td><td><div>0.00055</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
+    </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
+    </td></tr></table><br><br>
+    <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1006.ON.CA"><span style="font-size:medium;">Unique genotype (5 of 16)</span></a></div><div class="amGridMiddlePanel">
+    <table cellspacing="0" class="amTable amTableSeparate">
+    <tr class="amTableHeader">
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    </tr>
+    <tr>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>1006.ON.CA</div></td>
+    <td class="amTableSelectRow"><div>382</div></td>
+    <td class="amTableSelectRow"><div>384</div></td>
+    <td class="amTableSelectRow"><div>224</div></td>
+    <td class="amTableSelectRow"><div>230</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>181</div></td>
+    <td class="amTableSelectRow"><div>193</div></td>
+    <td class="amTableSelectRow"><div>285</div></td>
+    <td class="amTableSelectRow"><div>285</div></td>
+    <td class="amTableSelectRow"><div>223</div></td>
+    <td class="amTableSelectRow"><div>223</div></td>
+    <td class="amTableSelectRow"><div>198</div></td>
+    <td class="amTableSelectRow"><div>202</div></td>
+    <td class="amTableSelectRow"><div>114</div></td>
+    <td class="amTableSelectRow"><div>116</div></td>
+    <td class="amTableSelectRow"><div>288</div></td>
+    <td class="amTableSelectRow"><div>296</div></td>
+    <td class="amTableSelectRow"><div>166</div></td>
+    <td class="amTableSelectRow"><div>166</div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>UNIQUE</div></td>
+    </tr>
+    <tr><td><div></div></td><td><div>1006.ON.CA</div></td><td><div>382</div></td><td><div>384</div></td><td><div>224</div></td><td><div>230</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>181</div></td><td><div>193</div></td><td><div>285</div></td><td><div>285</div></td><td><div>223</div></td><td><div>223</div></td><td><div>198</div></td><td><div>202</div></td><td><div>114</div></td><td><div>116</div></td><td><div>288</div></td><td><div>296</div></td><td><div>166</div></td><td><div>166</div></td><td><div>0.0012</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
+    <tr><td><div></div></td><td><div>1007.ON.CA</div></td><td><div>382</div></td><td><div>384</div></td><td><div>224</div></td><td><div>230</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>181</div></td><td><div>193</div></td><td><div>285</div></td><td><div>285</div></td><td><div>223</div></td><td><div>223</div></td><td><div>198</div></td><td><div>202</div></td><td><div>114</div></td><td><div>116</div></td><td><div>288</div></td><td><div>296</div></td><td><div>166</div></td><td><div>166</div></td><td><div>0.0012</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
+    </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
+    </td></tr></table><br><br>
+    <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1008.ON.CA"><span style="font-size:medium;">Unique genotype (6 of 16)</span></a></div><div class="amGridMiddlePanel">
+    <table cellspacing="0" class="amTable amTableSeparate">
+    <tr class="amTableHeader">
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    </tr>
+    <tr>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>1008.ON.CA</div></td>
+    <td class="amTableSelectRow"><div>382</div></td>
+    <td class="amTableSelectRow"><div>382</div></td>
+    <td class="amTableSelectRow"><div>224</div></td>
+    <td class="amTableSelectRow"><div>230</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>185</div></td>
+    <td class="amTableSelectRow"><div>193</div></td>
+    <td class="amTableSelectRow"><div>285</div></td>
+    <td class="amTableSelectRow"><div>285</div></td>
+    <td class="amTableSelectRow"><div>223</div></td>
+    <td class="amTableSelectRow"><div>223</div></td>
+    <td class="amTableSelectRow"><div>192</div></td>
+    <td class="amTableSelectRow"><div>202</div></td>
+    <td class="amTableSelectRow"><div>118</div></td>
+    <td class="amTableSelectRow"><div>118</div></td>
+    <td class="amTableSelectRow"><div>296</div></td>
+    <td class="amTableSelectRow"><div>304</div></td>
+    <td class="amTableSelectRow"><div>166</div></td>
+    <td class="amTableSelectRow"><div>166</div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>CHECK_UNIQUE</div></td>
+    </tr>
+    <tr><td><div><span style="color:red; font-weight:bold;">!!!</span></div></td><td><div>1008.ON.CA</div></td><td><div>382</div></td><td><div>382</div></td><td><div>224</div></td><td><div class="amMismatchAllele">230</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>185</div></td><td><div class="amMismatchAllele">193</div></td><td><div>285</div></td><td><div class="amMismatchAllele">285</div></td><td><div>223</div></td><td><div>223</div></td><td><div>192</div></td><td><div>202</div></td><td><div class="amMismatchAllele">118</div></td><td><div>118</div></td><td><div class="amMismatchAllele">296</div></td><td><div>304</div></td><td><div>166</div></td><td><div class="amMismatchAllele">166</div></td><td><div>&nbsp; &nbsp; ---</div></td><td><div>1.0</div></td><td><div>MULTIPLE_MATCH</div></td></tr>
+    <tr><td><div><span style="color:red; font-weight:bold;">!!!</span></div></td><td><div>1009.ON.CA</div></td><td><div>382</div></td><td><div>382</div></td><td><div>224</div></td><td><div class="amMismatchAllele">230</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>185</div></td><td><div class="amMismatchAllele">193</div></td><td><div>285</div></td><td><div class="amMismatchAllele">285</div></td><td><div>223</div></td><td><div>223</div></td><td><div>192</div></td><td><div>202</div></td><td><div class="amMismatchAllele">118</div></td><td><div>118</div></td><td><div class="amMismatchAllele">296</div></td><td><div>304</div></td><td><div>166</div></td><td><div class="amMismatchAllele">166</div></td><td><div>&nbsp; &nbsp; ---</div></td><td><div>1.0</div></td><td><div>MULTIPLE_MATCH</div></td></tr>
+    <tr><td><div><span style="color:red; font-weight:bold;">!!!</span></div></td><td><div>1003.ON.CA</div></td><td><div>382</div></td><td><div>382</div></td><td><div>224</div></td><td><div>242</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>185</div></td><td><div>191</div></td><td><div>285</div></td><td><div>299</div></td><td><div>223</div></td><td><div>223</div></td><td><div>192</div></td><td><div>202</div></td><td><div>102</div></td><td><div>118</div></td><td><div>298</div></td><td><div>304</div></td><td><div>166</div></td><td><div>172</div></td><td><div>0.00075</div></td><td><div>0.7</div></td><td><div>MULTIPLE_MATCH</div></td></tr>
+    <tr><td><div><span style="color:red; font-weight:bold;">!!!</span></div></td><td><div>1005.ON.CA</div></td><td><div>382</div></td><td><div>382</div></td><td><div>224</div></td><td><div>242</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>185</div></td><td><div>191</div></td><td><div>285</div></td><td><div>299</div></td><td><div>223</div></td><td><div>223</div></td><td><div>192</div></td><td><div>202</div></td><td><div>102</div></td><td><div>118</div></td><td><div>298</div></td><td><div>304</div></td><td><div>166</div></td><td><div>172</div></td><td><div>0.00075</div></td><td><div>0.7</div></td><td><div>MULTIPLE_MATCH</div></td></tr>
+    </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br><span style="color:red">multipleMatch samples present</span><br>Psib calculated for samples with no mismatches.</span></div>
+    </td></tr></table><br><br>
+    <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1010.ON.CA"><span style="font-size:medium;">Unique genotype (7 of 16)</span></a></div><div class="amGridMiddlePanel">
+    <table cellspacing="0" class="amTable amTableSeparate">
+    <tr class="amTableHeader">
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    </tr>
+    <tr>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>1010.ON.CA</div></td>
+    <td class="amTableSelectRow"><div>382</div></td>
+    <td class="amTableSelectRow"><div>384</div></td>
+    <td class="amTableSelectRow"><div>230</div></td>
+    <td class="amTableSelectRow"><div>244</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>191</div></td>
+    <td class="amTableSelectRow"><div>193</div></td>
+    <td class="amTableSelectRow"><div>299</div></td>
+    <td class="amTableSelectRow"><div>299</div></td>
+    <td class="amTableSelectRow"><div>227</div></td>
+    <td class="amTableSelectRow"><div>227</div></td>
+    <td class="amTableSelectRow"><div>202</div></td>
+    <td class="amTableSelectRow"><div>204</div></td>
+    <td class="amTableSelectRow"><div>118</div></td>
+    <td class="amTableSelectRow"><div>118</div></td>
+    <td class="amTableSelectRow"><div>296</div></td>
+    <td class="amTableSelectRow"><div>296</div></td>
+    <td class="amTableSelectRow"><div>166</div></td>
+    <td class="amTableSelectRow"><div>166</div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>CHECK_UNIQUE</div></td>
+    </tr>
+    <tr><td><div><span style="color:red; font-weight:bold;">!!!</span></div></td><td><div>1010.ON.CA</div></td><td><div>382</div></td><td><div>384</div></td><td><div>230</div></td><td><div class="amMismatchAllele">244</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMismatchAllele">191</div></td><td><div>193</div></td><td><div>299</div></td><td><div>299</div></td><td><div class="amMismatchAllele">227</div></td><td><div class="amMismatchAllele">227</div></td><td><div>202</div></td><td><div class="amMismatchAllele">204</div></td><td><div>118</div></td><td><div>118</div></td><td><div class="amMismatchAllele">296</div></td><td><div>296</div></td><td><div>166</div></td><td><div>166</div></td><td><div>&nbsp; &nbsp; ---</div></td><td><div>1.0</div></td><td><div>MULTIPLE_MATCH</div></td></tr>
+    <tr><td><div><span style="color:red; font-weight:bold;">!!!</span></div></td><td><div>1002.ON.CA</div></td><td><div>382</div></td><td><div>384</div></td><td><div>230</div></td><td><div>236</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>181</div></td><td><div>193</div></td><td><div>299</div></td><td><div>299</div></td><td><div>223</div></td><td><div>223</div></td><td><div>202</div></td><td><div>202</div></td><td><div>118</div></td><td><div>118</div></td><td><div>288</div></td><td><div>296</div></td><td><div>166</div></td><td><div>166</div></td><td><div>0.0041</div></td><td><div>0.7</div></td><td><div>MULTIPLE_MATCH</div></td></tr>
+    </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br><span style="color:red">multipleMatch samples present</span><br>Psib calculated for samples with no mismatches.</span></div>
+    </td></tr></table><br><br>
+    <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1011.ON.CA"><span style="font-size:medium;">Unique genotype (8 of 16)</span></a></div><div class="amGridMiddlePanel">
+    <table cellspacing="0" class="amTable amTableSeparate">
+    <tr class="amTableHeader">
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    </tr>
+    <tr>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>1011.ON.CA</div></td>
+    <td class="amTableSelectRow"><div>382</div></td>
+    <td class="amTableSelectRow"><div>384</div></td>
+    <td class="amTableSelectRow"><div>224</div></td>
+    <td class="amTableSelectRow"><div>224</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>193</div></td>
+    <td class="amTableSelectRow"><div>193</div></td>
+    <td class="amTableSelectRow"><div>299</div></td>
+    <td class="amTableSelectRow"><div>299</div></td>
+    <td class="amTableSelectRow"><div>223</div></td>
+    <td class="amTableSelectRow"><div>223</div></td>
+    <td class="amTableSelectRow"><div>210</div></td>
+    <td class="amTableSelectRow"><div>214</div></td>
+    <td class="amTableSelectRow"><div>106</div></td>
+    <td class="amTableSelectRow"><div>112</div></td>
+    <td class="amTableSelectRow"><div>288</div></td>
+    <td class="amTableSelectRow"><div>296</div></td>
+    <td class="amTableSelectRow"><div>166</div></td>
+    <td class="amTableSelectRow"><div>172</div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>UNIQUE</div></td>
+    </tr>
+    <tr><td><div></div></td><td><div>1011.ON.CA</div></td><td><div>382</div></td><td><div>384</div></td><td><div>224</div></td><td><div>224</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>193</div></td><td><div>193</div></td><td><div>299</div></td><td><div>299</div></td><td><div>223</div></td><td><div>223</div></td><td><div>210</div></td><td><div>214</div></td><td><div>106</div></td><td><div>112</div></td><td><div>288</div></td><td><div>296</div></td><td><div>166</div></td><td><div>172</div></td><td><div>0.002</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
+    <tr><td><div></div></td><td><div>1012.ON.CA</div></td><td><div>382</div></td><td><div>384</div></td><td><div>224</div></td><td><div>224</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>193</div></td><td><div>193</div></td><td><div>299</div></td><td><div>299</div></td><td><div>223</div></td><td><div>223</div></td><td><div>210</div></td><td><div>214</div></td><td><div>106</div></td><td><div>112</div></td><td><div>288</div></td><td><div>296</div></td><td><div>166</div></td><td><div>172</div></td><td><div>0.002</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
+    </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
+    </td></tr></table><br><br>
+    <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1013.ON.CA"><span style="font-size:medium;">Unique genotype (9 of 16)</span></a></div><div class="amGridMiddlePanel">
+    <table cellspacing="0" class="amTable amTableSeparate">
+    <tr class="amTableHeader">
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    </tr>
+    <tr>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>1013.ON.CA</div></td>
+    <td class="amTableSelectRow"><div>382</div></td>
+    <td class="amTableSelectRow"><div>384</div></td>
+    <td class="amTableSelectRow"><div>232</div></td>
+    <td class="amTableSelectRow"><div>232</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>193</div></td>
+    <td class="amTableSelectRow"><div>193</div></td>
+    <td class="amTableSelectRow"><div>299</div></td>
+    <td class="amTableSelectRow"><div>299</div></td>
+    <td class="amTableSelectRow"><div>213</div></td>
+    <td class="amTableSelectRow"><div>221</div></td>
+    <td class="amTableSelectRow"><div>210</div></td>
+    <td class="amTableSelectRow"><div>210</div></td>
+    <td class="amTableSelectRow"><div>118</div></td>
+    <td class="amTableSelectRow"><div>118</div></td>
+    <td class="amTableSelectRow"><div>296</div></td>
+    <td class="amTableSelectRow"><div>306</div></td>
+    <td class="amTableSelectRow"><div>166</div></td>
+    <td class="amTableSelectRow"><div>172</div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>UNIQUE</div></td>
+    </tr>
+    <tr><td><div></div></td><td><div>1013.ON.CA</div></td><td><div>382</div></td><td><div>384</div></td><td><div>232</div></td><td><div>232</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>193</div></td><td><div>193</div></td><td><div>299</div></td><td><div>299</div></td><td><div>213</div></td><td><div>221</div></td><td><div>210</div></td><td><div>210</div></td><td><div>118</div></td><td><div>118</div></td><td><div>296</div></td><td><div>306</div></td><td><div>166</div></td><td><div>172</div></td><td><div>0.0011</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
+    </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
+    </td></tr></table><br><br>
+    <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1014.ON.CA"><span style="font-size:medium;">Unique genotype (10 of 16)</span></a></div><div class="amGridMiddlePanel">
+    <table cellspacing="0" class="amTable amTableSeparate">
+    <tr class="amTableHeader">
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    </tr>
+    <tr>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>1014.ON.CA</div></td>
+    <td class="amTableSelectRow"><div>384</div></td>
+    <td class="amTableSelectRow"><div>384</div></td>
+    <td class="amTableSelectRow"><div>232</div></td>
+    <td class="amTableSelectRow"><div>238</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>193</div></td>
+    <td class="amTableSelectRow"><div>199</div></td>
+    <td class="amTableSelectRow"><div>299</div></td>
+    <td class="amTableSelectRow"><div>301</div></td>
+    <td class="amTableSelectRow"><div>213</div></td>
+    <td class="amTableSelectRow"><div>213</div></td>
+    <td class="amTableSelectRow"><div>210</div></td>
+    <td class="amTableSelectRow"><div>210</div></td>
+    <td class="amTableSelectRow"><div>102</div></td>
+    <td class="amTableSelectRow"><div>108</div></td>
+    <td class="amTableSelectRow"><div>296</div></td>
+    <td class="amTableSelectRow"><div>296</div></td>
+    <td class="amTableSelectRow"><div>174</div></td>
+    <td class="amTableSelectRow"><div>174</div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>UNIQUE</div></td>
+    </tr>
+    <tr><td><div></div></td><td><div>1014.ON.CA</div></td><td><div>384</div></td><td><div>384</div></td><td><div>232</div></td><td><div>238</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>193</div></td><td><div>199</div></td><td><div>299</div></td><td><div>301</div></td><td><div>213</div></td><td><div>213</div></td><td><div>210</div></td><td><div>210</div></td><td><div>102</div></td><td><div>108</div></td><td><div>296</div></td><td><div>296</div></td><td><div>174</div></td><td><div>174</div></td><td><div>0.00019</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
+    </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
+    </td></tr></table><br><br>
+    <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1015.ON.CA"><span style="font-size:medium;">Unique genotype (11 of 16)</span></a></div><div class="amGridMiddlePanel">
+    <table cellspacing="0" class="amTable amTableSeparate">
+    <tr class="amTableHeader">
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    </tr>
+    <tr>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>1015.ON.CA</div></td>
+    <td class="amTableSelectRow"><div>382</div></td>
+    <td class="amTableSelectRow"><div>382</div></td>
+    <td class="amTableSelectRow"><div>224</div></td>
+    <td class="amTableSelectRow"><div>232</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>193</div></td>
+    <td class="amTableSelectRow"><div>193</div></td>
+    <td class="amTableSelectRow"><div>299</div></td>
+    <td class="amTableSelectRow"><div>299</div></td>
+    <td class="amTableSelectRow"><div>223</div></td>
+    <td class="amTableSelectRow"><div>223</div></td>
+    <td class="amTableSelectRow"><div>210</div></td>
+    <td class="amTableSelectRow"><div>216</div></td>
+    <td class="amTableSelectRow"><div>106</div></td>
+    <td class="amTableSelectRow"><div>106</div></td>
+    <td class="amTableSelectRow"><div>296</div></td>
+    <td class="amTableSelectRow"><div>306</div></td>
+    <td class="amTableSelectRow"><div>166</div></td>
+    <td class="amTableSelectRow"><div>166</div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>UNIQUE</div></td>
+    </tr>
+    <tr><td><div></div></td><td><div>1015.ON.CA</div></td><td><div>382</div></td><td><div>382</div></td><td><div>224</div></td><td><div>232</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>193</div></td><td><div>193</div></td><td><div>299</div></td><td><div>299</div></td><td><div>223</div></td><td><div>223</div></td><td><div>210</div></td><td><div>216</div></td><td><div>106</div></td><td><div>106</div></td><td><div>296</div></td><td><div>306</div></td><td><div>166</div></td><td><div>166</div></td><td><div>0.0031</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
+    </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
+    </td></tr></table><br><br>
+    <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1016.ON.CA"><span style="font-size:medium;">Unique genotype (12 of 16)</span></a></div><div class="amGridMiddlePanel">
+    <table cellspacing="0" class="amTable amTableSeparate">
+    <tr class="amTableHeader">
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    </tr>
+    <tr>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>1016.ON.CA</div></td>
+    <td class="amTableSelectRow"><div>382</div></td>
+    <td class="amTableSelectRow"><div>384</div></td>
+    <td class="amTableSelectRow"><div>224</div></td>
+    <td class="amTableSelectRow"><div>232</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>193</div></td>
+    <td class="amTableSelectRow"><div>193</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>213</div></td>
+    <td class="amTableSelectRow"><div>221</div></td>
+    <td class="amTableSelectRow"><div>210</div></td>
+    <td class="amTableSelectRow"><div>210</div></td>
+    <td class="amTableSelectRow"><div>106</div></td>
+    <td class="amTableSelectRow"><div>112</div></td>
+    <td class="amTableSelectRow"><div>288</div></td>
+    <td class="amTableSelectRow"><div>288</div></td>
+    <td class="amTableSelectRow"><div>166</div></td>
+    <td class="amTableSelectRow"><div>166</div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>UNIQUE</div></td>
+    </tr>
+    <tr><td><div></div></td><td><div>1016.ON.CA</div></td><td><div>382</div></td><td><div>384</div></td><td><div>224</div></td><td><div>232</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>193</div></td><td><div>193</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>213</div></td><td><div>221</div></td><td><div>210</div></td><td><div>210</div></td><td><div>106</div></td><td><div>112</div></td><td><div>288</div></td><td><div>288</div></td><td><div>166</div></td><td><div>166</div></td><td><div>0.0016</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
+    </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
+    </td></tr></table><br><br>
+    <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1017.ON.CA"><span style="font-size:medium;">Unique genotype (13 of 16)</span></a></div><div class="amGridMiddlePanel">
+    <table cellspacing="0" class="amTable amTableSeparate">
+    <tr class="amTableHeader">
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    </tr>
+    <tr>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>1017.ON.CA</div></td>
+    <td class="amTableSelectRow"><div>382</div></td>
+    <td class="amTableSelectRow"><div>388</div></td>
+    <td class="amTableSelectRow"><div>230</div></td>
+    <td class="amTableSelectRow"><div>230</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>181</div></td>
+    <td class="amTableSelectRow"><div>185</div></td>
+    <td class="amTableSelectRow"><div>285</div></td>
+    <td class="amTableSelectRow"><div>299</div></td>
+    <td class="amTableSelectRow"><div>223</div></td>
+    <td class="amTableSelectRow"><div>223</div></td>
+    <td class="amTableSelectRow"><div>202</div></td>
+    <td class="amTableSelectRow"><div>202</div></td>
+    <td class="amTableSelectRow"><div>106</div></td>
+    <td class="amTableSelectRow"><div>118</div></td>
+    <td class="amTableSelectRow"><div>304</div></td>
+    <td class="amTableSelectRow"><div>304</div></td>
+    <td class="amTableSelectRow"><div>166</div></td>
+    <td class="amTableSelectRow"><div>166</div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>UNIQUE</div></td>
+    </tr>
+    <tr><td><div></div></td><td><div>1017.ON.CA</div></td><td><div>382</div></td><td><div>388</div></td><td><div>230</div></td><td><div>230</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>181</div></td><td><div>185</div></td><td><div>285</div></td><td><div>299</div></td><td><div>223</div></td><td><div>223</div></td><td><div>202</div></td><td><div>202</div></td><td><div>106</div></td><td><div>118</div></td><td><div>304</div></td><td><div>304</div></td><td><div>166</div></td><td><div>166</div></td><td><div>0.0015</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
+    </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
+    </td></tr></table><br><br>
+    <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1018.ON.CA"><span style="font-size:medium;">Unique genotype (14 of 16)</span></a></div><div class="amGridMiddlePanel">
+    <table cellspacing="0" class="amTable amTableSeparate">
+    <tr class="amTableHeader">
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    </tr>
+    <tr>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>1018.ON.CA</div></td>
+    <td class="amTableSelectRow"><div>384</div></td>
+    <td class="amTableSelectRow"><div>384</div></td>
+    <td class="amTableSelectRow"><div>224</div></td>
+    <td class="amTableSelectRow"><div>230</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>185</div></td>
+    <td class="amTableSelectRow"><div>199</div></td>
+    <td class="amTableSelectRow"><div>285</div></td>
+    <td class="amTableSelectRow"><div>299</div></td>
+    <td class="amTableSelectRow"><div>223</div></td>
+    <td class="amTableSelectRow"><div>223</div></td>
+    <td class="amTableSelectRow"><div>198</div></td>
+    <td class="amTableSelectRow"><div>204</div></td>
+    <td class="amTableSelectRow"><div>116</div></td>
+    <td class="amTableSelectRow"><div>118</div></td>
+    <td class="amTableSelectRow"><div>296</div></td>
+    <td class="amTableSelectRow"><div>296</div></td>
+    <td class="amTableSelectRow"><div>166</div></td>
+    <td class="amTableSelectRow"><div>166</div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>UNIQUE</div></td>
+    </tr>
+    <tr><td><div></div></td><td><div>1018.ON.CA</div></td><td><div>384</div></td><td><div>384</div></td><td><div>224</div></td><td><div>230</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>185</div></td><td><div>199</div></td><td><div>285</div></td><td><div>299</div></td><td><div>223</div></td><td><div>223</div></td><td><div>198</div></td><td><div>204</div></td><td><div>116</div></td><td><div>118</div></td><td><div>296</div></td><td><div>296</div></td><td><div>166</div></td><td><div>166</div></td><td><div>0.0015</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
+    </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
+    </td></tr></table><br><br>
+    <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1019.ON.CA"><span style="font-size:medium;">Unique genotype (15 of 16)</span></a></div><div class="amGridMiddlePanel">
+    <table cellspacing="0" class="amTable amTableSeparate">
+    <tr class="amTableHeader">
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    </tr>
+    <tr>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>1019.ON.CA</div></td>
+    <td class="amTableSelectRow"><div>382</div></td>
+    <td class="amTableSelectRow"><div>384</div></td>
+    <td class="amTableSelectRow"><div>224</div></td>
+    <td class="amTableSelectRow"><div>230</div></td>
+    <td class="amTableSelectRow"><div>159</div></td>
+    <td class="amTableSelectRow"><div>159</div></td>
+    <td class="amTableSelectRow"><div>193</div></td>
+    <td class="amTableSelectRow"><div>193</div></td>
+    <td class="amTableSelectRow"><div>299</div></td>
+    <td class="amTableSelectRow"><div>299</div></td>
+    <td class="amTableSelectRow"><div>223</div></td>
+    <td class="amTableSelectRow"><div>223</div></td>
+    <td class="amTableSelectRow"><div>202</div></td>
+    <td class="amTableSelectRow"><div>202</div></td>
+    <td class="amTableSelectRow"><div>106</div></td>
+    <td class="amTableSelectRow"><div>118</div></td>
+    <td class="amTableSelectRow"><div>298</div></td>
+    <td class="amTableSelectRow"><div>298</div></td>
+    <td class="amTableSelectRow"><div>166</div></td>
+    <td class="amTableSelectRow"><div>166</div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>UNIQUE</div></td>
+    </tr>
+    <tr><td><div></div></td><td><div>1019.ON.CA</div></td><td><div>382</div></td><td><div>384</div></td><td><div>224</div></td><td><div>230</div></td><td><div>159</div></td><td><div>159</div></td><td><div>193</div></td><td><div>193</div></td><td><div>299</div></td><td><div>299</div></td><td><div>223</div></td><td><div>223</div></td><td><div>202</div></td><td><div>202</div></td><td><div>106</div></td><td><div>118</div></td><td><div>298</div></td><td><div>298</div></td><td><div>166</div></td><td><div>166</div></td><td><div>0.0025</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
+    </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
+    </td></tr></table><br><br>
+    <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1020.ON.CA"><span style="font-size:medium;">Unique genotype (16 of 16)</span></a></div><div class="amGridMiddlePanel">
+    <table cellspacing="0" class="amTable amTableSeparate">
+    <tr class="amTableHeader">
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    </tr>
+    <tr>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>1020.ON.CA</div></td>
+    <td class="amTableSelectRow"><div>382</div></td>
+    <td class="amTableSelectRow"><div>384</div></td>
+    <td class="amTableSelectRow"><div>224</div></td>
+    <td class="amTableSelectRow"><div>230</div></td>
+    <td class="amTableSelectRow"><div>155</div></td>
+    <td class="amTableSelectRow"><div>167</div></td>
+    <td class="amTableSelectRow"><div>185</div></td>
+    <td class="amTableSelectRow"><div>193</div></td>
+    <td class="amTableSelectRow"><div>299</div></td>
+    <td class="amTableSelectRow"><div>299</div></td>
+    <td class="amTableSelectRow"><div>223</div></td>
+    <td class="amTableSelectRow"><div>223</div></td>
+    <td class="amTableSelectRow"><div>202</div></td>
+    <td class="amTableSelectRow"><div>204</div></td>
+    <td class="amTableSelectRow"><div>106</div></td>
+    <td class="amTableSelectRow"><div>106</div></td>
+    <td class="amTableSelectRow"><div>296</div></td>
+    <td class="amTableSelectRow"><div>304</div></td>
+    <td class="amTableSelectRow"><div>166</div></td>
+    <td class="amTableSelectRow"><div>166</div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>UNIQUE</div></td>
+    </tr>
+    <tr><td><div></div></td><td><div>1020.ON.CA</div></td><td><div>382</div></td><td><div>384</div></td><td><div>224</div></td><td><div>230</div></td><td><div>155</div></td><td><div>167</div></td><td><div>185</div></td><td><div>193</div></td><td><div>299</div></td><td><div>299</div></td><td><div>223</div></td><td><div>223</div></td><td><div>202</div></td><td><div>204</div></td><td><div>106</div></td><td><div>106</div></td><td><div>296</div></td><td><div>304</div></td><td><div>166</div></td><td><div>166</div></td><td><div>0.0016</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
+    </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
+    </td></tr></table><br><br>
+    <span style="font-size:x-small;">Generated by allelematch: an R package<br></span><span style="font-size:x-small;">To reference this analysis please use citation("allelematch")<br><br></span></div>
+    </body></html>
 
 ---
 
-    Code
-      paste("About to exercise", obj)
-    Output
-      [1] "About to exercise objExample5b"
+    About to exercise objExample5b
 
 ---
 
@@ -1848,1380 +1833,1374 @@
 
 ---
 
-    Code
-      cat(sub("summary generated: </b><em>.+?</em>", "summary generated: </b><em>(date)</em>", gsub("(\\t| )+?(\\n|$)", "\\2", readLines(tmp, warn = FALSE), perl = TRUE), perl = TRUE), sep = "\n")
-    Output
-      <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-      <html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' lang='en'><head>
-      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
-      <title>allelematch: amUnique() output</title>
-      <style type="text/css">
-      
-              html { height: 100%; }
-              body { background-color: inherit; color: inherit; font-family: Verdana; font-size: xx-small; margin: 0; height: 100%; }
-              a:active, a:link, a:visited { color: #CC0000; }
-              .amMismatchAllele { background-color: #CC0000; color: white; font-weight: bold; }
-              .amMissingAllele { background-color: #FFCCCC; }
-              .amInterpolatedAllele { background-color: blue; color: white; }
-              .amGrid { border-collapse: separate; }
-              .amGridContent { padding: 0; border: 1px solid #7EACB1; }
-              .amGridUpperPanel, .amGridLowerPanel { padding: 3px; background-color: #F4FAFB; color: #2A769D; font-family: Verdana; font-size: xx-small; }
-              .amGridUpperPanel { border-top: 0px; border-bottom: 1px solid; border-color: #7EACB1; }
-              .amGridMiddlePanel { border: 0; }
-              .amGridLowerPanel { border-top: 1px solid; border-bottom: 0px; border-color: #C2D4DA; }
-              .amGridUpperPanel td, .amGridLowerPanel td { color: #2A769D; font-family: Verdana; font-size: xx-small; }
-              .amTable { border: 0; border-spacing: 0; border-collapse: collapse; empty-cells: show; width: 100%; font-family: Verdana; font-size: xx-small; }
-              .amTableSeparate { border-collapse: separate; }
-              .amTable td { padding: 3px; border-bottom: 1px solid; border-right: 1px solid; border-color: #C2D4DA; white-space:nowrap; }
-              .amTable .amTableHeader, .amTable .amTableHeader td { background-color: #B7D8DC; color: #000000; border-bottom: 1px solid; border-right: 1px solid; border-color: #7EACB1; vertical-align: top; white-space:nowrap; }
-              .amPointer { cursor: pointer; }
-              .amTableHeaderBtn { width: 100%; font-family: Verdana; font-size: xx-small; }
-              .amTableHeader .amTableHeaderBtn td { background: transparent; padding: 0; border: 0; white-space: nowrap; }
-              .amTableSelectRow { background-color: #FFFF66; color: #000000; }
-      
-      </style>
-      </head><body>
-      <div style="margin-left:5%; margin-right:5%">
-      <br><table cellspacing="0" class="amGrid"><tr><td class="amGridContent">
-      <div class="amGridUpperPanel">
-      <div style="font-size:x-small;"><table>
-      <tr><td style="width:400px;"><span style="font-size:20px;">allelematch<br>unique analysis</span><br><br></td></tr>
-      <tr><td><b>
-      unique N=</b><em>14</em></td></tr>
-      <tr><td><b>samples N=</b><em>20</em></td></tr>
-      <tr><td><b><br>loci N=</b><em>11</em></td></tr>
-      <tr><td><b>locus names: </b><em>samplingData-gender, LOC1a-LOC1b, LOC2a-LOC2b, LOC3a-LOC3b, LOC4a-LOC4b, LOC5a-LOC5b, LOC6a-LOC6b, LOC7a-LOC7b, LOC8a-LOC8b, LOC9a-LOC9b, LOC10a-LOC10b</em></td></tr>
-      <tr><td><b><br>missing data represented by: </b><em>-99</em></td></tr>
-      <tr><td><b>clustered genotypes consensus method: </b><em>1</em></td></tr>
-      <tr><td><b>Psib calculated for: </b><em>samples with no mismatches</em></td></tr>
-      <tr><td><b><br>alleleMismatch (m-hat; maximum number of mismatching alleles): </b><em>6.6</em></td></tr>
-      <tr><td><b>cutHeight (d-hat; dynamic tree cutting height): </b><em>0.3</em></td></tr>
-      <tr><td><b>matchThreshold (s-hat; lowest matching score returned): </b><em>0.7</em></td></tr>
-      <tr><td><b><br>unclassified N=</b><em>0</em></td></tr>
-      <tr><td><b>multipleMatch N=</b><em>0</em></td></tr>
-      <tr><td><b><br>Note: Unique genotypes are determined based on clustering of scores.</b><em> Psib appears for reference purposes.</em></td></tr>
-      <tr><td><b><br>summary generated: </b><em>(date)</em></td></tr>
-      </table></div></div></td></tr></table><br><br>
-      <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><span style="font-size:medium;">Unique genotypes</span></div><div class="amGridMiddlePanel">
-      <table cellspacing="0" class="amTable amTableSeparate">
-      <tr class="amTableHeader">
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>samplingData</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>gender</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      </tr>
-      <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
-      <td><div><a href="#1001.ON.CA">Jump</a></div></td>
-      <td><div>1001.ON.CA</div></td>
-      <td><div>SiouxLookout-Jan-2004</div></td>
-      <td><div>F</div></td>
-      <td><div>382</div></td>
-      <td><div>384</div></td>
-      <td><div>230</div></td>
-      <td><div>236</div></td>
-      <td><div>-99</div></td>
-      <td><div>-99</div></td>
-      <td><div>185</div></td>
-      <td><div>185</div></td>
-      <td><div>301</div></td>
-      <td><div>301</div></td>
-      <td><div>223</div></td>
-      <td><div>223</div></td>
-      <td><div>192</div></td>
-      <td><div>192</div></td>
-      <td><div>118</div></td>
-      <td><div>118</div></td>
-      <td><div>296</div></td>
-      <td><div>304</div></td>
-      <td><div>166</div></td>
-      <td><div>166</div></td>
-      <td><div>0.00063</div></td>
-      <td><div>UNIQUE</div></td>
-      </tr>
-      <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
-      <td><div><a href="#1002.ON.CA">Jump</a></div></td>
-      <td><div>1002.ON.CA</div></td>
-      <td><div>SiouxLookout-Jan-2004</div></td>
-      <td><div>F</div></td>
-      <td><div>382</div></td>
-      <td><div>384</div></td>
-      <td><div>230</div></td>
-      <td><div>236</div></td>
-      <td><div>-99</div></td>
-      <td><div>-99</div></td>
-      <td><div>181</div></td>
-      <td><div>193</div></td>
-      <td><div>299</div></td>
-      <td><div>299</div></td>
-      <td><div>223</div></td>
-      <td><div>223</div></td>
-      <td><div>202</div></td>
-      <td><div>202</div></td>
-      <td><div>118</div></td>
-      <td><div>118</div></td>
-      <td><div>288</div></td>
-      <td><div>296</div></td>
-      <td><div>166</div></td>
-      <td><div>166</div></td>
-      <td><div>0.002</div></td>
-      <td><div>UNIQUE</div></td>
-      </tr>
-      <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
-      <td><div><a href="#1003.ON.CA">Jump</a></div></td>
-      <td><div>1003.ON.CA</div></td>
-      <td><div>SiouxLookout-Jan-2004</div></td>
-      <td><div>M</div></td>
-      <td><div>382</div></td>
-      <td><div>382</div></td>
-      <td><div>224</div></td>
-      <td><div>242</div></td>
-      <td><div>-99</div></td>
-      <td><div>-99</div></td>
-      <td><div>185</div></td>
-      <td><div>191</div></td>
-      <td><div>285</div></td>
-      <td><div>299</div></td>
-      <td><div>223</div></td>
-      <td><div>223</div></td>
-      <td><div>192</div></td>
-      <td><div>202</div></td>
-      <td><div>102</div></td>
-      <td><div>118</div></td>
-      <td><div>298</div></td>
-      <td><div>304</div></td>
-      <td><div>166</div></td>
-      <td><div>172</div></td>
-      <td><div>0.0003</div></td>
-      <td><div>UNIQUE</div></td>
-      </tr>
-      <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
-      <td><div><a href="#1004.ON.CA">Jump</a></div></td>
-      <td><div>1004.ON.CA</div></td>
-      <td><div>SiouxLookout-Jan-2004</div></td>
-      <td><div>M</div></td>
-      <td><div>382</div></td>
-      <td><div>384</div></td>
-      <td><div>232</div></td>
-      <td><div>236</div></td>
-      <td><div>-99</div></td>
-      <td><div>-99</div></td>
-      <td><div>193</div></td>
-      <td><div>193</div></td>
-      <td><div>299</div></td>
-      <td><div>301</div></td>
-      <td><div>223</div></td>
-      <td><div>223</div></td>
-      <td><div>192</div></td>
-      <td><div>216</div></td>
-      <td><div>102</div></td>
-      <td><div>108</div></td>
-      <td><div>296</div></td>
-      <td><div>304</div></td>
-      <td><div>168</div></td>
-      <td><div>174</div></td>
-      <td><div>0.00028</div></td>
-      <td><div>UNIQUE</div></td>
-      </tr>
-      <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
-      <td><div><a href="#1006.ON.CA">Jump</a></div></td>
-      <td><div>1006.ON.CA</div></td>
-      <td><div>SiouxLookout-Jan-2004</div></td>
-      <td><div>F</div></td>
-      <td><div>382</div></td>
-      <td><div>384</div></td>
-      <td><div>224</div></td>
-      <td><div>230</div></td>
-      <td><div>-99</div></td>
-      <td><div>-99</div></td>
-      <td><div>181</div></td>
-      <td><div>193</div></td>
-      <td><div>285</div></td>
-      <td><div>285</div></td>
-      <td><div>223</div></td>
-      <td><div>223</div></td>
-      <td><div>198</div></td>
-      <td><div>202</div></td>
-      <td><div>114</div></td>
-      <td><div>116</div></td>
-      <td><div>288</div></td>
-      <td><div>296</div></td>
-      <td><div>166</div></td>
-      <td><div>166</div></td>
-      <td><div>0.00065</div></td>
-      <td><div>UNIQUE</div></td>
-      </tr>
-      <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
-      <td><div><a href="#1011.ON.CA">Jump</a></div></td>
-      <td><div>1011.ON.CA</div></td>
-      <td><div>SiouxLookout-Jan-2004</div></td>
-      <td><div>F</div></td>
-      <td><div>382</div></td>
-      <td><div>384</div></td>
-      <td><div>224</div></td>
-      <td><div>224</div></td>
-      <td><div>-99</div></td>
-      <td><div>-99</div></td>
-      <td><div>193</div></td>
-      <td><div>193</div></td>
-      <td><div>299</div></td>
-      <td><div>299</div></td>
-      <td><div>223</div></td>
-      <td><div>223</div></td>
-      <td><div>210</div></td>
-      <td><div>214</div></td>
-      <td><div>106</div></td>
-      <td><div>112</div></td>
-      <td><div>288</div></td>
-      <td><div>296</div></td>
-      <td><div>166</div></td>
-      <td><div>172</div></td>
-      <td><div>0.0013</div></td>
-      <td><div>UNIQUE</div></td>
-      </tr>
-      <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
-      <td><div><a href="#1013.ON.CA">Jump</a></div></td>
-      <td><div>1013.ON.CA</div></td>
-      <td><div>SiouxLookout-Jan-2004</div></td>
-      <td><div>M</div></td>
-      <td><div>382</div></td>
-      <td><div>384</div></td>
-      <td><div>232</div></td>
-      <td><div>232</div></td>
-      <td><div>-99</div></td>
-      <td><div>-99</div></td>
-      <td><div>193</div></td>
-      <td><div>193</div></td>
-      <td><div>299</div></td>
-      <td><div>299</div></td>
-      <td><div>213</div></td>
-      <td><div>221</div></td>
-      <td><div>210</div></td>
-      <td><div>210</div></td>
-      <td><div>118</div></td>
-      <td><div>118</div></td>
-      <td><div>296</div></td>
-      <td><div>306</div></td>
-      <td><div>166</div></td>
-      <td><div>172</div></td>
-      <td><div>0.00049</div></td>
-      <td><div>UNIQUE</div></td>
-      </tr>
-      <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
-      <td><div><a href="#1014.ON.CA">Jump</a></div></td>
-      <td><div>1014.ON.CA</div></td>
-      <td><div>SiouxLookout-Jan-2004</div></td>
-      <td><div>F</div></td>
-      <td><div>384</div></td>
-      <td><div>384</div></td>
-      <td><div>232</div></td>
-      <td><div>238</div></td>
-      <td><div>-99</div></td>
-      <td><div>-99</div></td>
-      <td><div>193</div></td>
-      <td><div>199</div></td>
-      <td><div>299</div></td>
-      <td><div>301</div></td>
-      <td><div>213</div></td>
-      <td><div>213</div></td>
-      <td><div>210</div></td>
-      <td><div>210</div></td>
-      <td><div>102</div></td>
-      <td><div>108</div></td>
-      <td><div>296</div></td>
-      <td><div>296</div></td>
-      <td><div>174</div></td>
-      <td><div>174</div></td>
-      <td><div>0.00013</div></td>
-      <td><div>UNIQUE</div></td>
-      </tr>
-      <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
-      <td><div><a href="#1015.ON.CA">Jump</a></div></td>
-      <td><div>1015.ON.CA</div></td>
-      <td><div>SiouxLookout-Jan-2004</div></td>
-      <td><div>F</div></td>
-      <td><div>382</div></td>
-      <td><div>382</div></td>
-      <td><div>224</div></td>
-      <td><div>232</div></td>
-      <td><div>-99</div></td>
-      <td><div>-99</div></td>
-      <td><div>193</div></td>
-      <td><div>193</div></td>
-      <td><div>299</div></td>
-      <td><div>299</div></td>
-      <td><div>223</div></td>
-      <td><div>223</div></td>
-      <td><div>210</div></td>
-      <td><div>216</div></td>
-      <td><div>106</div></td>
-      <td><div>106</div></td>
-      <td><div>296</div></td>
-      <td><div>306</div></td>
-      <td><div>166</div></td>
-      <td><div>166</div></td>
-      <td><div>0.0019</div></td>
-      <td><div>UNIQUE</div></td>
-      </tr>
-      <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
-      <td><div><a href="#1016.ON.CA">Jump</a></div></td>
-      <td><div>1016.ON.CA</div></td>
-      <td><div>SiouxLookout-Jan-2004</div></td>
-      <td><div>M</div></td>
-      <td><div>382</div></td>
-      <td><div>384</div></td>
-      <td><div>224</div></td>
-      <td><div>232</div></td>
-      <td><div>-99</div></td>
-      <td><div>-99</div></td>
-      <td><div>193</div></td>
-      <td><div>193</div></td>
-      <td><div>-99</div></td>
-      <td><div>-99</div></td>
-      <td><div>213</div></td>
-      <td><div>221</div></td>
-      <td><div>210</div></td>
-      <td><div>210</div></td>
-      <td><div>106</div></td>
-      <td><div>112</div></td>
-      <td><div>288</div></td>
-      <td><div>288</div></td>
-      <td><div>166</div></td>
-      <td><div>166</div></td>
-      <td><div>0.00083</div></td>
-      <td><div>UNIQUE</div></td>
-      </tr>
-      <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
-      <td><div><a href="#1017.ON.CA">Jump</a></div></td>
-      <td><div>1017.ON.CA</div></td>
-      <td><div>SiouxLookout-Jan-2004</div></td>
-      <td><div>F</div></td>
-      <td><div>382</div></td>
-      <td><div>388</div></td>
-      <td><div>230</div></td>
-      <td><div>230</div></td>
-      <td><div>-99</div></td>
-      <td><div>-99</div></td>
-      <td><div>181</div></td>
-      <td><div>185</div></td>
-      <td><div>285</div></td>
-      <td><div>299</div></td>
-      <td><div>223</div></td>
-      <td><div>223</div></td>
-      <td><div>202</div></td>
-      <td><div>202</div></td>
-      <td><div>106</div></td>
-      <td><div>118</div></td>
-      <td><div>304</div></td>
-      <td><div>304</div></td>
-      <td><div>166</div></td>
-      <td><div>166</div></td>
-      <td><div>0.00073</div></td>
-      <td><div>UNIQUE</div></td>
-      </tr>
-      <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
-      <td><div><a href="#1018.ON.CA">Jump</a></div></td>
-      <td><div>1018.ON.CA</div></td>
-      <td><div>SiouxLookout-Jan-2004</div></td>
-      <td><div>F</div></td>
-      <td><div>384</div></td>
-      <td><div>384</div></td>
-      <td><div>224</div></td>
-      <td><div>230</div></td>
-      <td><div>-99</div></td>
-      <td><div>-99</div></td>
-      <td><div>185</div></td>
-      <td><div>199</div></td>
-      <td><div>285</div></td>
-      <td><div>299</div></td>
-      <td><div>223</div></td>
-      <td><div>223</div></td>
-      <td><div>198</div></td>
-      <td><div>204</div></td>
-      <td><div>116</div></td>
-      <td><div>118</div></td>
-      <td><div>296</div></td>
-      <td><div>296</div></td>
-      <td><div>166</div></td>
-      <td><div>166</div></td>
-      <td><div>0.00076</div></td>
-      <td><div>UNIQUE</div></td>
-      </tr>
-      <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
-      <td><div><a href="#1019.ON.CA">Jump</a></div></td>
-      <td><div>1019.ON.CA</div></td>
-      <td><div>SiouxLookout-Jan-2004</div></td>
-      <td><div>F</div></td>
-      <td><div>382</div></td>
-      <td><div>384</div></td>
-      <td><div>224</div></td>
-      <td><div>230</div></td>
-      <td><div>159</div></td>
-      <td><div>159</div></td>
-      <td><div>193</div></td>
-      <td><div>193</div></td>
-      <td><div>299</div></td>
-      <td><div>299</div></td>
-      <td><div>223</div></td>
-      <td><div>223</div></td>
-      <td><div>202</div></td>
-      <td><div>202</div></td>
-      <td><div>106</div></td>
-      <td><div>118</div></td>
-      <td><div>298</div></td>
-      <td><div>298</div></td>
-      <td><div>166</div></td>
-      <td><div>166</div></td>
-      <td><div>0.0013</div></td>
-      <td><div>UNIQUE</div></td>
-      </tr>
-      <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
-      <td><div><a href="#1020.ON.CA">Jump</a></div></td>
-      <td><div>1020.ON.CA</div></td>
-      <td><div>SiouxLookout-Jan-2004</div></td>
-      <td><div>F</div></td>
-      <td><div>382</div></td>
-      <td><div>384</div></td>
-      <td><div>224</div></td>
-      <td><div>230</div></td>
-      <td><div>155</div></td>
-      <td><div>167</div></td>
-      <td><div>185</div></td>
-      <td><div>193</div></td>
-      <td><div>299</div></td>
-      <td><div>299</div></td>
-      <td><div>223</div></td>
-      <td><div>223</div></td>
-      <td><div>202</div></td>
-      <td><div>204</div></td>
-      <td><div>106</div></td>
-      <td><div>106</div></td>
-      <td><div>296</div></td>
-      <td><div>304</div></td>
-      <td><div>166</div></td>
-      <td><div>166</div></td>
-      <td><div>0.00088</div></td>
-      <td><div>UNIQUE</div></td>
-      </tr>
-      </table></div><div class="amGridLowerPanel"><span>There were 14 unique genotypes identified using the parameters supplied.</span></div></td></tr></table><br><br>
-      <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1001.ON.CA"><span style="font-size:medium;">Unique genotype (1 of 14)</span></a></div><div class="amGridMiddlePanel">
-      <table cellspacing="0" class="amTable amTableSeparate">
-      <tr class="amTableHeader">
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>samplingData</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>gender</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      </tr>
-      <tr>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>1001.ON.CA</div></td>
-      <td class="amTableSelectRow"><div>SiouxLookout-Jan-2004</div></td>
-      <td class="amTableSelectRow"><div>F</div></td>
-      <td class="amTableSelectRow"><div>382</div></td>
-      <td class="amTableSelectRow"><div>384</div></td>
-      <td class="amTableSelectRow"><div>230</div></td>
-      <td class="amTableSelectRow"><div>236</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>185</div></td>
-      <td class="amTableSelectRow"><div>185</div></td>
-      <td class="amTableSelectRow"><div>301</div></td>
-      <td class="amTableSelectRow"><div>301</div></td>
-      <td class="amTableSelectRow"><div>223</div></td>
-      <td class="amTableSelectRow"><div>223</div></td>
-      <td class="amTableSelectRow"><div>192</div></td>
-      <td class="amTableSelectRow"><div>192</div></td>
-      <td class="amTableSelectRow"><div>118</div></td>
-      <td class="amTableSelectRow"><div>118</div></td>
-      <td class="amTableSelectRow"><div>296</div></td>
-      <td class="amTableSelectRow"><div>304</div></td>
-      <td class="amTableSelectRow"><div>166</div></td>
-      <td class="amTableSelectRow"><div>166</div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>UNIQUE</div></td>
-      </tr>
-      <tr><td><div></div></td><td><div>1001.ON.CA</div></td><td><div>SiouxLookout-Jan-2004</div></td><td><div>F</div></td><td><div>382</div></td><td><div>384</div></td><td><div>230</div></td><td><div>236</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>185</div></td><td><div>185</div></td><td><div>301</div></td><td><div>301</div></td><td><div>223</div></td><td><div>223</div></td><td><div>192</div></td><td><div>192</div></td><td><div>118</div></td><td><div>118</div></td><td><div>296</div></td><td><div>304</div></td><td><div>166</div></td><td><div>166</div></td><td><div>0.00063</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
-      </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
-      </td></tr></table><br><br>
-      <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1002.ON.CA"><span style="font-size:medium;">Unique genotype (2 of 14)</span></a></div><div class="amGridMiddlePanel">
-      <table cellspacing="0" class="amTable amTableSeparate">
-      <tr class="amTableHeader">
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>samplingData</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>gender</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      </tr>
-      <tr>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>1002.ON.CA</div></td>
-      <td class="amTableSelectRow"><div>SiouxLookout-Jan-2004</div></td>
-      <td class="amTableSelectRow"><div>F</div></td>
-      <td class="amTableSelectRow"><div>382</div></td>
-      <td class="amTableSelectRow"><div>384</div></td>
-      <td class="amTableSelectRow"><div>230</div></td>
-      <td class="amTableSelectRow"><div>236</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>181</div></td>
-      <td class="amTableSelectRow"><div>193</div></td>
-      <td class="amTableSelectRow"><div>299</div></td>
-      <td class="amTableSelectRow"><div>299</div></td>
-      <td class="amTableSelectRow"><div>223</div></td>
-      <td class="amTableSelectRow"><div>223</div></td>
-      <td class="amTableSelectRow"><div>202</div></td>
-      <td class="amTableSelectRow"><div>202</div></td>
-      <td class="amTableSelectRow"><div>118</div></td>
-      <td class="amTableSelectRow"><div>118</div></td>
-      <td class="amTableSelectRow"><div>288</div></td>
-      <td class="amTableSelectRow"><div>296</div></td>
-      <td class="amTableSelectRow"><div>166</div></td>
-      <td class="amTableSelectRow"><div>166</div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>UNIQUE</div></td>
-      </tr>
-      <tr><td><div></div></td><td><div>1002.ON.CA</div></td><td><div>SiouxLookout-Jan-2004</div></td><td><div>F</div></td><td><div>382</div></td><td><div>384</div></td><td><div>230</div></td><td><div>236</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>181</div></td><td><div>193</div></td><td><div>299</div></td><td><div>299</div></td><td><div>223</div></td><td><div>223</div></td><td><div>202</div></td><td><div>202</div></td><td><div>118</div></td><td><div>118</div></td><td><div>288</div></td><td><div>296</div></td><td><div>166</div></td><td><div>166</div></td><td><div>0.002</div></td><td><div>1.0</div></td><td><div>MATCH</div></td></tr>
-      <tr><td><div></div></td><td><div>1010.ON.CA</div></td><td><div>SiouxLookout-Jan-2004</div></td><td><div class="amMissingAllele">-99</div></td><td><div>382</div></td><td><div>384</div></td><td><div>230</div></td><td><div class="amMismatchAllele">244</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMismatchAllele">191</div></td><td><div>193</div></td><td><div>299</div></td><td><div>299</div></td><td><div class="amMismatchAllele">227</div></td><td><div class="amMismatchAllele">227</div></td><td><div>202</div></td><td><div class="amMismatchAllele">204</div></td><td><div>118</div></td><td><div>118</div></td><td><div class="amMismatchAllele">296</div></td><td><div>296</div></td><td><div>166</div></td><td><div>166</div></td><td><div>&nbsp; &nbsp; ---</div></td><td><div>0.7</div></td><td><div>MATCH</div></td></tr>
-      </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
-      </td></tr></table><br><br>
-      <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1003.ON.CA"><span style="font-size:medium;">Unique genotype (3 of 14)</span></a></div><div class="amGridMiddlePanel">
-      <table cellspacing="0" class="amTable amTableSeparate">
-      <tr class="amTableHeader">
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>samplingData</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>gender</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      </tr>
-      <tr>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>1003.ON.CA</div></td>
-      <td class="amTableSelectRow"><div>SiouxLookout-Jan-2004</div></td>
-      <td class="amTableSelectRow"><div>M</div></td>
-      <td class="amTableSelectRow"><div>382</div></td>
-      <td class="amTableSelectRow"><div>382</div></td>
-      <td class="amTableSelectRow"><div>224</div></td>
-      <td class="amTableSelectRow"><div>242</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>185</div></td>
-      <td class="amTableSelectRow"><div>191</div></td>
-      <td class="amTableSelectRow"><div>285</div></td>
-      <td class="amTableSelectRow"><div>299</div></td>
-      <td class="amTableSelectRow"><div>223</div></td>
-      <td class="amTableSelectRow"><div>223</div></td>
-      <td class="amTableSelectRow"><div>192</div></td>
-      <td class="amTableSelectRow"><div>202</div></td>
-      <td class="amTableSelectRow"><div>102</div></td>
-      <td class="amTableSelectRow"><div>118</div></td>
-      <td class="amTableSelectRow"><div>298</div></td>
-      <td class="amTableSelectRow"><div>304</div></td>
-      <td class="amTableSelectRow"><div>166</div></td>
-      <td class="amTableSelectRow"><div>172</div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>UNIQUE</div></td>
-      </tr>
-      <tr><td><div></div></td><td><div>1003.ON.CA</div></td><td><div>SiouxLookout-Jan-2004</div></td><td><div>M</div></td><td><div>382</div></td><td><div>382</div></td><td><div>224</div></td><td><div>242</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>185</div></td><td><div>191</div></td><td><div>285</div></td><td><div>299</div></td><td><div>223</div></td><td><div>223</div></td><td><div>192</div></td><td><div>202</div></td><td><div>102</div></td><td><div>118</div></td><td><div>298</div></td><td><div>304</div></td><td><div>166</div></td><td><div>172</div></td><td><div>0.0003</div></td><td><div>1.00</div></td><td><div>MATCH</div></td></tr>
-      <tr><td><div></div></td><td><div>1005.ON.CA</div></td><td><div>SiouxLookout-Jan-2004</div></td><td><div>M</div></td><td><div>382</div></td><td><div>382</div></td><td><div>224</div></td><td><div>242</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>185</div></td><td><div>191</div></td><td><div>285</div></td><td><div>299</div></td><td><div>223</div></td><td><div>223</div></td><td><div>192</div></td><td><div>202</div></td><td><div>102</div></td><td><div>118</div></td><td><div>298</div></td><td><div>304</div></td><td><div>166</div></td><td><div>172</div></td><td><div>0.0003</div></td><td><div>1.00</div></td><td><div>MATCH</div></td></tr>
-      <tr><td><div></div></td><td><div>1008.ON.CA</div></td><td><div>SiouxLookout-Jan-2004</div></td><td><div>M</div></td><td><div>382</div></td><td><div>382</div></td><td><div>224</div></td><td><div class="amMismatchAllele">230</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>185</div></td><td><div class="amMismatchAllele">193</div></td><td><div>285</div></td><td><div class="amMismatchAllele">285</div></td><td><div>223</div></td><td><div>223</div></td><td><div>192</div></td><td><div>202</div></td><td><div class="amMismatchAllele">118</div></td><td><div>118</div></td><td><div class="amMismatchAllele">296</div></td><td><div>304</div></td><td><div>166</div></td><td><div class="amMismatchAllele">166</div></td><td><div>&nbsp; &nbsp; ---</div></td><td><div>0.73</div></td><td><div>MATCH</div></td></tr>
-      <tr><td><div></div></td><td><div>1009.ON.CA</div></td><td><div>SiouxLookout-Jan-2004</div></td><td><div>M</div></td><td><div>382</div></td><td><div>382</div></td><td><div>224</div></td><td><div class="amMismatchAllele">230</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>185</div></td><td><div class="amMismatchAllele">193</div></td><td><div>285</div></td><td><div class="amMismatchAllele">285</div></td><td><div>223</div></td><td><div>223</div></td><td><div>192</div></td><td><div>202</div></td><td><div class="amMismatchAllele">118</div></td><td><div>118</div></td><td><div class="amMismatchAllele">296</div></td><td><div>304</div></td><td><div>166</div></td><td><div class="amMismatchAllele">166</div></td><td><div>&nbsp; &nbsp; ---</div></td><td><div>0.73</div></td><td><div>MATCH</div></td></tr>
-      </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
-      </td></tr></table><br><br>
-      <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1004.ON.CA"><span style="font-size:medium;">Unique genotype (4 of 14)</span></a></div><div class="amGridMiddlePanel">
-      <table cellspacing="0" class="amTable amTableSeparate">
-      <tr class="amTableHeader">
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>samplingData</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>gender</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      </tr>
-      <tr>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>1004.ON.CA</div></td>
-      <td class="amTableSelectRow"><div>SiouxLookout-Jan-2004</div></td>
-      <td class="amTableSelectRow"><div>M</div></td>
-      <td class="amTableSelectRow"><div>382</div></td>
-      <td class="amTableSelectRow"><div>384</div></td>
-      <td class="amTableSelectRow"><div>232</div></td>
-      <td class="amTableSelectRow"><div>236</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>193</div></td>
-      <td class="amTableSelectRow"><div>193</div></td>
-      <td class="amTableSelectRow"><div>299</div></td>
-      <td class="amTableSelectRow"><div>301</div></td>
-      <td class="amTableSelectRow"><div>223</div></td>
-      <td class="amTableSelectRow"><div>223</div></td>
-      <td class="amTableSelectRow"><div>192</div></td>
-      <td class="amTableSelectRow"><div>216</div></td>
-      <td class="amTableSelectRow"><div>102</div></td>
-      <td class="amTableSelectRow"><div>108</div></td>
-      <td class="amTableSelectRow"><div>296</div></td>
-      <td class="amTableSelectRow"><div>304</div></td>
-      <td class="amTableSelectRow"><div>168</div></td>
-      <td class="amTableSelectRow"><div>174</div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>UNIQUE</div></td>
-      </tr>
-      <tr><td><div></div></td><td><div>1004.ON.CA</div></td><td><div>SiouxLookout-Jan-2004</div></td><td><div>M</div></td><td><div>382</div></td><td><div>384</div></td><td><div>232</div></td><td><div>236</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>193</div></td><td><div>193</div></td><td><div>299</div></td><td><div>301</div></td><td><div>223</div></td><td><div>223</div></td><td><div>192</div></td><td><div>216</div></td><td><div>102</div></td><td><div>108</div></td><td><div>296</div></td><td><div>304</div></td><td><div>168</div></td><td><div>174</div></td><td><div>0.00028</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
-      </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
-      </td></tr></table><br><br>
-      <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1006.ON.CA"><span style="font-size:medium;">Unique genotype (5 of 14)</span></a></div><div class="amGridMiddlePanel">
-      <table cellspacing="0" class="amTable amTableSeparate">
-      <tr class="amTableHeader">
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>samplingData</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>gender</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      </tr>
-      <tr>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>1006.ON.CA</div></td>
-      <td class="amTableSelectRow"><div>SiouxLookout-Jan-2004</div></td>
-      <td class="amTableSelectRow"><div>F</div></td>
-      <td class="amTableSelectRow"><div>382</div></td>
-      <td class="amTableSelectRow"><div>384</div></td>
-      <td class="amTableSelectRow"><div>224</div></td>
-      <td class="amTableSelectRow"><div>230</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>181</div></td>
-      <td class="amTableSelectRow"><div>193</div></td>
-      <td class="amTableSelectRow"><div>285</div></td>
-      <td class="amTableSelectRow"><div>285</div></td>
-      <td class="amTableSelectRow"><div>223</div></td>
-      <td class="amTableSelectRow"><div>223</div></td>
-      <td class="amTableSelectRow"><div>198</div></td>
-      <td class="amTableSelectRow"><div>202</div></td>
-      <td class="amTableSelectRow"><div>114</div></td>
-      <td class="amTableSelectRow"><div>116</div></td>
-      <td class="amTableSelectRow"><div>288</div></td>
-      <td class="amTableSelectRow"><div>296</div></td>
-      <td class="amTableSelectRow"><div>166</div></td>
-      <td class="amTableSelectRow"><div>166</div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>UNIQUE</div></td>
-      </tr>
-      <tr><td><div></div></td><td><div>1006.ON.CA</div></td><td><div>SiouxLookout-Jan-2004</div></td><td><div>F</div></td><td><div>382</div></td><td><div>384</div></td><td><div>224</div></td><td><div>230</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>181</div></td><td><div>193</div></td><td><div>285</div></td><td><div>285</div></td><td><div>223</div></td><td><div>223</div></td><td><div>198</div></td><td><div>202</div></td><td><div>114</div></td><td><div>116</div></td><td><div>288</div></td><td><div>296</div></td><td><div>166</div></td><td><div>166</div></td><td><div>0.00065</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
-      <tr><td><div></div></td><td><div>1007.ON.CA</div></td><td><div>SiouxLookout-Jan-2004</div></td><td><div>F</div></td><td><div>382</div></td><td><div>384</div></td><td><div>224</div></td><td><div>230</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>181</div></td><td><div>193</div></td><td><div>285</div></td><td><div>285</div></td><td><div>223</div></td><td><div>223</div></td><td><div>198</div></td><td><div>202</div></td><td><div>114</div></td><td><div>116</div></td><td><div>288</div></td><td><div>296</div></td><td><div>166</div></td><td><div>166</div></td><td><div>0.00065</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
-      </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
-      </td></tr></table><br><br>
-      <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1011.ON.CA"><span style="font-size:medium;">Unique genotype (6 of 14)</span></a></div><div class="amGridMiddlePanel">
-      <table cellspacing="0" class="amTable amTableSeparate">
-      <tr class="amTableHeader">
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>samplingData</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>gender</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      </tr>
-      <tr>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>1011.ON.CA</div></td>
-      <td class="amTableSelectRow"><div>SiouxLookout-Jan-2004</div></td>
-      <td class="amTableSelectRow"><div>F</div></td>
-      <td class="amTableSelectRow"><div>382</div></td>
-      <td class="amTableSelectRow"><div>384</div></td>
-      <td class="amTableSelectRow"><div>224</div></td>
-      <td class="amTableSelectRow"><div>224</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>193</div></td>
-      <td class="amTableSelectRow"><div>193</div></td>
-      <td class="amTableSelectRow"><div>299</div></td>
-      <td class="amTableSelectRow"><div>299</div></td>
-      <td class="amTableSelectRow"><div>223</div></td>
-      <td class="amTableSelectRow"><div>223</div></td>
-      <td class="amTableSelectRow"><div>210</div></td>
-      <td class="amTableSelectRow"><div>214</div></td>
-      <td class="amTableSelectRow"><div>106</div></td>
-      <td class="amTableSelectRow"><div>112</div></td>
-      <td class="amTableSelectRow"><div>288</div></td>
-      <td class="amTableSelectRow"><div>296</div></td>
-      <td class="amTableSelectRow"><div>166</div></td>
-      <td class="amTableSelectRow"><div>172</div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>UNIQUE</div></td>
-      </tr>
-      <tr><td><div></div></td><td><div>1011.ON.CA</div></td><td><div>SiouxLookout-Jan-2004</div></td><td><div>F</div></td><td><div>382</div></td><td><div>384</div></td><td><div>224</div></td><td><div>224</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>193</div></td><td><div>193</div></td><td><div>299</div></td><td><div>299</div></td><td><div>223</div></td><td><div>223</div></td><td><div>210</div></td><td><div>214</div></td><td><div>106</div></td><td><div>112</div></td><td><div>288</div></td><td><div>296</div></td><td><div>166</div></td><td><div>172</div></td><td><div>0.0013</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
-      <tr><td><div></div></td><td><div>1012.ON.CA</div></td><td><div>SiouxLookout-Jan-2004</div></td><td><div>F</div></td><td><div>382</div></td><td><div>384</div></td><td><div>224</div></td><td><div>224</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>193</div></td><td><div>193</div></td><td><div>299</div></td><td><div>299</div></td><td><div>223</div></td><td><div>223</div></td><td><div>210</div></td><td><div>214</div></td><td><div>106</div></td><td><div>112</div></td><td><div>288</div></td><td><div>296</div></td><td><div>166</div></td><td><div>172</div></td><td><div>0.0013</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
-      </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
-      </td></tr></table><br><br>
-      <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1013.ON.CA"><span style="font-size:medium;">Unique genotype (7 of 14)</span></a></div><div class="amGridMiddlePanel">
-      <table cellspacing="0" class="amTable amTableSeparate">
-      <tr class="amTableHeader">
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>samplingData</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>gender</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      </tr>
-      <tr>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>1013.ON.CA</div></td>
-      <td class="amTableSelectRow"><div>SiouxLookout-Jan-2004</div></td>
-      <td class="amTableSelectRow"><div>M</div></td>
-      <td class="amTableSelectRow"><div>382</div></td>
-      <td class="amTableSelectRow"><div>384</div></td>
-      <td class="amTableSelectRow"><div>232</div></td>
-      <td class="amTableSelectRow"><div>232</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>193</div></td>
-      <td class="amTableSelectRow"><div>193</div></td>
-      <td class="amTableSelectRow"><div>299</div></td>
-      <td class="amTableSelectRow"><div>299</div></td>
-      <td class="amTableSelectRow"><div>213</div></td>
-      <td class="amTableSelectRow"><div>221</div></td>
-      <td class="amTableSelectRow"><div>210</div></td>
-      <td class="amTableSelectRow"><div>210</div></td>
-      <td class="amTableSelectRow"><div>118</div></td>
-      <td class="amTableSelectRow"><div>118</div></td>
-      <td class="amTableSelectRow"><div>296</div></td>
-      <td class="amTableSelectRow"><div>306</div></td>
-      <td class="amTableSelectRow"><div>166</div></td>
-      <td class="amTableSelectRow"><div>172</div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>UNIQUE</div></td>
-      </tr>
-      <tr><td><div></div></td><td><div>1013.ON.CA</div></td><td><div>SiouxLookout-Jan-2004</div></td><td><div>M</div></td><td><div>382</div></td><td><div>384</div></td><td><div>232</div></td><td><div>232</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>193</div></td><td><div>193</div></td><td><div>299</div></td><td><div>299</div></td><td><div>213</div></td><td><div>221</div></td><td><div>210</div></td><td><div>210</div></td><td><div>118</div></td><td><div>118</div></td><td><div>296</div></td><td><div>306</div></td><td><div>166</div></td><td><div>172</div></td><td><div>0.00049</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
-      </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
-      </td></tr></table><br><br>
-      <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1014.ON.CA"><span style="font-size:medium;">Unique genotype (8 of 14)</span></a></div><div class="amGridMiddlePanel">
-      <table cellspacing="0" class="amTable amTableSeparate">
-      <tr class="amTableHeader">
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>samplingData</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>gender</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      </tr>
-      <tr>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>1014.ON.CA</div></td>
-      <td class="amTableSelectRow"><div>SiouxLookout-Jan-2004</div></td>
-      <td class="amTableSelectRow"><div>F</div></td>
-      <td class="amTableSelectRow"><div>384</div></td>
-      <td class="amTableSelectRow"><div>384</div></td>
-      <td class="amTableSelectRow"><div>232</div></td>
-      <td class="amTableSelectRow"><div>238</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>193</div></td>
-      <td class="amTableSelectRow"><div>199</div></td>
-      <td class="amTableSelectRow"><div>299</div></td>
-      <td class="amTableSelectRow"><div>301</div></td>
-      <td class="amTableSelectRow"><div>213</div></td>
-      <td class="amTableSelectRow"><div>213</div></td>
-      <td class="amTableSelectRow"><div>210</div></td>
-      <td class="amTableSelectRow"><div>210</div></td>
-      <td class="amTableSelectRow"><div>102</div></td>
-      <td class="amTableSelectRow"><div>108</div></td>
-      <td class="amTableSelectRow"><div>296</div></td>
-      <td class="amTableSelectRow"><div>296</div></td>
-      <td class="amTableSelectRow"><div>174</div></td>
-      <td class="amTableSelectRow"><div>174</div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>UNIQUE</div></td>
-      </tr>
-      <tr><td><div></div></td><td><div>1014.ON.CA</div></td><td><div>SiouxLookout-Jan-2004</div></td><td><div>F</div></td><td><div>384</div></td><td><div>384</div></td><td><div>232</div></td><td><div>238</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>193</div></td><td><div>199</div></td><td><div>299</div></td><td><div>301</div></td><td><div>213</div></td><td><div>213</div></td><td><div>210</div></td><td><div>210</div></td><td><div>102</div></td><td><div>108</div></td><td><div>296</div></td><td><div>296</div></td><td><div>174</div></td><td><div>174</div></td><td><div>0.00013</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
-      </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
-      </td></tr></table><br><br>
-      <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1015.ON.CA"><span style="font-size:medium;">Unique genotype (9 of 14)</span></a></div><div class="amGridMiddlePanel">
-      <table cellspacing="0" class="amTable amTableSeparate">
-      <tr class="amTableHeader">
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>samplingData</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>gender</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      </tr>
-      <tr>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>1015.ON.CA</div></td>
-      <td class="amTableSelectRow"><div>SiouxLookout-Jan-2004</div></td>
-      <td class="amTableSelectRow"><div>F</div></td>
-      <td class="amTableSelectRow"><div>382</div></td>
-      <td class="amTableSelectRow"><div>382</div></td>
-      <td class="amTableSelectRow"><div>224</div></td>
-      <td class="amTableSelectRow"><div>232</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>193</div></td>
-      <td class="amTableSelectRow"><div>193</div></td>
-      <td class="amTableSelectRow"><div>299</div></td>
-      <td class="amTableSelectRow"><div>299</div></td>
-      <td class="amTableSelectRow"><div>223</div></td>
-      <td class="amTableSelectRow"><div>223</div></td>
-      <td class="amTableSelectRow"><div>210</div></td>
-      <td class="amTableSelectRow"><div>216</div></td>
-      <td class="amTableSelectRow"><div>106</div></td>
-      <td class="amTableSelectRow"><div>106</div></td>
-      <td class="amTableSelectRow"><div>296</div></td>
-      <td class="amTableSelectRow"><div>306</div></td>
-      <td class="amTableSelectRow"><div>166</div></td>
-      <td class="amTableSelectRow"><div>166</div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>UNIQUE</div></td>
-      </tr>
-      <tr><td><div></div></td><td><div>1015.ON.CA</div></td><td><div>SiouxLookout-Jan-2004</div></td><td><div>F</div></td><td><div>382</div></td><td><div>382</div></td><td><div>224</div></td><td><div>232</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>193</div></td><td><div>193</div></td><td><div>299</div></td><td><div>299</div></td><td><div>223</div></td><td><div>223</div></td><td><div>210</div></td><td><div>216</div></td><td><div>106</div></td><td><div>106</div></td><td><div>296</div></td><td><div>306</div></td><td><div>166</div></td><td><div>166</div></td><td><div>0.0019</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
-      </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
-      </td></tr></table><br><br>
-      <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1016.ON.CA"><span style="font-size:medium;">Unique genotype (10 of 14)</span></a></div><div class="amGridMiddlePanel">
-      <table cellspacing="0" class="amTable amTableSeparate">
-      <tr class="amTableHeader">
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>samplingData</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>gender</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      </tr>
-      <tr>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>1016.ON.CA</div></td>
-      <td class="amTableSelectRow"><div>SiouxLookout-Jan-2004</div></td>
-      <td class="amTableSelectRow"><div>M</div></td>
-      <td class="amTableSelectRow"><div>382</div></td>
-      <td class="amTableSelectRow"><div>384</div></td>
-      <td class="amTableSelectRow"><div>224</div></td>
-      <td class="amTableSelectRow"><div>232</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>193</div></td>
-      <td class="amTableSelectRow"><div>193</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>213</div></td>
-      <td class="amTableSelectRow"><div>221</div></td>
-      <td class="amTableSelectRow"><div>210</div></td>
-      <td class="amTableSelectRow"><div>210</div></td>
-      <td class="amTableSelectRow"><div>106</div></td>
-      <td class="amTableSelectRow"><div>112</div></td>
-      <td class="amTableSelectRow"><div>288</div></td>
-      <td class="amTableSelectRow"><div>288</div></td>
-      <td class="amTableSelectRow"><div>166</div></td>
-      <td class="amTableSelectRow"><div>166</div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>UNIQUE</div></td>
-      </tr>
-      <tr><td><div></div></td><td><div>1016.ON.CA</div></td><td><div>SiouxLookout-Jan-2004</div></td><td><div>M</div></td><td><div>382</div></td><td><div>384</div></td><td><div>224</div></td><td><div>232</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>193</div></td><td><div>193</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>213</div></td><td><div>221</div></td><td><div>210</div></td><td><div>210</div></td><td><div>106</div></td><td><div>112</div></td><td><div>288</div></td><td><div>288</div></td><td><div>166</div></td><td><div>166</div></td><td><div>0.00083</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
-      </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
-      </td></tr></table><br><br>
-      <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1017.ON.CA"><span style="font-size:medium;">Unique genotype (11 of 14)</span></a></div><div class="amGridMiddlePanel">
-      <table cellspacing="0" class="amTable amTableSeparate">
-      <tr class="amTableHeader">
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>samplingData</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>gender</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      </tr>
-      <tr>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>1017.ON.CA</div></td>
-      <td class="amTableSelectRow"><div>SiouxLookout-Jan-2004</div></td>
-      <td class="amTableSelectRow"><div>F</div></td>
-      <td class="amTableSelectRow"><div>382</div></td>
-      <td class="amTableSelectRow"><div>388</div></td>
-      <td class="amTableSelectRow"><div>230</div></td>
-      <td class="amTableSelectRow"><div>230</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>181</div></td>
-      <td class="amTableSelectRow"><div>185</div></td>
-      <td class="amTableSelectRow"><div>285</div></td>
-      <td class="amTableSelectRow"><div>299</div></td>
-      <td class="amTableSelectRow"><div>223</div></td>
-      <td class="amTableSelectRow"><div>223</div></td>
-      <td class="amTableSelectRow"><div>202</div></td>
-      <td class="amTableSelectRow"><div>202</div></td>
-      <td class="amTableSelectRow"><div>106</div></td>
-      <td class="amTableSelectRow"><div>118</div></td>
-      <td class="amTableSelectRow"><div>304</div></td>
-      <td class="amTableSelectRow"><div>304</div></td>
-      <td class="amTableSelectRow"><div>166</div></td>
-      <td class="amTableSelectRow"><div>166</div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>UNIQUE</div></td>
-      </tr>
-      <tr><td><div></div></td><td><div>1017.ON.CA</div></td><td><div>SiouxLookout-Jan-2004</div></td><td><div>F</div></td><td><div>382</div></td><td><div>388</div></td><td><div>230</div></td><td><div>230</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>181</div></td><td><div>185</div></td><td><div>285</div></td><td><div>299</div></td><td><div>223</div></td><td><div>223</div></td><td><div>202</div></td><td><div>202</div></td><td><div>106</div></td><td><div>118</div></td><td><div>304</div></td><td><div>304</div></td><td><div>166</div></td><td><div>166</div></td><td><div>0.00073</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
-      </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
-      </td></tr></table><br><br>
-      <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1018.ON.CA"><span style="font-size:medium;">Unique genotype (12 of 14)</span></a></div><div class="amGridMiddlePanel">
-      <table cellspacing="0" class="amTable amTableSeparate">
-      <tr class="amTableHeader">
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>samplingData</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>gender</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      </tr>
-      <tr>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>1018.ON.CA</div></td>
-      <td class="amTableSelectRow"><div>SiouxLookout-Jan-2004</div></td>
-      <td class="amTableSelectRow"><div>F</div></td>
-      <td class="amTableSelectRow"><div>384</div></td>
-      <td class="amTableSelectRow"><div>384</div></td>
-      <td class="amTableSelectRow"><div>224</div></td>
-      <td class="amTableSelectRow"><div>230</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>185</div></td>
-      <td class="amTableSelectRow"><div>199</div></td>
-      <td class="amTableSelectRow"><div>285</div></td>
-      <td class="amTableSelectRow"><div>299</div></td>
-      <td class="amTableSelectRow"><div>223</div></td>
-      <td class="amTableSelectRow"><div>223</div></td>
-      <td class="amTableSelectRow"><div>198</div></td>
-      <td class="amTableSelectRow"><div>204</div></td>
-      <td class="amTableSelectRow"><div>116</div></td>
-      <td class="amTableSelectRow"><div>118</div></td>
-      <td class="amTableSelectRow"><div>296</div></td>
-      <td class="amTableSelectRow"><div>296</div></td>
-      <td class="amTableSelectRow"><div>166</div></td>
-      <td class="amTableSelectRow"><div>166</div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>UNIQUE</div></td>
-      </tr>
-      <tr><td><div></div></td><td><div>1018.ON.CA</div></td><td><div>SiouxLookout-Jan-2004</div></td><td><div>F</div></td><td><div>384</div></td><td><div>384</div></td><td><div>224</div></td><td><div>230</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>185</div></td><td><div>199</div></td><td><div>285</div></td><td><div>299</div></td><td><div>223</div></td><td><div>223</div></td><td><div>198</div></td><td><div>204</div></td><td><div>116</div></td><td><div>118</div></td><td><div>296</div></td><td><div>296</div></td><td><div>166</div></td><td><div>166</div></td><td><div>0.00076</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
-      </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
-      </td></tr></table><br><br>
-      <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1019.ON.CA"><span style="font-size:medium;">Unique genotype (13 of 14)</span></a></div><div class="amGridMiddlePanel">
-      <table cellspacing="0" class="amTable amTableSeparate">
-      <tr class="amTableHeader">
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>samplingData</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>gender</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      </tr>
-      <tr>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>1019.ON.CA</div></td>
-      <td class="amTableSelectRow"><div>SiouxLookout-Jan-2004</div></td>
-      <td class="amTableSelectRow"><div>F</div></td>
-      <td class="amTableSelectRow"><div>382</div></td>
-      <td class="amTableSelectRow"><div>384</div></td>
-      <td class="amTableSelectRow"><div>224</div></td>
-      <td class="amTableSelectRow"><div>230</div></td>
-      <td class="amTableSelectRow"><div>159</div></td>
-      <td class="amTableSelectRow"><div>159</div></td>
-      <td class="amTableSelectRow"><div>193</div></td>
-      <td class="amTableSelectRow"><div>193</div></td>
-      <td class="amTableSelectRow"><div>299</div></td>
-      <td class="amTableSelectRow"><div>299</div></td>
-      <td class="amTableSelectRow"><div>223</div></td>
-      <td class="amTableSelectRow"><div>223</div></td>
-      <td class="amTableSelectRow"><div>202</div></td>
-      <td class="amTableSelectRow"><div>202</div></td>
-      <td class="amTableSelectRow"><div>106</div></td>
-      <td class="amTableSelectRow"><div>118</div></td>
-      <td class="amTableSelectRow"><div>298</div></td>
-      <td class="amTableSelectRow"><div>298</div></td>
-      <td class="amTableSelectRow"><div>166</div></td>
-      <td class="amTableSelectRow"><div>166</div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>UNIQUE</div></td>
-      </tr>
-      <tr><td><div></div></td><td><div>1019.ON.CA</div></td><td><div>SiouxLookout-Jan-2004</div></td><td><div>F</div></td><td><div>382</div></td><td><div>384</div></td><td><div>224</div></td><td><div>230</div></td><td><div>159</div></td><td><div>159</div></td><td><div>193</div></td><td><div>193</div></td><td><div>299</div></td><td><div>299</div></td><td><div>223</div></td><td><div>223</div></td><td><div>202</div></td><td><div>202</div></td><td><div>106</div></td><td><div>118</div></td><td><div>298</div></td><td><div>298</div></td><td><div>166</div></td><td><div>166</div></td><td><div>0.0013</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
-      </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
-      </td></tr></table><br><br>
-      <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1020.ON.CA"><span style="font-size:medium;">Unique genotype (14 of 14)</span></a></div><div class="amGridMiddlePanel">
-      <table cellspacing="0" class="amTable amTableSeparate">
-      <tr class="amTableHeader">
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>samplingData</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>gender</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      </tr>
-      <tr>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>1020.ON.CA</div></td>
-      <td class="amTableSelectRow"><div>SiouxLookout-Jan-2004</div></td>
-      <td class="amTableSelectRow"><div>F</div></td>
-      <td class="amTableSelectRow"><div>382</div></td>
-      <td class="amTableSelectRow"><div>384</div></td>
-      <td class="amTableSelectRow"><div>224</div></td>
-      <td class="amTableSelectRow"><div>230</div></td>
-      <td class="amTableSelectRow"><div>155</div></td>
-      <td class="amTableSelectRow"><div>167</div></td>
-      <td class="amTableSelectRow"><div>185</div></td>
-      <td class="amTableSelectRow"><div>193</div></td>
-      <td class="amTableSelectRow"><div>299</div></td>
-      <td class="amTableSelectRow"><div>299</div></td>
-      <td class="amTableSelectRow"><div>223</div></td>
-      <td class="amTableSelectRow"><div>223</div></td>
-      <td class="amTableSelectRow"><div>202</div></td>
-      <td class="amTableSelectRow"><div>204</div></td>
-      <td class="amTableSelectRow"><div>106</div></td>
-      <td class="amTableSelectRow"><div>106</div></td>
-      <td class="amTableSelectRow"><div>296</div></td>
-      <td class="amTableSelectRow"><div>304</div></td>
-      <td class="amTableSelectRow"><div>166</div></td>
-      <td class="amTableSelectRow"><div>166</div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>UNIQUE</div></td>
-      </tr>
-      <tr><td><div></div></td><td><div>1020.ON.CA</div></td><td><div>SiouxLookout-Jan-2004</div></td><td><div>F</div></td><td><div>382</div></td><td><div>384</div></td><td><div>224</div></td><td><div>230</div></td><td><div>155</div></td><td><div>167</div></td><td><div>185</div></td><td><div>193</div></td><td><div>299</div></td><td><div>299</div></td><td><div>223</div></td><td><div>223</div></td><td><div>202</div></td><td><div>204</div></td><td><div>106</div></td><td><div>106</div></td><td><div>296</div></td><td><div>304</div></td><td><div>166</div></td><td><div>166</div></td><td><div>0.00088</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
-      </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
-      </td></tr></table><br><br>
-      <span style="font-size:x-small;">Generated by allelematch: an R package<br></span><span style="font-size:x-small;">To reference this analysis please use citation("allelematch")<br><br></span></div>
-      </body></html>
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    <html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' lang='en'><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+    <title>allelematch: amUnique() output</title>
+    <style type="text/css">
+    
+    html { height: 100%; }
+    body { background-color: inherit; color: inherit; font-family: Verdana; font-size: xx-small; margin: 0; height: 100%; }
+    a:active, a:link, a:visited { color: #CC0000; }
+    .amMismatchAllele { background-color: #CC0000; color: white; font-weight: bold; }
+    .amMissingAllele { background-color: #FFCCCC; }
+    .amInterpolatedAllele { background-color: blue; color: white; }
+    .amGrid { border-collapse: separate; }
+    .amGridContent { padding: 0; border: 1px solid #7EACB1; }
+    .amGridUpperPanel, .amGridLowerPanel { padding: 3px; background-color: #F4FAFB; color: #2A769D; font-family: Verdana; font-size: xx-small; }
+    .amGridUpperPanel { border-top: 0px; border-bottom: 1px solid; border-color: #7EACB1; }
+    .amGridMiddlePanel { border: 0; }
+    .amGridLowerPanel { border-top: 1px solid; border-bottom: 0px; border-color: #C2D4DA; }
+    .amGridUpperPanel td, .amGridLowerPanel td { color: #2A769D; font-family: Verdana; font-size: xx-small; }
+    .amTable { border: 0; border-spacing: 0; border-collapse: collapse; empty-cells: show; width: 100%; font-family: Verdana; font-size: xx-small; }
+    .amTableSeparate { border-collapse: separate; }
+    .amTable td { padding: 3px; border-bottom: 1px solid; border-right: 1px solid; border-color: #C2D4DA; white-space:nowrap; }
+    .amTable .amTableHeader, .amTable .amTableHeader td { background-color: #B7D8DC; color: #000000; border-bottom: 1px solid; border-right: 1px solid; border-color: #7EACB1; vertical-align: top; white-space:nowrap; }
+    .amPointer { cursor: pointer; }
+    .amTableHeaderBtn { width: 100%; font-family: Verdana; font-size: xx-small; }
+    .amTableHeader .amTableHeaderBtn td { background: transparent; padding: 0; border: 0; white-space: nowrap; }
+    .amTableSelectRow { background-color: #FFFF66; color: #000000; }
+    
+    </style>
+    </head><body>
+    <div style="margin-left:5%; margin-right:5%">
+    <br><table cellspacing="0" class="amGrid"><tr><td class="amGridContent">
+    <div class="amGridUpperPanel">
+    <div style="font-size:x-small;"><table>
+    <tr><td style="width:400px;"><span style="font-size:20px;">allelematch<br>unique analysis</span><br><br></td></tr>
+    <tr><td><b>
+    unique N=</b><em>14</em></td></tr>
+    <tr><td><b>samples N=</b><em>20</em></td></tr>
+    <tr><td><b><br>loci N=</b><em>11</em></td></tr>
+    <tr><td><b>locus names: </b><em>samplingData-gender, LOC1a-LOC1b, LOC2a-LOC2b, LOC3a-LOC3b, LOC4a-LOC4b, LOC5a-LOC5b, LOC6a-LOC6b, LOC7a-LOC7b, LOC8a-LOC8b, LOC9a-LOC9b, LOC10a-LOC10b</em></td></tr>
+    <tr><td><b><br>missing data represented by: </b><em>-99</em></td></tr>
+    <tr><td><b>clustered genotypes consensus method: </b><em>1</em></td></tr>
+    <tr><td><b>Psib calculated for: </b><em>samples with no mismatches</em></td></tr>
+    <tr><td><b><br>alleleMismatch (m-hat; maximum number of mismatching alleles): </b><em>6.6</em></td></tr>
+    <tr><td><b>cutHeight (d-hat; dynamic tree cutting height): </b><em>0.3</em></td></tr>
+    <tr><td><b>matchThreshold (s-hat; lowest matching score returned): </b><em>0.7</em></td></tr>
+    <tr><td><b><br>unclassified N=</b><em>0</em></td></tr>
+    <tr><td><b>multipleMatch N=</b><em>0</em></td></tr>
+    <tr><td><b><br>Note: Unique genotypes are determined based on clustering of scores.</b><em> Psib appears for reference purposes.</em></td></tr>
+    <tr><td><b><br>summary generated: </b><em>(date)</em></td></tr>
+    </table></div></div></td></tr></table><br><br>
+    <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><span style="font-size:medium;">Unique genotypes</span></div><div class="amGridMiddlePanel">
+    <table cellspacing="0" class="amTable amTableSeparate">
+    <tr class="amTableHeader">
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>samplingData</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>gender</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    </tr>
+    <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
+    <td><div><a href="#1001.ON.CA">Jump</a></div></td>
+    <td><div>1001.ON.CA</div></td>
+    <td><div>SiouxLookout-Jan-2004</div></td>
+    <td><div>F</div></td>
+    <td><div>382</div></td>
+    <td><div>384</div></td>
+    <td><div>230</div></td>
+    <td><div>236</div></td>
+    <td><div>-99</div></td>
+    <td><div>-99</div></td>
+    <td><div>185</div></td>
+    <td><div>185</div></td>
+    <td><div>301</div></td>
+    <td><div>301</div></td>
+    <td><div>223</div></td>
+    <td><div>223</div></td>
+    <td><div>192</div></td>
+    <td><div>192</div></td>
+    <td><div>118</div></td>
+    <td><div>118</div></td>
+    <td><div>296</div></td>
+    <td><div>304</div></td>
+    <td><div>166</div></td>
+    <td><div>166</div></td>
+    <td><div>0.00063</div></td>
+    <td><div>UNIQUE</div></td>
+    </tr>
+    <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
+    <td><div><a href="#1002.ON.CA">Jump</a></div></td>
+    <td><div>1002.ON.CA</div></td>
+    <td><div>SiouxLookout-Jan-2004</div></td>
+    <td><div>F</div></td>
+    <td><div>382</div></td>
+    <td><div>384</div></td>
+    <td><div>230</div></td>
+    <td><div>236</div></td>
+    <td><div>-99</div></td>
+    <td><div>-99</div></td>
+    <td><div>181</div></td>
+    <td><div>193</div></td>
+    <td><div>299</div></td>
+    <td><div>299</div></td>
+    <td><div>223</div></td>
+    <td><div>223</div></td>
+    <td><div>202</div></td>
+    <td><div>202</div></td>
+    <td><div>118</div></td>
+    <td><div>118</div></td>
+    <td><div>288</div></td>
+    <td><div>296</div></td>
+    <td><div>166</div></td>
+    <td><div>166</div></td>
+    <td><div>0.002</div></td>
+    <td><div>UNIQUE</div></td>
+    </tr>
+    <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
+    <td><div><a href="#1003.ON.CA">Jump</a></div></td>
+    <td><div>1003.ON.CA</div></td>
+    <td><div>SiouxLookout-Jan-2004</div></td>
+    <td><div>M</div></td>
+    <td><div>382</div></td>
+    <td><div>382</div></td>
+    <td><div>224</div></td>
+    <td><div>242</div></td>
+    <td><div>-99</div></td>
+    <td><div>-99</div></td>
+    <td><div>185</div></td>
+    <td><div>191</div></td>
+    <td><div>285</div></td>
+    <td><div>299</div></td>
+    <td><div>223</div></td>
+    <td><div>223</div></td>
+    <td><div>192</div></td>
+    <td><div>202</div></td>
+    <td><div>102</div></td>
+    <td><div>118</div></td>
+    <td><div>298</div></td>
+    <td><div>304</div></td>
+    <td><div>166</div></td>
+    <td><div>172</div></td>
+    <td><div>0.0003</div></td>
+    <td><div>UNIQUE</div></td>
+    </tr>
+    <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
+    <td><div><a href="#1004.ON.CA">Jump</a></div></td>
+    <td><div>1004.ON.CA</div></td>
+    <td><div>SiouxLookout-Jan-2004</div></td>
+    <td><div>M</div></td>
+    <td><div>382</div></td>
+    <td><div>384</div></td>
+    <td><div>232</div></td>
+    <td><div>236</div></td>
+    <td><div>-99</div></td>
+    <td><div>-99</div></td>
+    <td><div>193</div></td>
+    <td><div>193</div></td>
+    <td><div>299</div></td>
+    <td><div>301</div></td>
+    <td><div>223</div></td>
+    <td><div>223</div></td>
+    <td><div>192</div></td>
+    <td><div>216</div></td>
+    <td><div>102</div></td>
+    <td><div>108</div></td>
+    <td><div>296</div></td>
+    <td><div>304</div></td>
+    <td><div>168</div></td>
+    <td><div>174</div></td>
+    <td><div>0.00028</div></td>
+    <td><div>UNIQUE</div></td>
+    </tr>
+    <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
+    <td><div><a href="#1006.ON.CA">Jump</a></div></td>
+    <td><div>1006.ON.CA</div></td>
+    <td><div>SiouxLookout-Jan-2004</div></td>
+    <td><div>F</div></td>
+    <td><div>382</div></td>
+    <td><div>384</div></td>
+    <td><div>224</div></td>
+    <td><div>230</div></td>
+    <td><div>-99</div></td>
+    <td><div>-99</div></td>
+    <td><div>181</div></td>
+    <td><div>193</div></td>
+    <td><div>285</div></td>
+    <td><div>285</div></td>
+    <td><div>223</div></td>
+    <td><div>223</div></td>
+    <td><div>198</div></td>
+    <td><div>202</div></td>
+    <td><div>114</div></td>
+    <td><div>116</div></td>
+    <td><div>288</div></td>
+    <td><div>296</div></td>
+    <td><div>166</div></td>
+    <td><div>166</div></td>
+    <td><div>0.00065</div></td>
+    <td><div>UNIQUE</div></td>
+    </tr>
+    <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
+    <td><div><a href="#1011.ON.CA">Jump</a></div></td>
+    <td><div>1011.ON.CA</div></td>
+    <td><div>SiouxLookout-Jan-2004</div></td>
+    <td><div>F</div></td>
+    <td><div>382</div></td>
+    <td><div>384</div></td>
+    <td><div>224</div></td>
+    <td><div>224</div></td>
+    <td><div>-99</div></td>
+    <td><div>-99</div></td>
+    <td><div>193</div></td>
+    <td><div>193</div></td>
+    <td><div>299</div></td>
+    <td><div>299</div></td>
+    <td><div>223</div></td>
+    <td><div>223</div></td>
+    <td><div>210</div></td>
+    <td><div>214</div></td>
+    <td><div>106</div></td>
+    <td><div>112</div></td>
+    <td><div>288</div></td>
+    <td><div>296</div></td>
+    <td><div>166</div></td>
+    <td><div>172</div></td>
+    <td><div>0.0013</div></td>
+    <td><div>UNIQUE</div></td>
+    </tr>
+    <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
+    <td><div><a href="#1013.ON.CA">Jump</a></div></td>
+    <td><div>1013.ON.CA</div></td>
+    <td><div>SiouxLookout-Jan-2004</div></td>
+    <td><div>M</div></td>
+    <td><div>382</div></td>
+    <td><div>384</div></td>
+    <td><div>232</div></td>
+    <td><div>232</div></td>
+    <td><div>-99</div></td>
+    <td><div>-99</div></td>
+    <td><div>193</div></td>
+    <td><div>193</div></td>
+    <td><div>299</div></td>
+    <td><div>299</div></td>
+    <td><div>213</div></td>
+    <td><div>221</div></td>
+    <td><div>210</div></td>
+    <td><div>210</div></td>
+    <td><div>118</div></td>
+    <td><div>118</div></td>
+    <td><div>296</div></td>
+    <td><div>306</div></td>
+    <td><div>166</div></td>
+    <td><div>172</div></td>
+    <td><div>0.00049</div></td>
+    <td><div>UNIQUE</div></td>
+    </tr>
+    <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
+    <td><div><a href="#1014.ON.CA">Jump</a></div></td>
+    <td><div>1014.ON.CA</div></td>
+    <td><div>SiouxLookout-Jan-2004</div></td>
+    <td><div>F</div></td>
+    <td><div>384</div></td>
+    <td><div>384</div></td>
+    <td><div>232</div></td>
+    <td><div>238</div></td>
+    <td><div>-99</div></td>
+    <td><div>-99</div></td>
+    <td><div>193</div></td>
+    <td><div>199</div></td>
+    <td><div>299</div></td>
+    <td><div>301</div></td>
+    <td><div>213</div></td>
+    <td><div>213</div></td>
+    <td><div>210</div></td>
+    <td><div>210</div></td>
+    <td><div>102</div></td>
+    <td><div>108</div></td>
+    <td><div>296</div></td>
+    <td><div>296</div></td>
+    <td><div>174</div></td>
+    <td><div>174</div></td>
+    <td><div>0.00013</div></td>
+    <td><div>UNIQUE</div></td>
+    </tr>
+    <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
+    <td><div><a href="#1015.ON.CA">Jump</a></div></td>
+    <td><div>1015.ON.CA</div></td>
+    <td><div>SiouxLookout-Jan-2004</div></td>
+    <td><div>F</div></td>
+    <td><div>382</div></td>
+    <td><div>382</div></td>
+    <td><div>224</div></td>
+    <td><div>232</div></td>
+    <td><div>-99</div></td>
+    <td><div>-99</div></td>
+    <td><div>193</div></td>
+    <td><div>193</div></td>
+    <td><div>299</div></td>
+    <td><div>299</div></td>
+    <td><div>223</div></td>
+    <td><div>223</div></td>
+    <td><div>210</div></td>
+    <td><div>216</div></td>
+    <td><div>106</div></td>
+    <td><div>106</div></td>
+    <td><div>296</div></td>
+    <td><div>306</div></td>
+    <td><div>166</div></td>
+    <td><div>166</div></td>
+    <td><div>0.0019</div></td>
+    <td><div>UNIQUE</div></td>
+    </tr>
+    <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
+    <td><div><a href="#1016.ON.CA">Jump</a></div></td>
+    <td><div>1016.ON.CA</div></td>
+    <td><div>SiouxLookout-Jan-2004</div></td>
+    <td><div>M</div></td>
+    <td><div>382</div></td>
+    <td><div>384</div></td>
+    <td><div>224</div></td>
+    <td><div>232</div></td>
+    <td><div>-99</div></td>
+    <td><div>-99</div></td>
+    <td><div>193</div></td>
+    <td><div>193</div></td>
+    <td><div>-99</div></td>
+    <td><div>-99</div></td>
+    <td><div>213</div></td>
+    <td><div>221</div></td>
+    <td><div>210</div></td>
+    <td><div>210</div></td>
+    <td><div>106</div></td>
+    <td><div>112</div></td>
+    <td><div>288</div></td>
+    <td><div>288</div></td>
+    <td><div>166</div></td>
+    <td><div>166</div></td>
+    <td><div>0.00083</div></td>
+    <td><div>UNIQUE</div></td>
+    </tr>
+    <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
+    <td><div><a href="#1017.ON.CA">Jump</a></div></td>
+    <td><div>1017.ON.CA</div></td>
+    <td><div>SiouxLookout-Jan-2004</div></td>
+    <td><div>F</div></td>
+    <td><div>382</div></td>
+    <td><div>388</div></td>
+    <td><div>230</div></td>
+    <td><div>230</div></td>
+    <td><div>-99</div></td>
+    <td><div>-99</div></td>
+    <td><div>181</div></td>
+    <td><div>185</div></td>
+    <td><div>285</div></td>
+    <td><div>299</div></td>
+    <td><div>223</div></td>
+    <td><div>223</div></td>
+    <td><div>202</div></td>
+    <td><div>202</div></td>
+    <td><div>106</div></td>
+    <td><div>118</div></td>
+    <td><div>304</div></td>
+    <td><div>304</div></td>
+    <td><div>166</div></td>
+    <td><div>166</div></td>
+    <td><div>0.00073</div></td>
+    <td><div>UNIQUE</div></td>
+    </tr>
+    <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
+    <td><div><a href="#1018.ON.CA">Jump</a></div></td>
+    <td><div>1018.ON.CA</div></td>
+    <td><div>SiouxLookout-Jan-2004</div></td>
+    <td><div>F</div></td>
+    <td><div>384</div></td>
+    <td><div>384</div></td>
+    <td><div>224</div></td>
+    <td><div>230</div></td>
+    <td><div>-99</div></td>
+    <td><div>-99</div></td>
+    <td><div>185</div></td>
+    <td><div>199</div></td>
+    <td><div>285</div></td>
+    <td><div>299</div></td>
+    <td><div>223</div></td>
+    <td><div>223</div></td>
+    <td><div>198</div></td>
+    <td><div>204</div></td>
+    <td><div>116</div></td>
+    <td><div>118</div></td>
+    <td><div>296</div></td>
+    <td><div>296</div></td>
+    <td><div>166</div></td>
+    <td><div>166</div></td>
+    <td><div>0.00076</div></td>
+    <td><div>UNIQUE</div></td>
+    </tr>
+    <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
+    <td><div><a href="#1019.ON.CA">Jump</a></div></td>
+    <td><div>1019.ON.CA</div></td>
+    <td><div>SiouxLookout-Jan-2004</div></td>
+    <td><div>F</div></td>
+    <td><div>382</div></td>
+    <td><div>384</div></td>
+    <td><div>224</div></td>
+    <td><div>230</div></td>
+    <td><div>159</div></td>
+    <td><div>159</div></td>
+    <td><div>193</div></td>
+    <td><div>193</div></td>
+    <td><div>299</div></td>
+    <td><div>299</div></td>
+    <td><div>223</div></td>
+    <td><div>223</div></td>
+    <td><div>202</div></td>
+    <td><div>202</div></td>
+    <td><div>106</div></td>
+    <td><div>118</div></td>
+    <td><div>298</div></td>
+    <td><div>298</div></td>
+    <td><div>166</div></td>
+    <td><div>166</div></td>
+    <td><div>0.0013</div></td>
+    <td><div>UNIQUE</div></td>
+    </tr>
+    <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
+    <td><div><a href="#1020.ON.CA">Jump</a></div></td>
+    <td><div>1020.ON.CA</div></td>
+    <td><div>SiouxLookout-Jan-2004</div></td>
+    <td><div>F</div></td>
+    <td><div>382</div></td>
+    <td><div>384</div></td>
+    <td><div>224</div></td>
+    <td><div>230</div></td>
+    <td><div>155</div></td>
+    <td><div>167</div></td>
+    <td><div>185</div></td>
+    <td><div>193</div></td>
+    <td><div>299</div></td>
+    <td><div>299</div></td>
+    <td><div>223</div></td>
+    <td><div>223</div></td>
+    <td><div>202</div></td>
+    <td><div>204</div></td>
+    <td><div>106</div></td>
+    <td><div>106</div></td>
+    <td><div>296</div></td>
+    <td><div>304</div></td>
+    <td><div>166</div></td>
+    <td><div>166</div></td>
+    <td><div>0.00088</div></td>
+    <td><div>UNIQUE</div></td>
+    </tr>
+    </table></div><div class="amGridLowerPanel"><span>There were 14 unique genotypes identified using the parameters supplied.</span></div></td></tr></table><br><br>
+    <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1001.ON.CA"><span style="font-size:medium;">Unique genotype (1 of 14)</span></a></div><div class="amGridMiddlePanel">
+    <table cellspacing="0" class="amTable amTableSeparate">
+    <tr class="amTableHeader">
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>samplingData</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>gender</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    </tr>
+    <tr>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>1001.ON.CA</div></td>
+    <td class="amTableSelectRow"><div>SiouxLookout-Jan-2004</div></td>
+    <td class="amTableSelectRow"><div>F</div></td>
+    <td class="amTableSelectRow"><div>382</div></td>
+    <td class="amTableSelectRow"><div>384</div></td>
+    <td class="amTableSelectRow"><div>230</div></td>
+    <td class="amTableSelectRow"><div>236</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>185</div></td>
+    <td class="amTableSelectRow"><div>185</div></td>
+    <td class="amTableSelectRow"><div>301</div></td>
+    <td class="amTableSelectRow"><div>301</div></td>
+    <td class="amTableSelectRow"><div>223</div></td>
+    <td class="amTableSelectRow"><div>223</div></td>
+    <td class="amTableSelectRow"><div>192</div></td>
+    <td class="amTableSelectRow"><div>192</div></td>
+    <td class="amTableSelectRow"><div>118</div></td>
+    <td class="amTableSelectRow"><div>118</div></td>
+    <td class="amTableSelectRow"><div>296</div></td>
+    <td class="amTableSelectRow"><div>304</div></td>
+    <td class="amTableSelectRow"><div>166</div></td>
+    <td class="amTableSelectRow"><div>166</div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>UNIQUE</div></td>
+    </tr>
+    <tr><td><div></div></td><td><div>1001.ON.CA</div></td><td><div>SiouxLookout-Jan-2004</div></td><td><div>F</div></td><td><div>382</div></td><td><div>384</div></td><td><div>230</div></td><td><div>236</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>185</div></td><td><div>185</div></td><td><div>301</div></td><td><div>301</div></td><td><div>223</div></td><td><div>223</div></td><td><div>192</div></td><td><div>192</div></td><td><div>118</div></td><td><div>118</div></td><td><div>296</div></td><td><div>304</div></td><td><div>166</div></td><td><div>166</div></td><td><div>0.00063</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
+    </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
+    </td></tr></table><br><br>
+    <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1002.ON.CA"><span style="font-size:medium;">Unique genotype (2 of 14)</span></a></div><div class="amGridMiddlePanel">
+    <table cellspacing="0" class="amTable amTableSeparate">
+    <tr class="amTableHeader">
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>samplingData</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>gender</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    </tr>
+    <tr>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>1002.ON.CA</div></td>
+    <td class="amTableSelectRow"><div>SiouxLookout-Jan-2004</div></td>
+    <td class="amTableSelectRow"><div>F</div></td>
+    <td class="amTableSelectRow"><div>382</div></td>
+    <td class="amTableSelectRow"><div>384</div></td>
+    <td class="amTableSelectRow"><div>230</div></td>
+    <td class="amTableSelectRow"><div>236</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>181</div></td>
+    <td class="amTableSelectRow"><div>193</div></td>
+    <td class="amTableSelectRow"><div>299</div></td>
+    <td class="amTableSelectRow"><div>299</div></td>
+    <td class="amTableSelectRow"><div>223</div></td>
+    <td class="amTableSelectRow"><div>223</div></td>
+    <td class="amTableSelectRow"><div>202</div></td>
+    <td class="amTableSelectRow"><div>202</div></td>
+    <td class="amTableSelectRow"><div>118</div></td>
+    <td class="amTableSelectRow"><div>118</div></td>
+    <td class="amTableSelectRow"><div>288</div></td>
+    <td class="amTableSelectRow"><div>296</div></td>
+    <td class="amTableSelectRow"><div>166</div></td>
+    <td class="amTableSelectRow"><div>166</div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>UNIQUE</div></td>
+    </tr>
+    <tr><td><div></div></td><td><div>1002.ON.CA</div></td><td><div>SiouxLookout-Jan-2004</div></td><td><div>F</div></td><td><div>382</div></td><td><div>384</div></td><td><div>230</div></td><td><div>236</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>181</div></td><td><div>193</div></td><td><div>299</div></td><td><div>299</div></td><td><div>223</div></td><td><div>223</div></td><td><div>202</div></td><td><div>202</div></td><td><div>118</div></td><td><div>118</div></td><td><div>288</div></td><td><div>296</div></td><td><div>166</div></td><td><div>166</div></td><td><div>0.002</div></td><td><div>1.0</div></td><td><div>MATCH</div></td></tr>
+    <tr><td><div></div></td><td><div>1010.ON.CA</div></td><td><div>SiouxLookout-Jan-2004</div></td><td><div class="amMissingAllele">-99</div></td><td><div>382</div></td><td><div>384</div></td><td><div>230</div></td><td><div class="amMismatchAllele">244</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMismatchAllele">191</div></td><td><div>193</div></td><td><div>299</div></td><td><div>299</div></td><td><div class="amMismatchAllele">227</div></td><td><div class="amMismatchAllele">227</div></td><td><div>202</div></td><td><div class="amMismatchAllele">204</div></td><td><div>118</div></td><td><div>118</div></td><td><div class="amMismatchAllele">296</div></td><td><div>296</div></td><td><div>166</div></td><td><div>166</div></td><td><div>&nbsp; &nbsp; ---</div></td><td><div>0.7</div></td><td><div>MATCH</div></td></tr>
+    </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
+    </td></tr></table><br><br>
+    <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1003.ON.CA"><span style="font-size:medium;">Unique genotype (3 of 14)</span></a></div><div class="amGridMiddlePanel">
+    <table cellspacing="0" class="amTable amTableSeparate">
+    <tr class="amTableHeader">
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>samplingData</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>gender</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    </tr>
+    <tr>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>1003.ON.CA</div></td>
+    <td class="amTableSelectRow"><div>SiouxLookout-Jan-2004</div></td>
+    <td class="amTableSelectRow"><div>M</div></td>
+    <td class="amTableSelectRow"><div>382</div></td>
+    <td class="amTableSelectRow"><div>382</div></td>
+    <td class="amTableSelectRow"><div>224</div></td>
+    <td class="amTableSelectRow"><div>242</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>185</div></td>
+    <td class="amTableSelectRow"><div>191</div></td>
+    <td class="amTableSelectRow"><div>285</div></td>
+    <td class="amTableSelectRow"><div>299</div></td>
+    <td class="amTableSelectRow"><div>223</div></td>
+    <td class="amTableSelectRow"><div>223</div></td>
+    <td class="amTableSelectRow"><div>192</div></td>
+    <td class="amTableSelectRow"><div>202</div></td>
+    <td class="amTableSelectRow"><div>102</div></td>
+    <td class="amTableSelectRow"><div>118</div></td>
+    <td class="amTableSelectRow"><div>298</div></td>
+    <td class="amTableSelectRow"><div>304</div></td>
+    <td class="amTableSelectRow"><div>166</div></td>
+    <td class="amTableSelectRow"><div>172</div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>UNIQUE</div></td>
+    </tr>
+    <tr><td><div></div></td><td><div>1003.ON.CA</div></td><td><div>SiouxLookout-Jan-2004</div></td><td><div>M</div></td><td><div>382</div></td><td><div>382</div></td><td><div>224</div></td><td><div>242</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>185</div></td><td><div>191</div></td><td><div>285</div></td><td><div>299</div></td><td><div>223</div></td><td><div>223</div></td><td><div>192</div></td><td><div>202</div></td><td><div>102</div></td><td><div>118</div></td><td><div>298</div></td><td><div>304</div></td><td><div>166</div></td><td><div>172</div></td><td><div>0.0003</div></td><td><div>1.00</div></td><td><div>MATCH</div></td></tr>
+    <tr><td><div></div></td><td><div>1005.ON.CA</div></td><td><div>SiouxLookout-Jan-2004</div></td><td><div>M</div></td><td><div>382</div></td><td><div>382</div></td><td><div>224</div></td><td><div>242</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>185</div></td><td><div>191</div></td><td><div>285</div></td><td><div>299</div></td><td><div>223</div></td><td><div>223</div></td><td><div>192</div></td><td><div>202</div></td><td><div>102</div></td><td><div>118</div></td><td><div>298</div></td><td><div>304</div></td><td><div>166</div></td><td><div>172</div></td><td><div>0.0003</div></td><td><div>1.00</div></td><td><div>MATCH</div></td></tr>
+    <tr><td><div></div></td><td><div>1008.ON.CA</div></td><td><div>SiouxLookout-Jan-2004</div></td><td><div>M</div></td><td><div>382</div></td><td><div>382</div></td><td><div>224</div></td><td><div class="amMismatchAllele">230</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>185</div></td><td><div class="amMismatchAllele">193</div></td><td><div>285</div></td><td><div class="amMismatchAllele">285</div></td><td><div>223</div></td><td><div>223</div></td><td><div>192</div></td><td><div>202</div></td><td><div class="amMismatchAllele">118</div></td><td><div>118</div></td><td><div class="amMismatchAllele">296</div></td><td><div>304</div></td><td><div>166</div></td><td><div class="amMismatchAllele">166</div></td><td><div>&nbsp; &nbsp; ---</div></td><td><div>0.73</div></td><td><div>MATCH</div></td></tr>
+    <tr><td><div></div></td><td><div>1009.ON.CA</div></td><td><div>SiouxLookout-Jan-2004</div></td><td><div>M</div></td><td><div>382</div></td><td><div>382</div></td><td><div>224</div></td><td><div class="amMismatchAllele">230</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>185</div></td><td><div class="amMismatchAllele">193</div></td><td><div>285</div></td><td><div class="amMismatchAllele">285</div></td><td><div>223</div></td><td><div>223</div></td><td><div>192</div></td><td><div>202</div></td><td><div class="amMismatchAllele">118</div></td><td><div>118</div></td><td><div class="amMismatchAllele">296</div></td><td><div>304</div></td><td><div>166</div></td><td><div class="amMismatchAllele">166</div></td><td><div>&nbsp; &nbsp; ---</div></td><td><div>0.73</div></td><td><div>MATCH</div></td></tr>
+    </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
+    </td></tr></table><br><br>
+    <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1004.ON.CA"><span style="font-size:medium;">Unique genotype (4 of 14)</span></a></div><div class="amGridMiddlePanel">
+    <table cellspacing="0" class="amTable amTableSeparate">
+    <tr class="amTableHeader">
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>samplingData</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>gender</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    </tr>
+    <tr>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>1004.ON.CA</div></td>
+    <td class="amTableSelectRow"><div>SiouxLookout-Jan-2004</div></td>
+    <td class="amTableSelectRow"><div>M</div></td>
+    <td class="amTableSelectRow"><div>382</div></td>
+    <td class="amTableSelectRow"><div>384</div></td>
+    <td class="amTableSelectRow"><div>232</div></td>
+    <td class="amTableSelectRow"><div>236</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>193</div></td>
+    <td class="amTableSelectRow"><div>193</div></td>
+    <td class="amTableSelectRow"><div>299</div></td>
+    <td class="amTableSelectRow"><div>301</div></td>
+    <td class="amTableSelectRow"><div>223</div></td>
+    <td class="amTableSelectRow"><div>223</div></td>
+    <td class="amTableSelectRow"><div>192</div></td>
+    <td class="amTableSelectRow"><div>216</div></td>
+    <td class="amTableSelectRow"><div>102</div></td>
+    <td class="amTableSelectRow"><div>108</div></td>
+    <td class="amTableSelectRow"><div>296</div></td>
+    <td class="amTableSelectRow"><div>304</div></td>
+    <td class="amTableSelectRow"><div>168</div></td>
+    <td class="amTableSelectRow"><div>174</div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>UNIQUE</div></td>
+    </tr>
+    <tr><td><div></div></td><td><div>1004.ON.CA</div></td><td><div>SiouxLookout-Jan-2004</div></td><td><div>M</div></td><td><div>382</div></td><td><div>384</div></td><td><div>232</div></td><td><div>236</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>193</div></td><td><div>193</div></td><td><div>299</div></td><td><div>301</div></td><td><div>223</div></td><td><div>223</div></td><td><div>192</div></td><td><div>216</div></td><td><div>102</div></td><td><div>108</div></td><td><div>296</div></td><td><div>304</div></td><td><div>168</div></td><td><div>174</div></td><td><div>0.00028</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
+    </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
+    </td></tr></table><br><br>
+    <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1006.ON.CA"><span style="font-size:medium;">Unique genotype (5 of 14)</span></a></div><div class="amGridMiddlePanel">
+    <table cellspacing="0" class="amTable amTableSeparate">
+    <tr class="amTableHeader">
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>samplingData</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>gender</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    </tr>
+    <tr>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>1006.ON.CA</div></td>
+    <td class="amTableSelectRow"><div>SiouxLookout-Jan-2004</div></td>
+    <td class="amTableSelectRow"><div>F</div></td>
+    <td class="amTableSelectRow"><div>382</div></td>
+    <td class="amTableSelectRow"><div>384</div></td>
+    <td class="amTableSelectRow"><div>224</div></td>
+    <td class="amTableSelectRow"><div>230</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>181</div></td>
+    <td class="amTableSelectRow"><div>193</div></td>
+    <td class="amTableSelectRow"><div>285</div></td>
+    <td class="amTableSelectRow"><div>285</div></td>
+    <td class="amTableSelectRow"><div>223</div></td>
+    <td class="amTableSelectRow"><div>223</div></td>
+    <td class="amTableSelectRow"><div>198</div></td>
+    <td class="amTableSelectRow"><div>202</div></td>
+    <td class="amTableSelectRow"><div>114</div></td>
+    <td class="amTableSelectRow"><div>116</div></td>
+    <td class="amTableSelectRow"><div>288</div></td>
+    <td class="amTableSelectRow"><div>296</div></td>
+    <td class="amTableSelectRow"><div>166</div></td>
+    <td class="amTableSelectRow"><div>166</div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>UNIQUE</div></td>
+    </tr>
+    <tr><td><div></div></td><td><div>1006.ON.CA</div></td><td><div>SiouxLookout-Jan-2004</div></td><td><div>F</div></td><td><div>382</div></td><td><div>384</div></td><td><div>224</div></td><td><div>230</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>181</div></td><td><div>193</div></td><td><div>285</div></td><td><div>285</div></td><td><div>223</div></td><td><div>223</div></td><td><div>198</div></td><td><div>202</div></td><td><div>114</div></td><td><div>116</div></td><td><div>288</div></td><td><div>296</div></td><td><div>166</div></td><td><div>166</div></td><td><div>0.00065</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
+    <tr><td><div></div></td><td><div>1007.ON.CA</div></td><td><div>SiouxLookout-Jan-2004</div></td><td><div>F</div></td><td><div>382</div></td><td><div>384</div></td><td><div>224</div></td><td><div>230</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>181</div></td><td><div>193</div></td><td><div>285</div></td><td><div>285</div></td><td><div>223</div></td><td><div>223</div></td><td><div>198</div></td><td><div>202</div></td><td><div>114</div></td><td><div>116</div></td><td><div>288</div></td><td><div>296</div></td><td><div>166</div></td><td><div>166</div></td><td><div>0.00065</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
+    </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
+    </td></tr></table><br><br>
+    <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1011.ON.CA"><span style="font-size:medium;">Unique genotype (6 of 14)</span></a></div><div class="amGridMiddlePanel">
+    <table cellspacing="0" class="amTable amTableSeparate">
+    <tr class="amTableHeader">
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>samplingData</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>gender</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    </tr>
+    <tr>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>1011.ON.CA</div></td>
+    <td class="amTableSelectRow"><div>SiouxLookout-Jan-2004</div></td>
+    <td class="amTableSelectRow"><div>F</div></td>
+    <td class="amTableSelectRow"><div>382</div></td>
+    <td class="amTableSelectRow"><div>384</div></td>
+    <td class="amTableSelectRow"><div>224</div></td>
+    <td class="amTableSelectRow"><div>224</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>193</div></td>
+    <td class="amTableSelectRow"><div>193</div></td>
+    <td class="amTableSelectRow"><div>299</div></td>
+    <td class="amTableSelectRow"><div>299</div></td>
+    <td class="amTableSelectRow"><div>223</div></td>
+    <td class="amTableSelectRow"><div>223</div></td>
+    <td class="amTableSelectRow"><div>210</div></td>
+    <td class="amTableSelectRow"><div>214</div></td>
+    <td class="amTableSelectRow"><div>106</div></td>
+    <td class="amTableSelectRow"><div>112</div></td>
+    <td class="amTableSelectRow"><div>288</div></td>
+    <td class="amTableSelectRow"><div>296</div></td>
+    <td class="amTableSelectRow"><div>166</div></td>
+    <td class="amTableSelectRow"><div>172</div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>UNIQUE</div></td>
+    </tr>
+    <tr><td><div></div></td><td><div>1011.ON.CA</div></td><td><div>SiouxLookout-Jan-2004</div></td><td><div>F</div></td><td><div>382</div></td><td><div>384</div></td><td><div>224</div></td><td><div>224</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>193</div></td><td><div>193</div></td><td><div>299</div></td><td><div>299</div></td><td><div>223</div></td><td><div>223</div></td><td><div>210</div></td><td><div>214</div></td><td><div>106</div></td><td><div>112</div></td><td><div>288</div></td><td><div>296</div></td><td><div>166</div></td><td><div>172</div></td><td><div>0.0013</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
+    <tr><td><div></div></td><td><div>1012.ON.CA</div></td><td><div>SiouxLookout-Jan-2004</div></td><td><div>F</div></td><td><div>382</div></td><td><div>384</div></td><td><div>224</div></td><td><div>224</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>193</div></td><td><div>193</div></td><td><div>299</div></td><td><div>299</div></td><td><div>223</div></td><td><div>223</div></td><td><div>210</div></td><td><div>214</div></td><td><div>106</div></td><td><div>112</div></td><td><div>288</div></td><td><div>296</div></td><td><div>166</div></td><td><div>172</div></td><td><div>0.0013</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
+    </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
+    </td></tr></table><br><br>
+    <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1013.ON.CA"><span style="font-size:medium;">Unique genotype (7 of 14)</span></a></div><div class="amGridMiddlePanel">
+    <table cellspacing="0" class="amTable amTableSeparate">
+    <tr class="amTableHeader">
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>samplingData</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>gender</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    </tr>
+    <tr>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>1013.ON.CA</div></td>
+    <td class="amTableSelectRow"><div>SiouxLookout-Jan-2004</div></td>
+    <td class="amTableSelectRow"><div>M</div></td>
+    <td class="amTableSelectRow"><div>382</div></td>
+    <td class="amTableSelectRow"><div>384</div></td>
+    <td class="amTableSelectRow"><div>232</div></td>
+    <td class="amTableSelectRow"><div>232</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>193</div></td>
+    <td class="amTableSelectRow"><div>193</div></td>
+    <td class="amTableSelectRow"><div>299</div></td>
+    <td class="amTableSelectRow"><div>299</div></td>
+    <td class="amTableSelectRow"><div>213</div></td>
+    <td class="amTableSelectRow"><div>221</div></td>
+    <td class="amTableSelectRow"><div>210</div></td>
+    <td class="amTableSelectRow"><div>210</div></td>
+    <td class="amTableSelectRow"><div>118</div></td>
+    <td class="amTableSelectRow"><div>118</div></td>
+    <td class="amTableSelectRow"><div>296</div></td>
+    <td class="amTableSelectRow"><div>306</div></td>
+    <td class="amTableSelectRow"><div>166</div></td>
+    <td class="amTableSelectRow"><div>172</div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>UNIQUE</div></td>
+    </tr>
+    <tr><td><div></div></td><td><div>1013.ON.CA</div></td><td><div>SiouxLookout-Jan-2004</div></td><td><div>M</div></td><td><div>382</div></td><td><div>384</div></td><td><div>232</div></td><td><div>232</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>193</div></td><td><div>193</div></td><td><div>299</div></td><td><div>299</div></td><td><div>213</div></td><td><div>221</div></td><td><div>210</div></td><td><div>210</div></td><td><div>118</div></td><td><div>118</div></td><td><div>296</div></td><td><div>306</div></td><td><div>166</div></td><td><div>172</div></td><td><div>0.00049</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
+    </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
+    </td></tr></table><br><br>
+    <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1014.ON.CA"><span style="font-size:medium;">Unique genotype (8 of 14)</span></a></div><div class="amGridMiddlePanel">
+    <table cellspacing="0" class="amTable amTableSeparate">
+    <tr class="amTableHeader">
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>samplingData</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>gender</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    </tr>
+    <tr>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>1014.ON.CA</div></td>
+    <td class="amTableSelectRow"><div>SiouxLookout-Jan-2004</div></td>
+    <td class="amTableSelectRow"><div>F</div></td>
+    <td class="amTableSelectRow"><div>384</div></td>
+    <td class="amTableSelectRow"><div>384</div></td>
+    <td class="amTableSelectRow"><div>232</div></td>
+    <td class="amTableSelectRow"><div>238</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>193</div></td>
+    <td class="amTableSelectRow"><div>199</div></td>
+    <td class="amTableSelectRow"><div>299</div></td>
+    <td class="amTableSelectRow"><div>301</div></td>
+    <td class="amTableSelectRow"><div>213</div></td>
+    <td class="amTableSelectRow"><div>213</div></td>
+    <td class="amTableSelectRow"><div>210</div></td>
+    <td class="amTableSelectRow"><div>210</div></td>
+    <td class="amTableSelectRow"><div>102</div></td>
+    <td class="amTableSelectRow"><div>108</div></td>
+    <td class="amTableSelectRow"><div>296</div></td>
+    <td class="amTableSelectRow"><div>296</div></td>
+    <td class="amTableSelectRow"><div>174</div></td>
+    <td class="amTableSelectRow"><div>174</div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>UNIQUE</div></td>
+    </tr>
+    <tr><td><div></div></td><td><div>1014.ON.CA</div></td><td><div>SiouxLookout-Jan-2004</div></td><td><div>F</div></td><td><div>384</div></td><td><div>384</div></td><td><div>232</div></td><td><div>238</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>193</div></td><td><div>199</div></td><td><div>299</div></td><td><div>301</div></td><td><div>213</div></td><td><div>213</div></td><td><div>210</div></td><td><div>210</div></td><td><div>102</div></td><td><div>108</div></td><td><div>296</div></td><td><div>296</div></td><td><div>174</div></td><td><div>174</div></td><td><div>0.00013</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
+    </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
+    </td></tr></table><br><br>
+    <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1015.ON.CA"><span style="font-size:medium;">Unique genotype (9 of 14)</span></a></div><div class="amGridMiddlePanel">
+    <table cellspacing="0" class="amTable amTableSeparate">
+    <tr class="amTableHeader">
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>samplingData</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>gender</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    </tr>
+    <tr>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>1015.ON.CA</div></td>
+    <td class="amTableSelectRow"><div>SiouxLookout-Jan-2004</div></td>
+    <td class="amTableSelectRow"><div>F</div></td>
+    <td class="amTableSelectRow"><div>382</div></td>
+    <td class="amTableSelectRow"><div>382</div></td>
+    <td class="amTableSelectRow"><div>224</div></td>
+    <td class="amTableSelectRow"><div>232</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>193</div></td>
+    <td class="amTableSelectRow"><div>193</div></td>
+    <td class="amTableSelectRow"><div>299</div></td>
+    <td class="amTableSelectRow"><div>299</div></td>
+    <td class="amTableSelectRow"><div>223</div></td>
+    <td class="amTableSelectRow"><div>223</div></td>
+    <td class="amTableSelectRow"><div>210</div></td>
+    <td class="amTableSelectRow"><div>216</div></td>
+    <td class="amTableSelectRow"><div>106</div></td>
+    <td class="amTableSelectRow"><div>106</div></td>
+    <td class="amTableSelectRow"><div>296</div></td>
+    <td class="amTableSelectRow"><div>306</div></td>
+    <td class="amTableSelectRow"><div>166</div></td>
+    <td class="amTableSelectRow"><div>166</div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>UNIQUE</div></td>
+    </tr>
+    <tr><td><div></div></td><td><div>1015.ON.CA</div></td><td><div>SiouxLookout-Jan-2004</div></td><td><div>F</div></td><td><div>382</div></td><td><div>382</div></td><td><div>224</div></td><td><div>232</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>193</div></td><td><div>193</div></td><td><div>299</div></td><td><div>299</div></td><td><div>223</div></td><td><div>223</div></td><td><div>210</div></td><td><div>216</div></td><td><div>106</div></td><td><div>106</div></td><td><div>296</div></td><td><div>306</div></td><td><div>166</div></td><td><div>166</div></td><td><div>0.0019</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
+    </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
+    </td></tr></table><br><br>
+    <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1016.ON.CA"><span style="font-size:medium;">Unique genotype (10 of 14)</span></a></div><div class="amGridMiddlePanel">
+    <table cellspacing="0" class="amTable amTableSeparate">
+    <tr class="amTableHeader">
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>samplingData</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>gender</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    </tr>
+    <tr>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>1016.ON.CA</div></td>
+    <td class="amTableSelectRow"><div>SiouxLookout-Jan-2004</div></td>
+    <td class="amTableSelectRow"><div>M</div></td>
+    <td class="amTableSelectRow"><div>382</div></td>
+    <td class="amTableSelectRow"><div>384</div></td>
+    <td class="amTableSelectRow"><div>224</div></td>
+    <td class="amTableSelectRow"><div>232</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>193</div></td>
+    <td class="amTableSelectRow"><div>193</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>213</div></td>
+    <td class="amTableSelectRow"><div>221</div></td>
+    <td class="amTableSelectRow"><div>210</div></td>
+    <td class="amTableSelectRow"><div>210</div></td>
+    <td class="amTableSelectRow"><div>106</div></td>
+    <td class="amTableSelectRow"><div>112</div></td>
+    <td class="amTableSelectRow"><div>288</div></td>
+    <td class="amTableSelectRow"><div>288</div></td>
+    <td class="amTableSelectRow"><div>166</div></td>
+    <td class="amTableSelectRow"><div>166</div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>UNIQUE</div></td>
+    </tr>
+    <tr><td><div></div></td><td><div>1016.ON.CA</div></td><td><div>SiouxLookout-Jan-2004</div></td><td><div>M</div></td><td><div>382</div></td><td><div>384</div></td><td><div>224</div></td><td><div>232</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>193</div></td><td><div>193</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>213</div></td><td><div>221</div></td><td><div>210</div></td><td><div>210</div></td><td><div>106</div></td><td><div>112</div></td><td><div>288</div></td><td><div>288</div></td><td><div>166</div></td><td><div>166</div></td><td><div>0.00083</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
+    </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
+    </td></tr></table><br><br>
+    <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1017.ON.CA"><span style="font-size:medium;">Unique genotype (11 of 14)</span></a></div><div class="amGridMiddlePanel">
+    <table cellspacing="0" class="amTable amTableSeparate">
+    <tr class="amTableHeader">
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>samplingData</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>gender</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    </tr>
+    <tr>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>1017.ON.CA</div></td>
+    <td class="amTableSelectRow"><div>SiouxLookout-Jan-2004</div></td>
+    <td class="amTableSelectRow"><div>F</div></td>
+    <td class="amTableSelectRow"><div>382</div></td>
+    <td class="amTableSelectRow"><div>388</div></td>
+    <td class="amTableSelectRow"><div>230</div></td>
+    <td class="amTableSelectRow"><div>230</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>181</div></td>
+    <td class="amTableSelectRow"><div>185</div></td>
+    <td class="amTableSelectRow"><div>285</div></td>
+    <td class="amTableSelectRow"><div>299</div></td>
+    <td class="amTableSelectRow"><div>223</div></td>
+    <td class="amTableSelectRow"><div>223</div></td>
+    <td class="amTableSelectRow"><div>202</div></td>
+    <td class="amTableSelectRow"><div>202</div></td>
+    <td class="amTableSelectRow"><div>106</div></td>
+    <td class="amTableSelectRow"><div>118</div></td>
+    <td class="amTableSelectRow"><div>304</div></td>
+    <td class="amTableSelectRow"><div>304</div></td>
+    <td class="amTableSelectRow"><div>166</div></td>
+    <td class="amTableSelectRow"><div>166</div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>UNIQUE</div></td>
+    </tr>
+    <tr><td><div></div></td><td><div>1017.ON.CA</div></td><td><div>SiouxLookout-Jan-2004</div></td><td><div>F</div></td><td><div>382</div></td><td><div>388</div></td><td><div>230</div></td><td><div>230</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>181</div></td><td><div>185</div></td><td><div>285</div></td><td><div>299</div></td><td><div>223</div></td><td><div>223</div></td><td><div>202</div></td><td><div>202</div></td><td><div>106</div></td><td><div>118</div></td><td><div>304</div></td><td><div>304</div></td><td><div>166</div></td><td><div>166</div></td><td><div>0.00073</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
+    </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
+    </td></tr></table><br><br>
+    <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1018.ON.CA"><span style="font-size:medium;">Unique genotype (12 of 14)</span></a></div><div class="amGridMiddlePanel">
+    <table cellspacing="0" class="amTable amTableSeparate">
+    <tr class="amTableHeader">
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>samplingData</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>gender</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    </tr>
+    <tr>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>1018.ON.CA</div></td>
+    <td class="amTableSelectRow"><div>SiouxLookout-Jan-2004</div></td>
+    <td class="amTableSelectRow"><div>F</div></td>
+    <td class="amTableSelectRow"><div>384</div></td>
+    <td class="amTableSelectRow"><div>384</div></td>
+    <td class="amTableSelectRow"><div>224</div></td>
+    <td class="amTableSelectRow"><div>230</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>185</div></td>
+    <td class="amTableSelectRow"><div>199</div></td>
+    <td class="amTableSelectRow"><div>285</div></td>
+    <td class="amTableSelectRow"><div>299</div></td>
+    <td class="amTableSelectRow"><div>223</div></td>
+    <td class="amTableSelectRow"><div>223</div></td>
+    <td class="amTableSelectRow"><div>198</div></td>
+    <td class="amTableSelectRow"><div>204</div></td>
+    <td class="amTableSelectRow"><div>116</div></td>
+    <td class="amTableSelectRow"><div>118</div></td>
+    <td class="amTableSelectRow"><div>296</div></td>
+    <td class="amTableSelectRow"><div>296</div></td>
+    <td class="amTableSelectRow"><div>166</div></td>
+    <td class="amTableSelectRow"><div>166</div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>UNIQUE</div></td>
+    </tr>
+    <tr><td><div></div></td><td><div>1018.ON.CA</div></td><td><div>SiouxLookout-Jan-2004</div></td><td><div>F</div></td><td><div>384</div></td><td><div>384</div></td><td><div>224</div></td><td><div>230</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>185</div></td><td><div>199</div></td><td><div>285</div></td><td><div>299</div></td><td><div>223</div></td><td><div>223</div></td><td><div>198</div></td><td><div>204</div></td><td><div>116</div></td><td><div>118</div></td><td><div>296</div></td><td><div>296</div></td><td><div>166</div></td><td><div>166</div></td><td><div>0.00076</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
+    </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
+    </td></tr></table><br><br>
+    <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1019.ON.CA"><span style="font-size:medium;">Unique genotype (13 of 14)</span></a></div><div class="amGridMiddlePanel">
+    <table cellspacing="0" class="amTable amTableSeparate">
+    <tr class="amTableHeader">
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>samplingData</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>gender</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    </tr>
+    <tr>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>1019.ON.CA</div></td>
+    <td class="amTableSelectRow"><div>SiouxLookout-Jan-2004</div></td>
+    <td class="amTableSelectRow"><div>F</div></td>
+    <td class="amTableSelectRow"><div>382</div></td>
+    <td class="amTableSelectRow"><div>384</div></td>
+    <td class="amTableSelectRow"><div>224</div></td>
+    <td class="amTableSelectRow"><div>230</div></td>
+    <td class="amTableSelectRow"><div>159</div></td>
+    <td class="amTableSelectRow"><div>159</div></td>
+    <td class="amTableSelectRow"><div>193</div></td>
+    <td class="amTableSelectRow"><div>193</div></td>
+    <td class="amTableSelectRow"><div>299</div></td>
+    <td class="amTableSelectRow"><div>299</div></td>
+    <td class="amTableSelectRow"><div>223</div></td>
+    <td class="amTableSelectRow"><div>223</div></td>
+    <td class="amTableSelectRow"><div>202</div></td>
+    <td class="amTableSelectRow"><div>202</div></td>
+    <td class="amTableSelectRow"><div>106</div></td>
+    <td class="amTableSelectRow"><div>118</div></td>
+    <td class="amTableSelectRow"><div>298</div></td>
+    <td class="amTableSelectRow"><div>298</div></td>
+    <td class="amTableSelectRow"><div>166</div></td>
+    <td class="amTableSelectRow"><div>166</div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>UNIQUE</div></td>
+    </tr>
+    <tr><td><div></div></td><td><div>1019.ON.CA</div></td><td><div>SiouxLookout-Jan-2004</div></td><td><div>F</div></td><td><div>382</div></td><td><div>384</div></td><td><div>224</div></td><td><div>230</div></td><td><div>159</div></td><td><div>159</div></td><td><div>193</div></td><td><div>193</div></td><td><div>299</div></td><td><div>299</div></td><td><div>223</div></td><td><div>223</div></td><td><div>202</div></td><td><div>202</div></td><td><div>106</div></td><td><div>118</div></td><td><div>298</div></td><td><div>298</div></td><td><div>166</div></td><td><div>166</div></td><td><div>0.0013</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
+    </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
+    </td></tr></table><br><br>
+    <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1020.ON.CA"><span style="font-size:medium;">Unique genotype (14 of 14)</span></a></div><div class="amGridMiddlePanel">
+    <table cellspacing="0" class="amTable amTableSeparate">
+    <tr class="amTableHeader">
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>samplingData</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>gender</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    </tr>
+    <tr>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>1020.ON.CA</div></td>
+    <td class="amTableSelectRow"><div>SiouxLookout-Jan-2004</div></td>
+    <td class="amTableSelectRow"><div>F</div></td>
+    <td class="amTableSelectRow"><div>382</div></td>
+    <td class="amTableSelectRow"><div>384</div></td>
+    <td class="amTableSelectRow"><div>224</div></td>
+    <td class="amTableSelectRow"><div>230</div></td>
+    <td class="amTableSelectRow"><div>155</div></td>
+    <td class="amTableSelectRow"><div>167</div></td>
+    <td class="amTableSelectRow"><div>185</div></td>
+    <td class="amTableSelectRow"><div>193</div></td>
+    <td class="amTableSelectRow"><div>299</div></td>
+    <td class="amTableSelectRow"><div>299</div></td>
+    <td class="amTableSelectRow"><div>223</div></td>
+    <td class="amTableSelectRow"><div>223</div></td>
+    <td class="amTableSelectRow"><div>202</div></td>
+    <td class="amTableSelectRow"><div>204</div></td>
+    <td class="amTableSelectRow"><div>106</div></td>
+    <td class="amTableSelectRow"><div>106</div></td>
+    <td class="amTableSelectRow"><div>296</div></td>
+    <td class="amTableSelectRow"><div>304</div></td>
+    <td class="amTableSelectRow"><div>166</div></td>
+    <td class="amTableSelectRow"><div>166</div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>UNIQUE</div></td>
+    </tr>
+    <tr><td><div></div></td><td><div>1020.ON.CA</div></td><td><div>SiouxLookout-Jan-2004</div></td><td><div>F</div></td><td><div>382</div></td><td><div>384</div></td><td><div>224</div></td><td><div>230</div></td><td><div>155</div></td><td><div>167</div></td><td><div>185</div></td><td><div>193</div></td><td><div>299</div></td><td><div>299</div></td><td><div>223</div></td><td><div>223</div></td><td><div>202</div></td><td><div>204</div></td><td><div>106</div></td><td><div>106</div></td><td><div>296</div></td><td><div>304</div></td><td><div>166</div></td><td><div>166</div></td><td><div>0.00088</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
+    </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
+    </td></tr></table><br><br>
+    <span style="font-size:x-small;">Generated by allelematch: an R package<br></span><span style="font-size:x-small;">To reference this analysis please use citation("allelematch")<br><br></span></div>
+    </body></html>
 
 ---
 
-    Code
-      paste("About to exercise", obj)
-    Output
-      [1] "About to exercise objExample5c"
+    About to exercise objExample5c
 
 ---
 
@@ -3283,1461 +3262,1458 @@
 
 ---
 
-    Code
-      cat(sub("summary generated: </b><em>.+?</em>", "summary generated: </b><em>(date)</em>", gsub("(\\t| )+?(\\n|$)", "\\2", readLines(tmp, warn = FALSE), perl = TRUE), perl = TRUE), sep = "\n")
-    Output
-      <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-      <html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' lang='en'><head>
-      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
-      <title>allelematch: amUnique() output</title>
-      <style type="text/css">
-      
-              html { height: 100%; }
-              body { background-color: inherit; color: inherit; font-family: Verdana; font-size: xx-small; margin: 0; height: 100%; }
-              a:active, a:link, a:visited { color: #CC0000; }
-              .amMismatchAllele { background-color: #CC0000; color: white; font-weight: bold; }
-              .amMissingAllele { background-color: #FFCCCC; }
-              .amInterpolatedAllele { background-color: blue; color: white; }
-              .amGrid { border-collapse: separate; }
-              .amGridContent { padding: 0; border: 1px solid #7EACB1; }
-              .amGridUpperPanel, .amGridLowerPanel { padding: 3px; background-color: #F4FAFB; color: #2A769D; font-family: Verdana; font-size: xx-small; }
-              .amGridUpperPanel { border-top: 0px; border-bottom: 1px solid; border-color: #7EACB1; }
-              .amGridMiddlePanel { border: 0; }
-              .amGridLowerPanel { border-top: 1px solid; border-bottom: 0px; border-color: #C2D4DA; }
-              .amGridUpperPanel td, .amGridLowerPanel td { color: #2A769D; font-family: Verdana; font-size: xx-small; }
-              .amTable { border: 0; border-spacing: 0; border-collapse: collapse; empty-cells: show; width: 100%; font-family: Verdana; font-size: xx-small; }
-              .amTableSeparate { border-collapse: separate; }
-              .amTable td { padding: 3px; border-bottom: 1px solid; border-right: 1px solid; border-color: #C2D4DA; white-space:nowrap; }
-              .amTable .amTableHeader, .amTable .amTableHeader td { background-color: #B7D8DC; color: #000000; border-bottom: 1px solid; border-right: 1px solid; border-color: #7EACB1; vertical-align: top; white-space:nowrap; }
-              .amPointer { cursor: pointer; }
-              .amTableHeaderBtn { width: 100%; font-family: Verdana; font-size: xx-small; }
-              .amTableHeader .amTableHeaderBtn td { background: transparent; padding: 0; border: 0; white-space: nowrap; }
-              .amTableSelectRow { background-color: #FFFF66; color: #000000; }
-      
-      </style>
-      </head><body>
-      <div style="margin-left:5%; margin-right:5%">
-      <br><table cellspacing="0" class="amGrid"><tr><td class="amGridContent">
-      <div class="amGridUpperPanel">
-      <div style="font-size:x-small;"><table>
-      <tr><td style="width:400px;"><span style="font-size:20px;">allelematch<br>unique analysis</span><br><br></td></tr>
-      <tr><td><b>
-      unique N=</b><em>15</em></td></tr>
-      <tr><td><b>samples N=</b><em>20</em></td></tr>
-      <tr><td><b><br>loci N=</b><em>11</em></td></tr>
-      <tr><td><b>locus names: </b><em>gender, LOC1a-LOC1b, LOC2a-LOC2b, LOC3a-LOC3b, LOC4a-LOC4b, LOC5a-LOC5b, LOC6a-LOC6b, LOC7a-LOC7b, LOC8a-LOC8b, LOC9a-LOC9b, LOC10a-LOC10b</em></td></tr>
-      <tr><td><b><br>missing data represented by: </b><em>-99</em></td></tr>
-      <tr><td><b>clustered genotypes consensus method: </b><em>1</em></td></tr>
-      <tr><td><b>Psib calculated for: </b><em>samples with no mismatches</em></td></tr>
-      <tr><td><b><br>alleleMismatch (m-hat; maximum number of mismatching alleles): </b><em>6.3</em></td></tr>
-      <tr><td><b>cutHeight (d-hat; dynamic tree cutting height): </b><em>0.3</em></td></tr>
-      <tr><td><b>matchThreshold (s-hat; lowest matching score returned): </b><em>0.7</em></td></tr>
-      <tr><td><b><br>unclassified N=</b><em>0</em></td></tr>
-      <tr><td><b>multipleMatch N=</b><em>0</em></td></tr>
-      <tr><td><b><br>Note: Unique genotypes are determined based on clustering of scores.</b><em> Psib appears for reference purposes.</em></td></tr>
-      <tr><td><b><br>summary generated: </b><em>(date)</em></td></tr>
-      </table></div></div></td></tr></table><br><br>
-      <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><span style="font-size:medium;">Unique genotypes</span></div><div class="amGridMiddlePanel">
-      <table cellspacing="0" class="amTable amTableSeparate">
-      <tr class="amTableHeader">
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>gender</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      </tr>
-      <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
-      <td><div><a href="#1001.ON.CA">Jump</a></div></td>
-      <td><div>1001.ON.CA</div></td>
-      <td><div>SiouxLookout-Jan-2004</div></td>
-      <td><div>F</div></td>
-      <td><div>382</div></td>
-      <td><div>384</div></td>
-      <td><div>230</div></td>
-      <td><div>236</div></td>
-      <td><div>-99</div></td>
-      <td><div>-99</div></td>
-      <td><div>185</div></td>
-      <td><div>185</div></td>
-      <td><div>301</div></td>
-      <td><div>301</div></td>
-      <td><div>223</div></td>
-      <td><div>223</div></td>
-      <td><div>192</div></td>
-      <td><div>192</div></td>
-      <td><div>118</div></td>
-      <td><div>118</div></td>
-      <td><div>296</div></td>
-      <td><div>304</div></td>
-      <td><div>166</div></td>
-      <td><div>166</div></td>
-      <td><div>0.00082</div></td>
-      <td><div>UNIQUE</div></td>
-      </tr>
-      <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
-      <td><div><a href="#1002.ON.CA">Jump</a></div></td>
-      <td><div>1002.ON.CA</div></td>
-      <td><div>SiouxLookout-Jan-2004</div></td>
-      <td><div>F</div></td>
-      <td><div>382</div></td>
-      <td><div>384</div></td>
-      <td><div>230</div></td>
-      <td><div>236</div></td>
-      <td><div>-99</div></td>
-      <td><div>-99</div></td>
-      <td><div>181</div></td>
-      <td><div>193</div></td>
-      <td><div>299</div></td>
-      <td><div>299</div></td>
-      <td><div>223</div></td>
-      <td><div>223</div></td>
-      <td><div>202</div></td>
-      <td><div>202</div></td>
-      <td><div>118</div></td>
-      <td><div>118</div></td>
-      <td><div>288</div></td>
-      <td><div>296</div></td>
-      <td><div>166</div></td>
-      <td><div>166</div></td>
-      <td><div>0.0029</div></td>
-      <td><div>UNIQUE</div></td>
-      </tr>
-      <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
-      <td><div><a href="#1003.ON.CA">Jump</a></div></td>
-      <td><div>1003.ON.CA</div></td>
-      <td><div>SiouxLookout-Jan-2004</div></td>
-      <td><div>M</div></td>
-      <td><div>382</div></td>
-      <td><div>382</div></td>
-      <td><div>224</div></td>
-      <td><div>242</div></td>
-      <td><div>-99</div></td>
-      <td><div>-99</div></td>
-      <td><div>185</div></td>
-      <td><div>191</div></td>
-      <td><div>285</div></td>
-      <td><div>299</div></td>
-      <td><div>223</div></td>
-      <td><div>223</div></td>
-      <td><div>192</div></td>
-      <td><div>202</div></td>
-      <td><div>102</div></td>
-      <td><div>118</div></td>
-      <td><div>298</div></td>
-      <td><div>304</div></td>
-      <td><div>166</div></td>
-      <td><div>172</div></td>
-      <td><div>0.00026</div></td>
-      <td><div>UNIQUE</div></td>
-      </tr>
-      <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
-      <td><div><a href="#1004.ON.CA">Jump</a></div></td>
-      <td><div>1004.ON.CA</div></td>
-      <td><div>SiouxLookout-Jan-2004</div></td>
-      <td><div>M</div></td>
-      <td><div>382</div></td>
-      <td><div>384</div></td>
-      <td><div>232</div></td>
-      <td><div>236</div></td>
-      <td><div>-99</div></td>
-      <td><div>-99</div></td>
-      <td><div>193</div></td>
-      <td><div>193</div></td>
-      <td><div>299</div></td>
-      <td><div>301</div></td>
-      <td><div>223</div></td>
-      <td><div>223</div></td>
-      <td><div>192</div></td>
-      <td><div>216</div></td>
-      <td><div>102</div></td>
-      <td><div>108</div></td>
-      <td><div>296</div></td>
-      <td><div>304</div></td>
-      <td><div>168</div></td>
-      <td><div>174</div></td>
-      <td><div>0.00023</div></td>
-      <td><div>UNIQUE</div></td>
-      </tr>
-      <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
-      <td><div><a href="#1006.ON.CA">Jump</a></div></td>
-      <td><div>1006.ON.CA</div></td>
-      <td><div>SiouxLookout-Jan-2004</div></td>
-      <td><div>F</div></td>
-      <td><div>382</div></td>
-      <td><div>384</div></td>
-      <td><div>224</div></td>
-      <td><div>230</div></td>
-      <td><div>-99</div></td>
-      <td><div>-99</div></td>
-      <td><div>181</div></td>
-      <td><div>193</div></td>
-      <td><div>285</div></td>
-      <td><div>285</div></td>
-      <td><div>223</div></td>
-      <td><div>223</div></td>
-      <td><div>198</div></td>
-      <td><div>202</div></td>
-      <td><div>114</div></td>
-      <td><div>116</div></td>
-      <td><div>288</div></td>
-      <td><div>296</div></td>
-      <td><div>166</div></td>
-      <td><div>166</div></td>
-      <td><div>0.0008</div></td>
-      <td><div>UNIQUE</div></td>
-      </tr>
-      <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
-      <td><div><a href="#1010.ON.CA">Jump</a></div></td>
-      <td><div>1010.ON.CA</div></td>
-      <td><div>SiouxLookout-Jan-2004</div></td>
-      <td><div>-99</div></td>
-      <td><div>382</div></td>
-      <td><div>384</div></td>
-      <td><div>230</div></td>
-      <td><div>244</div></td>
-      <td><div>-99</div></td>
-      <td><div>-99</div></td>
-      <td><div>191</div></td>
-      <td><div>193</div></td>
-      <td><div>299</div></td>
-      <td><div>299</div></td>
-      <td><div>227</div></td>
-      <td><div>227</div></td>
-      <td><div>202</div></td>
-      <td><div>204</div></td>
-      <td><div>118</div></td>
-      <td><div>118</div></td>
-      <td><div>296</div></td>
-      <td><div>296</div></td>
-      <td><div>166</div></td>
-      <td><div>166</div></td>
-      <td><div>0.0014</div></td>
-      <td><div>UNIQUE</div></td>
-      </tr>
-      <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
-      <td><div><a href="#1011.ON.CA">Jump</a></div></td>
-      <td><div>1011.ON.CA</div></td>
-      <td><div>SiouxLookout-Jan-2004</div></td>
-      <td><div>F</div></td>
-      <td><div>382</div></td>
-      <td><div>384</div></td>
-      <td><div>224</div></td>
-      <td><div>224</div></td>
-      <td><div>-99</div></td>
-      <td><div>-99</div></td>
-      <td><div>193</div></td>
-      <td><div>193</div></td>
-      <td><div>299</div></td>
-      <td><div>299</div></td>
-      <td><div>223</div></td>
-      <td><div>223</div></td>
-      <td><div>210</div></td>
-      <td><div>214</div></td>
-      <td><div>106</div></td>
-      <td><div>112</div></td>
-      <td><div>288</div></td>
-      <td><div>296</div></td>
-      <td><div>166</div></td>
-      <td><div>172</div></td>
-      <td><div>0.0016</div></td>
-      <td><div>UNIQUE</div></td>
-      </tr>
-      <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
-      <td><div><a href="#1013.ON.CA">Jump</a></div></td>
-      <td><div>1013.ON.CA</div></td>
-      <td><div>SiouxLookout-Jan-2004</div></td>
-      <td><div>M</div></td>
-      <td><div>382</div></td>
-      <td><div>384</div></td>
-      <td><div>232</div></td>
-      <td><div>232</div></td>
-      <td><div>-99</div></td>
-      <td><div>-99</div></td>
-      <td><div>193</div></td>
-      <td><div>193</div></td>
-      <td><div>299</div></td>
-      <td><div>299</div></td>
-      <td><div>213</div></td>
-      <td><div>221</div></td>
-      <td><div>210</div></td>
-      <td><div>210</div></td>
-      <td><div>118</div></td>
-      <td><div>118</div></td>
-      <td><div>296</div></td>
-      <td><div>306</div></td>
-      <td><div>166</div></td>
-      <td><div>172</div></td>
-      <td><div>0.00047</div></td>
-      <td><div>UNIQUE</div></td>
-      </tr>
-      <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
-      <td><div><a href="#1014.ON.CA">Jump</a></div></td>
-      <td><div>1014.ON.CA</div></td>
-      <td><div>SiouxLookout-Jan-2004</div></td>
-      <td><div>F</div></td>
-      <td><div>384</div></td>
-      <td><div>384</div></td>
-      <td><div>232</div></td>
-      <td><div>238</div></td>
-      <td><div>-99</div></td>
-      <td><div>-99</div></td>
-      <td><div>193</div></td>
-      <td><div>199</div></td>
-      <td><div>299</div></td>
-      <td><div>301</div></td>
-      <td><div>213</div></td>
-      <td><div>213</div></td>
-      <td><div>210</div></td>
-      <td><div>210</div></td>
-      <td><div>102</div></td>
-      <td><div>108</div></td>
-      <td><div>296</div></td>
-      <td><div>296</div></td>
-      <td><div>174</div></td>
-      <td><div>174</div></td>
-      <td><div>0.00016</div></td>
-      <td><div>UNIQUE</div></td>
-      </tr>
-      <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
-      <td><div><a href="#1015.ON.CA">Jump</a></div></td>
-      <td><div>1015.ON.CA</div></td>
-      <td><div>SiouxLookout-Jan-2004</div></td>
-      <td><div>F</div></td>
-      <td><div>382</div></td>
-      <td><div>382</div></td>
-      <td><div>224</div></td>
-      <td><div>232</div></td>
-      <td><div>-99</div></td>
-      <td><div>-99</div></td>
-      <td><div>193</div></td>
-      <td><div>193</div></td>
-      <td><div>299</div></td>
-      <td><div>299</div></td>
-      <td><div>223</div></td>
-      <td><div>223</div></td>
-      <td><div>210</div></td>
-      <td><div>216</div></td>
-      <td><div>106</div></td>
-      <td><div>106</div></td>
-      <td><div>296</div></td>
-      <td><div>306</div></td>
-      <td><div>166</div></td>
-      <td><div>166</div></td>
-      <td><div>0.0023</div></td>
-      <td><div>UNIQUE</div></td>
-      </tr>
-      <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
-      <td><div><a href="#1016.ON.CA">Jump</a></div></td>
-      <td><div>1016.ON.CA</div></td>
-      <td><div>SiouxLookout-Jan-2004</div></td>
-      <td><div>M</div></td>
-      <td><div>382</div></td>
-      <td><div>384</div></td>
-      <td><div>224</div></td>
-      <td><div>232</div></td>
-      <td><div>-99</div></td>
-      <td><div>-99</div></td>
-      <td><div>193</div></td>
-      <td><div>193</div></td>
-      <td><div>-99</div></td>
-      <td><div>-99</div></td>
-      <td><div>213</div></td>
-      <td><div>221</div></td>
-      <td><div>210</div></td>
-      <td><div>210</div></td>
-      <td><div>106</div></td>
-      <td><div>112</div></td>
-      <td><div>288</div></td>
-      <td><div>288</div></td>
-      <td><div>166</div></td>
-      <td><div>166</div></td>
-      <td><div>0.00069</div></td>
-      <td><div>UNIQUE</div></td>
-      </tr>
-      <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
-      <td><div><a href="#1017.ON.CA">Jump</a></div></td>
-      <td><div>1017.ON.CA</div></td>
-      <td><div>SiouxLookout-Jan-2004</div></td>
-      <td><div>F</div></td>
-      <td><div>382</div></td>
-      <td><div>388</div></td>
-      <td><div>230</div></td>
-      <td><div>230</div></td>
-      <td><div>-99</div></td>
-      <td><div>-99</div></td>
-      <td><div>181</div></td>
-      <td><div>185</div></td>
-      <td><div>285</div></td>
-      <td><div>299</div></td>
-      <td><div>223</div></td>
-      <td><div>223</div></td>
-      <td><div>202</div></td>
-      <td><div>202</div></td>
-      <td><div>106</div></td>
-      <td><div>118</div></td>
-      <td><div>304</div></td>
-      <td><div>304</div></td>
-      <td><div>166</div></td>
-      <td><div>166</div></td>
-      <td><div>0.00094</div></td>
-      <td><div>UNIQUE</div></td>
-      </tr>
-      <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
-      <td><div><a href="#1018.ON.CA">Jump</a></div></td>
-      <td><div>1018.ON.CA</div></td>
-      <td><div>SiouxLookout-Jan-2004</div></td>
-      <td><div>F</div></td>
-      <td><div>384</div></td>
-      <td><div>384</div></td>
-      <td><div>224</div></td>
-      <td><div>230</div></td>
-      <td><div>-99</div></td>
-      <td><div>-99</div></td>
-      <td><div>185</div></td>
-      <td><div>199</div></td>
-      <td><div>285</div></td>
-      <td><div>299</div></td>
-      <td><div>223</div></td>
-      <td><div>223</div></td>
-      <td><div>198</div></td>
-      <td><div>204</div></td>
-      <td><div>116</div></td>
-      <td><div>118</div></td>
-      <td><div>296</div></td>
-      <td><div>296</div></td>
-      <td><div>166</div></td>
-      <td><div>166</div></td>
-      <td><div>0.0011</div></td>
-      <td><div>UNIQUE</div></td>
-      </tr>
-      <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
-      <td><div><a href="#1019.ON.CA">Jump</a></div></td>
-      <td><div>1019.ON.CA</div></td>
-      <td><div>SiouxLookout-Jan-2004</div></td>
-      <td><div>F</div></td>
-      <td><div>382</div></td>
-      <td><div>384</div></td>
-      <td><div>224</div></td>
-      <td><div>230</div></td>
-      <td><div>159</div></td>
-      <td><div>159</div></td>
-      <td><div>193</div></td>
-      <td><div>193</div></td>
-      <td><div>299</div></td>
-      <td><div>299</div></td>
-      <td><div>223</div></td>
-      <td><div>223</div></td>
-      <td><div>202</div></td>
-      <td><div>202</div></td>
-      <td><div>106</div></td>
-      <td><div>118</div></td>
-      <td><div>298</div></td>
-      <td><div>298</div></td>
-      <td><div>166</div></td>
-      <td><div>166</div></td>
-      <td><div>0.0018</div></td>
-      <td><div>UNIQUE</div></td>
-      </tr>
-      <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
-      <td><div><a href="#1020.ON.CA">Jump</a></div></td>
-      <td><div>1020.ON.CA</div></td>
-      <td><div>SiouxLookout-Jan-2004</div></td>
-      <td><div>F</div></td>
-      <td><div>382</div></td>
-      <td><div>384</div></td>
-      <td><div>224</div></td>
-      <td><div>230</div></td>
-      <td><div>155</div></td>
-      <td><div>167</div></td>
-      <td><div>185</div></td>
-      <td><div>193</div></td>
-      <td><div>299</div></td>
-      <td><div>299</div></td>
-      <td><div>223</div></td>
-      <td><div>223</div></td>
-      <td><div>202</div></td>
-      <td><div>204</div></td>
-      <td><div>106</div></td>
-      <td><div>106</div></td>
-      <td><div>296</div></td>
-      <td><div>304</div></td>
-      <td><div>166</div></td>
-      <td><div>166</div></td>
-      <td><div>0.0012</div></td>
-      <td><div>UNIQUE</div></td>
-      </tr>
-      </table></div><div class="amGridLowerPanel"><span>There were 15 unique genotypes identified using the parameters supplied.</span></div></td></tr></table><br><br>
-      <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1001.ON.CA"><span style="font-size:medium;">Unique genotype (1 of 15)</span></a></div><div class="amGridMiddlePanel">
-      <table cellspacing="0" class="amTable amTableSeparate">
-      <tr class="amTableHeader">
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>gender</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      </tr>
-      <tr>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>1001.ON.CA</div></td>
-      <td class="amTableSelectRow"><div>SiouxLookout-Jan-2004</div></td>
-      <td class="amTableSelectRow"><div>F</div></td>
-      <td class="amTableSelectRow"><div>382</div></td>
-      <td class="amTableSelectRow"><div>384</div></td>
-      <td class="amTableSelectRow"><div>230</div></td>
-      <td class="amTableSelectRow"><div>236</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>185</div></td>
-      <td class="amTableSelectRow"><div>185</div></td>
-      <td class="amTableSelectRow"><div>301</div></td>
-      <td class="amTableSelectRow"><div>301</div></td>
-      <td class="amTableSelectRow"><div>223</div></td>
-      <td class="amTableSelectRow"><div>223</div></td>
-      <td class="amTableSelectRow"><div>192</div></td>
-      <td class="amTableSelectRow"><div>192</div></td>
-      <td class="amTableSelectRow"><div>118</div></td>
-      <td class="amTableSelectRow"><div>118</div></td>
-      <td class="amTableSelectRow"><div>296</div></td>
-      <td class="amTableSelectRow"><div>304</div></td>
-      <td class="amTableSelectRow"><div>166</div></td>
-      <td class="amTableSelectRow"><div>166</div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>UNIQUE</div></td>
-      </tr>
-      <tr><td><div></div></td><td><div>1001.ON.CA</div></td><td><div>SiouxLookout-Jan-2004</div></td><td><div>F</div></td><td><div>382</div></td><td><div>384</div></td><td><div>230</div></td><td><div>236</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>185</div></td><td><div>185</div></td><td><div>301</div></td><td><div>301</div></td><td><div>223</div></td><td><div>223</div></td><td><div>192</div></td><td><div>192</div></td><td><div>118</div></td><td><div>118</div></td><td><div>296</div></td><td><div>304</div></td><td><div>166</div></td><td><div>166</div></td><td><div>0.00082</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
-      </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
-      </td></tr></table><br><br>
-      <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1002.ON.CA"><span style="font-size:medium;">Unique genotype (2 of 15)</span></a></div><div class="amGridMiddlePanel">
-      <table cellspacing="0" class="amTable amTableSeparate">
-      <tr class="amTableHeader">
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>gender</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      </tr>
-      <tr>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>1002.ON.CA</div></td>
-      <td class="amTableSelectRow"><div>SiouxLookout-Jan-2004</div></td>
-      <td class="amTableSelectRow"><div>F</div></td>
-      <td class="amTableSelectRow"><div>382</div></td>
-      <td class="amTableSelectRow"><div>384</div></td>
-      <td class="amTableSelectRow"><div>230</div></td>
-      <td class="amTableSelectRow"><div>236</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>181</div></td>
-      <td class="amTableSelectRow"><div>193</div></td>
-      <td class="amTableSelectRow"><div>299</div></td>
-      <td class="amTableSelectRow"><div>299</div></td>
-      <td class="amTableSelectRow"><div>223</div></td>
-      <td class="amTableSelectRow"><div>223</div></td>
-      <td class="amTableSelectRow"><div>202</div></td>
-      <td class="amTableSelectRow"><div>202</div></td>
-      <td class="amTableSelectRow"><div>118</div></td>
-      <td class="amTableSelectRow"><div>118</div></td>
-      <td class="amTableSelectRow"><div>288</div></td>
-      <td class="amTableSelectRow"><div>296</div></td>
-      <td class="amTableSelectRow"><div>166</div></td>
-      <td class="amTableSelectRow"><div>166</div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>UNIQUE</div></td>
-      </tr>
-      <tr><td><div></div></td><td><div>1002.ON.CA</div></td><td><div>SiouxLookout-Jan-2004</div></td><td><div>F</div></td><td><div>382</div></td><td><div>384</div></td><td><div>230</div></td><td><div>236</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>181</div></td><td><div>193</div></td><td><div>299</div></td><td><div>299</div></td><td><div>223</div></td><td><div>223</div></td><td><div>202</div></td><td><div>202</div></td><td><div>118</div></td><td><div>118</div></td><td><div>288</div></td><td><div>296</div></td><td><div>166</div></td><td><div>166</div></td><td><div>0.0029</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
-      </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
-      </td></tr></table><br><br>
-      <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1003.ON.CA"><span style="font-size:medium;">Unique genotype (3 of 15)</span></a></div><div class="amGridMiddlePanel">
-      <table cellspacing="0" class="amTable amTableSeparate">
-      <tr class="amTableHeader">
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>gender</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      </tr>
-      <tr>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>1003.ON.CA</div></td>
-      <td class="amTableSelectRow"><div>SiouxLookout-Jan-2004</div></td>
-      <td class="amTableSelectRow"><div>M</div></td>
-      <td class="amTableSelectRow"><div>382</div></td>
-      <td class="amTableSelectRow"><div>382</div></td>
-      <td class="amTableSelectRow"><div>224</div></td>
-      <td class="amTableSelectRow"><div>242</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>185</div></td>
-      <td class="amTableSelectRow"><div>191</div></td>
-      <td class="amTableSelectRow"><div>285</div></td>
-      <td class="amTableSelectRow"><div>299</div></td>
-      <td class="amTableSelectRow"><div>223</div></td>
-      <td class="amTableSelectRow"><div>223</div></td>
-      <td class="amTableSelectRow"><div>192</div></td>
-      <td class="amTableSelectRow"><div>202</div></td>
-      <td class="amTableSelectRow"><div>102</div></td>
-      <td class="amTableSelectRow"><div>118</div></td>
-      <td class="amTableSelectRow"><div>298</div></td>
-      <td class="amTableSelectRow"><div>304</div></td>
-      <td class="amTableSelectRow"><div>166</div></td>
-      <td class="amTableSelectRow"><div>172</div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>UNIQUE</div></td>
-      </tr>
-      <tr><td><div></div></td><td><div>1003.ON.CA</div></td><td><div>SiouxLookout-Jan-2004</div></td><td><div>M</div></td><td><div>382</div></td><td><div>382</div></td><td><div>224</div></td><td><div>242</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>185</div></td><td><div>191</div></td><td><div>285</div></td><td><div>299</div></td><td><div>223</div></td><td><div>223</div></td><td><div>192</div></td><td><div>202</div></td><td><div>102</div></td><td><div>118</div></td><td><div>298</div></td><td><div>304</div></td><td><div>166</div></td><td><div>172</div></td><td><div>0.00026</div></td><td><div>1.00</div></td><td><div>MATCH</div></td></tr>
-      <tr><td><div></div></td><td><div>1005.ON.CA</div></td><td><div>SiouxLookout-Jan-2004</div></td><td><div>M</div></td><td><div>382</div></td><td><div>382</div></td><td><div>224</div></td><td><div>242</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>185</div></td><td><div>191</div></td><td><div>285</div></td><td><div>299</div></td><td><div>223</div></td><td><div>223</div></td><td><div>192</div></td><td><div>202</div></td><td><div>102</div></td><td><div>118</div></td><td><div>298</div></td><td><div>304</div></td><td><div>166</div></td><td><div>172</div></td><td><div>0.00026</div></td><td><div>1.00</div></td><td><div>MATCH</div></td></tr>
-      <tr><td><div></div></td><td><div>1008.ON.CA</div></td><td><div>SiouxLookout-Jan-2004</div></td><td><div>M</div></td><td><div>382</div></td><td><div>382</div></td><td><div>224</div></td><td><div class="amMismatchAllele">230</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>185</div></td><td><div class="amMismatchAllele">193</div></td><td><div>285</div></td><td><div class="amMismatchAllele">285</div></td><td><div>223</div></td><td><div>223</div></td><td><div>192</div></td><td><div>202</div></td><td><div class="amMismatchAllele">118</div></td><td><div>118</div></td><td><div class="amMismatchAllele">296</div></td><td><div>304</div></td><td><div>166</div></td><td><div class="amMismatchAllele">166</div></td><td><div>&nbsp; &nbsp; ---</div></td><td><div>0.71</div></td><td><div>MATCH</div></td></tr>
-      <tr><td><div></div></td><td><div>1009.ON.CA</div></td><td><div>SiouxLookout-Jan-2004</div></td><td><div>M</div></td><td><div>382</div></td><td><div>382</div></td><td><div>224</div></td><td><div class="amMismatchAllele">230</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>185</div></td><td><div class="amMismatchAllele">193</div></td><td><div>285</div></td><td><div class="amMismatchAllele">285</div></td><td><div>223</div></td><td><div>223</div></td><td><div>192</div></td><td><div>202</div></td><td><div class="amMismatchAllele">118</div></td><td><div>118</div></td><td><div class="amMismatchAllele">296</div></td><td><div>304</div></td><td><div>166</div></td><td><div class="amMismatchAllele">166</div></td><td><div>&nbsp; &nbsp; ---</div></td><td><div>0.71</div></td><td><div>MATCH</div></td></tr>
-      </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
-      </td></tr></table><br><br>
-      <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1004.ON.CA"><span style="font-size:medium;">Unique genotype (4 of 15)</span></a></div><div class="amGridMiddlePanel">
-      <table cellspacing="0" class="amTable amTableSeparate">
-      <tr class="amTableHeader">
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>gender</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      </tr>
-      <tr>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>1004.ON.CA</div></td>
-      <td class="amTableSelectRow"><div>SiouxLookout-Jan-2004</div></td>
-      <td class="amTableSelectRow"><div>M</div></td>
-      <td class="amTableSelectRow"><div>382</div></td>
-      <td class="amTableSelectRow"><div>384</div></td>
-      <td class="amTableSelectRow"><div>232</div></td>
-      <td class="amTableSelectRow"><div>236</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>193</div></td>
-      <td class="amTableSelectRow"><div>193</div></td>
-      <td class="amTableSelectRow"><div>299</div></td>
-      <td class="amTableSelectRow"><div>301</div></td>
-      <td class="amTableSelectRow"><div>223</div></td>
-      <td class="amTableSelectRow"><div>223</div></td>
-      <td class="amTableSelectRow"><div>192</div></td>
-      <td class="amTableSelectRow"><div>216</div></td>
-      <td class="amTableSelectRow"><div>102</div></td>
-      <td class="amTableSelectRow"><div>108</div></td>
-      <td class="amTableSelectRow"><div>296</div></td>
-      <td class="amTableSelectRow"><div>304</div></td>
-      <td class="amTableSelectRow"><div>168</div></td>
-      <td class="amTableSelectRow"><div>174</div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>UNIQUE</div></td>
-      </tr>
-      <tr><td><div></div></td><td><div>1004.ON.CA</div></td><td><div>SiouxLookout-Jan-2004</div></td><td><div>M</div></td><td><div>382</div></td><td><div>384</div></td><td><div>232</div></td><td><div>236</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>193</div></td><td><div>193</div></td><td><div>299</div></td><td><div>301</div></td><td><div>223</div></td><td><div>223</div></td><td><div>192</div></td><td><div>216</div></td><td><div>102</div></td><td><div>108</div></td><td><div>296</div></td><td><div>304</div></td><td><div>168</div></td><td><div>174</div></td><td><div>0.00023</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
-      </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
-      </td></tr></table><br><br>
-      <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1006.ON.CA"><span style="font-size:medium;">Unique genotype (5 of 15)</span></a></div><div class="amGridMiddlePanel">
-      <table cellspacing="0" class="amTable amTableSeparate">
-      <tr class="amTableHeader">
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>gender</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      </tr>
-      <tr>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>1006.ON.CA</div></td>
-      <td class="amTableSelectRow"><div>SiouxLookout-Jan-2004</div></td>
-      <td class="amTableSelectRow"><div>F</div></td>
-      <td class="amTableSelectRow"><div>382</div></td>
-      <td class="amTableSelectRow"><div>384</div></td>
-      <td class="amTableSelectRow"><div>224</div></td>
-      <td class="amTableSelectRow"><div>230</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>181</div></td>
-      <td class="amTableSelectRow"><div>193</div></td>
-      <td class="amTableSelectRow"><div>285</div></td>
-      <td class="amTableSelectRow"><div>285</div></td>
-      <td class="amTableSelectRow"><div>223</div></td>
-      <td class="amTableSelectRow"><div>223</div></td>
-      <td class="amTableSelectRow"><div>198</div></td>
-      <td class="amTableSelectRow"><div>202</div></td>
-      <td class="amTableSelectRow"><div>114</div></td>
-      <td class="amTableSelectRow"><div>116</div></td>
-      <td class="amTableSelectRow"><div>288</div></td>
-      <td class="amTableSelectRow"><div>296</div></td>
-      <td class="amTableSelectRow"><div>166</div></td>
-      <td class="amTableSelectRow"><div>166</div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>UNIQUE</div></td>
-      </tr>
-      <tr><td><div></div></td><td><div>1006.ON.CA</div></td><td><div>SiouxLookout-Jan-2004</div></td><td><div>F</div></td><td><div>382</div></td><td><div>384</div></td><td><div>224</div></td><td><div>230</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>181</div></td><td><div>193</div></td><td><div>285</div></td><td><div>285</div></td><td><div>223</div></td><td><div>223</div></td><td><div>198</div></td><td><div>202</div></td><td><div>114</div></td><td><div>116</div></td><td><div>288</div></td><td><div>296</div></td><td><div>166</div></td><td><div>166</div></td><td><div>0.0008</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
-      <tr><td><div></div></td><td><div>1007.ON.CA</div></td><td><div>SiouxLookout-Jan-2004</div></td><td><div>F</div></td><td><div>382</div></td><td><div>384</div></td><td><div>224</div></td><td><div>230</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>181</div></td><td><div>193</div></td><td><div>285</div></td><td><div>285</div></td><td><div>223</div></td><td><div>223</div></td><td><div>198</div></td><td><div>202</div></td><td><div>114</div></td><td><div>116</div></td><td><div>288</div></td><td><div>296</div></td><td><div>166</div></td><td><div>166</div></td><td><div>0.0008</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
-      </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
-      </td></tr></table><br><br>
-      <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1010.ON.CA"><span style="font-size:medium;">Unique genotype (6 of 15)</span></a></div><div class="amGridMiddlePanel">
-      <table cellspacing="0" class="amTable amTableSeparate">
-      <tr class="amTableHeader">
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>gender</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      </tr>
-      <tr>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>1010.ON.CA</div></td>
-      <td class="amTableSelectRow"><div>SiouxLookout-Jan-2004</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>382</div></td>
-      <td class="amTableSelectRow"><div>384</div></td>
-      <td class="amTableSelectRow"><div>230</div></td>
-      <td class="amTableSelectRow"><div>244</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>191</div></td>
-      <td class="amTableSelectRow"><div>193</div></td>
-      <td class="amTableSelectRow"><div>299</div></td>
-      <td class="amTableSelectRow"><div>299</div></td>
-      <td class="amTableSelectRow"><div>227</div></td>
-      <td class="amTableSelectRow"><div>227</div></td>
-      <td class="amTableSelectRow"><div>202</div></td>
-      <td class="amTableSelectRow"><div>204</div></td>
-      <td class="amTableSelectRow"><div>118</div></td>
-      <td class="amTableSelectRow"><div>118</div></td>
-      <td class="amTableSelectRow"><div>296</div></td>
-      <td class="amTableSelectRow"><div>296</div></td>
-      <td class="amTableSelectRow"><div>166</div></td>
-      <td class="amTableSelectRow"><div>166</div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>UNIQUE</div></td>
-      </tr>
-      <tr><td><div></div></td><td><div>1010.ON.CA</div></td><td><div>SiouxLookout-Jan-2004</div></td><td><div class="amMissingAllele">-99</div></td><td><div>382</div></td><td><div>384</div></td><td><div>230</div></td><td><div>244</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>191</div></td><td><div>193</div></td><td><div>299</div></td><td><div>299</div></td><td><div>227</div></td><td><div>227</div></td><td><div>202</div></td><td><div>204</div></td><td><div>118</div></td><td><div>118</div></td><td><div>296</div></td><td><div>296</div></td><td><div>166</div></td><td><div>166</div></td><td><div>0.0014</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
-      </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
-      </td></tr></table><br><br>
-      <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1011.ON.CA"><span style="font-size:medium;">Unique genotype (7 of 15)</span></a></div><div class="amGridMiddlePanel">
-      <table cellspacing="0" class="amTable amTableSeparate">
-      <tr class="amTableHeader">
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>gender</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      </tr>
-      <tr>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>1011.ON.CA</div></td>
-      <td class="amTableSelectRow"><div>SiouxLookout-Jan-2004</div></td>
-      <td class="amTableSelectRow"><div>F</div></td>
-      <td class="amTableSelectRow"><div>382</div></td>
-      <td class="amTableSelectRow"><div>384</div></td>
-      <td class="amTableSelectRow"><div>224</div></td>
-      <td class="amTableSelectRow"><div>224</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>193</div></td>
-      <td class="amTableSelectRow"><div>193</div></td>
-      <td class="amTableSelectRow"><div>299</div></td>
-      <td class="amTableSelectRow"><div>299</div></td>
-      <td class="amTableSelectRow"><div>223</div></td>
-      <td class="amTableSelectRow"><div>223</div></td>
-      <td class="amTableSelectRow"><div>210</div></td>
-      <td class="amTableSelectRow"><div>214</div></td>
-      <td class="amTableSelectRow"><div>106</div></td>
-      <td class="amTableSelectRow"><div>112</div></td>
-      <td class="amTableSelectRow"><div>288</div></td>
-      <td class="amTableSelectRow"><div>296</div></td>
-      <td class="amTableSelectRow"><div>166</div></td>
-      <td class="amTableSelectRow"><div>172</div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>UNIQUE</div></td>
-      </tr>
-      <tr><td><div></div></td><td><div>1011.ON.CA</div></td><td><div>SiouxLookout-Jan-2004</div></td><td><div>F</div></td><td><div>382</div></td><td><div>384</div></td><td><div>224</div></td><td><div>224</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>193</div></td><td><div>193</div></td><td><div>299</div></td><td><div>299</div></td><td><div>223</div></td><td><div>223</div></td><td><div>210</div></td><td><div>214</div></td><td><div>106</div></td><td><div>112</div></td><td><div>288</div></td><td><div>296</div></td><td><div>166</div></td><td><div>172</div></td><td><div>0.0016</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
-      <tr><td><div></div></td><td><div>1012.ON.CA</div></td><td><div>SiouxLookout-Jan-2004</div></td><td><div>F</div></td><td><div>382</div></td><td><div>384</div></td><td><div>224</div></td><td><div>224</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>193</div></td><td><div>193</div></td><td><div>299</div></td><td><div>299</div></td><td><div>223</div></td><td><div>223</div></td><td><div>210</div></td><td><div>214</div></td><td><div>106</div></td><td><div>112</div></td><td><div>288</div></td><td><div>296</div></td><td><div>166</div></td><td><div>172</div></td><td><div>0.0016</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
-      </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
-      </td></tr></table><br><br>
-      <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1013.ON.CA"><span style="font-size:medium;">Unique genotype (8 of 15)</span></a></div><div class="amGridMiddlePanel">
-      <table cellspacing="0" class="amTable amTableSeparate">
-      <tr class="amTableHeader">
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>gender</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      </tr>
-      <tr>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>1013.ON.CA</div></td>
-      <td class="amTableSelectRow"><div>SiouxLookout-Jan-2004</div></td>
-      <td class="amTableSelectRow"><div>M</div></td>
-      <td class="amTableSelectRow"><div>382</div></td>
-      <td class="amTableSelectRow"><div>384</div></td>
-      <td class="amTableSelectRow"><div>232</div></td>
-      <td class="amTableSelectRow"><div>232</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>193</div></td>
-      <td class="amTableSelectRow"><div>193</div></td>
-      <td class="amTableSelectRow"><div>299</div></td>
-      <td class="amTableSelectRow"><div>299</div></td>
-      <td class="amTableSelectRow"><div>213</div></td>
-      <td class="amTableSelectRow"><div>221</div></td>
-      <td class="amTableSelectRow"><div>210</div></td>
-      <td class="amTableSelectRow"><div>210</div></td>
-      <td class="amTableSelectRow"><div>118</div></td>
-      <td class="amTableSelectRow"><div>118</div></td>
-      <td class="amTableSelectRow"><div>296</div></td>
-      <td class="amTableSelectRow"><div>306</div></td>
-      <td class="amTableSelectRow"><div>166</div></td>
-      <td class="amTableSelectRow"><div>172</div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>UNIQUE</div></td>
-      </tr>
-      <tr><td><div></div></td><td><div>1013.ON.CA</div></td><td><div>SiouxLookout-Jan-2004</div></td><td><div>M</div></td><td><div>382</div></td><td><div>384</div></td><td><div>232</div></td><td><div>232</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>193</div></td><td><div>193</div></td><td><div>299</div></td><td><div>299</div></td><td><div>213</div></td><td><div>221</div></td><td><div>210</div></td><td><div>210</div></td><td><div>118</div></td><td><div>118</div></td><td><div>296</div></td><td><div>306</div></td><td><div>166</div></td><td><div>172</div></td><td><div>0.00047</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
-      </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
-      </td></tr></table><br><br>
-      <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1014.ON.CA"><span style="font-size:medium;">Unique genotype (9 of 15)</span></a></div><div class="amGridMiddlePanel">
-      <table cellspacing="0" class="amTable amTableSeparate">
-      <tr class="amTableHeader">
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>gender</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      </tr>
-      <tr>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>1014.ON.CA</div></td>
-      <td class="amTableSelectRow"><div>SiouxLookout-Jan-2004</div></td>
-      <td class="amTableSelectRow"><div>F</div></td>
-      <td class="amTableSelectRow"><div>384</div></td>
-      <td class="amTableSelectRow"><div>384</div></td>
-      <td class="amTableSelectRow"><div>232</div></td>
-      <td class="amTableSelectRow"><div>238</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>193</div></td>
-      <td class="amTableSelectRow"><div>199</div></td>
-      <td class="amTableSelectRow"><div>299</div></td>
-      <td class="amTableSelectRow"><div>301</div></td>
-      <td class="amTableSelectRow"><div>213</div></td>
-      <td class="amTableSelectRow"><div>213</div></td>
-      <td class="amTableSelectRow"><div>210</div></td>
-      <td class="amTableSelectRow"><div>210</div></td>
-      <td class="amTableSelectRow"><div>102</div></td>
-      <td class="amTableSelectRow"><div>108</div></td>
-      <td class="amTableSelectRow"><div>296</div></td>
-      <td class="amTableSelectRow"><div>296</div></td>
-      <td class="amTableSelectRow"><div>174</div></td>
-      <td class="amTableSelectRow"><div>174</div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>UNIQUE</div></td>
-      </tr>
-      <tr><td><div></div></td><td><div>1014.ON.CA</div></td><td><div>SiouxLookout-Jan-2004</div></td><td><div>F</div></td><td><div>384</div></td><td><div>384</div></td><td><div>232</div></td><td><div>238</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>193</div></td><td><div>199</div></td><td><div>299</div></td><td><div>301</div></td><td><div>213</div></td><td><div>213</div></td><td><div>210</div></td><td><div>210</div></td><td><div>102</div></td><td><div>108</div></td><td><div>296</div></td><td><div>296</div></td><td><div>174</div></td><td><div>174</div></td><td><div>0.00016</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
-      </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
-      </td></tr></table><br><br>
-      <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1015.ON.CA"><span style="font-size:medium;">Unique genotype (10 of 15)</span></a></div><div class="amGridMiddlePanel">
-      <table cellspacing="0" class="amTable amTableSeparate">
-      <tr class="amTableHeader">
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>gender</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      </tr>
-      <tr>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>1015.ON.CA</div></td>
-      <td class="amTableSelectRow"><div>SiouxLookout-Jan-2004</div></td>
-      <td class="amTableSelectRow"><div>F</div></td>
-      <td class="amTableSelectRow"><div>382</div></td>
-      <td class="amTableSelectRow"><div>382</div></td>
-      <td class="amTableSelectRow"><div>224</div></td>
-      <td class="amTableSelectRow"><div>232</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>193</div></td>
-      <td class="amTableSelectRow"><div>193</div></td>
-      <td class="amTableSelectRow"><div>299</div></td>
-      <td class="amTableSelectRow"><div>299</div></td>
-      <td class="amTableSelectRow"><div>223</div></td>
-      <td class="amTableSelectRow"><div>223</div></td>
-      <td class="amTableSelectRow"><div>210</div></td>
-      <td class="amTableSelectRow"><div>216</div></td>
-      <td class="amTableSelectRow"><div>106</div></td>
-      <td class="amTableSelectRow"><div>106</div></td>
-      <td class="amTableSelectRow"><div>296</div></td>
-      <td class="amTableSelectRow"><div>306</div></td>
-      <td class="amTableSelectRow"><div>166</div></td>
-      <td class="amTableSelectRow"><div>166</div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>UNIQUE</div></td>
-      </tr>
-      <tr><td><div></div></td><td><div>1015.ON.CA</div></td><td><div>SiouxLookout-Jan-2004</div></td><td><div>F</div></td><td><div>382</div></td><td><div>382</div></td><td><div>224</div></td><td><div>232</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>193</div></td><td><div>193</div></td><td><div>299</div></td><td><div>299</div></td><td><div>223</div></td><td><div>223</div></td><td><div>210</div></td><td><div>216</div></td><td><div>106</div></td><td><div>106</div></td><td><div>296</div></td><td><div>306</div></td><td><div>166</div></td><td><div>166</div></td><td><div>0.0023</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
-      </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
-      </td></tr></table><br><br>
-      <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1016.ON.CA"><span style="font-size:medium;">Unique genotype (11 of 15)</span></a></div><div class="amGridMiddlePanel">
-      <table cellspacing="0" class="amTable amTableSeparate">
-      <tr class="amTableHeader">
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>gender</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      </tr>
-      <tr>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>1016.ON.CA</div></td>
-      <td class="amTableSelectRow"><div>SiouxLookout-Jan-2004</div></td>
-      <td class="amTableSelectRow"><div>M</div></td>
-      <td class="amTableSelectRow"><div>382</div></td>
-      <td class="amTableSelectRow"><div>384</div></td>
-      <td class="amTableSelectRow"><div>224</div></td>
-      <td class="amTableSelectRow"><div>232</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>193</div></td>
-      <td class="amTableSelectRow"><div>193</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>213</div></td>
-      <td class="amTableSelectRow"><div>221</div></td>
-      <td class="amTableSelectRow"><div>210</div></td>
-      <td class="amTableSelectRow"><div>210</div></td>
-      <td class="amTableSelectRow"><div>106</div></td>
-      <td class="amTableSelectRow"><div>112</div></td>
-      <td class="amTableSelectRow"><div>288</div></td>
-      <td class="amTableSelectRow"><div>288</div></td>
-      <td class="amTableSelectRow"><div>166</div></td>
-      <td class="amTableSelectRow"><div>166</div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>UNIQUE</div></td>
-      </tr>
-      <tr><td><div></div></td><td><div>1016.ON.CA</div></td><td><div>SiouxLookout-Jan-2004</div></td><td><div>M</div></td><td><div>382</div></td><td><div>384</div></td><td><div>224</div></td><td><div>232</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>193</div></td><td><div>193</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>213</div></td><td><div>221</div></td><td><div>210</div></td><td><div>210</div></td><td><div>106</div></td><td><div>112</div></td><td><div>288</div></td><td><div>288</div></td><td><div>166</div></td><td><div>166</div></td><td><div>0.00069</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
-      </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
-      </td></tr></table><br><br>
-      <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1017.ON.CA"><span style="font-size:medium;">Unique genotype (12 of 15)</span></a></div><div class="amGridMiddlePanel">
-      <table cellspacing="0" class="amTable amTableSeparate">
-      <tr class="amTableHeader">
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>gender</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      </tr>
-      <tr>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>1017.ON.CA</div></td>
-      <td class="amTableSelectRow"><div>SiouxLookout-Jan-2004</div></td>
-      <td class="amTableSelectRow"><div>F</div></td>
-      <td class="amTableSelectRow"><div>382</div></td>
-      <td class="amTableSelectRow"><div>388</div></td>
-      <td class="amTableSelectRow"><div>230</div></td>
-      <td class="amTableSelectRow"><div>230</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>181</div></td>
-      <td class="amTableSelectRow"><div>185</div></td>
-      <td class="amTableSelectRow"><div>285</div></td>
-      <td class="amTableSelectRow"><div>299</div></td>
-      <td class="amTableSelectRow"><div>223</div></td>
-      <td class="amTableSelectRow"><div>223</div></td>
-      <td class="amTableSelectRow"><div>202</div></td>
-      <td class="amTableSelectRow"><div>202</div></td>
-      <td class="amTableSelectRow"><div>106</div></td>
-      <td class="amTableSelectRow"><div>118</div></td>
-      <td class="amTableSelectRow"><div>304</div></td>
-      <td class="amTableSelectRow"><div>304</div></td>
-      <td class="amTableSelectRow"><div>166</div></td>
-      <td class="amTableSelectRow"><div>166</div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>UNIQUE</div></td>
-      </tr>
-      <tr><td><div></div></td><td><div>1017.ON.CA</div></td><td><div>SiouxLookout-Jan-2004</div></td><td><div>F</div></td><td><div>382</div></td><td><div>388</div></td><td><div>230</div></td><td><div>230</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>181</div></td><td><div>185</div></td><td><div>285</div></td><td><div>299</div></td><td><div>223</div></td><td><div>223</div></td><td><div>202</div></td><td><div>202</div></td><td><div>106</div></td><td><div>118</div></td><td><div>304</div></td><td><div>304</div></td><td><div>166</div></td><td><div>166</div></td><td><div>0.00094</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
-      </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
-      </td></tr></table><br><br>
-      <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1018.ON.CA"><span style="font-size:medium;">Unique genotype (13 of 15)</span></a></div><div class="amGridMiddlePanel">
-      <table cellspacing="0" class="amTable amTableSeparate">
-      <tr class="amTableHeader">
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>gender</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      </tr>
-      <tr>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>1018.ON.CA</div></td>
-      <td class="amTableSelectRow"><div>SiouxLookout-Jan-2004</div></td>
-      <td class="amTableSelectRow"><div>F</div></td>
-      <td class="amTableSelectRow"><div>384</div></td>
-      <td class="amTableSelectRow"><div>384</div></td>
-      <td class="amTableSelectRow"><div>224</div></td>
-      <td class="amTableSelectRow"><div>230</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>-99</div></td>
-      <td class="amTableSelectRow"><div>185</div></td>
-      <td class="amTableSelectRow"><div>199</div></td>
-      <td class="amTableSelectRow"><div>285</div></td>
-      <td class="amTableSelectRow"><div>299</div></td>
-      <td class="amTableSelectRow"><div>223</div></td>
-      <td class="amTableSelectRow"><div>223</div></td>
-      <td class="amTableSelectRow"><div>198</div></td>
-      <td class="amTableSelectRow"><div>204</div></td>
-      <td class="amTableSelectRow"><div>116</div></td>
-      <td class="amTableSelectRow"><div>118</div></td>
-      <td class="amTableSelectRow"><div>296</div></td>
-      <td class="amTableSelectRow"><div>296</div></td>
-      <td class="amTableSelectRow"><div>166</div></td>
-      <td class="amTableSelectRow"><div>166</div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>UNIQUE</div></td>
-      </tr>
-      <tr><td><div></div></td><td><div>1018.ON.CA</div></td><td><div>SiouxLookout-Jan-2004</div></td><td><div>F</div></td><td><div>384</div></td><td><div>384</div></td><td><div>224</div></td><td><div>230</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>185</div></td><td><div>199</div></td><td><div>285</div></td><td><div>299</div></td><td><div>223</div></td><td><div>223</div></td><td><div>198</div></td><td><div>204</div></td><td><div>116</div></td><td><div>118</div></td><td><div>296</div></td><td><div>296</div></td><td><div>166</div></td><td><div>166</div></td><td><div>0.0011</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
-      </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
-      </td></tr></table><br><br>
-      <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1019.ON.CA"><span style="font-size:medium;">Unique genotype (14 of 15)</span></a></div><div class="amGridMiddlePanel">
-      <table cellspacing="0" class="amTable amTableSeparate">
-      <tr class="amTableHeader">
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>gender</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      </tr>
-      <tr>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>1019.ON.CA</div></td>
-      <td class="amTableSelectRow"><div>SiouxLookout-Jan-2004</div></td>
-      <td class="amTableSelectRow"><div>F</div></td>
-      <td class="amTableSelectRow"><div>382</div></td>
-      <td class="amTableSelectRow"><div>384</div></td>
-      <td class="amTableSelectRow"><div>224</div></td>
-      <td class="amTableSelectRow"><div>230</div></td>
-      <td class="amTableSelectRow"><div>159</div></td>
-      <td class="amTableSelectRow"><div>159</div></td>
-      <td class="amTableSelectRow"><div>193</div></td>
-      <td class="amTableSelectRow"><div>193</div></td>
-      <td class="amTableSelectRow"><div>299</div></td>
-      <td class="amTableSelectRow"><div>299</div></td>
-      <td class="amTableSelectRow"><div>223</div></td>
-      <td class="amTableSelectRow"><div>223</div></td>
-      <td class="amTableSelectRow"><div>202</div></td>
-      <td class="amTableSelectRow"><div>202</div></td>
-      <td class="amTableSelectRow"><div>106</div></td>
-      <td class="amTableSelectRow"><div>118</div></td>
-      <td class="amTableSelectRow"><div>298</div></td>
-      <td class="amTableSelectRow"><div>298</div></td>
-      <td class="amTableSelectRow"><div>166</div></td>
-      <td class="amTableSelectRow"><div>166</div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>UNIQUE</div></td>
-      </tr>
-      <tr><td><div></div></td><td><div>1019.ON.CA</div></td><td><div>SiouxLookout-Jan-2004</div></td><td><div>F</div></td><td><div>382</div></td><td><div>384</div></td><td><div>224</div></td><td><div>230</div></td><td><div>159</div></td><td><div>159</div></td><td><div>193</div></td><td><div>193</div></td><td><div>299</div></td><td><div>299</div></td><td><div>223</div></td><td><div>223</div></td><td><div>202</div></td><td><div>202</div></td><td><div>106</div></td><td><div>118</div></td><td><div>298</div></td><td><div>298</div></td><td><div>166</div></td><td><div>166</div></td><td><div>0.0018</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
-      </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
-      </td></tr></table><br><br>
-      <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1020.ON.CA"><span style="font-size:medium;">Unique genotype (15 of 15)</span></a></div><div class="amGridMiddlePanel">
-      <table cellspacing="0" class="amTable amTableSeparate">
-      <tr class="amTableHeader">
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>gender</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
-      </tr>
-      <tr>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>1020.ON.CA</div></td>
-      <td class="amTableSelectRow"><div>SiouxLookout-Jan-2004</div></td>
-      <td class="amTableSelectRow"><div>F</div></td>
-      <td class="amTableSelectRow"><div>382</div></td>
-      <td class="amTableSelectRow"><div>384</div></td>
-      <td class="amTableSelectRow"><div>224</div></td>
-      <td class="amTableSelectRow"><div>230</div></td>
-      <td class="amTableSelectRow"><div>155</div></td>
-      <td class="amTableSelectRow"><div>167</div></td>
-      <td class="amTableSelectRow"><div>185</div></td>
-      <td class="amTableSelectRow"><div>193</div></td>
-      <td class="amTableSelectRow"><div>299</div></td>
-      <td class="amTableSelectRow"><div>299</div></td>
-      <td class="amTableSelectRow"><div>223</div></td>
-      <td class="amTableSelectRow"><div>223</div></td>
-      <td class="amTableSelectRow"><div>202</div></td>
-      <td class="amTableSelectRow"><div>204</div></td>
-      <td class="amTableSelectRow"><div>106</div></td>
-      <td class="amTableSelectRow"><div>106</div></td>
-      <td class="amTableSelectRow"><div>296</div></td>
-      <td class="amTableSelectRow"><div>304</div></td>
-      <td class="amTableSelectRow"><div>166</div></td>
-      <td class="amTableSelectRow"><div>166</div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div></div></td>
-      <td class="amTableSelectRow"><div>UNIQUE</div></td>
-      </tr>
-      <tr><td><div></div></td><td><div>1020.ON.CA</div></td><td><div>SiouxLookout-Jan-2004</div></td><td><div>F</div></td><td><div>382</div></td><td><div>384</div></td><td><div>224</div></td><td><div>230</div></td><td><div>155</div></td><td><div>167</div></td><td><div>185</div></td><td><div>193</div></td><td><div>299</div></td><td><div>299</div></td><td><div>223</div></td><td><div>223</div></td><td><div>202</div></td><td><div>204</div></td><td><div>106</div></td><td><div>106</div></td><td><div>296</div></td><td><div>304</div></td><td><div>166</div></td><td><div>166</div></td><td><div>0.0012</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
-      </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
-      </td></tr></table><br><br>
-      <span style="font-size:x-small;">Generated by allelematch: an R package<br></span><span style="font-size:x-small;">To reference this analysis please use citation("allelematch")<br><br></span></div>
-      </body></html>
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    <html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' lang='en'><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+    <title>allelematch: amUnique() output</title>
+    <style type="text/css">
+    
+    html { height: 100%; }
+    body { background-color: inherit; color: inherit; font-family: Verdana; font-size: xx-small; margin: 0; height: 100%; }
+    a:active, a:link, a:visited { color: #CC0000; }
+    .amMismatchAllele { background-color: #CC0000; color: white; font-weight: bold; }
+    .amMissingAllele { background-color: #FFCCCC; }
+    .amInterpolatedAllele { background-color: blue; color: white; }
+    .amGrid { border-collapse: separate; }
+    .amGridContent { padding: 0; border: 1px solid #7EACB1; }
+    .amGridUpperPanel, .amGridLowerPanel { padding: 3px; background-color: #F4FAFB; color: #2A769D; font-family: Verdana; font-size: xx-small; }
+    .amGridUpperPanel { border-top: 0px; border-bottom: 1px solid; border-color: #7EACB1; }
+    .amGridMiddlePanel { border: 0; }
+    .amGridLowerPanel { border-top: 1px solid; border-bottom: 0px; border-color: #C2D4DA; }
+    .amGridUpperPanel td, .amGridLowerPanel td { color: #2A769D; font-family: Verdana; font-size: xx-small; }
+    .amTable { border: 0; border-spacing: 0; border-collapse: collapse; empty-cells: show; width: 100%; font-family: Verdana; font-size: xx-small; }
+    .amTableSeparate { border-collapse: separate; }
+    .amTable td { padding: 3px; border-bottom: 1px solid; border-right: 1px solid; border-color: #C2D4DA; white-space:nowrap; }
+    .amTable .amTableHeader, .amTable .amTableHeader td { background-color: #B7D8DC; color: #000000; border-bottom: 1px solid; border-right: 1px solid; border-color: #7EACB1; vertical-align: top; white-space:nowrap; }
+    .amPointer { cursor: pointer; }
+    .amTableHeaderBtn { width: 100%; font-family: Verdana; font-size: xx-small; }
+    .amTableHeader .amTableHeaderBtn td { background: transparent; padding: 0; border: 0; white-space: nowrap; }
+    .amTableSelectRow { background-color: #FFFF66; color: #000000; }
+    
+    </style>
+    </head><body>
+    <div style="margin-left:5%; margin-right:5%">
+    <br><table cellspacing="0" class="amGrid"><tr><td class="amGridContent">
+    <div class="amGridUpperPanel">
+    <div style="font-size:x-small;"><table>
+    <tr><td style="width:400px;"><span style="font-size:20px;">allelematch<br>unique analysis</span><br><br></td></tr>
+    <tr><td><b>
+    unique N=</b><em>15</em></td></tr>
+    <tr><td><b>samples N=</b><em>20</em></td></tr>
+    <tr><td><b><br>loci N=</b><em>11</em></td></tr>
+    <tr><td><b>locus names: </b><em>gender, LOC1a-LOC1b, LOC2a-LOC2b, LOC3a-LOC3b, LOC4a-LOC4b, LOC5a-LOC5b, LOC6a-LOC6b, LOC7a-LOC7b, LOC8a-LOC8b, LOC9a-LOC9b, LOC10a-LOC10b</em></td></tr>
+    <tr><td><b><br>missing data represented by: </b><em>-99</em></td></tr>
+    <tr><td><b>clustered genotypes consensus method: </b><em>1</em></td></tr>
+    <tr><td><b>Psib calculated for: </b><em>samples with no mismatches</em></td></tr>
+    <tr><td><b><br>alleleMismatch (m-hat; maximum number of mismatching alleles): </b><em>6.3</em></td></tr>
+    <tr><td><b>cutHeight (d-hat; dynamic tree cutting height): </b><em>0.3</em></td></tr>
+    <tr><td><b>matchThreshold (s-hat; lowest matching score returned): </b><em>0.7</em></td></tr>
+    <tr><td><b><br>unclassified N=</b><em>0</em></td></tr>
+    <tr><td><b>multipleMatch N=</b><em>0</em></td></tr>
+    <tr><td><b><br>Note: Unique genotypes are determined based on clustering of scores.</b><em> Psib appears for reference purposes.</em></td></tr>
+    <tr><td><b><br>summary generated: </b><em>(date)</em></td></tr>
+    </table></div></div></td></tr></table><br><br>
+    <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><span style="font-size:medium;">Unique genotypes</span></div><div class="amGridMiddlePanel">
+    <table cellspacing="0" class="amTable amTableSeparate">
+    <tr class="amTableHeader">
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>gender</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    </tr>
+    <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
+    <td><div><a href="#1001.ON.CA">Jump</a></div></td>
+    <td><div>1001.ON.CA</div></td>
+    <td><div>SiouxLookout-Jan-2004</div></td>
+    <td><div>F</div></td>
+    <td><div>382</div></td>
+    <td><div>384</div></td>
+    <td><div>230</div></td>
+    <td><div>236</div></td>
+    <td><div>-99</div></td>
+    <td><div>-99</div></td>
+    <td><div>185</div></td>
+    <td><div>185</div></td>
+    <td><div>301</div></td>
+    <td><div>301</div></td>
+    <td><div>223</div></td>
+    <td><div>223</div></td>
+    <td><div>192</div></td>
+    <td><div>192</div></td>
+    <td><div>118</div></td>
+    <td><div>118</div></td>
+    <td><div>296</div></td>
+    <td><div>304</div></td>
+    <td><div>166</div></td>
+    <td><div>166</div></td>
+    <td><div>0.00082</div></td>
+    <td><div>UNIQUE</div></td>
+    </tr>
+    <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
+    <td><div><a href="#1002.ON.CA">Jump</a></div></td>
+    <td><div>1002.ON.CA</div></td>
+    <td><div>SiouxLookout-Jan-2004</div></td>
+    <td><div>F</div></td>
+    <td><div>382</div></td>
+    <td><div>384</div></td>
+    <td><div>230</div></td>
+    <td><div>236</div></td>
+    <td><div>-99</div></td>
+    <td><div>-99</div></td>
+    <td><div>181</div></td>
+    <td><div>193</div></td>
+    <td><div>299</div></td>
+    <td><div>299</div></td>
+    <td><div>223</div></td>
+    <td><div>223</div></td>
+    <td><div>202</div></td>
+    <td><div>202</div></td>
+    <td><div>118</div></td>
+    <td><div>118</div></td>
+    <td><div>288</div></td>
+    <td><div>296</div></td>
+    <td><div>166</div></td>
+    <td><div>166</div></td>
+    <td><div>0.0029</div></td>
+    <td><div>UNIQUE</div></td>
+    </tr>
+    <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
+    <td><div><a href="#1003.ON.CA">Jump</a></div></td>
+    <td><div>1003.ON.CA</div></td>
+    <td><div>SiouxLookout-Jan-2004</div></td>
+    <td><div>M</div></td>
+    <td><div>382</div></td>
+    <td><div>382</div></td>
+    <td><div>224</div></td>
+    <td><div>242</div></td>
+    <td><div>-99</div></td>
+    <td><div>-99</div></td>
+    <td><div>185</div></td>
+    <td><div>191</div></td>
+    <td><div>285</div></td>
+    <td><div>299</div></td>
+    <td><div>223</div></td>
+    <td><div>223</div></td>
+    <td><div>192</div></td>
+    <td><div>202</div></td>
+    <td><div>102</div></td>
+    <td><div>118</div></td>
+    <td><div>298</div></td>
+    <td><div>304</div></td>
+    <td><div>166</div></td>
+    <td><div>172</div></td>
+    <td><div>0.00026</div></td>
+    <td><div>UNIQUE</div></td>
+    </tr>
+    <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
+    <td><div><a href="#1004.ON.CA">Jump</a></div></td>
+    <td><div>1004.ON.CA</div></td>
+    <td><div>SiouxLookout-Jan-2004</div></td>
+    <td><div>M</div></td>
+    <td><div>382</div></td>
+    <td><div>384</div></td>
+    <td><div>232</div></td>
+    <td><div>236</div></td>
+    <td><div>-99</div></td>
+    <td><div>-99</div></td>
+    <td><div>193</div></td>
+    <td><div>193</div></td>
+    <td><div>299</div></td>
+    <td><div>301</div></td>
+    <td><div>223</div></td>
+    <td><div>223</div></td>
+    <td><div>192</div></td>
+    <td><div>216</div></td>
+    <td><div>102</div></td>
+    <td><div>108</div></td>
+    <td><div>296</div></td>
+    <td><div>304</div></td>
+    <td><div>168</div></td>
+    <td><div>174</div></td>
+    <td><div>0.00023</div></td>
+    <td><div>UNIQUE</div></td>
+    </tr>
+    <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
+    <td><div><a href="#1006.ON.CA">Jump</a></div></td>
+    <td><div>1006.ON.CA</div></td>
+    <td><div>SiouxLookout-Jan-2004</div></td>
+    <td><div>F</div></td>
+    <td><div>382</div></td>
+    <td><div>384</div></td>
+    <td><div>224</div></td>
+    <td><div>230</div></td>
+    <td><div>-99</div></td>
+    <td><div>-99</div></td>
+    <td><div>181</div></td>
+    <td><div>193</div></td>
+    <td><div>285</div></td>
+    <td><div>285</div></td>
+    <td><div>223</div></td>
+    <td><div>223</div></td>
+    <td><div>198</div></td>
+    <td><div>202</div></td>
+    <td><div>114</div></td>
+    <td><div>116</div></td>
+    <td><div>288</div></td>
+    <td><div>296</div></td>
+    <td><div>166</div></td>
+    <td><div>166</div></td>
+    <td><div>0.0008</div></td>
+    <td><div>UNIQUE</div></td>
+    </tr>
+    <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
+    <td><div><a href="#1010.ON.CA">Jump</a></div></td>
+    <td><div>1010.ON.CA</div></td>
+    <td><div>SiouxLookout-Jan-2004</div></td>
+    <td><div>-99</div></td>
+    <td><div>382</div></td>
+    <td><div>384</div></td>
+    <td><div>230</div></td>
+    <td><div>244</div></td>
+    <td><div>-99</div></td>
+    <td><div>-99</div></td>
+    <td><div>191</div></td>
+    <td><div>193</div></td>
+    <td><div>299</div></td>
+    <td><div>299</div></td>
+    <td><div>227</div></td>
+    <td><div>227</div></td>
+    <td><div>202</div></td>
+    <td><div>204</div></td>
+    <td><div>118</div></td>
+    <td><div>118</div></td>
+    <td><div>296</div></td>
+    <td><div>296</div></td>
+    <td><div>166</div></td>
+    <td><div>166</div></td>
+    <td><div>0.0014</div></td>
+    <td><div>UNIQUE</div></td>
+    </tr>
+    <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
+    <td><div><a href="#1011.ON.CA">Jump</a></div></td>
+    <td><div>1011.ON.CA</div></td>
+    <td><div>SiouxLookout-Jan-2004</div></td>
+    <td><div>F</div></td>
+    <td><div>382</div></td>
+    <td><div>384</div></td>
+    <td><div>224</div></td>
+    <td><div>224</div></td>
+    <td><div>-99</div></td>
+    <td><div>-99</div></td>
+    <td><div>193</div></td>
+    <td><div>193</div></td>
+    <td><div>299</div></td>
+    <td><div>299</div></td>
+    <td><div>223</div></td>
+    <td><div>223</div></td>
+    <td><div>210</div></td>
+    <td><div>214</div></td>
+    <td><div>106</div></td>
+    <td><div>112</div></td>
+    <td><div>288</div></td>
+    <td><div>296</div></td>
+    <td><div>166</div></td>
+    <td><div>172</div></td>
+    <td><div>0.0016</div></td>
+    <td><div>UNIQUE</div></td>
+    </tr>
+    <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
+    <td><div><a href="#1013.ON.CA">Jump</a></div></td>
+    <td><div>1013.ON.CA</div></td>
+    <td><div>SiouxLookout-Jan-2004</div></td>
+    <td><div>M</div></td>
+    <td><div>382</div></td>
+    <td><div>384</div></td>
+    <td><div>232</div></td>
+    <td><div>232</div></td>
+    <td><div>-99</div></td>
+    <td><div>-99</div></td>
+    <td><div>193</div></td>
+    <td><div>193</div></td>
+    <td><div>299</div></td>
+    <td><div>299</div></td>
+    <td><div>213</div></td>
+    <td><div>221</div></td>
+    <td><div>210</div></td>
+    <td><div>210</div></td>
+    <td><div>118</div></td>
+    <td><div>118</div></td>
+    <td><div>296</div></td>
+    <td><div>306</div></td>
+    <td><div>166</div></td>
+    <td><div>172</div></td>
+    <td><div>0.00047</div></td>
+    <td><div>UNIQUE</div></td>
+    </tr>
+    <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
+    <td><div><a href="#1014.ON.CA">Jump</a></div></td>
+    <td><div>1014.ON.CA</div></td>
+    <td><div>SiouxLookout-Jan-2004</div></td>
+    <td><div>F</div></td>
+    <td><div>384</div></td>
+    <td><div>384</div></td>
+    <td><div>232</div></td>
+    <td><div>238</div></td>
+    <td><div>-99</div></td>
+    <td><div>-99</div></td>
+    <td><div>193</div></td>
+    <td><div>199</div></td>
+    <td><div>299</div></td>
+    <td><div>301</div></td>
+    <td><div>213</div></td>
+    <td><div>213</div></td>
+    <td><div>210</div></td>
+    <td><div>210</div></td>
+    <td><div>102</div></td>
+    <td><div>108</div></td>
+    <td><div>296</div></td>
+    <td><div>296</div></td>
+    <td><div>174</div></td>
+    <td><div>174</div></td>
+    <td><div>0.00016</div></td>
+    <td><div>UNIQUE</div></td>
+    </tr>
+    <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
+    <td><div><a href="#1015.ON.CA">Jump</a></div></td>
+    <td><div>1015.ON.CA</div></td>
+    <td><div>SiouxLookout-Jan-2004</div></td>
+    <td><div>F</div></td>
+    <td><div>382</div></td>
+    <td><div>382</div></td>
+    <td><div>224</div></td>
+    <td><div>232</div></td>
+    <td><div>-99</div></td>
+    <td><div>-99</div></td>
+    <td><div>193</div></td>
+    <td><div>193</div></td>
+    <td><div>299</div></td>
+    <td><div>299</div></td>
+    <td><div>223</div></td>
+    <td><div>223</div></td>
+    <td><div>210</div></td>
+    <td><div>216</div></td>
+    <td><div>106</div></td>
+    <td><div>106</div></td>
+    <td><div>296</div></td>
+    <td><div>306</div></td>
+    <td><div>166</div></td>
+    <td><div>166</div></td>
+    <td><div>0.0023</div></td>
+    <td><div>UNIQUE</div></td>
+    </tr>
+    <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
+    <td><div><a href="#1016.ON.CA">Jump</a></div></td>
+    <td><div>1016.ON.CA</div></td>
+    <td><div>SiouxLookout-Jan-2004</div></td>
+    <td><div>M</div></td>
+    <td><div>382</div></td>
+    <td><div>384</div></td>
+    <td><div>224</div></td>
+    <td><div>232</div></td>
+    <td><div>-99</div></td>
+    <td><div>-99</div></td>
+    <td><div>193</div></td>
+    <td><div>193</div></td>
+    <td><div>-99</div></td>
+    <td><div>-99</div></td>
+    <td><div>213</div></td>
+    <td><div>221</div></td>
+    <td><div>210</div></td>
+    <td><div>210</div></td>
+    <td><div>106</div></td>
+    <td><div>112</div></td>
+    <td><div>288</div></td>
+    <td><div>288</div></td>
+    <td><div>166</div></td>
+    <td><div>166</div></td>
+    <td><div>0.00069</div></td>
+    <td><div>UNIQUE</div></td>
+    </tr>
+    <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
+    <td><div><a href="#1017.ON.CA">Jump</a></div></td>
+    <td><div>1017.ON.CA</div></td>
+    <td><div>SiouxLookout-Jan-2004</div></td>
+    <td><div>F</div></td>
+    <td><div>382</div></td>
+    <td><div>388</div></td>
+    <td><div>230</div></td>
+    <td><div>230</div></td>
+    <td><div>-99</div></td>
+    <td><div>-99</div></td>
+    <td><div>181</div></td>
+    <td><div>185</div></td>
+    <td><div>285</div></td>
+    <td><div>299</div></td>
+    <td><div>223</div></td>
+    <td><div>223</div></td>
+    <td><div>202</div></td>
+    <td><div>202</div></td>
+    <td><div>106</div></td>
+    <td><div>118</div></td>
+    <td><div>304</div></td>
+    <td><div>304</div></td>
+    <td><div>166</div></td>
+    <td><div>166</div></td>
+    <td><div>0.00094</div></td>
+    <td><div>UNIQUE</div></td>
+    </tr>
+    <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
+    <td><div><a href="#1018.ON.CA">Jump</a></div></td>
+    <td><div>1018.ON.CA</div></td>
+    <td><div>SiouxLookout-Jan-2004</div></td>
+    <td><div>F</div></td>
+    <td><div>384</div></td>
+    <td><div>384</div></td>
+    <td><div>224</div></td>
+    <td><div>230</div></td>
+    <td><div>-99</div></td>
+    <td><div>-99</div></td>
+    <td><div>185</div></td>
+    <td><div>199</div></td>
+    <td><div>285</div></td>
+    <td><div>299</div></td>
+    <td><div>223</div></td>
+    <td><div>223</div></td>
+    <td><div>198</div></td>
+    <td><div>204</div></td>
+    <td><div>116</div></td>
+    <td><div>118</div></td>
+    <td><div>296</div></td>
+    <td><div>296</div></td>
+    <td><div>166</div></td>
+    <td><div>166</div></td>
+    <td><div>0.0011</div></td>
+    <td><div>UNIQUE</div></td>
+    </tr>
+    <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
+    <td><div><a href="#1019.ON.CA">Jump</a></div></td>
+    <td><div>1019.ON.CA</div></td>
+    <td><div>SiouxLookout-Jan-2004</div></td>
+    <td><div>F</div></td>
+    <td><div>382</div></td>
+    <td><div>384</div></td>
+    <td><div>224</div></td>
+    <td><div>230</div></td>
+    <td><div>159</div></td>
+    <td><div>159</div></td>
+    <td><div>193</div></td>
+    <td><div>193</div></td>
+    <td><div>299</div></td>
+    <td><div>299</div></td>
+    <td><div>223</div></td>
+    <td><div>223</div></td>
+    <td><div>202</div></td>
+    <td><div>202</div></td>
+    <td><div>106</div></td>
+    <td><div>118</div></td>
+    <td><div>298</div></td>
+    <td><div>298</div></td>
+    <td><div>166</div></td>
+    <td><div>166</div></td>
+    <td><div>0.0018</div></td>
+    <td><div>UNIQUE</div></td>
+    </tr>
+    <tr onmouseout="this.style.cssText='background-color:none;';" onmouseover="this.style.cssText='background-color:#E0FFFF';">
+    <td><div><a href="#1020.ON.CA">Jump</a></div></td>
+    <td><div>1020.ON.CA</div></td>
+    <td><div>SiouxLookout-Jan-2004</div></td>
+    <td><div>F</div></td>
+    <td><div>382</div></td>
+    <td><div>384</div></td>
+    <td><div>224</div></td>
+    <td><div>230</div></td>
+    <td><div>155</div></td>
+    <td><div>167</div></td>
+    <td><div>185</div></td>
+    <td><div>193</div></td>
+    <td><div>299</div></td>
+    <td><div>299</div></td>
+    <td><div>223</div></td>
+    <td><div>223</div></td>
+    <td><div>202</div></td>
+    <td><div>204</div></td>
+    <td><div>106</div></td>
+    <td><div>106</div></td>
+    <td><div>296</div></td>
+    <td><div>304</div></td>
+    <td><div>166</div></td>
+    <td><div>166</div></td>
+    <td><div>0.0012</div></td>
+    <td><div>UNIQUE</div></td>
+    </tr>
+    </table></div><div class="amGridLowerPanel"><span>There were 15 unique genotypes identified using the parameters supplied.</span></div></td></tr></table><br><br>
+    <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1001.ON.CA"><span style="font-size:medium;">Unique genotype (1 of 15)</span></a></div><div class="amGridMiddlePanel">
+    <table cellspacing="0" class="amTable amTableSeparate">
+    <tr class="amTableHeader">
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>gender</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    </tr>
+    <tr>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>1001.ON.CA</div></td>
+    <td class="amTableSelectRow"><div>SiouxLookout-Jan-2004</div></td>
+    <td class="amTableSelectRow"><div>F</div></td>
+    <td class="amTableSelectRow"><div>382</div></td>
+    <td class="amTableSelectRow"><div>384</div></td>
+    <td class="amTableSelectRow"><div>230</div></td>
+    <td class="amTableSelectRow"><div>236</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>185</div></td>
+    <td class="amTableSelectRow"><div>185</div></td>
+    <td class="amTableSelectRow"><div>301</div></td>
+    <td class="amTableSelectRow"><div>301</div></td>
+    <td class="amTableSelectRow"><div>223</div></td>
+    <td class="amTableSelectRow"><div>223</div></td>
+    <td class="amTableSelectRow"><div>192</div></td>
+    <td class="amTableSelectRow"><div>192</div></td>
+    <td class="amTableSelectRow"><div>118</div></td>
+    <td class="amTableSelectRow"><div>118</div></td>
+    <td class="amTableSelectRow"><div>296</div></td>
+    <td class="amTableSelectRow"><div>304</div></td>
+    <td class="amTableSelectRow"><div>166</div></td>
+    <td class="amTableSelectRow"><div>166</div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>UNIQUE</div></td>
+    </tr>
+    <tr><td><div></div></td><td><div>1001.ON.CA</div></td><td><div>SiouxLookout-Jan-2004</div></td><td><div>F</div></td><td><div>382</div></td><td><div>384</div></td><td><div>230</div></td><td><div>236</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>185</div></td><td><div>185</div></td><td><div>301</div></td><td><div>301</div></td><td><div>223</div></td><td><div>223</div></td><td><div>192</div></td><td><div>192</div></td><td><div>118</div></td><td><div>118</div></td><td><div>296</div></td><td><div>304</div></td><td><div>166</div></td><td><div>166</div></td><td><div>0.00082</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
+    </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
+    </td></tr></table><br><br>
+    <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1002.ON.CA"><span style="font-size:medium;">Unique genotype (2 of 15)</span></a></div><div class="amGridMiddlePanel">
+    <table cellspacing="0" class="amTable amTableSeparate">
+    <tr class="amTableHeader">
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>gender</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    </tr>
+    <tr>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>1002.ON.CA</div></td>
+    <td class="amTableSelectRow"><div>SiouxLookout-Jan-2004</div></td>
+    <td class="amTableSelectRow"><div>F</div></td>
+    <td class="amTableSelectRow"><div>382</div></td>
+    <td class="amTableSelectRow"><div>384</div></td>
+    <td class="amTableSelectRow"><div>230</div></td>
+    <td class="amTableSelectRow"><div>236</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>181</div></td>
+    <td class="amTableSelectRow"><div>193</div></td>
+    <td class="amTableSelectRow"><div>299</div></td>
+    <td class="amTableSelectRow"><div>299</div></td>
+    <td class="amTableSelectRow"><div>223</div></td>
+    <td class="amTableSelectRow"><div>223</div></td>
+    <td class="amTableSelectRow"><div>202</div></td>
+    <td class="amTableSelectRow"><div>202</div></td>
+    <td class="amTableSelectRow"><div>118</div></td>
+    <td class="amTableSelectRow"><div>118</div></td>
+    <td class="amTableSelectRow"><div>288</div></td>
+    <td class="amTableSelectRow"><div>296</div></td>
+    <td class="amTableSelectRow"><div>166</div></td>
+    <td class="amTableSelectRow"><div>166</div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>UNIQUE</div></td>
+    </tr>
+    <tr><td><div></div></td><td><div>1002.ON.CA</div></td><td><div>SiouxLookout-Jan-2004</div></td><td><div>F</div></td><td><div>382</div></td><td><div>384</div></td><td><div>230</div></td><td><div>236</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>181</div></td><td><div>193</div></td><td><div>299</div></td><td><div>299</div></td><td><div>223</div></td><td><div>223</div></td><td><div>202</div></td><td><div>202</div></td><td><div>118</div></td><td><div>118</div></td><td><div>288</div></td><td><div>296</div></td><td><div>166</div></td><td><div>166</div></td><td><div>0.0029</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
+    </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
+    </td></tr></table><br><br>
+    <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1003.ON.CA"><span style="font-size:medium;">Unique genotype (3 of 15)</span></a></div><div class="amGridMiddlePanel">
+    <table cellspacing="0" class="amTable amTableSeparate">
+    <tr class="amTableHeader">
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>gender</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    </tr>
+    <tr>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>1003.ON.CA</div></td>
+    <td class="amTableSelectRow"><div>SiouxLookout-Jan-2004</div></td>
+    <td class="amTableSelectRow"><div>M</div></td>
+    <td class="amTableSelectRow"><div>382</div></td>
+    <td class="amTableSelectRow"><div>382</div></td>
+    <td class="amTableSelectRow"><div>224</div></td>
+    <td class="amTableSelectRow"><div>242</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>185</div></td>
+    <td class="amTableSelectRow"><div>191</div></td>
+    <td class="amTableSelectRow"><div>285</div></td>
+    <td class="amTableSelectRow"><div>299</div></td>
+    <td class="amTableSelectRow"><div>223</div></td>
+    <td class="amTableSelectRow"><div>223</div></td>
+    <td class="amTableSelectRow"><div>192</div></td>
+    <td class="amTableSelectRow"><div>202</div></td>
+    <td class="amTableSelectRow"><div>102</div></td>
+    <td class="amTableSelectRow"><div>118</div></td>
+    <td class="amTableSelectRow"><div>298</div></td>
+    <td class="amTableSelectRow"><div>304</div></td>
+    <td class="amTableSelectRow"><div>166</div></td>
+    <td class="amTableSelectRow"><div>172</div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>UNIQUE</div></td>
+    </tr>
+    <tr><td><div></div></td><td><div>1003.ON.CA</div></td><td><div>SiouxLookout-Jan-2004</div></td><td><div>M</div></td><td><div>382</div></td><td><div>382</div></td><td><div>224</div></td><td><div>242</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>185</div></td><td><div>191</div></td><td><div>285</div></td><td><div>299</div></td><td><div>223</div></td><td><div>223</div></td><td><div>192</div></td><td><div>202</div></td><td><div>102</div></td><td><div>118</div></td><td><div>298</div></td><td><div>304</div></td><td><div>166</div></td><td><div>172</div></td><td><div>0.00026</div></td><td><div>1.00</div></td><td><div>MATCH</div></td></tr>
+    <tr><td><div></div></td><td><div>1005.ON.CA</div></td><td><div>SiouxLookout-Jan-2004</div></td><td><div>M</div></td><td><div>382</div></td><td><div>382</div></td><td><div>224</div></td><td><div>242</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>185</div></td><td><div>191</div></td><td><div>285</div></td><td><div>299</div></td><td><div>223</div></td><td><div>223</div></td><td><div>192</div></td><td><div>202</div></td><td><div>102</div></td><td><div>118</div></td><td><div>298</div></td><td><div>304</div></td><td><div>166</div></td><td><div>172</div></td><td><div>0.00026</div></td><td><div>1.00</div></td><td><div>MATCH</div></td></tr>
+    <tr><td><div></div></td><td><div>1008.ON.CA</div></td><td><div>SiouxLookout-Jan-2004</div></td><td><div>M</div></td><td><div>382</div></td><td><div>382</div></td><td><div>224</div></td><td><div class="amMismatchAllele">230</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>185</div></td><td><div class="amMismatchAllele">193</div></td><td><div>285</div></td><td><div class="amMismatchAllele">285</div></td><td><div>223</div></td><td><div>223</div></td><td><div>192</div></td><td><div>202</div></td><td><div class="amMismatchAllele">118</div></td><td><div>118</div></td><td><div class="amMismatchAllele">296</div></td><td><div>304</div></td><td><div>166</div></td><td><div class="amMismatchAllele">166</div></td><td><div>&nbsp; &nbsp; ---</div></td><td><div>0.71</div></td><td><div>MATCH</div></td></tr>
+    <tr><td><div></div></td><td><div>1009.ON.CA</div></td><td><div>SiouxLookout-Jan-2004</div></td><td><div>M</div></td><td><div>382</div></td><td><div>382</div></td><td><div>224</div></td><td><div class="amMismatchAllele">230</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>185</div></td><td><div class="amMismatchAllele">193</div></td><td><div>285</div></td><td><div class="amMismatchAllele">285</div></td><td><div>223</div></td><td><div>223</div></td><td><div>192</div></td><td><div>202</div></td><td><div class="amMismatchAllele">118</div></td><td><div>118</div></td><td><div class="amMismatchAllele">296</div></td><td><div>304</div></td><td><div>166</div></td><td><div class="amMismatchAllele">166</div></td><td><div>&nbsp; &nbsp; ---</div></td><td><div>0.71</div></td><td><div>MATCH</div></td></tr>
+    </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
+    </td></tr></table><br><br>
+    <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1004.ON.CA"><span style="font-size:medium;">Unique genotype (4 of 15)</span></a></div><div class="amGridMiddlePanel">
+    <table cellspacing="0" class="amTable amTableSeparate">
+    <tr class="amTableHeader">
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>gender</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    </tr>
+    <tr>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>1004.ON.CA</div></td>
+    <td class="amTableSelectRow"><div>SiouxLookout-Jan-2004</div></td>
+    <td class="amTableSelectRow"><div>M</div></td>
+    <td class="amTableSelectRow"><div>382</div></td>
+    <td class="amTableSelectRow"><div>384</div></td>
+    <td class="amTableSelectRow"><div>232</div></td>
+    <td class="amTableSelectRow"><div>236</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>193</div></td>
+    <td class="amTableSelectRow"><div>193</div></td>
+    <td class="amTableSelectRow"><div>299</div></td>
+    <td class="amTableSelectRow"><div>301</div></td>
+    <td class="amTableSelectRow"><div>223</div></td>
+    <td class="amTableSelectRow"><div>223</div></td>
+    <td class="amTableSelectRow"><div>192</div></td>
+    <td class="amTableSelectRow"><div>216</div></td>
+    <td class="amTableSelectRow"><div>102</div></td>
+    <td class="amTableSelectRow"><div>108</div></td>
+    <td class="amTableSelectRow"><div>296</div></td>
+    <td class="amTableSelectRow"><div>304</div></td>
+    <td class="amTableSelectRow"><div>168</div></td>
+    <td class="amTableSelectRow"><div>174</div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>UNIQUE</div></td>
+    </tr>
+    <tr><td><div></div></td><td><div>1004.ON.CA</div></td><td><div>SiouxLookout-Jan-2004</div></td><td><div>M</div></td><td><div>382</div></td><td><div>384</div></td><td><div>232</div></td><td><div>236</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>193</div></td><td><div>193</div></td><td><div>299</div></td><td><div>301</div></td><td><div>223</div></td><td><div>223</div></td><td><div>192</div></td><td><div>216</div></td><td><div>102</div></td><td><div>108</div></td><td><div>296</div></td><td><div>304</div></td><td><div>168</div></td><td><div>174</div></td><td><div>0.00023</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
+    </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
+    </td></tr></table><br><br>
+    <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1006.ON.CA"><span style="font-size:medium;">Unique genotype (5 of 15)</span></a></div><div class="amGridMiddlePanel">
+    <table cellspacing="0" class="amTable amTableSeparate">
+    <tr class="amTableHeader">
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>gender</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    </tr>
+    <tr>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>1006.ON.CA</div></td>
+    <td class="amTableSelectRow"><div>SiouxLookout-Jan-2004</div></td>
+    <td class="amTableSelectRow"><div>F</div></td>
+    <td class="amTableSelectRow"><div>382</div></td>
+    <td class="amTableSelectRow"><div>384</div></td>
+    <td class="amTableSelectRow"><div>224</div></td>
+    <td class="amTableSelectRow"><div>230</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>181</div></td>
+    <td class="amTableSelectRow"><div>193</div></td>
+    <td class="amTableSelectRow"><div>285</div></td>
+    <td class="amTableSelectRow"><div>285</div></td>
+    <td class="amTableSelectRow"><div>223</div></td>
+    <td class="amTableSelectRow"><div>223</div></td>
+    <td class="amTableSelectRow"><div>198</div></td>
+    <td class="amTableSelectRow"><div>202</div></td>
+    <td class="amTableSelectRow"><div>114</div></td>
+    <td class="amTableSelectRow"><div>116</div></td>
+    <td class="amTableSelectRow"><div>288</div></td>
+    <td class="amTableSelectRow"><div>296</div></td>
+    <td class="amTableSelectRow"><div>166</div></td>
+    <td class="amTableSelectRow"><div>166</div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>UNIQUE</div></td>
+    </tr>
+    <tr><td><div></div></td><td><div>1006.ON.CA</div></td><td><div>SiouxLookout-Jan-2004</div></td><td><div>F</div></td><td><div>382</div></td><td><div>384</div></td><td><div>224</div></td><td><div>230</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>181</div></td><td><div>193</div></td><td><div>285</div></td><td><div>285</div></td><td><div>223</div></td><td><div>223</div></td><td><div>198</div></td><td><div>202</div></td><td><div>114</div></td><td><div>116</div></td><td><div>288</div></td><td><div>296</div></td><td><div>166</div></td><td><div>166</div></td><td><div>0.0008</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
+    <tr><td><div></div></td><td><div>1007.ON.CA</div></td><td><div>SiouxLookout-Jan-2004</div></td><td><div>F</div></td><td><div>382</div></td><td><div>384</div></td><td><div>224</div></td><td><div>230</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>181</div></td><td><div>193</div></td><td><div>285</div></td><td><div>285</div></td><td><div>223</div></td><td><div>223</div></td><td><div>198</div></td><td><div>202</div></td><td><div>114</div></td><td><div>116</div></td><td><div>288</div></td><td><div>296</div></td><td><div>166</div></td><td><div>166</div></td><td><div>0.0008</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
+    </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
+    </td></tr></table><br><br>
+    <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1010.ON.CA"><span style="font-size:medium;">Unique genotype (6 of 15)</span></a></div><div class="amGridMiddlePanel">
+    <table cellspacing="0" class="amTable amTableSeparate">
+    <tr class="amTableHeader">
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>gender</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    </tr>
+    <tr>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>1010.ON.CA</div></td>
+    <td class="amTableSelectRow"><div>SiouxLookout-Jan-2004</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>382</div></td>
+    <td class="amTableSelectRow"><div>384</div></td>
+    <td class="amTableSelectRow"><div>230</div></td>
+    <td class="amTableSelectRow"><div>244</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>191</div></td>
+    <td class="amTableSelectRow"><div>193</div></td>
+    <td class="amTableSelectRow"><div>299</div></td>
+    <td class="amTableSelectRow"><div>299</div></td>
+    <td class="amTableSelectRow"><div>227</div></td>
+    <td class="amTableSelectRow"><div>227</div></td>
+    <td class="amTableSelectRow"><div>202</div></td>
+    <td class="amTableSelectRow"><div>204</div></td>
+    <td class="amTableSelectRow"><div>118</div></td>
+    <td class="amTableSelectRow"><div>118</div></td>
+    <td class="amTableSelectRow"><div>296</div></td>
+    <td class="amTableSelectRow"><div>296</div></td>
+    <td class="amTableSelectRow"><div>166</div></td>
+    <td class="amTableSelectRow"><div>166</div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>UNIQUE</div></td>
+    </tr>
+    <tr><td><div></div></td><td><div>1010.ON.CA</div></td><td><div>SiouxLookout-Jan-2004</div></td><td><div class="amMissingAllele">-99</div></td><td><div>382</div></td><td><div>384</div></td><td><div>230</div></td><td><div>244</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>191</div></td><td><div>193</div></td><td><div>299</div></td><td><div>299</div></td><td><div>227</div></td><td><div>227</div></td><td><div>202</div></td><td><div>204</div></td><td><div>118</div></td><td><div>118</div></td><td><div>296</div></td><td><div>296</div></td><td><div>166</div></td><td><div>166</div></td><td><div>0.0014</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
+    </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
+    </td></tr></table><br><br>
+    <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1011.ON.CA"><span style="font-size:medium;">Unique genotype (7 of 15)</span></a></div><div class="amGridMiddlePanel">
+    <table cellspacing="0" class="amTable amTableSeparate">
+    <tr class="amTableHeader">
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>gender</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    </tr>
+    <tr>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>1011.ON.CA</div></td>
+    <td class="amTableSelectRow"><div>SiouxLookout-Jan-2004</div></td>
+    <td class="amTableSelectRow"><div>F</div></td>
+    <td class="amTableSelectRow"><div>382</div></td>
+    <td class="amTableSelectRow"><div>384</div></td>
+    <td class="amTableSelectRow"><div>224</div></td>
+    <td class="amTableSelectRow"><div>224</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>193</div></td>
+    <td class="amTableSelectRow"><div>193</div></td>
+    <td class="amTableSelectRow"><div>299</div></td>
+    <td class="amTableSelectRow"><div>299</div></td>
+    <td class="amTableSelectRow"><div>223</div></td>
+    <td class="amTableSelectRow"><div>223</div></td>
+    <td class="amTableSelectRow"><div>210</div></td>
+    <td class="amTableSelectRow"><div>214</div></td>
+    <td class="amTableSelectRow"><div>106</div></td>
+    <td class="amTableSelectRow"><div>112</div></td>
+    <td class="amTableSelectRow"><div>288</div></td>
+    <td class="amTableSelectRow"><div>296</div></td>
+    <td class="amTableSelectRow"><div>166</div></td>
+    <td class="amTableSelectRow"><div>172</div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>UNIQUE</div></td>
+    </tr>
+    <tr><td><div></div></td><td><div>1011.ON.CA</div></td><td><div>SiouxLookout-Jan-2004</div></td><td><div>F</div></td><td><div>382</div></td><td><div>384</div></td><td><div>224</div></td><td><div>224</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>193</div></td><td><div>193</div></td><td><div>299</div></td><td><div>299</div></td><td><div>223</div></td><td><div>223</div></td><td><div>210</div></td><td><div>214</div></td><td><div>106</div></td><td><div>112</div></td><td><div>288</div></td><td><div>296</div></td><td><div>166</div></td><td><div>172</div></td><td><div>0.0016</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
+    <tr><td><div></div></td><td><div>1012.ON.CA</div></td><td><div>SiouxLookout-Jan-2004</div></td><td><div>F</div></td><td><div>382</div></td><td><div>384</div></td><td><div>224</div></td><td><div>224</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>193</div></td><td><div>193</div></td><td><div>299</div></td><td><div>299</div></td><td><div>223</div></td><td><div>223</div></td><td><div>210</div></td><td><div>214</div></td><td><div>106</div></td><td><div>112</div></td><td><div>288</div></td><td><div>296</div></td><td><div>166</div></td><td><div>172</div></td><td><div>0.0016</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
+    </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
+    </td></tr></table><br><br>
+    <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1013.ON.CA"><span style="font-size:medium;">Unique genotype (8 of 15)</span></a></div><div class="amGridMiddlePanel">
+    <table cellspacing="0" class="amTable amTableSeparate">
+    <tr class="amTableHeader">
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>gender</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    </tr>
+    <tr>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>1013.ON.CA</div></td>
+    <td class="amTableSelectRow"><div>SiouxLookout-Jan-2004</div></td>
+    <td class="amTableSelectRow"><div>M</div></td>
+    <td class="amTableSelectRow"><div>382</div></td>
+    <td class="amTableSelectRow"><div>384</div></td>
+    <td class="amTableSelectRow"><div>232</div></td>
+    <td class="amTableSelectRow"><div>232</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>193</div></td>
+    <td class="amTableSelectRow"><div>193</div></td>
+    <td class="amTableSelectRow"><div>299</div></td>
+    <td class="amTableSelectRow"><div>299</div></td>
+    <td class="amTableSelectRow"><div>213</div></td>
+    <td class="amTableSelectRow"><div>221</div></td>
+    <td class="amTableSelectRow"><div>210</div></td>
+    <td class="amTableSelectRow"><div>210</div></td>
+    <td class="amTableSelectRow"><div>118</div></td>
+    <td class="amTableSelectRow"><div>118</div></td>
+    <td class="amTableSelectRow"><div>296</div></td>
+    <td class="amTableSelectRow"><div>306</div></td>
+    <td class="amTableSelectRow"><div>166</div></td>
+    <td class="amTableSelectRow"><div>172</div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>UNIQUE</div></td>
+    </tr>
+    <tr><td><div></div></td><td><div>1013.ON.CA</div></td><td><div>SiouxLookout-Jan-2004</div></td><td><div>M</div></td><td><div>382</div></td><td><div>384</div></td><td><div>232</div></td><td><div>232</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>193</div></td><td><div>193</div></td><td><div>299</div></td><td><div>299</div></td><td><div>213</div></td><td><div>221</div></td><td><div>210</div></td><td><div>210</div></td><td><div>118</div></td><td><div>118</div></td><td><div>296</div></td><td><div>306</div></td><td><div>166</div></td><td><div>172</div></td><td><div>0.00047</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
+    </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
+    </td></tr></table><br><br>
+    <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1014.ON.CA"><span style="font-size:medium;">Unique genotype (9 of 15)</span></a></div><div class="amGridMiddlePanel">
+    <table cellspacing="0" class="amTable amTableSeparate">
+    <tr class="amTableHeader">
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>gender</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    </tr>
+    <tr>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>1014.ON.CA</div></td>
+    <td class="amTableSelectRow"><div>SiouxLookout-Jan-2004</div></td>
+    <td class="amTableSelectRow"><div>F</div></td>
+    <td class="amTableSelectRow"><div>384</div></td>
+    <td class="amTableSelectRow"><div>384</div></td>
+    <td class="amTableSelectRow"><div>232</div></td>
+    <td class="amTableSelectRow"><div>238</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>193</div></td>
+    <td class="amTableSelectRow"><div>199</div></td>
+    <td class="amTableSelectRow"><div>299</div></td>
+    <td class="amTableSelectRow"><div>301</div></td>
+    <td class="amTableSelectRow"><div>213</div></td>
+    <td class="amTableSelectRow"><div>213</div></td>
+    <td class="amTableSelectRow"><div>210</div></td>
+    <td class="amTableSelectRow"><div>210</div></td>
+    <td class="amTableSelectRow"><div>102</div></td>
+    <td class="amTableSelectRow"><div>108</div></td>
+    <td class="amTableSelectRow"><div>296</div></td>
+    <td class="amTableSelectRow"><div>296</div></td>
+    <td class="amTableSelectRow"><div>174</div></td>
+    <td class="amTableSelectRow"><div>174</div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>UNIQUE</div></td>
+    </tr>
+    <tr><td><div></div></td><td><div>1014.ON.CA</div></td><td><div>SiouxLookout-Jan-2004</div></td><td><div>F</div></td><td><div>384</div></td><td><div>384</div></td><td><div>232</div></td><td><div>238</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>193</div></td><td><div>199</div></td><td><div>299</div></td><td><div>301</div></td><td><div>213</div></td><td><div>213</div></td><td><div>210</div></td><td><div>210</div></td><td><div>102</div></td><td><div>108</div></td><td><div>296</div></td><td><div>296</div></td><td><div>174</div></td><td><div>174</div></td><td><div>0.00016</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
+    </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
+    </td></tr></table><br><br>
+    <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1015.ON.CA"><span style="font-size:medium;">Unique genotype (10 of 15)</span></a></div><div class="amGridMiddlePanel">
+    <table cellspacing="0" class="amTable amTableSeparate">
+    <tr class="amTableHeader">
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>gender</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    </tr>
+    <tr>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>1015.ON.CA</div></td>
+    <td class="amTableSelectRow"><div>SiouxLookout-Jan-2004</div></td>
+    <td class="amTableSelectRow"><div>F</div></td>
+    <td class="amTableSelectRow"><div>382</div></td>
+    <td class="amTableSelectRow"><div>382</div></td>
+    <td class="amTableSelectRow"><div>224</div></td>
+    <td class="amTableSelectRow"><div>232</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>193</div></td>
+    <td class="amTableSelectRow"><div>193</div></td>
+    <td class="amTableSelectRow"><div>299</div></td>
+    <td class="amTableSelectRow"><div>299</div></td>
+    <td class="amTableSelectRow"><div>223</div></td>
+    <td class="amTableSelectRow"><div>223</div></td>
+    <td class="amTableSelectRow"><div>210</div></td>
+    <td class="amTableSelectRow"><div>216</div></td>
+    <td class="amTableSelectRow"><div>106</div></td>
+    <td class="amTableSelectRow"><div>106</div></td>
+    <td class="amTableSelectRow"><div>296</div></td>
+    <td class="amTableSelectRow"><div>306</div></td>
+    <td class="amTableSelectRow"><div>166</div></td>
+    <td class="amTableSelectRow"><div>166</div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>UNIQUE</div></td>
+    </tr>
+    <tr><td><div></div></td><td><div>1015.ON.CA</div></td><td><div>SiouxLookout-Jan-2004</div></td><td><div>F</div></td><td><div>382</div></td><td><div>382</div></td><td><div>224</div></td><td><div>232</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>193</div></td><td><div>193</div></td><td><div>299</div></td><td><div>299</div></td><td><div>223</div></td><td><div>223</div></td><td><div>210</div></td><td><div>216</div></td><td><div>106</div></td><td><div>106</div></td><td><div>296</div></td><td><div>306</div></td><td><div>166</div></td><td><div>166</div></td><td><div>0.0023</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
+    </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
+    </td></tr></table><br><br>
+    <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1016.ON.CA"><span style="font-size:medium;">Unique genotype (11 of 15)</span></a></div><div class="amGridMiddlePanel">
+    <table cellspacing="0" class="amTable amTableSeparate">
+    <tr class="amTableHeader">
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>gender</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    </tr>
+    <tr>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>1016.ON.CA</div></td>
+    <td class="amTableSelectRow"><div>SiouxLookout-Jan-2004</div></td>
+    <td class="amTableSelectRow"><div>M</div></td>
+    <td class="amTableSelectRow"><div>382</div></td>
+    <td class="amTableSelectRow"><div>384</div></td>
+    <td class="amTableSelectRow"><div>224</div></td>
+    <td class="amTableSelectRow"><div>232</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>193</div></td>
+    <td class="amTableSelectRow"><div>193</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>213</div></td>
+    <td class="amTableSelectRow"><div>221</div></td>
+    <td class="amTableSelectRow"><div>210</div></td>
+    <td class="amTableSelectRow"><div>210</div></td>
+    <td class="amTableSelectRow"><div>106</div></td>
+    <td class="amTableSelectRow"><div>112</div></td>
+    <td class="amTableSelectRow"><div>288</div></td>
+    <td class="amTableSelectRow"><div>288</div></td>
+    <td class="amTableSelectRow"><div>166</div></td>
+    <td class="amTableSelectRow"><div>166</div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>UNIQUE</div></td>
+    </tr>
+    <tr><td><div></div></td><td><div>1016.ON.CA</div></td><td><div>SiouxLookout-Jan-2004</div></td><td><div>M</div></td><td><div>382</div></td><td><div>384</div></td><td><div>224</div></td><td><div>232</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>193</div></td><td><div>193</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>213</div></td><td><div>221</div></td><td><div>210</div></td><td><div>210</div></td><td><div>106</div></td><td><div>112</div></td><td><div>288</div></td><td><div>288</div></td><td><div>166</div></td><td><div>166</div></td><td><div>0.00069</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
+    </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
+    </td></tr></table><br><br>
+    <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1017.ON.CA"><span style="font-size:medium;">Unique genotype (12 of 15)</span></a></div><div class="amGridMiddlePanel">
+    <table cellspacing="0" class="amTable amTableSeparate">
+    <tr class="amTableHeader">
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>gender</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    </tr>
+    <tr>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>1017.ON.CA</div></td>
+    <td class="amTableSelectRow"><div>SiouxLookout-Jan-2004</div></td>
+    <td class="amTableSelectRow"><div>F</div></td>
+    <td class="amTableSelectRow"><div>382</div></td>
+    <td class="amTableSelectRow"><div>388</div></td>
+    <td class="amTableSelectRow"><div>230</div></td>
+    <td class="amTableSelectRow"><div>230</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>181</div></td>
+    <td class="amTableSelectRow"><div>185</div></td>
+    <td class="amTableSelectRow"><div>285</div></td>
+    <td class="amTableSelectRow"><div>299</div></td>
+    <td class="amTableSelectRow"><div>223</div></td>
+    <td class="amTableSelectRow"><div>223</div></td>
+    <td class="amTableSelectRow"><div>202</div></td>
+    <td class="amTableSelectRow"><div>202</div></td>
+    <td class="amTableSelectRow"><div>106</div></td>
+    <td class="amTableSelectRow"><div>118</div></td>
+    <td class="amTableSelectRow"><div>304</div></td>
+    <td class="amTableSelectRow"><div>304</div></td>
+    <td class="amTableSelectRow"><div>166</div></td>
+    <td class="amTableSelectRow"><div>166</div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>UNIQUE</div></td>
+    </tr>
+    <tr><td><div></div></td><td><div>1017.ON.CA</div></td><td><div>SiouxLookout-Jan-2004</div></td><td><div>F</div></td><td><div>382</div></td><td><div>388</div></td><td><div>230</div></td><td><div>230</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>181</div></td><td><div>185</div></td><td><div>285</div></td><td><div>299</div></td><td><div>223</div></td><td><div>223</div></td><td><div>202</div></td><td><div>202</div></td><td><div>106</div></td><td><div>118</div></td><td><div>304</div></td><td><div>304</div></td><td><div>166</div></td><td><div>166</div></td><td><div>0.00094</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
+    </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
+    </td></tr></table><br><br>
+    <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1018.ON.CA"><span style="font-size:medium;">Unique genotype (13 of 15)</span></a></div><div class="amGridMiddlePanel">
+    <table cellspacing="0" class="amTable amTableSeparate">
+    <tr class="amTableHeader">
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>gender</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    </tr>
+    <tr>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>1018.ON.CA</div></td>
+    <td class="amTableSelectRow"><div>SiouxLookout-Jan-2004</div></td>
+    <td class="amTableSelectRow"><div>F</div></td>
+    <td class="amTableSelectRow"><div>384</div></td>
+    <td class="amTableSelectRow"><div>384</div></td>
+    <td class="amTableSelectRow"><div>224</div></td>
+    <td class="amTableSelectRow"><div>230</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>-99</div></td>
+    <td class="amTableSelectRow"><div>185</div></td>
+    <td class="amTableSelectRow"><div>199</div></td>
+    <td class="amTableSelectRow"><div>285</div></td>
+    <td class="amTableSelectRow"><div>299</div></td>
+    <td class="amTableSelectRow"><div>223</div></td>
+    <td class="amTableSelectRow"><div>223</div></td>
+    <td class="amTableSelectRow"><div>198</div></td>
+    <td class="amTableSelectRow"><div>204</div></td>
+    <td class="amTableSelectRow"><div>116</div></td>
+    <td class="amTableSelectRow"><div>118</div></td>
+    <td class="amTableSelectRow"><div>296</div></td>
+    <td class="amTableSelectRow"><div>296</div></td>
+    <td class="amTableSelectRow"><div>166</div></td>
+    <td class="amTableSelectRow"><div>166</div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>UNIQUE</div></td>
+    </tr>
+    <tr><td><div></div></td><td><div>1018.ON.CA</div></td><td><div>SiouxLookout-Jan-2004</div></td><td><div>F</div></td><td><div>384</div></td><td><div>384</div></td><td><div>224</div></td><td><div>230</div></td><td><div class="amMissingAllele">-99</div></td><td><div class="amMissingAllele">-99</div></td><td><div>185</div></td><td><div>199</div></td><td><div>285</div></td><td><div>299</div></td><td><div>223</div></td><td><div>223</div></td><td><div>198</div></td><td><div>204</div></td><td><div>116</div></td><td><div>118</div></td><td><div>296</div></td><td><div>296</div></td><td><div>166</div></td><td><div>166</div></td><td><div>0.0011</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
+    </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
+    </td></tr></table><br><br>
+    <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1019.ON.CA"><span style="font-size:medium;">Unique genotype (14 of 15)</span></a></div><div class="amGridMiddlePanel">
+    <table cellspacing="0" class="amTable amTableSeparate">
+    <tr class="amTableHeader">
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>gender</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    </tr>
+    <tr>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>1019.ON.CA</div></td>
+    <td class="amTableSelectRow"><div>SiouxLookout-Jan-2004</div></td>
+    <td class="amTableSelectRow"><div>F</div></td>
+    <td class="amTableSelectRow"><div>382</div></td>
+    <td class="amTableSelectRow"><div>384</div></td>
+    <td class="amTableSelectRow"><div>224</div></td>
+    <td class="amTableSelectRow"><div>230</div></td>
+    <td class="amTableSelectRow"><div>159</div></td>
+    <td class="amTableSelectRow"><div>159</div></td>
+    <td class="amTableSelectRow"><div>193</div></td>
+    <td class="amTableSelectRow"><div>193</div></td>
+    <td class="amTableSelectRow"><div>299</div></td>
+    <td class="amTableSelectRow"><div>299</div></td>
+    <td class="amTableSelectRow"><div>223</div></td>
+    <td class="amTableSelectRow"><div>223</div></td>
+    <td class="amTableSelectRow"><div>202</div></td>
+    <td class="amTableSelectRow"><div>202</div></td>
+    <td class="amTableSelectRow"><div>106</div></td>
+    <td class="amTableSelectRow"><div>118</div></td>
+    <td class="amTableSelectRow"><div>298</div></td>
+    <td class="amTableSelectRow"><div>298</div></td>
+    <td class="amTableSelectRow"><div>166</div></td>
+    <td class="amTableSelectRow"><div>166</div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>UNIQUE</div></td>
+    </tr>
+    <tr><td><div></div></td><td><div>1019.ON.CA</div></td><td><div>SiouxLookout-Jan-2004</div></td><td><div>F</div></td><td><div>382</div></td><td><div>384</div></td><td><div>224</div></td><td><div>230</div></td><td><div>159</div></td><td><div>159</div></td><td><div>193</div></td><td><div>193</div></td><td><div>299</div></td><td><div>299</div></td><td><div>223</div></td><td><div>223</div></td><td><div>202</div></td><td><div>202</div></td><td><div>106</div></td><td><div>118</div></td><td><div>298</div></td><td><div>298</div></td><td><div>166</div></td><td><div>166</div></td><td><div>0.0018</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
+    </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
+    </td></tr></table><br><br>
+    <table cellspacing="0" class="amGrid"><tr><td class="amGridContent"><div class="amGridUpperPanel"><a name="1020.ON.CA"><span style="font-size:medium;">Unique genotype (15 of 15)</span></a></div><div class="amGridMiddlePanel">
+    <table cellspacing="0" class="amTable amTableSeparate">
+    <tr class="amTableHeader">
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td></td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>gender</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC1b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC2b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC3b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC4b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC5b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC6b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC7b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC8b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC9b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10a</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>LOC10b</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Psib</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Score</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    <td class="amPointer"><table cellspacing="0" class="amTableHeaderBtn"><tr><td>Type</td><td style="width:10px;">&nbsp;</td></tr></table></td>
+    </tr>
+    <tr>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>1020.ON.CA</div></td>
+    <td class="amTableSelectRow"><div>SiouxLookout-Jan-2004</div></td>
+    <td class="amTableSelectRow"><div>F</div></td>
+    <td class="amTableSelectRow"><div>382</div></td>
+    <td class="amTableSelectRow"><div>384</div></td>
+    <td class="amTableSelectRow"><div>224</div></td>
+    <td class="amTableSelectRow"><div>230</div></td>
+    <td class="amTableSelectRow"><div>155</div></td>
+    <td class="amTableSelectRow"><div>167</div></td>
+    <td class="amTableSelectRow"><div>185</div></td>
+    <td class="amTableSelectRow"><div>193</div></td>
+    <td class="amTableSelectRow"><div>299</div></td>
+    <td class="amTableSelectRow"><div>299</div></td>
+    <td class="amTableSelectRow"><div>223</div></td>
+    <td class="amTableSelectRow"><div>223</div></td>
+    <td class="amTableSelectRow"><div>202</div></td>
+    <td class="amTableSelectRow"><div>204</div></td>
+    <td class="amTableSelectRow"><div>106</div></td>
+    <td class="amTableSelectRow"><div>106</div></td>
+    <td class="amTableSelectRow"><div>296</div></td>
+    <td class="amTableSelectRow"><div>304</div></td>
+    <td class="amTableSelectRow"><div>166</div></td>
+    <td class="amTableSelectRow"><div>166</div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div></div></td>
+    <td class="amTableSelectRow"><div>UNIQUE</div></td>
+    </tr>
+    <tr><td><div></div></td><td><div>1020.ON.CA</div></td><td><div>SiouxLookout-Jan-2004</div></td><td><div>F</div></td><td><div>382</div></td><td><div>384</div></td><td><div>224</div></td><td><div>230</div></td><td><div>155</div></td><td><div>167</div></td><td><div>185</div></td><td><div>193</div></td><td><div>299</div></td><td><div>299</div></td><td><div>223</div></td><td><div>223</div></td><td><div>202</div></td><td><div>204</div></td><td><div>106</div></td><td><div>106</div></td><td><div>296</div></td><td><div>304</div></td><td><div>166</div></td><td><div>166</div></td><td><div>0.0012</div></td><td><div>1</div></td><td><div>MATCH</div></td></tr>
+    </table></div><div class="amGridLowerPanel"><span>Unique genotype compared against 20 samples, returning score>=0.7<br>Psib calculated for samples with no mismatches.</span></div>
+    </td></tr></table><br><br>
+    <span style="font-size:x-small;">Generated by allelematch: an R package<br></span><span style="font-size:x-small;">To reference this analysis please use citation("allelematch")<br><br></span></div>
+    </body></html>
 
