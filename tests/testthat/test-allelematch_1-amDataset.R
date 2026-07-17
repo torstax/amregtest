@@ -1,4 +1,13 @@
 
+# TODO 2.6.0: These tests reveal severe backwards incompatibilities in 2.6.0 that
+# need to be fixed in allelematch 2.6.1:
+amvariant <- ifelse(amversion == "2.6.0", "bad-2.6.0", amvariant) # TODO 2.6.0
+
+# Helper function that prints a remark into the snapshot file:
+snapshot_rem <- function(remark, ..., variant = amvariant) {
+  expect_snapshot_output(cat("\n!\n! ", remark, ..., "\n!\n"), variant=variant)
+}
+
 test_that("We are running the 3rd edition of testthat", code = {
   # If this tests fails, then call
   #   usethis::use_testthat(3)
@@ -6,7 +15,7 @@ test_that("We are running the 3rd edition of testthat", code = {
   testthat::expect_gte(!!testthat::edition_get(), 3)
 })
 
-test_that("amExamples have not changed in allelematch", {
+test_that("allelematch::amExamples have not changed md5sum", {
 
     # Calculate a checksum for data stored under ./data/ in a package:
     env <- environment() # Use a local environment to avoid polluting the global environment with data sets
@@ -17,10 +26,12 @@ test_that("amExamples have not changed in allelematch", {
         return(cs)
     }
 
+    snapshot_rem("Verify the md5 checksums of the allelematch::amExampleX data files:")
     # 2.6.0 of allelematch introduced some cosmetic changes,
     # including changing the column name "gender" to "sex" in amExample5.
     # This changed the md5sum for that data set, so we need to check the version
     # of allelematch to know which md5sum to expect.
+    #
     amversion <- packageVersion("allelematch")
 
     expect_identical(md5sum("amExample1", package="allelematch"), '25108ea88af5cc916ed887c82eb89840')
@@ -79,7 +90,7 @@ test_that("See how an object of class amDataset is built:", {
   }
 
   # Make amDataset with all optional parameters defaulted:
-  expect_snapshot(miniDataset1 <- amDataset(miniExample))
+  expect_snapshot(miniDataset1 <- amDataset(miniExample), variant = amvariant)
   expect_snapshot(print.amDataset(miniDataset1), variant = amvariant)
   {
     amDataset = miniDataset1
@@ -105,12 +116,13 @@ test_that("See how an object of class amDataset is built:", {
     expect_identical(!!amDataset$missingCode, "-99")
     expect_identical(!!amDataset$metadataColumn, NULL)
 
-    expect_snapshot_value(amDataset, style = "json2") # Stored under ./tests/testthat/_snaps/allelematch.md
+    expect_snapshot_value(amDataset, style = "json2", variant = amvariant)
   }
 
   # Make amDataset with all optional parameters set:
-  expect_snapshot(miniDataset2 <- amDataset(miniExample, missingCode="-88", indexColumn="sampleId", metaDataColumn="knownIndividual", ignoreColumn="dismiss."))
-  expect_snapshot(print.amDataset(miniDataset2), variant = amvariant)
+  expect_snapshot(miniDataset2 <- amDataset(miniExample, missingCode="-88", indexColumn="sampleId", metaDataColumn="knownIndividual", ignoreColumn="dismiss."),
+                  variant = amvariant)
+  expect_snapshot(print.amDataset(miniDataset2), variant = amvariant) # TODO 2.6.0
   {
     amDataset = miniDataset2
     expect_identical(!!class(amDataset), "amDataset")
@@ -128,18 +140,19 @@ test_that("See how an object of class amDataset is built:", {
     expect_identical(!!amDataset$metaData, c("A","A","B","  C")) # Spaces not stripped from metadata
     expect_identical(!!amDataset$missingCode, "-88")
 
-    expect_snapshot_value(amDataset, style = "json2")
+    expect_snapshot_value(amDataset, style = "json2", variant = amvariant)
   }
 
   # Make amDataset with all column parameters set as integers rather than characters:
-  expect_snapshot(miniDataset3 <- amDataset(miniExample, missingCode="-88", indexColumn=1, metaDataColumn=2, ignoreColumn=3))
+  expect_snapshot(miniDataset3 <- amDataset(miniExample, missingCode="-88", indexColumn=1, metaDataColumn=2, ignoreColumn=3),
+                  variant = amvariant)
   expect_snapshot(print.amDataset(miniDataset2), variant = amvariant)
   {
     # TODO : Catch none-character values for missingCode!!
     amDataset = miniDataset3
     expect_identical(amDataset, miniDataset2)
 
-    expect_snapshot_value(amDataset, style = "json2")
+    expect_snapshot_value(amDataset, style = "json2", variant = amvariant)
   }
 })
 
@@ -176,14 +189,15 @@ test_that("Different data types for arg to 'missingCode' give same result", {
     expect_identical(ds$missingCode, "NA")
     expect_type(ds$multilocus, "character")
     expect_identical(sum(unlist(ds$multilocus) == "NA"), 3L) # All 3 NA values now as strings
-    expect_snapshot_value(ds, style = "deparse", variant = amvariant) # style "json2" de-serializes "NA" to NA
+    # Using style "deparse" since style "json2" de-serializes "NA" to NA:
+    expect_snapshot_value(ds, style = "deparse", variant = amvariant) # TODO 2.6.0. Encoding of NA!
   }
 
   # Make sure arg missingCode = NA is converted to $missingCode="NA"
   expect_snapshot(ds2 <- amDataset(sample, missingCode = NA), variant = amvariant)
   {
     ds = ds2
-    expect_snapshot_value(ds, style = "deparse", variant = amvariant)  # style "json2" de-serializes "NA" to NA
+    expect_snapshot_value(ds, style = "deparse", variant = amvariant)
     expect_identical(ds$missingCode, "NA")
     expect_type(ds$multilocus, "character")
     expect_identical(sum(is.na(ds$multilocus)), 0L)

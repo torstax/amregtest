@@ -19,9 +19,6 @@
     Code
       print(amdataMini1)
     Output
-      allelematch
-      amDataset object
-      
       $index
       [1] "AAA" "AAB" "AAC" "AAD"
       
@@ -34,4 +31,7 @@
       
       $missingCode
       [1] "-99"
+      
+      attr(,"class")
+      [1] "amDataset"
 
