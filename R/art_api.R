@@ -160,6 +160,10 @@ artList <- function(verbose=TRUE) {
 #' @param filter    If specified, only tests with names matching this perl regular
 #'                  expression will be executed. Character vector of length 1. See also \link{artList}
 #' @param verbose   logical. If TRUE (the default), prints version of tested allelematch to stdout
+#' @param keep      logical. If FALSE (the default), deletes the temporary files
+#'                  created by the tests. This includes .htm and .png files
+#'                  for browsers and Viewer.
+#'                  If TRUE, keeps the temporary files for inspection.
 #'
 #' @examples
 #' # See what version of packages 'allelematch' and 'amregtest'
@@ -179,9 +183,10 @@ artList <- function(verbose=TRUE) {
 #' @seealso \link{artVersion}, \link{artList}, \link{artInstallCranAllelematch} and \link{amregtest}
 #'
 #' @export
-artRun <- function(filter="", verbose=TRUE) {
+artRun <- function(filter="", verbose=TRUE, keep=FALSE) {
     stopifnot(is.character(filter) && length(filter)==1)
     stopifnot(is.logical(verbose))
+    stopifnot(is.logical(keep))
 
     requireNamespace("allelematch", quietly = TRUE) # Loaded here rather than in the "Imports:" section of DESCRIPTION file
 
@@ -193,6 +198,11 @@ artRun <- function(filter="", verbose=TRUE) {
     # withr ensures the effect lasts until the ENTIRE function returns
     env_value = if(verbose) "true" else "false"
     withr::local_envvar(c("ART_VERBOSE" = env_value))
+
+    # Propagate the 'keep' parameter to the deferred cleanup code in helper-temp-leaks.R
+    # withr ensures the effect lasts until the ENTIRE function returns
+    env_value = if(keep) "true" else "false"
+    withr::local_envvar(c("ART_KEEP_LEAKED_FILES_IN_TEMP" = env_value))
 
     installedVersion = toString(utils::packageVersion("allelematch"))
     if (verbose) cat("    About to test installed version of allelematch:  <<<", installedVersion, ">>>\n", sep="")

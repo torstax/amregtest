@@ -9,10 +9,10 @@ test_that("Validation of arguments to amPairwise() is working", {
     "LOC2b"         = c(41:44)
   )
   {
-    expect_snapshot(print(miniExample1))
-    expect_snapshot(amdataMini1 <- amDataset(miniExample1))
-    expect_snapshot(print(amdataMini1))
-    expect_snapshot_value(amdataMini1, style="json2")
+    expect_snapshot(print(miniExample1), variant = amvariant)
+    expect_snapshot(amdataMini1 <- amDataset(miniExample1), variant = amvariant)
+    expect_snapshot(print(amdataMini1), variant = amvariant)
+    expect_snapshot_value(amdataMini1, style="json2", variant = amvariant)
 
     expect_identical(class(amdataMini1), "amDataset")
     expect_true(inherits(amdataMini1, "amDataset"))
@@ -27,10 +27,10 @@ test_that("Validation of arguments to amPairwise() is working", {
     "LOC3a"         = c(51:53, -99)  # Extra, odd column
   )
   {
-    expect_snapshot(print(oddExample2))
-    expect_snapshot(amdataOdd2 <- amDataset(oddExample2))
-    expect_snapshot(print(amdataOdd2))
-    expect_snapshot_value(amdataOdd2, style = "json2")
+    expect_snapshot(print(oddExample2), variant = amvariant)
+    expect_snapshot(amdataOdd2 <- amDataset(oddExample2), variant = amvariant)
+    expect_snapshot(print(amdataOdd2), variant = amvariant)
+    expect_snapshot_value(amdataOdd2, style = "json2", variant = amvariant)
   }
 
     # Parameters are:
@@ -42,7 +42,7 @@ test_that("Validation of arguments to amPairwise() is working", {
     expect_error(amPairwise(NA),    "allelematch:\\s+amDatasetFocal and amDatasetComparison must be an object of class \"amDataset\"")
     expect_error(amPairwise(2),     "allelematch:\\s+amDatasetFocal and amDatasetComparison must be an object of class \"amDataset\"")
     expect_error(amPairwise(hipphopp=2), "unused argument")
-    expect_error(amPairwise(amdataOdd2), "allelematch:\\s+please specify alleleMismatch OR matchThreshold.")
+    expect_error(amPairwise(amdataOdd2), "allelematch:\\s+please specify alleleMismatch OR matchThreshold")
 
     # An odd number of columns does not generate an error. Maybe it should?
     # expect_error(amPairwise(amdataOdd2, alleleMismatch=5), "allelematch:\\s+there are an odd number of genotype columns in amDatasetFocal")
@@ -77,7 +77,7 @@ test_that("Validation of arguments to amPairwise() is working", {
     expect_error(amPairwise(amdata, missingMethod = 2,0),  must_be_amDataset)
     expect_error(amPairwise(amdata, missingMethod = 2.000000000000001), "allelematch:\\s+missingMethod must equal 1 or 2")
 
-    expect_snapshot_value(amdata, style = "json2")
+    expect_snapshot_value(amdata, style = "json2", variant = amvariant)
 
     # The following calls did not throw an error. Maybe they should?
     # expect_error(amPairwise(amdata, all=2), "unused argument")   # 'all' matches 'alleleMismatch'
@@ -86,8 +86,8 @@ test_that("Validation of arguments to amPairwise() is working", {
 
   # The following arguments to missingMethod pass. Maybe they shouldn't:
   expect_identical(class(amdata), "amDataset")
-  expect_snapshot(pw0 <- amPairwise(amdata, alleleMismatch=2))
-  # expect_snapshot(pw0 <- amPairwise(amdataMini1, matchThreshold=0,5) )    # Expected datatype
+  expect_snapshot(pw0 <- amPairwise(amdata, alleleMismatch=2), variant = amvariant)
+  # expect_snapshot(pw0 <- amPairwise(amdataMini1, matchThreshold=0,5), variant = amvariant) # Expected datatype
   {
 
     # Make sure that different argument types for the parameter "missingMethod"
@@ -95,6 +95,6 @@ test_that("Validation of arguments to amPairwise() is working", {
     # expect_identical(pw0, amPairwise(amdata, matchThreshold=0.5, 1.0))  # Unexp
     expect_identical(pw0, amPairwise(amdata, matchThreshold=0.5))
 
-    expect_snapshot_value(pw0, style = "json2")
+    expect_snapshot_value(pw0, style = "json2", variant = amvariant)
   }
 })

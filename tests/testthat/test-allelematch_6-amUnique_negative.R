@@ -9,9 +9,9 @@ test_that("Validation of arguments to amUnique() is working", {
     "LOC2b"         = c(41:44)
   )
   {
-    expect_snapshot(print(miniExample1))
-    expect_snapshot(amdataMini1 <- amDataset(miniExample1))
-    expect_snapshot(print(amdataMini1))
+    expect_snapshot(print(miniExample1), variant = amvariant)
+    expect_snapshot(amdataMini1 <- amDataset(miniExample1), variant = amvariant)
+    expect_snapshot(print(amdataMini1), variant = amvariant)
   }
 
   # Parameters are:

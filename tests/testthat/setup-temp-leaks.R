@@ -9,7 +9,6 @@
 
 withr::defer(
   {
-    keep_files <- toupper(Sys.getenv("ART_KEEP_LEAKED_FILES_IN_TEMP")) == "TRUE"
     if (length(.art_leaked) > 0) {
       # if (!interactive()) graphics.off()
       #
@@ -18,8 +17,9 @@ withr::defer(
       # to_del <- if (interactive()) .art_leaked[!is_png] else .art_leaked
 
       graphics.off()
-      keep   <- if (keep_files) .art_leaked  else character(0)
-      to_del <- if (keep_files) character(0) else .art_leaked
+      keep    <- toupper(Sys.getenv("ART_KEEP_LEAKED_FILES_IN_TEMP")) == "TRUE"
+      to_keep <- if (keep) .art_leaked  else character(0)
+      to_del  <- if (keep) character(0) else .art_leaked
 
       if (length(to_del) > 0) {
         suppressWarnings(file.remove(to_del))
@@ -29,11 +29,11 @@ withr::defer(
           paste(to_del, collapse = "\n  ")
         ))
       }
-      if (length(keep) > 0) {
+      if (length(to_keep) > 0) {
         message(sprintf(
           "Keeping %d file(s) for inspection:\n  %s",
-          length(keep),
-          paste(keep, collapse = "\n  ")
+          length(to_keep),
+          paste(to_keep, collapse = "\n  ")
         ))
       }
     }

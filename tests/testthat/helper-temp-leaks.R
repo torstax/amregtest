@@ -39,26 +39,29 @@ test_that <- function(desc, code) {
     }
     leaked <- leaked[file.exists(leaked)]   # race-condition guard
     keep_files <- toupper(Sys.getenv("ART_KEEP_LEAKED_FILES_IN_TEMP")) == "TRUE"
+    verbose    <- toupper(Sys.getenv("ART_VERBOSE")) == "TRUE"
 
     if (length(leaked) > 0) {
       if (!keep_files) {
-        message(sprintf(
-          "Cleaning up %d leaked TEMP file(s):\n  %s",
-          length(leaked),
-          paste(leaked, collapse = "\n  ")
-        ))
+        if (verbose)
+          message(sprintf(
+            "Cleaning up %d leaked TEMP file(s):\n  %s",
+            length(leaked),
+            paste(leaked, collapse = "\n  ")
+          ))
         graphics.off()
         suppressWarnings(file.remove(leaked))
-      } else if (length(leaked) > 0 && keep_files) {
+      } else { # Keep files for inspection:
         # Accumulate for deferred removal — do NOT remove here so that
         # HTML files etc. remain openable in a browser until the suite ends.
         .art_leaked <<- c(.art_leaked, leaked)  # Accumulate for deferred removal
 
-        message(sprintf(
-          "Keeping %d leaked TEMP file(s) for inspection:\n  %s",
-          length(leaked),
-          paste(leaked, collapse = "\n  ")
-        ))
+        if (verbose)
+          message(sprintf(
+            "Keeping %d leaked TEMP file(s) for inspection:\n  %s",
+            length(leaked),
+            paste(leaked, collapse = "\n  ")
+          ))
       }
     }
   }, add = TRUE)

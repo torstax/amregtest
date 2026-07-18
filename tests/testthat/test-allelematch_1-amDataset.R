@@ -1,8 +1,4 @@
 
-# TODO 2.6.0: These tests reveal severe backwards incompatibilities in 2.6.0 that
-# need to be fixed in allelematch 2.6.1:
-amvariant <- ifelse(amversion == "2.6.0", "bad-2.6.0", amvariant) # TODO 2.6.0
-
 # Helper function that prints a remark into the snapshot file:
 snapshot_rem <- function(remark, ..., variant = amvariant) {
   expect_snapshot_output(cat("\n!\n! ", remark, ..., "\n!\n"), variant=variant)
