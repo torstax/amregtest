@@ -1,11 +1,7 @@
 
 HTML=isTRUE(Sys.getenv("ART_GENERATE_HTML") == "TRUE") # Set with Sys.setenv(ART_GENERATE_HTML = "TRUE")
 
-overwrite = FALSE # Use TRUE when creating new tests that need new *_epected data.
-
-# TODO 2.6.0: These tests reveal severe backwards incompatibilities in 2.6.0 that
-# need to be fixed in allelematch 2.6.1:
-amvariant <- ifelse(amversion == "2.6.0", "bad-2.6.0", amvariant) # TODO 2.6.0
+# overwrite = FALSE # Use TRUE when creating new tests that need new *_epected data.
 
 test_that("amExample2 results from pg 8 in allelematchSuppDoc.pdf 2.5.3 compatible", code = {
 

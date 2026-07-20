@@ -1,6 +1,4 @@
-#library(amregtest)
-require(amregtest,   quietly = TRUE)
-require(allelematch, quietly = TRUE)
+require(allelematch)
 
 # See https://stackoverflow.com/questions/74379129/r-using-arguments-passed-to-for-named-arguments-when-arguments-are-subst
 options(warnPartialMatchArgs=TRUE)
@@ -15,8 +13,15 @@ options(warnPartialMatchArgs=TRUE)
 # to indicate that they are known to fail with allelematch 2.6.0.
 amversion <- packageVersion("allelematch")   # e.g. "2.5.5" or "2.6.0"
 amvariant <- as.character(amversion[1, 1:2]) # e.g. "2.5" or "2.6" : TODO: Rethink.
-amvariant <- ifelse(amversion < "2.6.0", "2.5", "2.6") # Hopefully no more variants. TODO: Rethink.
+# amvariant <- ifelse(amversion < "2.6.0", "2.5", "2.6") # Hopefully no more variants. TODO: Rethink.
+# amvariant <- if(amversion < "2.6.0") "2.5" else if (amversion == "2.6.0") "2.6.0" else "2.6"
+# amvariant <- ifelse(amversion == "2.6.0", "2.6.0", amvariant) # Hopefully no more variants. TODO: Rethink.
 
+# 2.6.0 was a highly backwards- and forwards-incompatible version of allelematch.
+# We therefore keep the snapshot files for 2.6.0 separate.
+# Hopefully future versions will be more compatible between patch
+# versions, i.e. those that step the third number in the version.
+if (amversion == "2.6.0") { amvariant <- "bad-2.6.0" }
 
 # NOTE that the output of [sort] is platform dependent.
 # You get different results based on the locale. And [allelematch] uses [sort].

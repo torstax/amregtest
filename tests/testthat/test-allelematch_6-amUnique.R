@@ -1,8 +1,4 @@
 
-# TODO 2.6.0: These tests reveal severe backwards incompatibilities in 2.6.0 that
-# need to be fixed in allelematch 2.6.1:
-amvariant <- ifelse(amversion == "2.6.0", "bad-2.6.0", amvariant) # TODO 2.6.0
-
 test_that("Loop the Loop", {
 
   # Here we do positive regression testing to make sure that we still get
@@ -64,7 +60,7 @@ test_that("Loop the Loop", {
                       "\n  Rejected : ", cmdstr, "\n"))
 
         # Differ between expected and unexpected errors:
-        if (!grepl("no clusters formed.|'x' must be atomic", e_message, perl=TRUE)) {
+        if (!grepl("no clusters formed|'x' must be atomic", e_message, perl=TRUE)) {
           # Some unexpected error happened. Print it to the screen for easier debugging.
           message("\n  ", ret, sep="")
 

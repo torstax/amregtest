@@ -53,15 +53,16 @@ helpHtml <- function(file) {
 }
 
 helpModernizeMsgs <- function(msgs) {
-  # Adapt cosmetic change in 2.6.0 in error messages
+  # Adapt cosmetic change in 2.6.0 and in 2.6.1 in error messages
   # from older versions of allelematch to the new format.
   msgs <- gsub(":  ", ": ", msgs, fixed = TRUE) # Change double spaces after ":" to single space.
+  msgs <- gsub("\\h$", "",  msgs, perl  = TRUE)  # Remove white space from end of line.
+  msgs <- gsub("\\.$", "",  msgs, fixed = TRUE)  # Remove '.' from end of line.
   msgs <- gsub(
-    "no clusters formed\\.\\h+Please set cutHeight lower and run again\\.", # 2.5 style
-    "no clusters formed.", # 2.6 style
+    "no clusters formed.*", #\\.\\h+Please set cutHeight lower and run again", # 2.5 style
+    "no clusters formed",   # 2.6 style
     msgs, perl = TRUE
   )
-  msgs <- gsub("\\h$", "",  msgs, perl = TRUE)  # Remove white space from end of line.
   return(msgs)
 }
 

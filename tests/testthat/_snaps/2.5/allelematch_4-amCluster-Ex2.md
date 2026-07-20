@@ -64853,7 +64853,7 @@
     {
       "type": "character",
       "attributes": {},
-      "value": ["\n  Error    : allelematch: amCluster: no clusters formed.\n  Test     : test-allelematch_4-amCluster\n  Rejected : amCluster(amdataExample2, runUntilSingletons=TRUE, cutHeight=0.9, missingMethod=1, consensusMethod=2)\n"]
+      "value": ["\n  Error    : allelematch: amCluster: no clusters formed\n  Test     : test-allelematch_4-amCluster\n  Rejected : amCluster(amdataExample2, runUntilSingletons=TRUE, cutHeight=0.9, missingMethod=1, consensusMethod=2)\n"]
     }
 
 ---
@@ -67101,7 +67101,7 @@
     {
       "type": "character",
       "attributes": {},
-      "value": ["\n  Error    : allelematch: amCluster: no clusters formed.\n  Test     : test-allelematch_4-amCluster\n  Rejected : amCluster(amdataExample2, runUntilSingletons=TRUE, cutHeight=0.95, missingMethod=1, consensusMethod=2)\n"]
+      "value": ["\n  Error    : allelematch: amCluster: no clusters formed\n  Test     : test-allelematch_4-amCluster\n  Rejected : amCluster(amdataExample2, runUntilSingletons=TRUE, cutHeight=0.95, missingMethod=1, consensusMethod=2)\n"]
     }
 
 ---
@@ -69349,7 +69349,7 @@
     {
       "type": "character",
       "attributes": {},
-      "value": ["\n  Error    : allelematch: amCluster: no clusters formed.\n  Test     : test-allelematch_4-amCluster\n  Rejected : amCluster(amdataExample2, runUntilSingletons=TRUE, cutHeight=0.99, missingMethod=1, consensusMethod=2)\n"]
+      "value": ["\n  Error    : allelematch: amCluster: no clusters formed\n  Test     : test-allelematch_4-amCluster\n  Rejected : amCluster(amdataExample2, runUntilSingletons=TRUE, cutHeight=0.99, missingMethod=1, consensusMethod=2)\n"]
     }
 
 ---

@@ -25,7 +25,7 @@ snapshot_amCluster <- function(ds, ...) {
         "\n  Test     : ", "test-allelematch_4-amCluster",
         "\n  Rejected : ", cmdstr, "\n"
       )
-      if (!grepl("no clusters formed.", e_message)) {
+      if (!grepl("no clusters formed", e_message)) {
         message("\n  ", ret, sep = "")
       }
       ret

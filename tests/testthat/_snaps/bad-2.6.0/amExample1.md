@@ -395,48 +395,44 @@
         "LOC1b"), alleleFreq = c("109" = 0.291666666666667, "108" = 0.25, 
         "103" = 0.125, "120" = 0.125, "104" = 0.0833333333333333, 
         "110" = 0.0833333333333333, "114" = 0.0416666666666667), 
-            missingFreq = 0, numAlleles = 7L, PIC = 0.792516637731482), 
-            list(name = "LOC2a-LOC2b", columnNames = c("LOC2a", "LOC2b"
-            ), alleleFreq = c("208" = 0.375, "201" = 0.291666666666667, 
-            "207" = 0.125, "203" = 0.125, "209" = 0.0833333333333333
-            ), missingFreq = 0, numAlleles = 5L, PIC = 0.715066792052469), 
+            missingFreq = 0, numAlleles = 7L), list(name = "LOC2a-LOC2b", 
+            columnNames = c("LOC2a", "LOC2b"), alleleFreq = c("208" = 0.375, 
+            "201" = 0.291666666666667, "207" = 0.125, "203" = 0.125, 
+            "209" = 0.0833333333333333), missingFreq = 0, numAlleles = 5L), 
             list(name = "LOC3a-LOC3b", columnNames = c("LOC3a", "LOC3b"
             ), alleleFreq = c("306" = 0.227272727272727, "307" = 0.227272727272727, 
             "314" = 0.181818181818182, "317" = 0.181818181818182, 
             "313" = 0.0909090909090909, "318" = 0.0909090909090909
-            ), missingFreq = 0.0833333333333333, numAlleles = 6L, 
-                PIC = 0.800589952872072), list(name = "LOC4a-LOC4b", 
-                columnNames = c("LOC4a", "LOC4b"), alleleFreq = c("417" = 0.375, 
-                "407" = 0.208333333333333, "404" = 0.166666666666667, 
-                "413" = 0.125, "405" = 0.0416666666666667, "408" = 0.0416666666666667, 
-                "414" = 0.0416666666666667), missingFreq = 0, numAlleles = 7L, 
-                PIC = 0.751642674575617), list(name = "LOC5a-LOC5b", 
+            ), missingFreq = 0.0833333333333333, numAlleles = 6L), 
+            list(name = "LOC4a-LOC4b", columnNames = c("LOC4a", "LOC4b"
+            ), alleleFreq = c("417" = 0.375, "407" = 0.208333333333333, 
+            "404" = 0.166666666666667, "413" = 0.125, "405" = 0.0416666666666667, 
+            "408" = 0.0416666666666667, "414" = 0.0416666666666667
+            ), missingFreq = 0, numAlleles = 7L), list(name = "LOC5a-LOC5b", 
                 columnNames = c("LOC5a", "LOC5b"), alleleFreq = c("502" = 0.291666666666667, 
                 "519" = 0.25, "514" = 0.125, "516" = 0.125, "505" = 0.125, 
-                "501" = 0.0833333333333333), missingFreq = 0, numAlleles = 6L, 
-                PIC = 0.784294222608025), list(name = "LOC6a-LOC6b", 
-                columnNames = c("LOC6a", "LOC6b"), alleleFreq = c("607" = 0.333333333333333, 
-                "603" = 0.291666666666667, "618" = 0.208333333333333, 
-                "602" = 0.0833333333333333, "616" = 0.0833333333333333
-                ), missingFreq = 0, numAlleles = 5L, PIC = 0.725185064621914), 
+                "501" = 0.0833333333333333), missingFreq = 0, numAlleles = 6L), 
+            list(name = "LOC6a-LOC6b", columnNames = c("LOC6a", "LOC6b"
+            ), alleleFreq = c("607" = 0.333333333333333, "603" = 0.291666666666667, 
+            "618" = 0.208333333333333, "602" = 0.0833333333333333, 
+            "616" = 0.0833333333333333), missingFreq = 0, numAlleles = 5L), 
             list(name = "LOC7a-LOC7b", columnNames = c("LOC7a", "LOC7b"
             ), alleleFreq = c("715" = 0.25, "706" = 0.166666666666667, 
             "709" = 0.125, "703" = 0.125, "719" = 0.125, "717" = 0.0833333333333333, 
             "712" = 0.0833333333333333, "713" = 0.0416666666666667
-            ), missingFreq = 0, numAlleles = 8L, PIC = 0.838306568287037), 
-            list(name = "LOC8a-LOC8b", columnNames = c("LOC8a", "LOC8b"
-            ), alleleFreq = c("804" = 0.375, "816" = 0.25, "811" = 0.208333333333333, 
-            "812" = 0.125, "805" = 0.0416666666666667), missingFreq = 0, 
-                numAlleles = 5L, PIC = 0.714198736496914), list(name = "LOC9a-LOC9b", 
-                columnNames = c("LOC9a", "LOC9b"), alleleFreq = c("914" = 0.5, 
-                "911" = 0.291666666666667, "915" = 0.0833333333333333, 
-                "912" = 0.0416666666666667, "907" = 0.0416666666666667, 
-                "918" = 0.0416666666666667), missingFreq = 0, numAlleles = 6L, 
-                PIC = 0.627393180941358), list(name = "LOC10a-LOC10b", 
+            ), missingFreq = 0, numAlleles = 8L), list(name = "LOC8a-LOC8b", 
+                columnNames = c("LOC8a", "LOC8b"), alleleFreq = c("804" = 0.375, 
+                "816" = 0.25, "811" = 0.208333333333333, "812" = 0.125, 
+                "805" = 0.0416666666666667), missingFreq = 0, numAlleles = 5L), 
+            list(name = "LOC9a-LOC9b", columnNames = c("LOC9a", "LOC9b"
+            ), alleleFreq = c("914" = 0.5, "911" = 0.291666666666667, 
+            "915" = 0.0833333333333333, "912" = 0.0416666666666667, 
+            "907" = 0.0416666666666667, "918" = 0.0416666666666667
+            ), missingFreq = 0, numAlleles = 6L), list(name = "LOC10a-LOC10b", 
                 columnNames = c("LOC10a", "LOC10b"), alleleFreq = c("1015" = 0.416666666666667, 
                 "1007" = 0.208333333333333, "1006" = 0.166666666666667, 
                 "1018" = 0.125, "1005" = 0.0416666666666667, "1019" = 0.0416666666666667
-                ), missingFreq = 0, numAlleles = 6L, PIC = 0.717815634645062))), class = "amAlleleFreq")), class = "amUnique")
+                ), missingFreq = 0, numAlleles = 6L))), class = "amAlleleFreq")), class = "amUnique")
 
 ---
 
@@ -950,46 +946,42 @@
         "LOC1b"), alleleFreq = c("109" = 0.291666666666667, "108" = 0.25, 
         "103" = 0.125, "120" = 0.125, "104" = 0.0833333333333333, 
         "110" = 0.0833333333333333, "114" = 0.0416666666666667), 
-            missingFreq = 0, numAlleles = 7L, PIC = 0.792516637731482), 
-            list(name = "LOC2a-LOC2b", columnNames = c("LOC2a", "LOC2b"
-            ), alleleFreq = c("208" = 0.375, "201" = 0.291666666666667, 
-            "207" = 0.125, "203" = 0.125, "209" = 0.0833333333333333
-            ), missingFreq = 0, numAlleles = 5L, PIC = 0.715066792052469), 
+            missingFreq = 0, numAlleles = 7L), list(name = "LOC2a-LOC2b", 
+            columnNames = c("LOC2a", "LOC2b"), alleleFreq = c("208" = 0.375, 
+            "201" = 0.291666666666667, "207" = 0.125, "203" = 0.125, 
+            "209" = 0.0833333333333333), missingFreq = 0, numAlleles = 5L), 
             list(name = "LOC3a-LOC3b", columnNames = c("LOC3a", "LOC3b"
             ), alleleFreq = c("306" = 0.227272727272727, "307" = 0.227272727272727, 
             "314" = 0.181818181818182, "317" = 0.181818181818182, 
             "313" = 0.0909090909090909, "318" = 0.0909090909090909
-            ), missingFreq = 0.0833333333333333, numAlleles = 6L, 
-                PIC = 0.800589952872072), list(name = "LOC4a-LOC4b", 
-                columnNames = c("LOC4a", "LOC4b"), alleleFreq = c("417" = 0.375, 
-                "407" = 0.208333333333333, "404" = 0.166666666666667, 
-                "413" = 0.125, "405" = 0.0416666666666667, "408" = 0.0416666666666667, 
-                "414" = 0.0416666666666667), missingFreq = 0, numAlleles = 7L, 
-                PIC = 0.751642674575617), list(name = "LOC5a-LOC5b", 
+            ), missingFreq = 0.0833333333333333, numAlleles = 6L), 
+            list(name = "LOC4a-LOC4b", columnNames = c("LOC4a", "LOC4b"
+            ), alleleFreq = c("417" = 0.375, "407" = 0.208333333333333, 
+            "404" = 0.166666666666667, "413" = 0.125, "405" = 0.0416666666666667, 
+            "408" = 0.0416666666666667, "414" = 0.0416666666666667
+            ), missingFreq = 0, numAlleles = 7L), list(name = "LOC5a-LOC5b", 
                 columnNames = c("LOC5a", "LOC5b"), alleleFreq = c("502" = 0.291666666666667, 
                 "519" = 0.25, "514" = 0.125, "516" = 0.125, "505" = 0.125, 
-                "501" = 0.0833333333333333), missingFreq = 0, numAlleles = 6L, 
-                PIC = 0.784294222608025), list(name = "LOC6a-LOC6b", 
-                columnNames = c("LOC6a", "LOC6b"), alleleFreq = c("607" = 0.333333333333333, 
-                "603" = 0.291666666666667, "618" = 0.208333333333333, 
-                "602" = 0.0833333333333333, "616" = 0.0833333333333333
-                ), missingFreq = 0, numAlleles = 5L, PIC = 0.725185064621914), 
+                "501" = 0.0833333333333333), missingFreq = 0, numAlleles = 6L), 
+            list(name = "LOC6a-LOC6b", columnNames = c("LOC6a", "LOC6b"
+            ), alleleFreq = c("607" = 0.333333333333333, "603" = 0.291666666666667, 
+            "618" = 0.208333333333333, "602" = 0.0833333333333333, 
+            "616" = 0.0833333333333333), missingFreq = 0, numAlleles = 5L), 
             list(name = "LOC7a-LOC7b", columnNames = c("LOC7a", "LOC7b"
             ), alleleFreq = c("715" = 0.25, "706" = 0.166666666666667, 
             "709" = 0.125, "703" = 0.125, "719" = 0.125, "717" = 0.0833333333333333, 
             "712" = 0.0833333333333333, "713" = 0.0416666666666667
-            ), missingFreq = 0, numAlleles = 8L, PIC = 0.838306568287037), 
-            list(name = "LOC8a-LOC8b", columnNames = c("LOC8a", "LOC8b"
-            ), alleleFreq = c("804" = 0.375, "816" = 0.25, "811" = 0.208333333333333, 
-            "812" = 0.125, "805" = 0.0416666666666667), missingFreq = 0, 
-                numAlleles = 5L, PIC = 0.714198736496914), list(name = "LOC9a-LOC9b", 
-                columnNames = c("LOC9a", "LOC9b"), alleleFreq = c("914" = 0.5, 
-                "911" = 0.291666666666667, "915" = 0.0833333333333333, 
-                "912" = 0.0416666666666667, "907" = 0.0416666666666667, 
-                "918" = 0.0416666666666667), missingFreq = 0, numAlleles = 6L, 
-                PIC = 0.627393180941358), list(name = "LOC10a-LOC10b", 
+            ), missingFreq = 0, numAlleles = 8L), list(name = "LOC8a-LOC8b", 
+                columnNames = c("LOC8a", "LOC8b"), alleleFreq = c("804" = 0.375, 
+                "816" = 0.25, "811" = 0.208333333333333, "812" = 0.125, 
+                "805" = 0.0416666666666667), missingFreq = 0, numAlleles = 5L), 
+            list(name = "LOC9a-LOC9b", columnNames = c("LOC9a", "LOC9b"
+            ), alleleFreq = c("914" = 0.5, "911" = 0.291666666666667, 
+            "915" = 0.0833333333333333, "912" = 0.0416666666666667, 
+            "907" = 0.0416666666666667, "918" = 0.0416666666666667
+            ), missingFreq = 0, numAlleles = 6L), list(name = "LOC10a-LOC10b", 
                 columnNames = c("LOC10a", "LOC10b"), alleleFreq = c("1015" = 0.416666666666667, 
                 "1007" = 0.208333333333333, "1006" = 0.166666666666667, 
                 "1018" = 0.125, "1005" = 0.0416666666666667, "1019" = 0.0416666666666667
-                ), missingFreq = 0, numAlleles = 6L, PIC = 0.717815634645062))), class = "amAlleleFreq")), class = "amUnique")
+                ), missingFreq = 0, numAlleles = 6L))), class = "amAlleleFreq")), class = "amUnique")
 

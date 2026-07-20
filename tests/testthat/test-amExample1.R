@@ -5,7 +5,7 @@ test_that("We are running the 3rd edition of testthat", code = {
 
 HTML=isTRUE(Sys.getenv("ART_GENERATE_HTML") == "TRUE") # Set with Sys.setenv(ART_GENERATE_HTML = "TRUE")
 
-overwrite = FALSE # Use TRUE when creating new tests that need new *_expected data.
+# overwrite = FALSE # Use TRUE when creating new tests that need new *_expected data.
 
 test_that("amExample1 from pg 5 in allelematchSuppDoc.pdf is 2.5.3 compatible", code = {
 

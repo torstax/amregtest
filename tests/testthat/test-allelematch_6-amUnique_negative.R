@@ -37,12 +37,12 @@ test_that("Validation of arguments to amUnique() is working", {
     expect_error(amUnique(amdata, multilocusMap=c(1,1)), badMultilocusMap) # Too short multilocusMap
     # expect_error(amUnique(amdata, multilocusMap=c(FALSE,FALSE,TRUE,TRUE)),  "TODO") # TODO: Neither int nor char => Should fail
 
-    expect_error(amUnique(amdata, multilocusMap = c(1,1,2,2)), "allelematch:\\s+please specify alleleMismatch OR matchThreshold OR cutHeight.")
+    expect_error(amUnique(amdata, multilocusMap = c(1,1,2,2)), "allelematch:\\s+please specify alleleMismatch OR matchThreshold OR cutHeight")
 
     expect_no_error(amUnique(amdata, multilocusMap = c(1,1,2,2), alleleMismatch=1))
     expect_no_error(amUnique(amdata, alleleMismatch=1))
 
-    oneOf = "^allelematch:\\s+please specify alleleMismatch OR matchThreshold OR cutHeight.$"
+    oneOf = "^allelematch:\\s+please specify alleleMismatch OR matchThreshold OR cutHeight"
     expect_error(amUnique(amdata, alleleMismatch=1, matchThreshold=0.5, cutHeight=0.5), oneOf)
     expect_error(amUnique(amdata, alleleMismatch=1, matchThreshold=0.5), oneOf)
     expect_error(amUnique(amdata, alleleMismatch=1, cutHeight=0.5), oneOf)
@@ -53,13 +53,13 @@ test_that("Validation of arguments to amUnique() is working", {
 
     expect_error(amUnique(amdata, matchThreshold=-0.0001), "matchThreshold must be between 0 and 1")
     expect_error(amUnique(amdata, matchThreshold=1.0001),  "matchThreshold must be between 0 and 1")
-#   expect_error(amUnique(amdata, matchThreshold=0)) # "no clusters formed.")  # TODO : Error detected on some platforms, but not all.
+#   expect_error(amUnique(amdata, matchThreshold=0)) # "no clusters formed")  # TODO : Error detected on some platforms, but not all.
 
     expect_no_error(amUnique(amdata, matchThreshold=1))
 
     expect_error(amUnique(amdata, cutHeight=-0.0001), "cutHeight must be greater than 0 and less than 1") # TODO: alleleMismatch can't be negative
     expect_error(amUnique(amdata, cutHeight=1.00001), "cutHeight must be greater than 0 and less than 1") # TODO: alleleMismatch can't be negative
-    expect_error(amUnique(amdata, cutHeight=1)) # "no clusters formed.\\s+Please set cutHeight lower and run again") # TODO : Error detection and message not alligned
+    expect_error(amUnique(amdata, cutHeight=1)) # "no clusters formed\\s+Please set cutHeight lower and run again") # TODO : Error detection and message not alligned
 
     expect_no_error(amUnique(amdata, cutHeight=0)) # TODO : Error detection and message not alligned
     expect_no_error(amUnique(amdata, cutHeight=0.5))
@@ -88,7 +88,7 @@ test_that("Validation of arguments to amUnique() is working", {
   sink()
 
   # The output below changed between allelematch 2.5.2 and 2.5.3, which is OK:
-  expect_output(summary.amUnique(amUnique(amdata, cutHeight=0.5)), 'Console summary is not available for "amUnique" objects.\\s+Please use summary(.amUnique)?\\(x, html=TRUE\\) or summary(.amUnique)?\\(x, csv="file.csv"\\) options.')
+  expect_output(summary.amUnique(amUnique(amdata, cutHeight=0.5)), 'Console summary is not available for "amUnique" objects.\\s+Please use summary(.amUnique)?\\(x, html=TRUE\\) or summary(.amUnique)?\\(x, csv="file.csv"\\) options')
 
 
 })
