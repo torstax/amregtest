@@ -39,7 +39,8 @@
 artVersion <- function(verbose=TRUE) {
     stopifnot(is.logical(verbose))
 
-    requireNamespace("allelematch", quietly = TRUE) # Loaded here rather than in the "Imports:" section of DESCRIPTION file
+    # Loaded here rather than in the "Imports:" section of DESCRIPTION file
+    refreshPackage("allelematch")
 
     loadedArtVersion = toString(utils::packageVersion("amregtest"))
     loadedAmVersion  = toString(utils::packageVersion("allelematch"))
@@ -53,33 +54,6 @@ artVersion <- function(verbose=TRUE) {
             loadedAmVersion, builtAt("allelematch")))
     }
     return(invisible(loadedArtVersion))
-}
-
-
-# Internal utility function to print the build time for a package:
-builtAt <- function(pkg) {
-    timestamp_str <- NULL
-    if (!is.null(built <- packageDescription(pkg)$Built)) {
-        # Extract the timestamp string (third semicolon-separated field)
-        fields <- strsplit(built, ";")[[1]]
-        if (length(fields) < 3) return("(??Bad Build date??)")
-
-        action <- "(Built "
-        timestamp_str <- trimws(fields[3])
-    }
-
-    if (is.null(timestamp_str)) return("(timestamp not found)")
-
-    # Convert to POSIXct, assuming string is UTC unless otherwise specified
-    ctBuildTime <- as.POSIXct(timestamp_str, tz = "UTC")
-
-    # Was the build made today?
-    form <- ifelse(as.Date(ctBuildTime, tz = Sys.timezone()) == Sys.Date(),
-                   "%H:%M",  # Was build today. Use timestamp.
-                   "%Y-%m-%d")  # Was built some othre day. Use date
-
-    # Convert to local time zone, time or date:
-    paste(action, format(ctBuildTime, format=form, tz = Sys.timezone()),")", sep="")
 }
 
 
@@ -188,10 +162,21 @@ artRun <- function(filter="", verbose=TRUE, keep=FALSE) {
     stopifnot(is.logical(verbose))
     stopifnot(is.logical(keep))
 
-    requireNamespace("allelematch", quietly = TRUE) # Loaded here rather than in the "Imports:" section of DESCRIPTION file
+    # We want to test the last installed version of allelematch.
+    # If that package has been rebuilt and re-installed from another
+    # RStudio session, then we need to unload the old version from
+    # this session before we can load the new version:
+    refreshPackage("allelematch")
 
-    loadedVersion = toString(utils::packageVersion("allelematch"))
-    if (verbose) cat("    About to test loaded version of allelematch:  <<<", loadedVersion, ">>>\n", sep="")
+    # # We load 'allelematch' here rather than in the
+    # # "Imports:" section of DESCRIPTION file to be able to
+    # # install and load another version of 'allelematch'
+    # # later without having to unload 'amregtest' first:
+    # if (!requireNamespace("allelematch", quietly = TRUE))     {
+    #     stop("Package 'allelematch' is not available.")
+    # }
+    # withr::local_package("allelematch") # Attach 'allelematch' for the duration of this function call.
+
     reporter <- ifelse(verbose, "Progress", testthat::check_reporter())
 
     # Propagate the verbosity to the deferred cleanup code in helper-temp-leaks.R
@@ -214,7 +199,7 @@ artRun <- function(filter="", verbose=TRUE, keep=FALSE) {
 
     result = list()
     if (filter != "^$") result = testthat::test_package("amregtest", reporter=reporter , filter=filter) # We can't start tests recursively, even for coverage tests
-    if (verbose) cat("    Done testing loaded version of allelematch:  <<<", loadedVersion, ">>>\n", sep="")
+    if (verbose) cat("    Done testing installed version of allelematch:  <<<", installedVersion, ">>>\n", sep="")
     return(invisible(result))
 }
 
@@ -244,6 +229,89 @@ artInstallCranAllelematch <- function(version = "2.5.5") {
     unloadNamespace("allelematch")
     remotes::install_version("allelematch", version = version, repos = "http://cran.r-project.org")
 
-    requireNamespace("allelematch", quietly = TRUE)
+    # Loaded here rather than in the "Imports:" section of DESCRIPTION file
+    # to avoid that 'amregtest' prevents 'allelematch' from being repeatedly
+    # unloaded, replaced, re-installed, and re-loaded in the same RStudio session:
+    requireNamespace("allelematch")
+}
+
+
+
+
+# Internal utility function to print the build time for a package:
+builtAt <- function(pkg) {
+    timestamp_str <- NULL
+    if (!is.null(built <- packageDescription(pkg)$Built)) {
+        # Extract the timestamp string (third semicolon-separated field)
+        fields <- strsplit(built, ";")[[1]]
+        if (length(fields) < 3) return("(??Bad Build date??)")
+
+        action <- "(Built "
+        timestamp_str <- trimws(fields[3])
+    }
+
+    if (is.null(timestamp_str)) return("(timestamp not found)")
+
+    # Convert to POSIXct, assuming string is UTC unless otherwise specified
+    ctBuildTime <- as.POSIXct(timestamp_str, tz = "UTC")
+
+    # Was the build made today?
+    form <- ifelse(as.Date(ctBuildTime, tz = Sys.timezone()) == Sys.Date(),
+                   "%H:%M",  # Was build today. Use timestamp.
+                   "%Y-%m-%d")  # Was built some othre day. Use date
+
+    # Convert to local time zone, time or date:
+    paste(action, format(ctBuildTime, format=form, tz = Sys.timezone()),")", sep="")
+}
+
+
+# We want to test the last installed version of allelematch.
+# If that package has been rebuilt and re-installed from another
+# RStudio session, then we need to unload the old version from
+# this session before we can load the new version:
+refreshPackage <- function(pkg = "allelematch") {
+    if (isPackageStale(pkg)) {
+        message("Unloading stale version of package '", pkg, "' from memory")
+        unloadNamespace(pkg) # Will abort with stop if the unload fails.
+    }
+
+    # Package may never have been loaded, or unloaded above because it was stale.
+    # (re-)load regardless, so that the tests will run against the
+    # last installed version:
+    if (!pkg %in% loadedNamespaces()) {
+        # We load 'allelematch' here rather than in the
+        # "Imports:" section of DESCRIPTION file to be able to
+        # install and load another version of 'allelematch'
+        # later without having to unload 'amregtest' first:
+        requireNamespace("allelematch")
+    }
+}
+
+isPackageStale <- function(pkg = "allelematch") {
+    # If it's not even loaded, it can't be out of sync
+    if (!pkg %in% loadedNamespaces()) return(FALSE)
+
+    # Find the physical installation path of the package on disk
+    pkg_path <- find.package(pkg, quiet = TRUE)
+    if (length(pkg_path) == 0) return(FALSE)
+
+    # Target the core package database binary (updated on every single install)
+    rdb_file <- file.path(pkg_path, "R", paste0(pkg, ".rdb"))
+    if (!file.exists(rdb_file)) return(FALSE)
+
+    # Get the time the file was last written to the disk
+    disk_modified_time <- file.info(rdb_file)$mtime
+
+    # Get the time this specific namespace was loaded into your session's RAM
+    ram_loaded_time <- attr(asNamespace(pkg), "metadata")$stamp
+
+    # If no stamp attribute exists, fallback to comparing against session start time
+    if (is.null(ram_loaded_time)) {
+        # If the file on disk is newer than when the active R session booted up
+        return(disk_modified_time > (Sys.time() - proc.time()["elapsed"]))
+    }
+
+    # Return TRUE if the disk copy has been modified since it was loaded into RAM
+    return(disk_modified_time > ram_loaded_time)
 }
 
