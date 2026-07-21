@@ -5,8 +5,8 @@
 ### whether it is just one or all test- files that are run, right before setup.R.
 ### All functions defined here are available to all tests.
 ##############################################################################
-library(allelematch)
-#artRefreshAllelematch() # TODO: Make sure the last installed version is loaded.
+#library(allelematch)
+artRefreshAllelematch() # TODO: Make sure the last installed version is loaded.
 
 # Turns `...` into a string of <name>=<value> pairs
 helpArgToString <- function(...) {
