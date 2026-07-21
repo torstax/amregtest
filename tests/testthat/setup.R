@@ -1,5 +1,11 @@
-require(allelematch)
+##############################################################################
+### Setup of data, environment and infrastructure for the tests.
+###
+### Sourced once, right after helper.R is sourced, before any test files are run.
+##############################################################################
 
+#
+#
 # See https://stackoverflow.com/questions/74379129/r-using-arguments-passed-to-for-named-arguments-when-arguments-are-subst
 options(warnPartialMatchArgs=TRUE)
 
@@ -23,7 +29,22 @@ amvariant <- as.character(amversion[1, 1:2]) # e.g. "2.5" or "2.6" : TODO: Rethi
 # versions, i.e. those that step the third number in the version.
 if (amversion == "2.6.0") { amvariant <- "bad-2.6.0" }
 
-# NOTE that the output of [sort] is platform dependent.
+
+# Load the amregtest version of example data sets into a locked, read-only
+# environment `ro`. Tests reference ro$amExample1 etc., or take a local copy.
+# Locking prevents any bare data("amExampleN") call in a test from silently
+# overwriting the shared data with the allelematch version.
+ro <- new.env(parent = emptyenv())
+data("amExample1", package = "amregtest", envir = ro)
+data("amExample2", package = "amregtest", envir = ro)
+data("amExample3", package = "amregtest", envir = ro)
+data("amExample4", package = "amregtest", envir = ro)
+data("amExample5", package = "amregtest", envir = ro)
+#data("ggSample",  package = "amregtest", envir = ro) # Only load this if you need it. It is a very large data set.
+lockEnvironment(ro, bindings = TRUE)
+
+
+# TODO: NOTE that the output of [sort] is platform dependent.
 # You get different results based on the locale. And [allelematch] uses [sort].
 #
 # The sort order also depends on the size of the data to be sorted.

@@ -1,20 +1,12 @@
-######################################
-### Helper functions for the tests ###
-######################################
+##############################################################################
+### Helper functions for the tests
+###
+### helper.R is sourced once at the beginning of each test run, regardless of
+### whether it is just one or all test- files that are run, right before setup.R.
+### All functions defined here are available to all tests.
+##############################################################################
 library(allelematch)
-
-# Load the amregtest version of example data sets into a locked, read-only
-# environment `ro`. Tests reference ro$amExample1 etc., or take a local copy.
-# Locking prevents any bare data("amExampleN") call in a test from silently
-# overwriting the shared data with the allelematch version.
-ro <- new.env(parent = emptyenv())
-data("amExample1", package = "amregtest", envir = ro)
-data("amExample2", package = "amregtest", envir = ro)
-data("amExample3", package = "amregtest", envir = ro)
-data("amExample4", package = "amregtest", envir = ro)
-data("amExample5", package = "amregtest", envir = ro)
-#data("ggSample",  package = "amregtest", envir = ro) # Only load this if you need it. It is a very large data set.
-lockEnvironment(ro, bindings = TRUE)
+#artRefreshAllelematch() # TODO: Make sure the last installed version is loaded.
 
 # Turns `...` into a string of <name>=<value> pairs
 helpArgToString <- function(...) {
@@ -91,6 +83,11 @@ snapshot_scrubHtmlFile  <- function(htmlFile, variant = NULL) {
     variant=variant
   )
   file.remove(htmlFile)
+}
+
+# Helper function that prints a remark into the snapshot file:
+snapshot_rem <- function(remark, ..., variant = NULL) {
+  expect_snapshot_output(cat("\n!\n! ", remark, ..., "\n!\n"), variant=variant)
 }
 
 # snapshot_amPairwise()

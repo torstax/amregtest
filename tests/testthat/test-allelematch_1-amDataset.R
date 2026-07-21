@@ -1,16 +1,4 @@
 
-# Helper function that prints a remark into the snapshot file:
-snapshot_rem <- function(remark, ..., variant = amvariant) {
-  expect_snapshot_output(cat("\n!\n! ", remark, ..., "\n!\n"), variant=variant)
-}
-
-test_that("We are running the 3rd edition of testthat", code = {
-  # If this tests fails, then call
-  #   usethis::use_testthat(3)
-  # to configure DESCRIPTION to use 3rd edition of 'testthat'.
-  testthat::expect_gte(!!testthat::edition_get(), 3)
-})
-
 test_that("allelematch::amExamples have not changed md5sum", {
 
     # Calculate a checksum for data stored under ./data/ in a package:
@@ -22,12 +10,10 @@ test_that("allelematch::amExamples have not changed md5sum", {
         return(cs)
     }
 
-    snapshot_rem("Verify the md5 checksums of the allelematch::amExampleX data files:")
     # 2.6.0 of allelematch introduced some cosmetic changes,
     # including changing the column name "gender" to "sex" in amExample5.
     # This changed the md5sum for that data set, so we need to check the version
     # of allelematch to know which md5sum to expect.
-    #
     amversion <- packageVersion("allelematch")
 
     expect_identical(md5sum("amExample1", package="allelematch"), '25108ea88af5cc916ed887c82eb89840')
@@ -40,15 +26,16 @@ test_that("allelematch::amExamples have not changed md5sum", {
       # Only difference is the change in one column name from "gender" to "sex":
       expect_identical(md5sum("amExample5", package="allelematch"), '5f481f6287de5d5cc05277b645ba0642')
     }
+    gc() # Garbage collect the big data sets.
 
-    # Load the 2.5.5 version for use in our tests where we assume "gender":
-    data("amExample5", package="amregtest", envir = env) # Load the 2.5.5 version from amregtest
-
-    expect_identical(dim(amExample1), c( 20L, 22L))
-    expect_identical(dim(amExample2), c(148L, 22L))
-    expect_identical(dim(amExample3), c(319L, 22L))
-    expect_identical(dim(amExample4), c(307L, 22L))
-    expect_identical(dim(amExample5), c(335L, 23L))
+    # We use the 'amregtest' copies of the amExampleX data sets
+    # that match our tests. They are loaded once into
+    # the read-only environment `ro` in helper.R.
+    expect_identical(dim(ro$amExample1), c( 20L, 22L))
+    expect_identical(dim(ro$amExample2), c(148L, 22L))
+    expect_identical(dim(ro$amExample3), c(319L, 22L))
+    expect_identical(dim(ro$amExample4), c(307L, 22L))
+    expect_identical(dim(ro$amExample5), c(335L, 23L))
 })
 
 test_that("See how an object of class amDataset is built:", {

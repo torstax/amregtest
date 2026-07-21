@@ -1,6 +1,5 @@
 
 test_that("Print", {
-  library(allelematch)
 
   # Exercise the three ways to print the output from 'amUnique()' with
   # input data from different amDatasets:
