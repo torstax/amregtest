@@ -2,6 +2,7 @@
 
 export(artInstallCranAllelematch)
 export(artList)
+export(artRefreshAllelematch)
 export(artRun)
 export(artVersion)
 import(digest)

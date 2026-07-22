@@ -39,9 +39,6 @@
 artVersion <- function(verbose=TRUE) {
     stopifnot(is.logical(verbose))
 
-    # Loaded here rather than in the "Imports:" section of DESCRIPTION file
-    refreshPackage("allelematch")
-
     loadedArtVersion = toString(utils::packageVersion("amregtest"))
     loadedAmVersion  = toString(utils::packageVersion("allelematch"))
     vLen = max(length(loadedArtVersion), length(loadedAmVersion))
@@ -53,6 +50,10 @@ artVersion <- function(verbose=TRUE) {
         cat(sprintf("\n    Version of package 'allelematch' is: %-10s %s",
             loadedAmVersion, builtAt("allelematch")))
     }
+
+    # Loaded here rather than in the "Imports:" section of DESCRIPTION file
+    artRefreshAllelematch(verbose = verbose)
+
     return(invisible(loadedArtVersion))
 }
 
@@ -166,7 +167,7 @@ artRun <- function(filter="", verbose=TRUE, keep=FALSE) {
     # If that package has been rebuilt and re-installed from another
     # RStudio session, then we need to unload the old version from
     # this session before we can load the new version:
-    refreshPackage("allelematch")
+    artRefreshAllelematch(verbose = FALSE)
 
     # # We load 'allelematch' here rather than in the
     # # "Imports:" section of DESCRIPTION file to be able to
@@ -236,7 +237,48 @@ artInstallCranAllelematch <- function(version = "2.5.5") {
 }
 
 
+#' Ensures that latest installed 'allelematch' is also loaded in this R session.
+#'
+#' @param verbose   logical. If TRUE (the default), prints diagnostic progress
+#' messages to stdout
+#'
+#' @return TBD
+#'
+#' @description
+#' Ensures that the latest installed version of 'allelematch' is loaded and
+#' attached in this R session, regardless of version string.
+#' Any older version is unloaded.
+#'
+#' This function handles the case where 'allelematch' development and 'amregtest'
+#' testing of 'allelematch' is done in different RStudio sessions.
+#' Development implies frequent repetitive edit-build-install cycles
+#' without changing the 'allelematch' version. These re-installations
+#' are not automatically detected by R in another R session, causing large
+#' risk of testing an older version of 'allelematch' than intended.
+#'
+#' This function is also called from \link{artRun}, \link{artVersion},
+#' and from the setup.R file in the tests/testthat directory.
+#'
+#' @examples
+#' # Install the default official version of 'allelematch' from CRAN:
+#' artInstallCranAllelematch()
+#'
+#' # Install another official version of 'allelematch' from CRAN:
+#' artInstallCranAllelematch("2.5.3")
+#'
+#' @seealso \link{artVersion}, \link{artList}, \link{artRun} and \link{amregtest}
+#'
+#' @export
+# We load 'allelematch' here rather than in the
+# "Imports:" section of DESCRIPTION file to be able to
+# install and load another version of 'allelematch'
+# later without having to unload 'amregtest' first:
+artRefreshAllelematch <- function(verbose = FALSE) {
+    stopifnot(is.logical(verbose))
+    refreshPackage("allelematch", verbose = verbose)
+}
 
+# ----------- Internal utility functions: -------------------------------------
 
 # Internal utility function to print the build time for a package:
 builtAt <- function(pkg) {
@@ -261,57 +303,153 @@ builtAt <- function(pkg) {
                    "%Y-%m-%d")  # Was built some othre day. Use date
 
     # Convert to local time zone, time or date:
-    paste(action, format(ctBuildTime, format=form, tz = Sys.timezone()),")", sep="")
+    paste0(action, format(ctBuildTime, format=form, tz = Sys.timezone()),")")
 }
 
 
-# We want to test the last installed version of allelematch.
-# If that package has been rebuilt and re-installed from another
-# RStudio session, then we need to unload the old version from
-# this session before we can load the new version:
-refreshPackage <- function(pkg = "allelematch") {
-    if (isPackageStale(pkg)) {
-        message("Unloading stale version of package '", pkg, "' from memory")
-        unloadNamespace(pkg) # Will abort with stop if the unload fails.
+# Create a space in the R session to store the time
+# when pkg 'allelematch' was last loaded into memory:
+if (!exists(".ART_pkg_load_times"))
+    .ART_pkg_load_times <- new.env(parent = emptyenv())
+
+
+# Internal utility function to ensure that the loaded version of pkg
+# is the latest installed version of pkg, regardless of version.
+refreshPackage <- function(pkg = "allelematch", verbose = TRUE) {
+    stopifnot(is.character(pkg) && length(pkg) == 1)
+    stopifnot(is.logical(verbose))
+
+    if (isPackageStale(pkg, verbose = verbose)) {
+        if (verbose)
+            cat("\n    Unloading stale version of package '",
+                pkg, "' from memory", sep="")
+
+        # Check upfront for loaded namespaces that import pkg,
+        # since unloadNamespace() will error if any exist.
+        blocking <- loadedNamespaces()[vapply(loadedNamespaces(), function(ns) {
+            tryCatch(pkg %in% names(getNamespaceImports(ns)), error = function(e) FALSE)
+        }, logical(1))]
+        blocking <- setdiff(blocking, pkg)   # exclude pkg itself
+
+        if (length(blocking) > 0) {
+            warning(
+                "Cannot unload '", pkg, "': imported by loaded namespace(s): ",
+                paste(blocking, collapse = ", "),
+                ". The stale version will continue to be used in this session."
+            )
+        } else {
+            # Detatch, unload, and remove any "package promise"
+            detach(paste0("package:", pkg), character.only = TRUE)
+            unloadNamespace(pkg) # (Misses "promise" if called alone)
+        }
     }
 
     # Package may never have been loaded, or unloaded above because it was stale.
     # (re-)load regardless, so that the tests will run against the
     # last installed version:
-    if (!pkg %in% loadedNamespaces()) {
-        # We load 'allelematch' here rather than in the
-        # "Imports:" section of DESCRIPTION file to be able to
-        # install and load another version of 'allelematch'
-        # later without having to unload 'amregtest' first:
-        requireNamespace("allelematch")
+    if (!isNamespaceLoaded(pkg)) {
+        waitForStablePackageFiles(pkg, verbose = verbose)  # Wait until installer has finished writing
+        if (verbose)
+            cat("\n    Loading latest installed version of package '", pkg,
+                "' into memory", sep="")
+        if(!require(pkg, quietly = TRUE, character.only=TRUE)) {
+            stop("Failed to load package '", pkg, "'. Please check that it is installed correctly.")
+        }
+
+        # requireNamespace(pkg) # Load ...
+        # attachNamespace(pkg)  # ... and attach the namespace to the search path
+
+        # Remember the time when we loaded pkg's namespace into this R session's RAM:
+        assign(pkg, Sys.time(), envir = .ART_pkg_load_times)
+
+        if (verbose)
+            cat("\n    Done loading latest installed version of package '", pkg,
+                "' into memory", sep="")
     }
 }
 
-isPackageStale <- function(pkg = "allelematch") {
+
+isPackageStale <- function(pkg = "allelematch", verbose = TRUE) {
+    stopifnot(is.logical(verbose))
+
     # If it's not even loaded, it can't be out of sync
-    if (!pkg %in% loadedNamespaces()) return(FALSE)
+    if (!pkg %in% loadedNamespaces()) {
+        if (verbose)
+            message("Package '", pkg, "' is not yet loaded into memory")
+        return(FALSE)
+    }
 
     # Find the physical installation path of the package on disk
     pkg_path <- find.package(pkg, quiet = TRUE)
-    if (length(pkg_path) == 0) return(FALSE)
-
-    # Target the core package database binary (updated on every single install)
-    rdb_file <- file.path(pkg_path, "R", paste0(pkg, ".rdb"))
-    if (!file.exists(rdb_file)) return(FALSE)
-
-    # Get the time the file was last written to the disk
-    disk_modified_time <- file.info(rdb_file)$mtime
-
-    # Get the time this specific namespace was loaded into your session's RAM
-    ram_loaded_time <- attr(asNamespace(pkg), "metadata")$stamp
-
-    # If no stamp attribute exists, fallback to comparing against session start time
-    if (is.null(ram_loaded_time)) {
-        # If the file on disk is newer than when the active R session booted up
-        return(disk_modified_time > (Sys.time() - proc.time()["elapsed"]))
+    if (length(pkg_path) == 0) {
+        if (verbose)
+            warning("Failed to find path to RDB file for '", pkg, "'. Cannot determine if it is stale.")
+        return(FALSE)
     }
 
-    # Return TRUE if the disk copy has been modified since it was loaded into RAM
-    return(disk_modified_time > ram_loaded_time)
+    # Find the core package database binary (updated on every install):
+    rdb_file <- file.path(pkg_path, "R", paste0(pkg, ".rdb"))
+    if (!file.exists(rdb_file)) {
+        if (verbose)
+            warning("Failed to find RDB file for '", pkg, "'. Cannot determine if it is stale.")
+        return(FALSE)
+    }
+
+    # Get the time the file was last written to the disk:
+    disk_mtime <- file.info(rdb_file)$mtime
+
+    # Get the time when we last loaded pkg's namespace
+    # into this R session's RAM:
+    ram_loaded_time <- if (exists(pkg, envir = .ART_pkg_load_times, inherits = FALSE))
+        get(pkg, envir = .ART_pkg_load_times)
+    else
+        Sys.time() - proc.time()["elapsed"]   # session-start fallback (first run)
+
+    if (verbose) {
+        if (disk_mtime > ram_loaded_time)
+            cat("\n    Package '", pkg, "' is stale:",
+                "\n      disk mtime      = ", format(disk_mtime),
+                "\n      RAM loaded time = ", format(ram_loaded_time), sep ="")
+        else
+            cat("\n    Package '", pkg, "' is still fresh:",
+                "\n      disk mtime      = ", format(disk_mtime),
+                "\n      RAM loaded time = ", format(ram_loaded_time), sep ="")
+    }
+
+    return(disk_mtime > ram_loaded_time)
 }
 
+
+
+
+# Wait until the package lazy-load DB files (.rdb and .rdx) stop growing,
+# which signals that the installer in the other R session has finished writing.
+# Two consecutive equal-size reads is the "write complete" condition on Windows.
+waitForStablePackageFiles <- function(pkg, timeout_secs = 15, poll_secs = 0.3, verbose = FALSE) {
+    pkg_path <- find.package(pkg, quiet = TRUE)
+    if (length(pkg_path) == 0) return(invisible(TRUE))
+
+    files <- file.path(pkg_path, "R", paste0(pkg, c(".rdb", ".rdx")))
+    files <- files[file.exists(files)]
+    if (length(files) == 0) return(invisible(TRUE))
+
+    deadline  <- Sys.time() + timeout_secs
+    prev_sizes <- rep(-1, length(files))
+
+    if (verbose)
+        cat("\n    Waiting for install from other session to complete at '", pkg_path,
+            "'", sep="")
+
+
+    while (Sys.time() < deadline) {
+        Sys.sleep(poll_secs)
+        cur_sizes <- vapply(files, function(f) file.info(f)$size, numeric(1))
+        if (!anyNA(cur_sizes) && all(cur_sizes == prev_sizes))
+            return(invisible(TRUE))   # Stable: installer has finished writing
+        prev_sizes <- cur_sizes
+    }
+
+    warning("Timed out (", timeout_secs, "s) waiting for '", pkg,
+            "' package files to stabilize. Load may be unreliable.")
+    return(invisible(FALSE))
+}
