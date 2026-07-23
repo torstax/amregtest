@@ -39,22 +39,26 @@
 artVersion <- function(verbose=TRUE) {
     stopifnot(is.logical(verbose))
 
-    loadedArtVersion = toString(utils::packageVersion("amregtest"))
-    loadedAmVersion  = toString(utils::packageVersion("allelematch"))
-    vLen = max(length(loadedArtVersion), length(loadedAmVersion))
+    installedArtVersion = toString(utils::packageVersion("amregtest"))
+    installedAmVersion  = toString(utils::packageVersion("allelematch"))
+    vLen = max(length(installedArtVersion), length(installedAmVersion))
 
     if (verbose) {
-        cat(sprintf("\n    Version of package 'amregtest'   is: %-10s %s",
-            loadedArtVersion,
+        cat(sprintf("\n    Installed version of package 'amregtest'   is: %-10s %s",
+            installedArtVersion,
             builtAt("amregtest")))
-        cat(sprintf("\n    Version of package 'allelematch' is: %-10s %s",
-            loadedAmVersion, builtAt("allelematch")))
+        cat(sprintf("\n    Installed version of package 'allelematch' is: %-10s %s",
+            installedAmVersion, builtAt("allelematch")))
     }
 
-    # Loaded here rather than in the "Imports:" section of DESCRIPTION file
-    artRefreshAllelematch(verbose = verbose)
+    # if (isPackageStale("allelematch", verbose = verbose)) {
+    #     warning("Installed version of 'allelematch' has not been loaded.\nPlease do 'library(allelematch)'", call. = FALSE)
+    # }
 
-    return(invisible(loadedArtVersion))
+    # # Loaded here rather than in the "Imports:" section of DESCRIPTION file
+    # artRefreshAllelematch(verbose = verbose)
+
+    return(invisible(installedArtVersion))
 }
 
 
@@ -167,7 +171,13 @@ artRun <- function(filter="", verbose=TRUE, keep=FALSE) {
     # If that package has been rebuilt and re-installed from another
     # RStudio session, then we need to unload the old version from
     # this session before we can load the new version:
-    artRefreshAllelematch(verbose = FALSE)
+    #
+
+    # if (isPackageStale("allelematch", verbose = verbose)) {
+    #     stop("Installed version of 'allelematch' has not been loaded.\nPlease do 'library(allelematch)'", call. = FALSE)
+    # }
+
+    # artRefreshAllelematch(verbose = FALSE)
 
     # # We load 'allelematch' here rather than in the
     # # "Imports:" section of DESCRIPTION file to be able to
@@ -278,7 +288,8 @@ artInstallCranAllelematch <- function(version = "2.5.5") {
 # later without having to unload 'amregtest' first:
 artRefreshAllelematch <- function(verbose = FALSE) {
     stopifnot(is.logical(verbose))
-    refreshPackage("allelematch", verbose = verbose)
+    require(allelematch) # TODO: Will only work if version changed :-(
+    # refreshPackage("allelematch", verbose = verbose)
 }
 
 # ----------- Internal utility functions: -------------------------------------
