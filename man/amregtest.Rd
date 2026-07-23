@@ -19,8 +19,6 @@ The prefix "art" is short for "Allelematch Regression Test".
 See \link{artData} for a description of data sets used as input.
 }
 \references{
-\link{amregtest-package}
-
 \url{https://github.com/cran/allelematch}
 
 \href{https://github.com/cran/allelematch/blob/2.5.1/inst/doc/allelematchSuppDoc.pdf}{allelematchSuppDoc.pdf}

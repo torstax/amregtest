@@ -10,7 +10,7 @@
 #' \cr
 #' The version is specified in the file DESCRIPTION, tag "Version: ".
 #'
-#' If allelematch was installed with [artInstallCranAllelematch] it will show
+#' If allelematch was installed with \link{artInstallCranAllelematch} it will show
 #' a build timestamp from the installation, not from when it was published.
 #'
 #' @param verbose logical. If TRUE (the default), prints additional info to stdout,
@@ -124,7 +124,7 @@ artList <- function(verbose=TRUE) {
 #' \cr
 #' Call \link{artList} to see the available tests without running them.
 #'
-#' @return A list (invisibly) containing data about the test results as returned by [testthat::test_package]
+#' @return A list (invisibly) containing data about the test results as returned by \link[testthat]{test_package}
 #'
 #' @details
 #' If any of the test executed with \link{artRun} should fail, then we want to be able
@@ -226,7 +226,7 @@ artRun <- function(filter="", verbose=TRUE, keep=FALSE) {
 #'
 #' @description
 #' Note that the CRAN version will be built from source code at installation.
-#' This means that [artVersion] will show a "(Built HH:MM)" timestamp
+#' This means that \link{artVersion} will show a "(Built HH:MM)" timestamp
 #' from the installation rather than from when it was published on CRAN.
 #'
 #' @examples
@@ -250,45 +250,44 @@ artInstallCranAllelematch <- function(version = "2.5.5") {
 }
 
 
-#' Ensures that latest installed 'allelematch' is also loaded in this R session.
-#'
-#' @param verbose   logical. If TRUE (the default), prints diagnostic progress
-#' messages to stdout
-#'
-#' @return TBD
-#'
-#' @description
-#' Ensures that the latest installed version of 'allelematch' is loaded and
-#' attached in this R session, regardless of version string.
-#' Any older version is unloaded.
-#'
-#' This function handles the case where 'allelematch' development and 'amregtest'
-#' testing of 'allelematch' is done in different RStudio sessions.
-#' Development implies frequent repetitive edit-build-install cycles
-#' without changing the 'allelematch' version. These re-installations
-#' are not automatically detected by R in another R session, causing large
-#' risk of testing an older version of 'allelematch' than intended.
-#'
-#' This function is also called from \link{artRun}, \link{artVersion},
-#' and from the setup.R file in the tests/testthat directory.
-#'
-#' @examples
-#' # Install the default official version of 'allelematch' from CRAN:
-#' artInstallCranAllelematch()
-#'
-#' # Install another official version of 'allelematch' from CRAN:
-#' artInstallCranAllelematch("2.5.3")
-#'
-#' @seealso \link{artVersion}, \link{artList}, \link{artRun} and \link{amregtest}
-#'
-#' @export
+#TODO Ensures that latest installed 'allelematch' is also loaded in this R session.
+#TODO
+#TODO @param verbose   logical. If TRUE (the default), prints diagnostic progress
+#TODO messages to stdout
+#TODO
+#TODO @return TBD
+#TODO
+#TODO @description
+#TODO Ensures that the latest installed version of 'allelematch' is loaded and
+#TODO attached in this R session, regardless of version string.
+#TODO Any older version is unloaded.
+#TODO
+#TODO This function handles the case where 'allelematch' development and 'amregtest'
+#TODO testing of 'allelematch' is done in different RStudio sessions.
+#TODO Development implies frequent repetitive edit-build-install cycles
+#TODO without changing the 'allelematch' version. These re-installations
+#TODO are not automatically detected by R in another R session, causing large
+#TODO risk of testing an older version of 'allelematch' than intended.
+#TODO
+#TODO This function is also called from \link{artRun}, \link{artVersion},
+#TODO and from the setup.R file in the tests/testthat directory.
+#TODO
+#TODO @examples
+#TODO # Install the default official version of 'allelematch' from CRAN:
+#TODO artInstallCranAllelematch()
+#TODO
+#TODO # Install another official version of 'allelematch' from CRAN:
+#TODO artInstallCranAllelematch("2.5.3")
+#TODO
+#TODO @seealso \link{artVersion}, \link{artList}, \link{artRun} and \link{amregtest}
+#TODO
+#TODO @export
 # We load 'allelematch' here rather than in the
 # "Imports:" section of DESCRIPTION file to be able to
 # install and load another version of 'allelematch'
 # later without having to unload 'amregtest' first:
 artRefreshAllelematch <- function(verbose = FALSE) {
     stopifnot(is.logical(verbose))
-    require(allelematch) # TODO: Will only work if version changed :-(
     # refreshPackage("allelematch", verbose = verbose)
 }
 
@@ -477,13 +476,16 @@ reloadPackage <- function(pkg = "allelematch", verbose = FALSE) {
     # If so, make sure it has completed before trying to load it:.
     waitForStablePackageFiles(pkg, verbose = verbose)  # Wait until installer has finished writing
 
-    # At last time to load package:
-    if (verbose)
-        cat("\n    Loading latest installed version of package '", pkg,
-            "' into memory", sep="")
-    if(!require(pkg, quietly = TRUE, character.only=TRUE)) {
-        stop("Failed to load package '", pkg, "'. Please check that it is installed correctly.")
-    }
+
+    # TODO vvvv Commented out
+    # # At last time to load package:
+    # if (verbose)
+    #     cat("\n    Loading latest installed version of package '", pkg,
+    #         "' into memory", sep="")
+    # if(!require(pkg, quietly = TRUE, character.only=TRUE)) {
+    #     stop("Failed to load package '", pkg, "'. Please check that it is installed correctly.")
+    # }
+    # TODO ^^^^ Commented out
 
     # Remember the time when we loaded pkg's namespace into this R session's RAM:
     setLastLoadedTime(pkg)

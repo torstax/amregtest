@@ -1,3 +1,12 @@
+# amregtest 1.3.0
+
+## New features
+
+* More adaptions to backwards incompatibilities in allelematch 3.0.0.
+
+* Introduction of new function 'artInstallCranAllelematch' to facilitate
+  switching between different versions of allelematch.
+
 # amregtest 1.2.0
 
 ## New features

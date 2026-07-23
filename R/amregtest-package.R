@@ -33,7 +33,6 @@ NULL
 #'
 #' See \link{artData} for a description of data sets used as input.
 #'
-#' @references [amregtest-package]
 #' @references \url{https://github.com/cran/allelematch}
 #' @references \href{https://github.com/cran/allelematch/blob/2.5.1/inst/doc/allelematchSuppDoc.pdf}{allelematchSuppDoc.pdf}
 NULL

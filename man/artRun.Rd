@@ -18,7 +18,7 @@ for browsers and Viewer.
 If TRUE, keeps the temporary files for inspection.}
 }
 \value{
-A list (invisibly) containing data about the test results as returned by \link[testthat:test_package]{testthat::test_package}
+A list (invisibly) containing data about the test results as returned by \link[testthat]{test_package}
 }
 \description{
 Runs regression tests on package \link[allelematch:allelematch-package]{allelematch} to make sure it is backwards compatible.\cr
