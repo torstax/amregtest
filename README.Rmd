@@ -41,14 +41,27 @@ library(amregtest)
 Run the full regression test suite against your currently installed version of
 `allelematch` (takes a few minutes):
 
-```{r run-all, fig.show='hide', results='hold', cache=TRUE}
+```{r run-all, eval=FALSE}
 artRun()
 ```
 
 To run only tests whose names match a Perl regular expression:
 
-```{r run-filter, fig.show='hide', results='hold'}
+```{r run-filter, eval=FALSE}
 artRun(filter = "amExample2|amExample4")
+```
+
+```
+    About to test installed version of allelematch:  <<<3.0.0>>>
+✔ | F W  S  OK | Context
+✔ |         14 | amExample2 [4.6s]
+✔ |         14 | amExample4 [5.8s]
+
+══ Results ═══════════════════════════════════════════════
+Duration: 10.4 s
+
+[ FAIL 0 | WARN 0 | SKIP 0 | PASS 28 ]
+    Done testing installed version of allelematch:  <<<3.0.0>>>
 ```
 
 List all available tests without running them:
