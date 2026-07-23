@@ -5,8 +5,8 @@
 ### whether it is just one or all test- files that are run, right before setup.R.
 ### All functions defined here are available to all tests.
 ##############################################################################
-#library(allelematch)
-artRefreshAllelematch() # TODO: Make sure the last installed version is loaded.
+require(allelematch)
+#artRefreshAllelematch() # TODO: Make sure the last installed version is loaded.
 
 # Turns `...` into a string of <name>=<value> pairs
 helpArgToString <- function(...) {
@@ -90,6 +90,15 @@ snapshot_rem <- function(remark, ..., variant = NULL) {
   expect_snapshot_output(cat("\n!\n! ", remark, ..., "\n!\n"), variant=variant)
 }
 
+# Parameters to loop over:
+#   amCluster(amDatasetFocal, runUntilSingletons=TRUE, cutHeight=0.3, missingMethod=2, consensusMethod=1, clusterMethod="complete")
+# Regarding clusterMethod: "Only 'complete' acceptable." So we stick with the default.
+amCluster_rus  <- c(TRUE, FALSE)          # runUntilSingletons
+amCluster_ch   <- c(0.1, 0.3, 0.5, 0.7, 0.9, 0.95, 0.99)  # cutHeight
+amCluster_mis  <- c(1, 2)                 # missingMethod
+amCluster_cons <- c(1, 2, 3, 4)          # consensusMethod
+
+
 # snapshot_amPairwise()
 #
 # Note that the amDataset parameters are passed as variable names rather than
@@ -140,7 +149,7 @@ snapshot_amUnique_2 <- function(ds, ...) { # This is the version from main
       ret = c(paste("\n  Error    : ", e$message, "\n  Rejected : ", cmdstr, "\n"))
 
       # Differ between expected and unexpected errors:
-      if (!grepl("no clusters formed.  Please set cutHeight lower and run again|'x' must be atomic", e$message, perl=TRUE)) {
+      if (!grepl("no clusters formed|'x' must be atomic", e$message, perl=TRUE)) {
         # Some unexpected error happened. Print it to the screen for easier debugging.
         message("\n  ", ret, sep="")
 

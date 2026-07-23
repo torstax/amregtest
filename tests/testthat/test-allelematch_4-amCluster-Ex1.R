@@ -1,7 +1,7 @@
 
 test_that("Loop the Loop - amExample1", {
 
-  amvariant <- NULL # No changes compared to 2.5.0, so no need to separate snapshot files.
+# amvariant <- NULL # No changes compared to 2.5.5, until 3.0.0
 
   amExample1 <- ro$amExample1
   amdataExample1 <- amDataset(amExample1, indexColumn = "sampleId", metaDataColumn = "knownIndividual")

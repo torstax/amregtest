@@ -1,10 +1,3 @@
-# allelematch::amExamples have not changed md5sum
-
-    
-    !
-    !  Verify the md5 checksums of the allelematch::amExampleX data files: 
-    !
-
 # See how an object of class amDataset is built:
 
     Code
