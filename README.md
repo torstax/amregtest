@@ -18,11 +18,18 @@ without modifying the package under test.
 
 ## Installation
 
-You can install the development version of `amregtest` from GitHub with:
+You can install the released version from CRAN with:
 
 ``` r
-# install.packages("devtools")
-devtools::install_github("torstax/amregtest")
+# Install remotes if you don't have it
+install.packages("remotes")
+
+# Install amregtest with tests included
+remotes::install_cran(
+  "amregtest", 
+  type = "source", 
+  INSTALL_opts = "--install-tests"
+)
 ```
 
 ## Usage
@@ -63,7 +70,7 @@ artList()
 ```
 
     ## 
-    ## Tests in files under "C:/Users/Torva/AppData/Local/Temp/Rtmpgh5kJG/temp_libpath3ebc221224fd/amregtest/tests/testthat/":
+    ## Tests in files under "C:/Users/Torva/AppData/Local/Temp/RtmpAnIlxd/temp_libpath274051e32265/amregtest/tests/testthat/":
     ## 
     ## Tests by functions in allelematch:
     ##  [1] "allelematch_0-package"            
@@ -101,5 +108,5 @@ artVersion()
 ```
 
     ## 
-    ##     Installed version of package 'amregtest'   is: 1.3.0      (Built 12:34)
-    ##     Installed version of package 'allelematch' is: 3.0.0      (Built 11:14)
+    ##     Installed version of package 'amregtest'   is: 1.3.1      (Built 14:37)
+    ##     Installed version of package 'allelematch' is: 2.6.0      (Built 14:26)
