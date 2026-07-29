@@ -1,3 +1,14 @@
+# amregtest 1.3.1
+
+## New features
+
+* Saved some space by removing testthat snapshot files for allelematch 2.6.1 
+  that were identical to those for allelematch 3.0.0. Still keeping them for 
+  bad allelematch version 2.6.0 in case it is still installed on any of the 
+  delivery test machines.
+  
+* Minor improvements to the documentation.
+
 # amregtest 1.3.0
 
 ## New features
@@ -12,7 +23,7 @@
 ## New features
 
 * More adaptions to backwards incompatibilities in allelematch 2.6.0:
- - Changed philosophy to how to changes in messages from allelematch are handled. 
+ - Changed philosophy regarding how changes in messages from allelematch are handled. 
    Now we convert from old 2.5 text to new before comparing.
  - Introduced snapshot variants for the snapshot files: NULL, "2.5", "2.6", and "bad-2.6".
      o NULL (i.e. no variant) is kept where the output from 2.5.X and 2.6.0 is identical.
