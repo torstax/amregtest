@@ -220,7 +220,7 @@ artRun <- function(filter="", verbose=TRUE, keep=FALSE) {
 
 #' Installs official version of 'allelematch' from CRAN.
 #'
-#' @param version   string. Default "2.5.5".
+#' @param version   string. Default "3.0.0".
 #'
 #' @return TBD
 #'
@@ -239,7 +239,7 @@ artRun <- function(filter="", verbose=TRUE, keep=FALSE) {
 #' @seealso \link{artVersion}, \link{artList}, \link{artRun} and \link{amregtest}
 #'
 #' @export
-artInstallCranAllelematch <- function(version = "2.5.5") {
+artInstallCranAllelematch <- function(version = "3.0.0") {
     unloadNamespace("allelematch")
     remotes::install_version("allelematch", version = version, repos = "http://cran.r-project.org")
 

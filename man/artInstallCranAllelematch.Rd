@@ -4,10 +4,10 @@
 \alias{artInstallCranAllelematch}
 \title{Installs official version of 'allelematch' from CRAN.}
 \usage{
-artInstallCranAllelematch(version = "2.5.5")
+artInstallCranAllelematch(version = "3.0.0")
 }
 \arguments{
-\item{version}{string. Default "2.5.5".}
+\item{version}{string. Default "3.0.0".}
 }
 \value{
 TBD
