@@ -6,7 +6,6 @@
 ### All functions defined here are available to all tests.
 ##############################################################################
 require(allelematch)
-#artRefreshAllelematch() # TODO: Make sure the last installed version is loaded.
 
 # Turns `...` into a string of <name>=<value> pairs
 helpArgToString <- function(...) {
