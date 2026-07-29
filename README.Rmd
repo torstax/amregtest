@@ -24,11 +24,19 @@ package under test.
 
 ## Installation
 
-You can install the development version of `amregtest` from GitHub with:
+You can install the released version from CRAN with:
 
 ```r
-# install.packages("devtools")
-devtools::install_github("torstax/amregtest")
+# Install remotes if you don't have it
+install.packages("remotes")
+
+# Install amregtest with tests included
+remotes::install_cran(
+  "amregtest", 
+  type = "source", 
+  INSTALL_opts = "--install-tests"
+)
+
 ```
 
 ## Usage

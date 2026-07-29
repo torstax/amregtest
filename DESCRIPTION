@@ -1,7 +1,7 @@
 Package: amregtest
 Title: Runs Allelematch Regression Tests
-Version: 1.3.0
-Date: 2026-07-23
+Version: 1.3.1
+Date: 2026-07-29
 Authors@R: c(
     person("Department of Wildlife, Fish and Environmental Studies at Swedish University of Agricultural Sciences",
            role = "cph"),
@@ -15,8 +15,8 @@ Description: Automates regression testing of package 'allelematch'. Over
     examples from the documentation, and include negative tests. The
     implementation is based on 'testthat'.
 License: MIT + file LICENSE
-URL: https://github.com/torvald-staxler/amregtest
-BugReports: https://github.com/torvald-staxler/amregtest/issues
+URL: https://github.com/torstax/amregtest
+BugReports: https://github.com/torstax/amregtest/issues
 Depends:
     R (>= 3.5)
 Imports:
