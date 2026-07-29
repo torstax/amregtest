@@ -19,14 +19,14 @@ options(warnPartialMatchArgs=TRUE)
 # to indicate that they are known to fail with allelematch 2.6.0.
 amversion <- packageVersion("allelematch")   # e.g. "2.5.5" or "2.6.0"
 amvariant <- as.character(amversion[1, 1:2]) # e.g. "2.5" or "2.6" : TODO: Rethink.
-# amvariant <- ifelse(amversion < "2.6.0", "2.5", "2.6") # Hopefully no more variants. TODO: Rethink.
-# amvariant <- if(amversion < "2.6.0") "2.5" else if (amversion == "2.6.0") "2.6.0" else "2.6"
-# amvariant <- ifelse(amversion == "2.6.0", "2.6.0", amvariant) # Hopefully no more variants. TODO: Rethink.
+
+# 2.6.1 introduced a deliberate compatibility step in output from 'allelematch'.
+# 3.0.0 maintained compatibility with 2.6.1, so 2.6.1 uses the same variant as 3.0.0:
+if (amversion >= "2.6.1") { amvariant <- "3.0" }
 
 # 2.6.0 was a highly backwards- and forwards-incompatible version of allelematch.
 # We therefore keep the snapshot files for 2.6.0 separate.
-# Hopefully future versions will be more compatible between patch
-# versions, i.e. those that step the third number in the version.
+# They will be removed entirely at a later time, in order to save space.
 if (amversion == "2.6.0") { amvariant <- "bad-2.6.0" }
 
 
