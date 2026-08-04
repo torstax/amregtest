@@ -194,31 +194,48 @@ artRun <- function(filter="", verbose=TRUE, keep=FALSE) {
 #'
 #' @param version   string. Default "3.0.0".
 #'
-#' @return TBD
-#'
 #' @description
+#' This is a convenience function that installs one of the
+#' official version of 'allelematch' from CRAN.
+#'
+#' It calls [remotes::install_version()] to install the specified version.
+#'
+#' If executed from a RStudio Console, it then calls [rstudioapi::restartSession()]
+#' to ensure that the installed version of 'allelematch' is also the loaded version
+#' in the current R session.
+#'
 #' Note that the CRAN version will be built from source code at installation.
 #' This means that \link{artVersion} will show a "(Built HH:MM)" timestamp
 #' from the installation rather than from when it was published on CRAN.
 #'
 #' @examples
-#' # Install the default official version of 'allelematch' from CRAN:
+#' \donttest{
+#' # Install the default official versions of 'allelematch' from CRAN:
 #' artInstallCranAllelematch()
 #'
 #' # Install another official version of 'allelematch' from CRAN:
 #' artInstallCranAllelematch("2.5.3")
+#' }
 #'
 #' @seealso \link{artVersion}, \link{artList}, \link{artRun} and \link{amregtest}
 #'
 #' @export
 artInstallCranAllelematch <- function(version = "3.0.0") {
+    stopifnot(is.character(version) && length(version)==1)
+
+    # detach("package:allelematch", unload=TRUE, character.only = TRUE)
     unloadNamespace("allelematch")
     remotes::install_version("allelematch", version = version, repos = "http://cran.r-project.org")
 
-    # Loaded here rather than in the "Imports:" section of DESCRIPTION file
-    # to avoid that 'amregtest' prevents 'allelematch' from being repeatedly
-    # unloaded, replaced, re-installed, and re-loaded in the same RStudio session:
-    requireNamespace("allelematch")
+    # Are we running in a RStudio console?
+    if (   requireNamespace("rstudioapi", quietly = TRUE)
+           && rstudioapi::isAvailable()
+           && rstudioapi::getActiveDocumentContext()$id == "#console") {
+
+        # We _are_ running in a RStudio console.
+        # Restart the session to load the new version of 'allelematch':
+        rstudioapi::restartSession()
+    }
 }
 
 
@@ -244,7 +261,7 @@ builtAt <- function(pkg) {
     # Was the build made today?
     form <- ifelse(as.Date(ctBuildTime, tz = Sys.timezone()) == Sys.Date(),
                    "%H:%M",  # Was build today. Use timestamp.
-                   "%Y-%m-%d")  # Was built some othre day. Use date
+                   "%Y-%m-%d")  # Was built some other day. Use date
 
     # Convert to local time zone, time or date:
     paste0(action, format(ctBuildTime, format=form, tz = Sys.timezone()),")")

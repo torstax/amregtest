@@ -1,3 +1,14 @@
+# amregtest 1.3.2
+
+## New features
+  
+* Fixed the documentation of 'artInstallCranAllelematch' by preventing 
+  the example code in the documentation from executing. The examples took too long 
+  to execute in the CRAN tests.
+
+* Ensured that the allelematch version installed by 'artInstallCranAllelematch' 
+  is also loaded into the current R session of the RStudio Console.
+
 # amregtest 1.3.1
 
 ## New features

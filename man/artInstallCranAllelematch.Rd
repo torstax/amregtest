@@ -9,20 +9,28 @@ artInstallCranAllelematch(version = "3.0.0")
 \arguments{
 \item{version}{string. Default "3.0.0".}
 }
-\value{
-TBD
-}
 \description{
+This is a convenience function that installs one of the
+official version of 'allelematch' from CRAN.
+
+It calls \code{\link[remotes:install_version]{remotes::install_version()}} to install the specified version.
+
+If executed from a RStudio Console, it then calls \code{\link[rstudioapi:restartSession]{rstudioapi::restartSession()}}
+to ensure that the installed version of 'allelematch' is also the loaded version
+in the current R session.
+
 Note that the CRAN version will be built from source code at installation.
 This means that \link{artVersion} will show a "(Built HH:MM)" timestamp
 from the installation rather than from when it was published on CRAN.
 }
 \examples{
-# Install the default official version of 'allelematch' from CRAN:
+\donttest{
+# Install the default official versions of 'allelematch' from CRAN:
 artInstallCranAllelematch()
 
 # Install another official version of 'allelematch' from CRAN:
 artInstallCranAllelematch("2.5.3")
+}
 
 }
 \seealso{
