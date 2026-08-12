@@ -39,6 +39,13 @@
 artVersion <- function(verbose=TRUE) {
     stopifnot(is.logical(verbose))
 
+    # TODO: Discovered how to get the version of a _loaded_ package on 2026-06-10.
+    # Returns string. Convert to version object using as.package_version() if needed.
+    {
+        loadedArtVersion = getNamespaceVersion("amregtest")
+        loadedAmVersion  = getNamespaceVersion("allelematch")
+    }
+
     installedArtVersion = toString(utils::packageVersion("amregtest"))
     installedAmVersion  = toString(utils::packageVersion("allelematch"))
     vLen = max(length(installedArtVersion), length(installedAmVersion))
@@ -132,10 +139,11 @@ artList <- function(verbose=TRUE) {
 #' @param filter    If specified, only tests with names matching this perl regular
 #'                  expression will be executed. Character vector of length 1. See also \link{artList}
 #' @param verbose   logical. If TRUE (the default), prints version of tested allelematch to stdout
-#' @param keep      logical. If FALSE (the default), deletes the temporary files
+#' @param keep      logical. If FALSE, deletes the temporary files
 #'                  created by the tests. This includes .htm and .png files
 #'                  for browsers and Viewer.
 #'                  If TRUE, keeps the temporary files for inspection.
+#'                  The default is TRUE if verbose is TRUE, FALSE otherwise.
 #'
 #' @examples
 #' # See what version of packages 'allelematch' and 'amregtest'
@@ -155,7 +163,7 @@ artList <- function(verbose=TRUE) {
 #' @seealso \link{artVersion}, \link{artList}, \link{artInstallCranAllelematch} and \link{amregtest}
 #'
 #' @export
-artRun <- function(filter="", verbose=TRUE, keep=FALSE) {
+artRun <- function(filter="", verbose=TRUE, keep=verbose) {
     stopifnot(is.character(filter) && length(filter)==1)
     stopifnot(is.logical(verbose))
     stopifnot(is.logical(keep))

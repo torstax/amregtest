@@ -70,7 +70,7 @@ artList()
 ```
 
     ## 
-    ## Tests in files under "C:/Users/Torva/AppData/Local/Temp/RtmpiKfJ30/temp_libpath9ec641c4c61/amregtest/tests/testthat/":
+    ## Tests in files under "C:/Users/Torva/AppData/Local/Temp/RtmpwnJr5K/temp_libpath8d9075855044/amregtest/tests/testthat/":
     ## 
     ## Tests by functions in allelematch:
     ##  [1] "allelematch_0-package"            
@@ -108,5 +108,5 @@ artVersion()
 ```
 
     ## 
-    ##     Installed version of package 'amregtest'   is: 1.3.2      (Built 21:20)
-    ##     Installed version of package 'allelematch' is: 3.0.0      (Built 13:24)
+    ##     Installed version of package 'amregtest'   is: 2.0.0.1001 (Built 12:14)
+    ##     Installed version of package 'allelematch' is: 2.5.5      (Built 2026-08-11)
